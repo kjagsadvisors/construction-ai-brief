@@ -1,0 +1,105 @@
+name: pipeline cron
+
+on:
+  schedule:
+    # Hourly: scan for ready drafts to publish at scheduled time
+    - cron: "0 * * * *"
+    # 04:00 UTC daily: ingest sources + score
+    - cron: "0 4 * * *"
+    # 12:00 UTC Mon/Wed/Thu: draft upcoming newsletter slots
+    - cron: "0 12 * * 1,3,4"
+    # 13:00 UTC Mon-Fri: draft daily social posts
+    - cron: "0 13 * * 1-5"
+    # Sunday 13:00 UTC: weekly audit
+    - cron: "0 13 * * 0"
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "Which job to run"
+        required: true
+        type: choice
+        options: [ingest, score, draft, publish, audit]
+
+env:
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+  SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+  ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+  EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
+  BEEHIIV_API_KEY: ${{ secrets.BEEHIIV_API_KEY }}
+  BEEHIIV_PUBLICATION_ID: ${{ secrets.BEEHIIV_PUBLICATION_ID }}
+  LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+  LINKEDIN_ORGANIZATION_URN: ${{ secrets.LINKEDIN_ORGANIZATION_URN }}
+  TYPEFULLY_API_KEY: ${{ secrets.TYPEFULLY_API_KEY }}
+  META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+  META_THREADS_USER_ID: ${{ secrets.META_THREADS_USER_ID }}
+  META_INSTAGRAM_USER_ID: ${{ secrets.META_INSTAGRAM_USER_ID }}
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+      - run: pnpm install --frozen-lockfile
+
+      - name: Decide job
+        id: which
+        run: |
+          if [ -n "${{ inputs.job }}" ]; then
+            echo "job=${{ inputs.job }}" >> $GITHUB_OUTPUT
+          else
+            case "${{ github.event.schedule }}" in
+              "0 4 * * *")        echo "job=ingest_then_score" >> $GITHUB_OUTPUT ;;
+              "0 12 * * 1,3,4")   echo "job=draft_newsletter"  >> $GITHUB_OUTPUT ;;
+              "0 13 * * 1-5")     echo "job=draft_socials"     >> $GITHUB_OUTPUT ;;
+              "0 13 * * 0")       echo "job=audit"             >> $GITHUB_OUTPUT ;;
+              "0 * * * *")        echo "job=publish"           >> $GITHUB_OUTPUT ;;
+              *)                  echo "job=publish"           >> $GITHUB_OUTPUT ;;
+            esac
+          fi
+
+      - name: Ingest + score
+        if: steps.which.outputs.job == 'ingest_then_score' || steps.which.outputs.job == 'ingest'
+        run: pnpm pipeline:ingest && pnpm pipeline:score
+
+      - name: Score only
+        if: steps.which.outputs.job == 'score'
+        run: pnpm pipeline:score
+
+      - name: Draft newsletter slots
+        if: steps.which.outputs.job == 'draft_newsletter'
+        run: |
+          # Tue=punch_list, Thu=rotating, Fri=trend. Adjust as needed.
+          DOW=$(date -u +%u)
+          case $DOW in
+            1) PILLAR=punch_list ;;
+            3) PILLAR=tool_teardown ;;
+            4) PILLAR=trend ;;
+            *) PILLAR=playbook ;;
+          esac
+          PILLAR=$PILLAR CHANNEL=newsletter AUDIENCE=gc_ops SLOT_ID="news-$(date -u +%Y%m%d)" pnpm pipeline:draft
+
+      - name: Draft daily socials
+        if: steps.which.outputs.job == 'draft_socials'
+        run: |
+          for ch in linkedin x threads; do
+            CHANNEL=$ch PILLAR=punch_list AUDIENCE=gc_ops SLOT_ID="${ch}-$(date -u +%Y%m%d)" pnpm pipeline:draft || true
+          done
+
+      - name: Draft (manual)
+        if: steps.which.outputs.job == 'draft'
+        run: pnpm pipeline:draft
+
+      - name: Publish
+        if: steps.which.outputs.job == 'publish'
+        run: pnpm pipeline:publish
+
+      - name: Audit
+        if: steps.which.outputs.job == 'audit'
+        run: pnpm pipeline:audit

@@ -1,0 +1,13 @@
+{
+  "name": "@cab/voice",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./brand-voice": "./brand-voice.md",
+    "./banned": "./banned-phrases.json",
+    "./pillars": "./pillar-templates.md",
+    "./ctas": "./cta-templates.json"
+  }
+}

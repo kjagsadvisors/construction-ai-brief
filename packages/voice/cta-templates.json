@@ -1,0 +1,40 @@
+{
+  "gc_ops": [
+    {
+      "product": "jobhost",
+      "text": "jobhost.ai is the construction management surface we built for GC project teams running this exact stack of workflows. 30-min demo, no slides.",
+      "url": "https://jobhost.ai?utm_source=cab&utm_medium={medium}&utm_campaign={pillar}_cta"
+    },
+    {
+      "product": "kjags",
+      "text": "If your team wants the AI tool plus the training to use it on Monday, kjags advisors builds both. Book a 30-min call.",
+      "url": "https://kjagsadvisors.com/contact?utm_source=cab&utm_medium={medium}&utm_campaign={pillar}_cta"
+    }
+  ],
+  "trade_sub": [
+    {
+      "product": "kjags",
+      "text": "kjags advisors ships AI submittal employees and certified payroll employees that live in real spec books — not demos. Book a 30-min call to walk through your scope.",
+      "url": "https://kjagsadvisors.com/ai-submittal-employee-mechanical?utm_source=cab&utm_medium={medium}&utm_campaign={pillar}_cta"
+    }
+  ],
+  "estimator": [
+    {
+      "product": "bidverify",
+      "text": "bidverify.ai handles bid leveling and spec extraction on a 50-page bid in minutes instead of days. Start with one bid this week.",
+      "url": "https://bidverify.ai?utm_source=cab&utm_medium={medium}&utm_campaign={pillar}_cta"
+    },
+    {
+      "product": "kjags",
+      "text": "If you want a custom AI build against your specific bid workflow, kjags advisors does that work. Book a 30-min call.",
+      "url": "https://kjagsadvisors.com/contact?utm_source=cab&utm_medium={medium}&utm_campaign={pillar}_cta"
+    }
+  ],
+  "none": [
+    {
+      "product": "kjags",
+      "text": "Construction AI Brief is published by an operator running AI tools inside two construction businesses. If you want to chat about your own AI rollout, kjags advisors is where that conversation happens.",
+      "url": "https://kjagsadvisors.com/contact?utm_source=cab&utm_medium={medium}&utm_campaign={pillar}_cta"
+    }
+  ]
+}
