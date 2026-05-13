@@ -1,0 +1,36 @@
+{
+  "rss": [
+    { "name": "Construction Dive", "url": "https://www.constructiondive.com/feeds/news/" },
+    { "name": "ENR Construction", "url": "https://www.enr.com/rss/topic/2596-construction" },
+    { "name": "BD+C", "url": "https://www.bdcnetwork.com/rss.xml" },
+    { "name": "AEC Magazine", "url": "https://aecmag.com/feed/" },
+    { "name": "ArchDaily Technology", "url": "https://www.archdaily.com/category/technology/feed" },
+    { "name": "Autodesk Construction Cloud blog", "url": "https://construction.autodesk.com/blog/feed/" },
+    { "name": "Procore Jobsite", "url": "https://www.procore.com/jobsite/feed/" },
+    { "name": "Trimble Constructible", "url": "https://constructible.trimble.com/rss.xml" },
+    { "name": "AGC Smartbrief", "url": "https://www.smartbrief.com/agc/rss" }
+  ],
+  "web_search_queries": [
+    "AI for construction contractors {month} {year}",
+    "construction AI software launch {year}",
+    "AEC AI startup funding announcement",
+    "AI submittal automation construction",
+    "AI bid leveling estimating",
+    "generative AI construction workflow",
+    "construction tech AI tool review"
+  ],
+  "vendor_blogs_to_check": [
+    "https://www.procore.com/jobsite/",
+    "https://construction.autodesk.com/blog/",
+    "https://www.trimble.com/news",
+    "https://www.documentcrunch.com/blog",
+    "https://www.trunktools.com/blog",
+    "https://www.openspace.ai/news",
+    "https://www.buildots.com/blog"
+  ],
+  "youtube_channels": [
+    "@TheB1M",
+    "@PracticalEngineering",
+    "@ConstructionInsider"
+  ]
+}

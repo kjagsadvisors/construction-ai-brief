@@ -2,116 +2,75 @@
 
 > The honest read on AI in commercial construction. **constructionaibrief.com**
 
-Standalone editorial property covering AI for GCs, trade subs, and estimators.
-Newsletter 3x/week (Tue/Thu/Fri) + daily social posts. Full autopilot: source
-ingestion → scoring → drafting → critic gate → publish → telemetry.
+A standalone editorial property covering AI for GCs, trade subs, and estimators. Tue / Thu / Fri newsletter + daily socials. **Runs autonomously** — every piece is researched, drafted, critiqued, and published in-session by Claude routines. No standalone Node service, no API key stack to manage.
 
-Funnels readers into [kjags advisors](https://kjagsadvisors.com),
-[jobhost.ai](https://jobhost.ai), and [bidverify.ai](https://bidverify.ai)
-via role-targeted CTAs.
+## Architecture
+
+```
+[scheduled-tasks] ─► [Claude session w/ MCPs] ─► [/data/*.jsonl + apps/web/content/*.mdx]
+                                                  │
+                                                  ├─► git push ─► Vercel auto-deploys
+                                                  └─► Chrome MCP ─► Beehiiv / LinkedIn / X / Threads / IG
+```
+
+- **Routines** in `~/.claude/scheduled-tasks/cab-*` fire on cron.
+- Each fires a Claude session that loads the **`cab-ops` skill** at `~/.claude/skills/cab-ops/SKILL.md`.
+- The session uses **`WebSearch` / `WebFetch`** for research (no Exa).
+- Writes content as MDX into `apps/web/content/posts/` and JSON state to `data/`.
+- `git push` triggers Vercel redeploy automatically.
+- Newsletter + socials publish via **Chrome MCP** through your already-logged-in browser sessions (no LinkedIn API, no Typefully, no Meta Graph token).
+- Weekly Sunday audit emails you a one-page drift report via Gmail MCP. That's the only auto-contact.
 
 ## Repo layout
 
 ```
-apps/
-  web/          Next.js 14 site (MDX articles, signup, admin dashboard stub)
-  pipeline/     Node/TS workers: ingest → score → draft → publish → audit
-packages/
-  voice/        Brand voice spec, banned phrases, pillar templates, CTAs
-  schema/       Supabase SQL + matching TS types
-.github/
-  workflows/    Cron schedules (ingest, draft, publish, audit)
+apps/web/                    Next.js 14 site (sentence-case headlines + drawing-sheet design)
+  content/posts/*.mdx        published articles
+packages/voice/              brand voice spec, banned phrases, pillar templates, CTAs
+packages/schema/             shared TS types (no DB schema; file-based state)
+data/                        content lake — jsonl files committed to git
+  sources.json               RSS feeds + web-search queries
+  items.jsonl                ingested raw items (append-only)
+  drafts/                    work-in-progress drafts
+  published.jsonl            log of what shipped + where
+  social/                    short-form drafts per channel
+  subscribers.jsonl          mirror of Beehiiv subs
+~/.claude/skills/cab-ops/    the autopilot skill — every routine loads this
+~/.claude/scheduled-tasks/   the cron routines
 ```
 
-## Local dev
+## The autopilot — six routines
 
-```bash
-pnpm install
-cp .env.example .env  # fill in keys you have; missing keys disable that channel
-pnpm dev              # web at http://localhost:3000
-```
+| Routine | Schedule | What it does |
+|---|---|---|
+| `cab-ingest-daily` | daily 06:00 | Pulls RSS + WebSearch into `data/items.jsonl`, scores each item, commits |
+| `cab-newsletter-tuesday` | Tue 06:30 | Drafts Punch List (news digest), commits MDX, publishes via Chrome → Beehiiv |
+| `cab-newsletter-thursday` | Thu 06:30 | Drafts rotating deep dive (teardown / playbook / field report), publishes |
+| `cab-newsletter-friday` | Fri 06:30 | Drafts One Chart trend issue with matplotlib chart, publishes |
+| `cab-socials-daily` | Mon-Fri 08:00 | Drafts + posts LinkedIn + X + Threads + IG via Chrome MCP |
+| `cab-audit-weekly` | Sun 09:00 | Reviews the week, emails you a drift report, pauses autopilot if drift detected |
 
-## Run pipeline workers manually
+Inspect or edit at `~/.claude/scheduled-tasks/cab-*/SKILL.md`. Trigger a "run now" from Claude Code's Scheduled sidebar.
 
-```bash
-pnpm pipeline:ingest    # pull RSS + Exa + arXiv into supabase
-pnpm pipeline:score     # score new content_items
-PILLAR=punch_list CHANNEL=newsletter AUDIENCE=gc_ops SLOT_ID=test-1 pnpm pipeline:draft
-pnpm pipeline:publish   # publish any ready drafts whose scheduled_for is past
-pnpm pipeline:audit     # weekly self-audit report
-```
+## Manual setup — what's left for you
 
-## Manual setup checklist (Phase 0)
+This is the *whole* list. Everything else autopilot handles.
 
-These steps Claude cannot do — they need your hands on accounts and DNS.
+1. **Buy the domain** — `https://vercel.com/domains/search?q=constructionaibrief.com` (~$11.25/yr, card on file). After purchase, add it to the Vercel project at `Settings → Domains`.
+2. **Create Beehiiv publication** — `https://app.beehiiv.com/signup`. Free tier. Set up DKIM/SPF/DMARC for the domain when it's connected. **Stay logged in in Chrome** — the autopilot uses your session.
+3. **Stay logged in to LinkedIn, X, Threads, Instagram** in the same Chrome profile. Create the company page on LinkedIn for Construction AI Brief and stay signed in as admin.
+4. **(Optional) Add `BEEHIIV_API_KEY` + `BEEHIIV_PUBLICATION_ID`** to Vercel env vars if you want the signup form to POST directly. Without these, signups silently log (still captured in build logs); with them, signups flow into your Beehiiv list immediately.
+5. **First-run tool approvals** — go to the Scheduled sidebar in Claude Code, click "Run now" on each routine once. The first run will pause on permission prompts (Bash, gh, Chrome MCP, WebFetch). Approve them; future runs auto-pass.
 
-### Brand + handles
-- [ ] Decide on final brand name (or keep "Construction AI Brief")
-- [ ] Register domain (Cloudflare Registrar or Porkbun)
-- [ ] Create LinkedIn **company page** (personal accounts can't post via API)
-- [ ] Reserve handles on X, Threads, Instagram
-- [ ] Set up Google Workspace 1 seat for `hello@<domain>` (used for ALERT_EMAIL)
+## How to pause
 
-### Newsletter (Beehiiv)
-- [ ] Create Beehiiv publication
-- [ ] Configure custom domain + DKIM/SPF/DMARC (Beehiiv walks through this)
-- [ ] Generate API key → `.env` as `BEEHIIV_API_KEY`
-- [ ] Copy publication ID → `.env` as `BEEHIIV_PUBLICATION_ID`
-- [ ] In Beehiiv, add a custom field `segment` (text)
-- [ ] In Beehiiv → Settings → Webhooks, point `subscription.*` and
-      `post.opened` / `post.clicked` to `https://<domain>/api/webhook/beehiiv`
-- [ ] Generate webhook secret → `.env` as `BEEHIIV_WEBHOOK_SECRET`
+Drop a file at `data/PAUSED.flag` with a one-line reason. Every routine checks this first and aborts if it exists. Delete it to resume.
 
-### Database (Supabase)
-- [ ] Create Supabase project (Pro plan for `vector` extension support at scale)
-- [ ] In SQL editor, paste and run `packages/schema/supabase.sql`
-- [ ] Copy URL + service-role key → `.env`
+## Brand voice + pillars
 
-### Anthropic (Claude API)
-- [ ] Create API key at console.anthropic.com
-- [ ] Set monthly hard cap (e.g. $400/mo) → console settings → usage limits
-- [ ] Paste key → `.env` as `ANTHROPIC_API_KEY`
+Living docs — edit anytime; next routine picks them up.
 
-### Search (Exa)
-- [ ] Sign up at exa.ai
-- [ ] Pick a plan ($50/mo starter) → API key → `.env`
-
-### Social channel APIs
-- [ ] LinkedIn: register an app at developer.linkedin.com, request
-      `w_organization_social` + `r_organization_social` scopes for the
-      company page, generate access token + organization URN → `.env`
-- [ ] Typefully ($15/mo) for X + Threads. Connect both, copy API key → `.env`
-- [ ] Meta Graph: create Meta app, link Instagram business + Threads accounts,
-      generate long-lived access token, capture user IDs → `.env`
-
-### Hosting (Vercel)
-- [ ] Create Vercel project, link this repo
-- [ ] Point domain at Vercel
-- [ ] Paste `.env` contents into Vercel project env (all `NEXT_PUBLIC_*` + the
-      ones the web app reads)
-- [ ] Enable Vercel Analytics
-
-### Pipeline runtime (GitHub Actions)
-- [ ] Push repo to GitHub (private)
-- [ ] In repo settings → Secrets and variables → Actions, paste every key
-      from `.env.example`
-- [ ] Workflow `cron.yml` triggers automatically on the schedule once secrets
-      are set. First scheduled run will be the next time a slot fires; you
-      can also `gh workflow run cron.yml -f job=ingest` to test
-
-## Launch readiness checks (end of phase 3, before flipping autopilot on)
-
-1. **End-to-end dry run** — fire `pipeline:draft` for one newsletter + 3 socials manually. All pass critic. No banned phrases.
-2. **Source coverage** — `select count(*) from content_items where fetched_at > now() - interval '24 hours'` ≥ 30.
-3. **Deliverability** — send test issue to gmail/outlook/yahoo. DKIM/SPF/DMARC green via mail-tester.com.
-4. **Kill switch drill** — `update kill_switch set paused = true` → confirm next cron run logs "kill switch active, skipping".
-5. **Lead path** — sign up as each role on `/`, confirm Beehiiv shows the right segment, confirm next issue's CTA matches.
-6. **First 4 weeks** — spot-check published items daily (~5 min). Then drop to weekly audit.
-
-## Plan + voice are living docs
-
-- Strategy + phasing → `~/.claude/plans/i-m-thinking-about-launching-quiet-canyon.md`
-- Brand voice → `packages/voice/brand-voice.md` (every Claude call reads this)
-- Banned phrases → `packages/voice/banned-phrases.json` (enforced by critic)
-
-Edit these freely. The pipeline picks up changes on the next run.
+- `packages/voice/brand-voice.md` — voice rules, disclosure, "what would Keeran publish this" bar
+- `packages/voice/banned-phrases.json` — critic-enforced block list
+- `packages/voice/pillar-templates.md` — structure per pillar
+- `packages/voice/cta-templates.json` — role-targeted CTAs

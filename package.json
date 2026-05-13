@@ -2,18 +2,13 @@
   "name": "construction-ai-brief",
   "private": true,
   "version": "0.1.0",
-  "description": "Construction AI Brief — AI-in-construction media brand. Standalone editorial property feeding leads into kjags advisors, jobhost.ai, bidverify.ai.",
+  "description": "Construction AI Brief — AI-in-construction media brand. Editorial property published by kjags advisors.",
   "packageManager": "pnpm@9.12.0",
   "scripts": {
     "dev": "pnpm --filter @cab/web dev",
     "build": "pnpm -r build",
     "lint": "pnpm -r lint",
-    "typecheck": "pnpm -r typecheck",
-    "pipeline:ingest": "pnpm --filter @cab/pipeline ingest",
-    "pipeline:score": "pnpm --filter @cab/pipeline score",
-    "pipeline:draft": "pnpm --filter @cab/pipeline draft",
-    "pipeline:publish": "pnpm --filter @cab/pipeline publish",
-    "pipeline:audit": "pnpm --filter @cab/pipeline audit"
+    "typecheck": "pnpm -r typecheck"
   },
   "engines": {
     "node": ">=20.11.0",
