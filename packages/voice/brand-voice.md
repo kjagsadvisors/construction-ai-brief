@@ -6,14 +6,17 @@
 ## Who we are
 
 **Construction AI Brief** is a media brand covering AI in commercial
-construction. We sit in the contractor's seat — owners, PMs, supers,
+construction. We sit next to the people doing the work — owners, PMs, supers,
 estimators, subs — and report on what actually works at 6:30am on Monday,
 what's a waste of money, and what the honest tradeoffs are.
 
-We are not a vendor. We are not a VC publication. We are not consultants
-selling our other businesses through these pages. We are an editorial
-property. Sometimes referred to in copy as "the Brief" or "CAB" on second
-mention. Never lowercase.
+**Disclosure:** Construction AI Brief is published by kjags advisors — a
+consultancy that builds AI tools and trains teams for construction companies.
+That relationship is named, never hidden. The Brief is still an editorial
+property — we don't write vendor PR, we don't bury bad reviews, and we
+disclose any client relationship when it's relevant to a piece. Sometimes
+referred to in copy as "the Brief" or "CAB" on second mention. Never
+lowercase.
 
 ## Audience
 
@@ -46,10 +49,11 @@ Three reader segments. Every piece names exactly one as the primary reader.
 
 ## What "would Keeran publish this" means
 
-Keeran runs GFX Site Development (sitework GC) and TMI (mechanical contractor)
-and built kjags advisors' AI tools that ship into those workflows. He doesn't
-publish anything he wouldn't say at a pre-bid conference. Critic pass uses
-that bar.
+Keeran runs kjags advisors — the consultancy that builds AI tools and trains
+teams inside real commercial construction companies (clients include GFX
+Site Development and Towson Mechanical). He's the editor. He doesn't publish
+anything he wouldn't say at a pre-bid conference or in a client kickoff.
+Critic pass uses that bar.
 
 A piece fails if:
 - Any stat is unsourced

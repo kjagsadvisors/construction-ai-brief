@@ -157,12 +157,12 @@ export default function HomePage() {
           <p className="meta md:col-span-3">Section C — Editor's note</p>
           <div className="md:col-span-9 font-body text-lg md:text-xl text-ink leading-relaxed max-w-[62ch] text-pretty">
             <p>
-              I run two construction businesses and built the AI tools that
-              live inside their submittal, RFI, and bid workflows.
-              Construction AI Brief is what I wish existed: an editorial
-              property that calls out what works on Monday morning, what's
-              vendor PR, and what the honest tradeoffs are. No hype, no
-              "revolutionary," no fluff.
+              I run kjags advisors — we build AI tools and train teams inside
+              real construction companies. Submittal automation, certified
+              payroll, RFI turnaround, bid leveling. Construction AI Brief is
+              what I wish existed: an editorial property that calls out what
+              works on Monday morning, what's vendor PR, and what the honest
+              tradeoffs are. No hype, no "revolutionary," no fluff.
             </p>
             <p className="mt-5 meta text-graphite">— Keeran Jagadesan, editor</p>
           </div>
