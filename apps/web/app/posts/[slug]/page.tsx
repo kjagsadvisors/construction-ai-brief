@@ -97,7 +97,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      {/* ── Title block ────────────────────────────────────── */}
+      {/* ── Title block ────────────────────────────────────────────── */}
       <div className="border-2 border-ink bg-paperLite">
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-ink">
           <TBCell label="Issue" value={`№${issueLabel}`} accent />
@@ -131,7 +131,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         </div>
       </div>
 
-      {/* ── Drop cap accent + body ─────────────────────────── */}
+      {/* ── Drop cap accent + body ─────────────────────────────────── */}
       <div className="prose-cab mt-14 first-letter:font-display first-letter:text-7xl first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:leading-[0.9] first-letter:text-accent">
         <MDXRemote
           source={post.body}
@@ -164,7 +164,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         </footer>
       )}
 
-      {/* ── Approved-stamp flourish ───────────────────────── */}
+      {/* ── Approved-stamp flourish ────────────────────────────── */}
       <div className="max-w-prose mx-auto mt-12 flex items-center justify-between gap-4">
         <div className="meta">End of sheet — issue №{issueLabel}</div>
         <div

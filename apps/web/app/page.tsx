@@ -16,7 +16,7 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ─── Hero ─────────────────────────────────────────────── */}
+      {/* ─── Hero ──────────────────────────────────────────────────── */}
       <section
         id="signup"
         className="relative max-w-sheet mx-auto px-6 md:px-10 pt-12 md:pt-20 pb-16 md:pb-24"
@@ -77,7 +77,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── Pillars strip ────────────────────────────────────── */}
+      {/* ─── Pillars strip ──────────────────────────────────────────── */}
       <section className="border-y-2 border-ink bg-paperLite">
         <div className="max-w-sheet mx-auto px-6 md:px-10 py-10 md:py-12 grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-10">
           {Object.entries(PILLAR_LABEL).map(([key, label], i) => (
@@ -93,7 +93,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── Index of Issues ──────────────────────────────────── */}
+      {/* ─── Index of Issues ──────────────────────────────────────────── */}
       <section className="max-w-sheet mx-auto px-6 md:px-10 py-16 md:py-24">
         <header className="flex items-end justify-between mb-8 gap-6 flex-wrap">
           <div>
@@ -151,7 +151,7 @@ export default function HomePage() {
         )}
       </section>
 
-      {/* ─── Editor's note ────────────────────────────────────── */}
+      {/* ─── Editor's note ──────────────────────────────────────────── */}
       <section className="max-w-sheet mx-auto px-6 md:px-10 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 border-t-2 border-ink pt-10">
           <p className="meta md:col-span-3">Section C — Editor's note</p>
