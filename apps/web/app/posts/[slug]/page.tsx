@@ -121,13 +121,11 @@ export default function PostPage({ params }: { params: { slug: string } }) {
             <span>By</span>
             <span className="text-ink">Construction AI Brief</span>
             <span aria-hidden>·</span>
-            <span>Published by</span>
             <a
-              href="https://kjagsadvisors.com?utm_source=cab&utm_medium=byline&utm_campaign=editorial"
-              rel="publisher"
+              href="/about"
               className="text-ink hover:text-accent underline decoration-accent decoration-1 underline-offset-2"
             >
-              kjags advisors
+              About this publication
             </a>
           </div>
         </div>

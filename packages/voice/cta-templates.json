@@ -1,40 +1,62 @@
 {
-  "gc_ops": [
+  "punch_list": [
     {
-      "product": "jobhost",
-      "text": "jobhost.ai is the construction management surface we built for GC project teams running this exact stack of workflows. 30-min demo, no slides.",
-      "url": "https://jobhost.ai?utm_source=cab&utm_medium={medium}&utm_campaign={pillar}_cta"
+      "kind": "share",
+      "text": "If anything here would land with someone you respect, forward it. We're trying to be the read that ends the 'should we even try AI' conversation in commercial construction.",
+      "url": null
     },
     {
-      "product": "kjags",
-      "text": "If your team wants the AI tool plus the training to use it on Monday, kjags advisors builds both. Book a 30-min call.",
-      "url": "https://kjagsadvisors.com/contact?utm_source=cab&utm_medium={medium}&utm_campaign={pillar}_cta"
+      "kind": "subscribe",
+      "text": "Three issues a week — Tue news digest, Thu deep dive, Fri one chart. Subscribe at constructionaibrief.com.",
+      "url": "https://constructionaibrief.com/?utm_source=cab&utm_medium={medium}&utm_campaign=punch_list_cta"
     }
   ],
-  "trade_sub": [
+  "tool_teardown": [
     {
-      "product": "kjags",
-      "text": "kjags advisors ships AI submittal employees and certified payroll employees that live in real spec books — not demos. Book a 30-min call to walk through your scope.",
-      "url": "https://kjagsadvisors.com/ai-submittal-employee-mechanical?utm_source=cab&utm_medium={medium}&utm_campaign={pillar}_cta"
-    }
-  ],
-  "estimator": [
-    {
-      "product": "bidverify",
-      "text": "bidverify.ai handles bid leveling and spec extraction on a 50-page bid in minutes instead of days. Start with one bid this week.",
-      "url": "https://bidverify.ai?utm_source=cab&utm_medium={medium}&utm_campaign={pillar}_cta"
+      "kind": "evaluate",
+      "text": "Two-week pilot test: pick one workflow, run the tool side-by-side with your current process, measure hours saved + flags caught. Decide.",
+      "url": null
     },
     {
-      "product": "kjags",
-      "text": "If you want a custom AI build against your specific bid workflow, kjags advisors does that work. Book a 30-min call.",
-      "url": "https://kjagsadvisors.com/contact?utm_source=cab&utm_medium={medium}&utm_campaign={pillar}_cta"
+      "kind": "subscribe",
+      "text": "Construction AI Brief publishes a new tool teardown every other Thursday. Subscribe at constructionaibrief.com.",
+      "url": "https://constructionaibrief.com/?utm_source=cab&utm_medium={medium}&utm_campaign=tool_teardown_cta"
     }
   ],
-  "none": [
+  "playbook": [
     {
-      "product": "kjags",
-      "text": "Construction AI Brief is published by kjags advisors — we build AI tools and train teams inside real construction companies. If you want to chat about your own AI rollout, that's where the conversation happens.",
-      "url": "https://kjagsadvisors.com/contact?utm_source=cab&utm_medium={medium}&utm_campaign={pillar}_cta"
+      "kind": "build",
+      "text": "Build this on Monday. If you do — or if you hit a wall halfway through — reply to this email and tell us what happened. We pull threads like this into future issues.",
+      "url": null
+    },
+    {
+      "kind": "subscribe",
+      "text": "Playbooks like this run every third Thursday. Subscribe at constructionaibrief.com.",
+      "url": "https://constructionaibrief.com/?utm_source=cab&utm_medium={medium}&utm_campaign=playbook_cta"
+    }
+  ],
+  "field_report": [
+    {
+      "kind": "story",
+      "text": "Have a story of AI shipping (or failing) inside your shop? Hit reply. Anonymized always available; we never name a contractor without permission.",
+      "url": null
+    },
+    {
+      "kind": "subscribe",
+      "text": "Field reports every other Thursday. Subscribe at constructionaibrief.com.",
+      "url": "https://constructionaibrief.com/?utm_source=cab&utm_medium={medium}&utm_campaign=field_report_cta"
+    }
+  ],
+  "trend": [
+    {
+      "kind": "subscribe",
+      "text": "Friday one chart. Every week, one piece of data that should change a decision on your project. Subscribe at constructionaibrief.com.",
+      "url": "https://constructionaibrief.com/?utm_source=cab&utm_medium={medium}&utm_campaign=trend_cta"
+    },
+    {
+      "kind": "share",
+      "text": "Forward this to the person on your team who's still arguing AI is overhyped.",
+      "url": null
     }
   ]
 }

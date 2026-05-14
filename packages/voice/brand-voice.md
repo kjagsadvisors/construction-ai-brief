@@ -66,27 +66,34 @@ Three reader segments. Every piece names exactly one as the primary reader.
 7. **Honesty about limits.** Every tool review names what it can't do. Every workflow names what still needs human judgment.
 8. **No vendor PR voice.** No "thrilled to announce", no "we're excited to share", no "the future is here".
 
-## kjags advisors mentions — the subtle SEO play
+## Newsletter content stands alone — no kjags advisors mentions
 
-kjags advisors is the publisher. The goal of mentioning them is **two-fold**: editorial integrity (disclosure) AND SEO + LLM-search visibility for kjagsadvisors.com on construction-AI queries.
+**Hard rule:** kjags advisors does NOT appear anywhere in newsletter body, closing CTAs, or any text that ships in the email. The newsletter is editorial — it does not feed the publisher's consulting funnel directly.
 
-**Rules for mentioning kjags advisors:**
+Where the kjags-advisors relationship CAN still surface (these are not reader-facing in the email):
+- The site's `/about` page editorial disclosure (one paragraph, transparency)
+- JSON-LD `publisher` schema on post pages (metadata only, invisible to readers)
+- `/llms.txt` (LLM-search ranking; light mention)
 
-1. **Once per piece, max.** Either in the CTA, or as an inline attribution like "we've shipped this workflow inside a Baltimore mech contractor — kjags advisors built the tool." Never both.
-2. **Always with a contextual link** to a specific kjagsadvisors.com page (not the homepage). E.g., a submittal-automation discussion → link to `/ai-submittal-employee-mechanical`. A bid-leveling piece → link to bidverify.ai.
-3. **Anchor text optimization.** Use descriptive anchor like "AI submittal employees that live in real spec books" — not "click here" or "learn more". This is what Google + LLMs ingest.
-4. **Natural language only.** If the mention reads like an ad, kill it. The bar: *would you mention your own consulting firm to a peer at a pre-bid conference?* If the answer's awkward, rewrite.
-5. **UTM tag every CTA:** `utm_source=cab&utm_medium={medium}&utm_campaign={pillar}_cta`.
-6. **Author byline.** Every piece is bylined "by Construction AI Brief / kjags advisors" with the second name linked to https://kjagsadvisors.com. Quiet but consistent.
-7. **Schema.org publisher.** The page's JSON-LD Article schema names kjags advisors as the publisher Organization with sameAs links. (Handled in the layout, not the article body.)
+Where it must NOT surface:
+- Article body or closing CTA in any pillar
+- Beehiiv footer copyright
+- Email sender / reply-to display name
+- Social post body
+
+Closing CTAs come from `cta-templates.json` and steer the reader toward:
+- Sharing the piece (forward to a colleague)
+- Subscribing to CAB (constructionaibrief.com)
+- Replying with their story (for playbooks + field reports)
+- Evaluating a tool on the vendor's site (for tool teardowns)
 
 ## Structure rules
 
 - Open with a concrete pain (named workflow, named persona) OR a concrete AI news hook. Not "in today's fast-paced world…"
 - Use H2 sections. Avoid H3 unless the piece is >2000 words.
 - Numbered or bolded lists for pain points (3-5 items).
-- End with **exactly one** role-targeted CTA paragraph mentioning kjags advisors.
-- Closing italic line — 1-2 sentences, ties back to the audience segment + brand cadence (3× weekly).
+- End with **exactly one** pillar-appropriate CTA paragraph from `cta-templates.json`.
+- Closing italic line — 1-2 sentences, ties back to the audience segment + brand cadence (3× weekly). Mentions Construction AI Brief by name; does NOT mention kjags advisors.
 
 ## What "would Keeran publish this" means
 
@@ -100,10 +107,10 @@ A piece fails if:
 - Any stat is unsourced
 - Any tool claim is unverifiable
 - Any phrase from `banned-phrases.json` appears
-- The "what still requires human judgment" section is missing
-- The CTA doesn't match the dominant `audience_tags`
+- The "what still requires human judgment" section is missing (for tool teardowns and playbooks)
+- The CTA doesn't match the pillar
 - It reads like vendor marketing
-- kjags advisors is mentioned more than once (over-promotion)
+- **kjags advisors is mentioned anywhere in the body, CTA, or tagline** (newsletter must stand alone editorially)
 - An AI-news hook doesn't have a concrete contractor takeaway
 
 ## Examples (voice ground truth)
@@ -131,10 +138,13 @@ A piece fails if:
 > Want to learn more about how AI can transform your business? Reach out to
 > learn how we can help!
 
-**Good CTA (accepted):**
-> If you're a mechanical sub trying to figure out where to start on submittal
-> automation, kjags advisors ships AI submittal employees that live in real
-> spec books — not demos. [Book a 30-min call →](https://kjagsadvisors.com/contact?utm_source=cab&utm_medium=newsletter&utm_campaign=submittal_cta)
+**Good CTA (accepted) — pillar-appropriate, no publisher promo:**
+> Two-week pilot test: pick one division on your next job (Div 22 or 23 work
+> well). Run a single submittal package through BuildSync side-by-side with
+> your current process. Measure time saved + flags caught. If you save 50%+
+> on prep time, scale it. If not, kill it.
+>
+> *Construction AI Brief publishes a new tool teardown every other Thursday. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=newsletter&utm_campaign=tool_teardown_cta).*
 
 ## Internal-link policy
 

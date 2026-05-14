@@ -157,12 +157,13 @@ export default function HomePage() {
           <p className="meta md:col-span-3">Section C — Editor's note</p>
           <div className="md:col-span-9 font-body text-lg md:text-xl text-ink leading-relaxed max-w-[62ch] text-pretty">
             <p>
-              I run kjags advisors — we build AI tools and train teams inside
-              real construction companies. Submittal automation, certified
-              payroll, RFI turnaround, bid leveling. Construction AI Brief is
-              what I wish existed: an editorial property that calls out what
-              works on Monday morning, what's vendor PR, and what the honest
-              tradeoffs are. No hype, no "revolutionary," no fluff.
+              Most AI coverage in construction is either VC-flavored hype or
+              vendor PR. Construction AI Brief is the read I wished existed:
+              an editorial property that calls out what works on Monday
+              morning, what's a waste of money, and what the honest tradeoffs
+              are. No "revolutionary," no fluff — just the week's biggest AI
+              moves and what they mean for a 50-person mechanical contractor
+              in Baltimore.
             </p>
             <p className="mt-5 meta text-graphite">— Keeran Jagadesan, editor</p>
           </div>

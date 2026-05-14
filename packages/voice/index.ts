@@ -9,7 +9,7 @@ export const brandVoice = () => read("brand-voice.md");
 export const pillarTemplates = () => read("pillar-templates.md");
 export const bannedPhrases = (): string[] =>
   JSON.parse(read("banned-phrases.json"));
-export const ctaTemplates = (): Record<Segment, Cta[]> =>
+export const ctaTemplates = (): Record<Pillar, Cta[]> =>
   JSON.parse(read("cta-templates.json"));
 
 export type Segment = "gc_ops" | "trade_sub" | "estimator" | "none";
@@ -21,7 +21,7 @@ export type Pillar =
   | "trend";
 
 export interface Cta {
-  product: "kjags" | "jobhost" | "bidverify";
+  kind: "share" | "subscribe" | "evaluate" | "build" | "story";
   text: string;
-  url: string;
+  url: string | null;
 }

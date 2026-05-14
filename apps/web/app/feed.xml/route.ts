@@ -26,7 +26,7 @@ export async function GET() {
       <pubDate>${new Date(p.date).toUTCString()}</pubDate>
       <description>${esc(p.excerpt ?? "")}</description>
       <category>${p.pillar}</category>
-      <author>noreply@constructionaibrief.com (Construction AI Brief, published by kjags advisors)</author>
+      <author>noreply@constructionaibrief.com (Construction AI Brief)</author>
     </item>`;
     })
     .join("\n");
