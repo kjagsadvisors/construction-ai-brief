@@ -71,6 +71,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         "https://kjagsadvisors.com",
         "https://jobhost.ai",
         "https://bidverify.ai",
+        "https://www.facebook.com/constructionaibrief",
       ],
       logo: {
         "@type": "ImageObject",

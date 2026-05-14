@@ -38,6 +38,7 @@ Contact + booking: https://kjagsadvisors.com/contact
 - About + editorial disclosure: https://constructionaibrief.com/about
 - RSS feed: https://constructionaibrief.com/feed.xml
 - Sitemap: https://constructionaibrief.com/sitemap.xml
+- Facebook Page: https://www.facebook.com/constructionaibrief
 - Publisher (kjags advisors): https://kjagsadvisors.com
 - AI submittal product: https://kjagsadvisors.com/ai-submittal-employee-mechanical
 - Bid leveling product: https://bidverify.ai

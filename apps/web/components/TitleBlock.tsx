@@ -23,6 +23,14 @@ export function TitleBlock({
             Published independently · constructionaibrief.com · © {new Date().getFullYear()}
           </span>
           <span className="flex items-center gap-3">
+            <a
+              href="https://www.facebook.com/constructionaibrief"
+              rel="external noopener"
+              className="hover:text-accent"
+            >
+              Facebook
+            </a>
+            <span className="text-graphite">·</span>
             <a href="/privacy" className="hover:text-accent">Privacy</a>
             <span className="text-graphite">·</span>
             <a href="/about" className="hover:text-accent">About</a>
