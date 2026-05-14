@@ -27,6 +27,14 @@ All routines on claude.ai (remote CCR) unless noted. Manage at https://claude.ai
 | Weekly SEO pillar | `trig_01T7vRCYFFdmj46gAKSFoApm` | `0 14 * * 3` | 10:00 am Wed | Picks next pillar from the bank in `data/seo-organic-growth-plan.md` (Part 4), writes 3000+w long-form to `apps/web/content/seo/`, FAQ schema, refreshes any pillar >90 days old |
 | Weekly outreach drafter | `trig_018M99ocTCPGbLFhcwnssUfC` | `0 15 * * 4` | 11:00 am Thu | Drafts trade-pub pitch + newsletter swap (Gmail drafts) + Reddit/LinkedIn comment seeds (`data/outreach/{date}.md`). Rotates ENR/Construction Dive/BD+C/AGC across weeks. |
 
+## Distribution / multi-channel pipeline
+
+| Routine | ID | Cron (UTC) | Local (ET) | What it does |
+|---|---|---|---|---|
+| IndexNow URL push | `trig_012RakEcXaqHL5TJXVCwHX7M` | `0 * * * *` | hourly | Scans MDX dirs for new URLs → diffs against `data/indexnow-pushed.jsonl` → POSTs unsubmitted URLs to api.indexnow.org. **Instantly indexes into Bing → MSN / Edge / Windows widgets / DuckDuckGo / Yahoo / Kagi / ChatGPT search / Copilot / Yandex / Naver / Seznam.** Free, no auth. |
+| Cross-platform republication | `trig_01729yV1aJdBSk8hfNRP9Jqy` | `0 16 * * 1-5` | noon Mon-Fri | For each newsletter article published today, generates Medium / Hashnode / Dev.to / LinkedIn Article versions with canonical tags pointing back to constructionaibrief.com. Posts via API if keys present; queues drafts to `data/republish/` otherwise. |
+| Pinterest + HN + Reddit drafts | `trig_01Qe1MrfuCxn5Z4nzyu5ufbg` | `30 13 * * 1-5` | 9:30 am Mon-Fri | 3 Pinterest pins (visual SEO) via Canva MCP + HN submission card (if any post scored ≥9 + hasn't been submitted) + Reddit post draft for one relevant sub. All to `data/social/`. |
+
 ## Local routines (still active, dormant when remote handles same work)
 
 In `~/.claude/scheduled-tasks/` — run when Mac is on. Idempotency-checked so they no-op if today's MDX or social drafts already exist from CCR:

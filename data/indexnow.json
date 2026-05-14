@@ -1,0 +1,13 @@
+{
+  "key": "fa7b6ae716f8331227c58abbb96f97b0",
+  "keyLocation": "https://constructionaibrief.com/fa7b6ae716f8331227c58abbb96f97b0.txt",
+  "host": "constructionaibrief.com",
+  "endpoints": [
+    "https://api.indexnow.org/IndexNow",
+    "https://www.bing.com/indexnow",
+    "https://yandex.com/indexnow",
+    "https://searchadvisor.naver.com/indexnow",
+    "https://search.seznam.cz/indexnow"
+  ],
+  "note": "Single POST to api.indexnow.org fans out to all participating engines. The endpoint-specific URLs above are redundant but listed for routine fallback if the central endpoint is down. See https://www.indexnow.org/ for protocol docs."
+}
