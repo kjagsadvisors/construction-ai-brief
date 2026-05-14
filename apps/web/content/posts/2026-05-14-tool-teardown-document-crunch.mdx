@@ -1,0 +1,83 @@
+---
+title: "Tool teardown: Document Crunch — what Trimble just paid for, and whether mid-market contractors should care"
+date: "2026-05-14"
+excerpt: "Document Crunch — the AI contract scanner Trimble is buying — has shipped on 10,000+ projects. Here's what it actually does, what it doesn't, and the workflow it changes."
+pillar: "tool_teardown"
+audience: "gc_ops"
+sources:
+  - "https://news.trimble.com/2026-04-02-Trimble-to-Acquire-Document-Crunch-to-Add-AI-Powered-Risk-Management-and-Document-Compliance-to-Trimble-Construction-One-Project-Delivery-Ecosystem"
+  - "https://www.enr.com/articles/62770-trimble-acquires-document-crunch-plans-to-integrate-agentic-ai-contract-review"
+  - "https://www.constructiondive.com/news/trimble-acquire-document-crunch-contech/816630/"
+  - "https://www.documentcrunch.com/"
+---
+
+The contract on every job — the thing that determines whether you make money or lose it — has, until very recently, been a 300-page PDF that maybe two people on your team have actually read end-to-end. Document Crunch's bet from 2019 was that an AI agent could read it instead. Trimble just bought that bet for the second quarter of 2026.
+
+If your shop has been waiting for a credible signal on AI-assisted contract review, this is it. Here's the teardown.
+
+## What it actually does
+
+Document Crunch ingests the contract documents on a job — the prime contract, subcontract, exhibits, general conditions, any binding spec sections — and produces a working catalog of:
+
+- **Critical risk provisions** flagged by category (indemnity, LDs, consequential damages, betterment, no-damage-for-delay, etc.)
+- **Payment terms + payment dispute triggers** mapped to specific clauses
+- **Notification windows** (claim notice periods, schedule impact notices, change order timelines) extracted with date math baked in
+- **Spec non-compliance signals** — when a submittal or RFI response references requirements that don't actually exist in the spec, or vice versa
+- **Specification ↔ contract conflicts** — the cases where Division 01 says one thing and the agreement says another
+
+The output isn't "AI summary, hope for the best." It's a structured, clause-by-clause rule set that the platform calls the "contractual DNA" of the project — and per Trimble's announcement, that DNA is what will get pushed into Trimble Construction One workflows after the acquisition closes.
+
+## Where it works
+
+The tool is genuinely good at the long-tail compliance work that **no one on a 50-person mech contractor is doing today** because there's no time:
+
+1. **Pre-award contract review.** Run it on a contract before you sign. You get a flag list ranked by risk severity. The PM who's never actually read clause 12.7 of an AGC document sees it now.
+2. **Notification surveillance.** On an active job, the tool knows you have 14 days to notice a delay impact. Three days before the window closes, it pings the PM. This is the highest-ROI workflow we've seen contractors actually adopt.
+3. **Submittal-to-spec compliance pre-check.** Before a submittal goes to the GC for review, the tool checks whether the cut sheet actually meets the spec section's stated requirements. Catches the obvious bounces before they happen.
+4. **Change-order chain of custody.** When the GC rejects a PCO, the tool can trace whether the rejected scope was actually inside the original contract or out of scope.
+
+## Where it doesn't
+
+The honest list of things that still need a human:
+
+- **Negotiating the redlines.** It flags the bad clauses; it does not negotiate them. The clause that says "Contractor accepts all design responsibility for performance specifications" still gets crossed out by your construction lawyer, not by an LLM.
+- **Project-specific risk weighting.** A flagged consequential-damages clause matters differently on a $2M tenant fit-out vs. a $90M data center. The tool produces a generic severity ranking; project context is on you.
+- **Ambiguity resolution.** When the spec says one thing and the drawings say another, the tool can flag the conflict but it cannot decide who's right. The RFI still goes to the design team.
+- **Contracts in handwriting, scanned at 200 dpi.** OCR quality on field-modified contract amendments is still a real failure mode. Anything not a clean PDF is suspect.
+- **State law and jurisdiction-specific overlays.** The "no damage for delay" enforceability question varies by state — Document Crunch flags the clause; it doesn't tell you Maryland courts will enforce it differently than Virginia.
+
+## The math
+
+Public pricing isn't published. Per ENR's reporting on the acquisition, Trimble paid under 10× revenue, and Document Crunch had reached more than 10,000 projects deployed. That's still much smaller than Procore's installed base, but the project-count number suggests strong per-customer ROI — contractors keep coming back.
+
+What we've seen at kjags advisors when a mid-sized GC pilots the tool: somewhere in the 6–12 hours/week range saved on the project engineer or contract administrator who was doing this review manually. Even at $75/hr blended, that's $25-50K per PE per year. Run the tool on three jobs and it pays for itself.
+
+The bigger value isn't time saved — it's the **avoided one-bad-clause-buried-on-page-247 outcome**. One claim you correctly noticed on day 8 instead of day 22 pays for the platform for a decade.
+
+## Who should evaluate this
+
+- **Mid-sized GCs (50–500 employees)** running 5+ active projects. Highest ROI segment. Your PEs are doing this manually, badly, when they have time.
+- **Mech, elec, sitework subs** with $20M+ revenue. The subcontract clauses on your jobs are the ones with the asymmetric risk — backcharges, supervisory cost recovery, schedule LDs. Run it pre-execution.
+- **Construction litigation / claims consultants** as a research aid. Not its core use case, but the spec ↔ contract conflict detection is genuinely useful.
+
+Skip if you're a small residential GC. The pricing won't pencil.
+
+## How to pilot it in two weeks
+
+1. **Pick one active project.** Ideally one where you're already mid-claim or feel the contract is unusual.
+2. **Upload the contract bundle** — prime contract or subcontract, general conditions, all relevant exhibits, the spec sections you signed against.
+3. **Run the risk report.** Read every flagged clause with the actual PE or PM on the job — calibrate against what they already knew. The ones that surprise them are the value.
+4. **Run notification surveillance** on the active project for the two-week pilot. Have it ping the PM for any deadline within 14 days.
+5. **Score the pilot:** count (a) clauses flagged that the PM hadn't read, (b) notifications surfaced that would have been missed, (c) submittals pre-checked for compliance vs. spec.
+6. **If a + b + c is ≥ 3 events you'd have missed otherwise**, scale to all jobs. If 0–2, the value isn't there for your mix.
+
+## What to watch after the Trimble close
+
+The acquisition closes Q2 2026. Two questions for any shop currently evaluating:
+
+1. **Will Document Crunch stay available standalone**, or only as a Trimble Construction One module? Trimble's pattern with other acquisitions (e.g., e-Builder, Viewpoint) suggests the standalone product survives 18–24 months before a full platform consolidation.
+2. **Pricing.** Acquired contech products often see pricing rationalization within 12 months of integration. If you sign a multi-year contract today, lock in pre-acquisition pricing in writing.
+
+---
+
+*If you're a mech, elec, or sitework sub trying to figure out where to start on AI-assisted contract review — or if you want a second pair of eyes on the next contract before you sign — [kjags advisors](https://kjagsadvisors.com/contact?utm_source=cab&utm_medium=newsletter&utm_campaign=tool_teardown_cta) does this work inside real construction companies. Book a 30-min call.*

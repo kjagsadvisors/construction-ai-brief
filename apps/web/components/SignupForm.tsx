@@ -10,7 +10,29 @@ const SEGMENTS: { value: Segment; label: string }[] = [
   { value: "none", label: "Other" },
 ];
 
+const BEEHIIV_EMBED_URL = process.env.NEXT_PUBLIC_BEEHIIV_EMBED_URL;
+
 export function SignupForm() {
+  // If a Beehiiv hosted embed URL is configured, use it — Beehiiv handles the
+  // subscriber capture + deliverability without us needing an API key on the
+  // server side. The custom form below is the fallback (and gives us role
+  // segmentation when the API key path is wired up).
+  if (BEEHIIV_EMBED_URL) {
+    return (
+      <iframe
+        src={BEEHIIV_EMBED_URL}
+        title="Subscribe to Construction AI Brief"
+        className="w-full bg-paperLite border-2 border-ink"
+        style={{ height: 340 }}
+        frameBorder="0"
+        scrolling="no"
+      />
+    );
+  }
+  return <CustomSignupForm />;
+}
+
+function CustomSignupForm() {
   const [email, setEmail] = useState("");
   const [segment, setSegment] = useState<Segment>("gc_ops");
   const [state, setState] = useState<"idle" | "loading" | "done" | "error">(
