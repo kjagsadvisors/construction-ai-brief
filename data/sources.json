@@ -1,5 +1,5 @@
 {
-  "rss": [
+  "construction_rss": [
     { "name": "Construction Dive", "url": "https://www.constructiondive.com/feeds/news/" },
     { "name": "ENR Construction", "url": "https://www.enr.com/rss/topic/2596-construction" },
     { "name": "BD+C", "url": "https://www.bdcnetwork.com/rss.xml" },
@@ -8,16 +8,37 @@
     { "name": "Autodesk Construction Cloud blog", "url": "https://construction.autodesk.com/blog/feed/" },
     { "name": "Procore Jobsite", "url": "https://www.procore.com/jobsite/feed/" },
     { "name": "Trimble Constructible", "url": "https://constructible.trimble.com/rss.xml" },
-    { "name": "AGC Smartbrief", "url": "https://www.smartbrief.com/agc/rss" }
+    { "name": "AGC Smartbrief", "url": "https://www.smartbrief.com/agc/rss" },
+    { "name": "Construction Owners Association of America", "url": "https://www.constructionowners.com/feed" },
+    { "name": "Bricks & Bytes", "url": "https://bricks-bytes.com/feed/" },
+    { "name": "BuiltWorlds", "url": "https://builtworlds.com/feed/" }
   ],
-  "web_search_queries": [
+  "ai_mainstream_rss": [
+    { "name": "Anthropic news", "url": "https://www.anthropic.com/rss/news.xml" },
+    { "name": "OpenAI blog", "url": "https://openai.com/blog/rss.xml" },
+    { "name": "Google AI blog", "url": "https://blog.google/technology/ai/rss/" },
+    { "name": "MIT Technology Review AI", "url": "https://www.technologyreview.com/feed/" },
+    { "name": "ArXiv ML new", "url": "http://export.arxiv.org/rss/cs.LG" },
+    { "name": "Hacker News AI top stories", "url": "https://hnrss.org/newest?q=AI" }
+  ],
+  "web_search_queries_construction": [
     "AI for construction contractors {month} {year}",
     "construction AI software launch {year}",
     "AEC AI startup funding announcement",
     "AI submittal automation construction",
     "AI bid leveling estimating",
     "generative AI construction workflow",
-    "construction tech AI tool review"
+    "construction tech AI tool review",
+    "contech M&A acquisition AI"
+  ],
+  "web_search_queries_ai_mainstream": [
+    "new Claude Anthropic release this week",
+    "new OpenAI model release",
+    "AI agent platform launch {year}",
+    "agentic AI enterprise announcement",
+    "LLM context window long document",
+    "AI computer vision construction safety",
+    "AI document understanding contract"
   ],
   "vendor_blogs_to_check": [
     "https://www.procore.com/jobsite/",
@@ -27,6 +48,11 @@
     "https://www.trunktools.com/blog",
     "https://www.openspace.ai/news",
     "https://www.buildots.com/blog"
+  ],
+  "ai_breakfast_inspiration": [
+    "https://www.aibreakfast.com/",
+    "https://www.therundown.ai/",
+    "https://tldr.tech/ai"
   ],
   "youtube_channels": [
     "@TheB1M",

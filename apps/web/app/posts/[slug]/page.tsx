@@ -18,6 +18,8 @@ const AUDIENCE_LABEL: Record<string, string> = {
   none: "Industry",
 };
 
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://constructionaibrief.com";
+
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
 }
@@ -44,8 +46,57 @@ export default function PostPage({ params }: { params: { slug: string } }) {
   const issueLabel = issueNo === -1 ? "001" : String(all.length - issueNo).padStart(3, "0");
   const isoDate = new Date(post.date).toISOString().slice(0, 10).replace(/-/g, ".");
 
+  // JSON-LD Article schema — Google + ChatGPT-search read this for entity recognition.
+  // Publisher = kjags advisors (Organization). This is the SEO play.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: new Date(post.date).toISOString(),
+    dateModified: new Date(post.date).toISOString(),
+    image: `${SITE}/opengraph-image`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE}/posts/${post.slug}` },
+    author: {
+      "@type": "Organization",
+      name: "Construction AI Brief",
+      url: SITE,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "kjags advisors",
+      url: "https://kjagsadvisors.com",
+      sameAs: [
+        "https://kjagsadvisors.com",
+        "https://jobhost.ai",
+        "https://bidverify.ai",
+      ],
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE}/icon`,
+      },
+    },
+    isPartOf: {
+      "@type": "Periodical",
+      name: "Construction AI Brief",
+      issn: undefined,
+    },
+    articleSection: PILLAR_LABEL[post.pillar] ?? post.pillar,
+    keywords: [
+      "AI in construction",
+      "construction AI",
+      "AEC AI",
+      PILLAR_LABEL[post.pillar],
+      AUDIENCE_LABEL[post.audience],
+    ].join(", "),
+  };
+
   return (
     <article className="max-w-sheet mx-auto px-6 md:px-10 pt-10 md:pt-14 pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ── Title block ────────────────────────────────────── */}
       <div className="border-2 border-ink bg-paperLite">
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-ink">
@@ -66,6 +117,19 @@ export default function PostPage({ params }: { params: { slug: string } }) {
               {post.excerpt}
             </p>
           )}
+          <div className="meta mt-6 flex items-center gap-3">
+            <span>By</span>
+            <span className="text-ink">Construction AI Brief</span>
+            <span aria-hidden>·</span>
+            <span>Published by</span>
+            <a
+              href="https://kjagsadvisors.com?utm_source=cab&utm_medium=byline&utm_campaign=editorial"
+              rel="publisher"
+              className="text-ink hover:text-accent underline decoration-accent decoration-1 underline-offset-2"
+            >
+              kjags advisors
+            </a>
+          </div>
         </div>
       </div>
 
