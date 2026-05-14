@@ -1,49 +1,43 @@
 # Construction AI Brief — autopilot routines
 
-Five remote routines on claude.ai (no local machine needed). Each runs in an isolated CCR sandbox with a fresh clone of this repo, executes its task, commits + pushes back.
+All routines on claude.ai (remote CCR) unless noted. Manage at https://claude.ai/code/routines.
 
-| Routine | ID | Cron (UTC) | Local (EDT) | Next |
+## Editorial pipeline
+
+| Routine | ID | Cron (UTC) | Local (ET) | What it does |
 |---|---|---|---|---|
-| Daily ingest | `trig_015Cyv3BknK6pM81jL8GSxyT` | `0 10 * * *` | 6:00 am | Daily |
-| Tuesday punch list | `trig_01PqRqAEJkCPDn23vNe2Cdya` | `30 10 * * 2` | 6:30 am Tue | Weekly |
-| Thursday deep dive | `trig_01NmopQrDBEk4j4YGn8rcZS2` | `30 10 * * 4` | 6:30 am Thu | Weekly |
-| Friday one chart | `trig_01SzhxWS7HFCAQ2WHMSp93Cw` | `30 10 * * 5` | 6:30 am Fri | Weekly |
-| Sunday audit | `trig_015T6pw4bnsyqwzbrLGJWsoY` | `0 13 * * 0` | 9:00 am Sun | Weekly |
+| Daily ingest | `trig_015Cyv3BknK6pM81jL8GSxyT` | `0 10 * * *` | 6:00 am | Pull RSS + WebSearch → score → append to `data/items.jsonl` |
+| Tue Punch List | `trig_01PqRqAEJkCPDn23vNe2Cdya` | `30 10 * * 2` | 6:30 am Tue | Draft news digest → MDX → Beehiiv MCP publish |
+| Thu Deep Dive | `trig_01NmopQrDBEk4j4YGn8rcZS2` | `30 10 * * 4` | 6:30 am Thu | Rotating teardown/playbook/field-report → MDX → Beehiiv |
+| Fri One Chart | `trig_01SzhxWS7HFCAQ2WHMSp93Cw` | `30 10 * * 5` | 6:30 am Fri | Inline-SVG trend chart → MDX → Beehiiv |
+| Sunday editorial audit | `trig_015T6pw4bnsyqwzbrLGJWsoY` | `0 13 * * 0` | 9:00 am Sun | Drift report → Gmail to Keeran (the only auto-contact) |
 
-**Manage at:** https://claude.ai/code/routines
+## Growth pipeline
 
-**Tools each routine has:** Bash, Read, Write, Edit, Glob, Grep, WebSearch, WebFetch + MCP connectors (Gmail, Canva, Microsoft 365, Vercel, Supabase, Apollo, JobHostAI, Mercury, QuickBooks).
+| Routine | ID | Cron (UTC) | Local (ET) | What it does |
+|---|---|---|---|---|
+| Daily IG carousel + social drafts | `trig_01CNQ1E1TrbNP7yum4xdpduM` | `0 13 * * 1-5` | 9:00 am Mon-Fri | Canva-generated 6-slide IG carousel + LinkedIn/X/Threads drafts saved to `data/social/` |
+| Monday growth audit | `trig_01S2jXkdniNCRtBsTxp1TucA` | `0 14 * * 1` | 10:00 am Mon | Beehiiv MCP → subs/opens/clicks/recs/Boosts → growth-{date}.md → Gmail to Keeran |
 
-## The flow
+## Local routines (still active, dormant when remote handles same work)
 
-```
-Daily 06:00 ET → INGEST → data/items.jsonl grows by ~20-40 items
-                          ↓
-Tue/Thu/Fri 06:30 ET → DRAFT → apps/web/content/posts/{date}-{slug}.mdx
-                          ↓
-                       git push → Vercel deploys constructionaibrief.com
-                          ↓
-                       Beehiiv polls /feed.xml hourly → newsletter goes out
-                          ↓
-Sun 09:00 ET → AUDIT → data/audit-{date}.md + Gmail to keeranj@kjagsadvisors.com
-```
+In `~/.claude/scheduled-tasks/` — run when Mac is on. Idempotency-checked so they no-op if today's MDX or social drafts already exist from CCR:
 
-## Local routines (still active for things remote can't do)
+- `cab-ingest-daily`, `cab-newsletter-tuesday`, `cab-newsletter-thursday`, `cab-newsletter-friday`, `cab-audit-weekly` — fallback if remote fails
+- `cab-socials-daily` — **active**, handles LinkedIn posting via Chrome MCP (only place Chrome MCP is available)
 
-The local `~/.claude/scheduled-tasks/cab-*` routines created earlier are still scheduled. They have idempotency checks — if today's MDX already exists (because the remote routine wrote it), they skip. They're effectively dormant unless:
+## Connectors attached to each routine
 
-- The Mac is on AND
-- The remote routine didn't run (failed git push, etc.) AND
-- Today's content is missing
+All editorial + growth routines have: **Gmail, Canva, beehiiv** + (CCR's built-in tools: WebSearch, WebFetch, Bash, Read/Write/Edit, gh CLI).
 
-The one local routine that's NOT dormant: `cab-socials-daily` — this still runs locally because socials require Chrome MCP (user's authenticated browser sessions for LinkedIn / X / Threads / IG). Remote can't do that.
+IG carousel routine also has **higgsfield** (registered; OAuth needs a reconnect — won't affect Canva-driven carousel work).
 
-## Pausing autopilot
+## Pause everything
 
-Drop a file at `data/PAUSED.flag` in the repo with a one-line reason. Every routine checks this first and exits cleanly. Delete the file to resume.
+`echo "reason" > data/PAUSED.flag && git push` — every routine checks this on entry and exits cleanly.
 
-## Watching what's happening
+## Watch what's happening
 
-- **Commit log:** https://github.com/kjagsadvisors/construction-ai-brief/commits/main — every routine commits with `Construction AI Brief (autopilot)` as the author
-- **Routine runs:** https://claude.ai/code/routines — see each run's outputs
-- **Audit emails:** Sunday morning to keeranj@kjagsadvisors.com — the one-page weekly drift report
+- Commits: https://github.com/kjagsadvisors/construction-ai-brief/commits/main (autopilot commits as `Construction AI Brief (autopilot)`)
+- Routine runs: https://claude.ai/code/routines
+- Growth + editorial audit emails: Sun + Mon mornings to keeranj@kjagsadvisors.com
