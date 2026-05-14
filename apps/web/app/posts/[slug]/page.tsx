@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { getAllPosts, getPost } from "@/lib/posts";
+import { SubscribeCTA } from "@/components/SubscribeCTA";
 
 const PILLAR_LABEL: Record<string, string> = {
   tool_teardown: "Tool teardown",
@@ -138,6 +139,8 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
         />
       </div>
+
+      <SubscribeCTA />
 
       {/* ── Sources block — like a drawing reference list ──── */}
       {post.sources && post.sources.length > 0 && (

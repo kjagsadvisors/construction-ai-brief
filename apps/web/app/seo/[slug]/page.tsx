@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
+import { SubscribeCTA } from "@/components/SubscribeCTA";
 
 const SEO_DIR = join(process.cwd(), "content", "seo");
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://constructionaibrief.com";
@@ -144,6 +145,8 @@ export default function SeoPage({ params }: { params: { slug: string } }) {
           ))}
         </section>
       )}
+
+      <SubscribeCTA />
 
       {p.sources.length > 0 && (
         <footer className="prose-cab mt-12 border-t-2 border-ink pt-6">
