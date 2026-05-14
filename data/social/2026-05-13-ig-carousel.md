@@ -45,5 +45,5 @@ status: drafted, queued — blocked on Instagram account creation
 
 **Headline:** Read the full punch list.
 **Subhead:** Tue news, Thu deep dive, Fri one chart.
-**Body:** construction-ai-brief.vercel.app
+**Body:** constructionaibrief.com
 **Caption:** Free, 3× a week. One-click unsub. Published by kjags advisors.
