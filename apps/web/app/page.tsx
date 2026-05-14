@@ -60,7 +60,7 @@ export default function HomePage() {
           <aside className="md:col-span-5 md:pl-8 md:border-l-2 md:border-ink relative">
             <div className="meta-strong mb-2 flex items-center gap-3">
               <span aria-hidden>↳</span>
-              <span>Transmittal — Subscribe</span>
+              <span>The Brief — Subscribe</span>
             </div>
             <p className="font-mono text-[11px] uppercase tracking-wide2 text-graphite mb-6">
               No spam. Unsub in one click. Always free.
@@ -70,8 +70,7 @@ export default function HomePage() {
               <span className="tick" />
             </div>
             <p className="meta">
-              Read by PMs, supers, mech &amp; elec subs, and estimators across
-              Baltimore + DC.
+              Read by PMs, supers, mech &amp; elec subs, and estimators.
             </p>
           </aside>
         </div>
@@ -162,8 +161,7 @@ export default function HomePage() {
               an editorial property that calls out what works on Monday
               morning, what's a waste of money, and what the honest tradeoffs
               are. No "revolutionary," no fluff — just the week's biggest AI
-              moves and what they mean for a 50-person mechanical contractor
-              in Baltimore.
+              moves and what they mean for a 50-person mechanical contractor.
             </p>
             <p className="mt-5 meta text-graphite">— Keeran Jagadesan, editor</p>
           </div>

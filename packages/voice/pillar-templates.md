@@ -60,7 +60,7 @@ the matching template inline with the system prompt.
 **Format:** 1000-1800 words. Thursday newsletter (rotating).
 
 **Structure:**
-1. Opening — name the shop type (e.g. "a 50-person mech contractor in Baltimore"), the workflow they fixed, the rough outcome.
+1. Opening — name the shop type (e.g. "a 50-person mech contractor"), the workflow they fixed, the rough outcome.
 2. **H2: the starting state.** What was broken. Hours per week wasted. People affected.
 3. **H2: what they tried first.** Almost always — software they bought that didn't work, or a hire that didn't scale.
 4. **H2: what actually moved the needle.** The specific change. Tooling, process, people.

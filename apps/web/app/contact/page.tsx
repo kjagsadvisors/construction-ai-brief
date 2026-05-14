@@ -55,8 +55,8 @@ export default function ContactPage() {
 
         <h2>Editorial team</h2>
         <p>
-          Construction AI Brief is a small editorial property. The team works
-          out of the Baltimore + DC metro. Keeran Jagadesan is the editor.
+          Construction AI Brief is a small editorial property. Keeran
+          Jagadesan is the editor.
         </p>
 
         <h2>Submit a tool for teardown</h2>

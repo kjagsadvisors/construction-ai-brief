@@ -121,7 +121,7 @@ A piece fails if:
 > possibilities are endless…
 
 **Good opener (accepted):**
-> A 40-person mechanical sub in Baltimore burns 12 hours a week assembling
+> A 40-person mechanical sub burns 12 hours a week assembling
 > submittal packages. The submittal coordinator opens the spec book, finds the
 > section, finds the matching cut sheet, drops them into a stamped template,
 > repeats. Most of that work can be done by an AI agent with the right

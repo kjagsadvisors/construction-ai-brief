@@ -141,7 +141,7 @@
   }
   .prose-cab strong { @apply font-semibold text-ink; }
 
-  /* form inputs — drawn like cells on a transmittal form */
+  /* form inputs — drawn like cells on a drawing-sheet form */
   .field {
     @apply w-full border-b-2 border-ink bg-transparent px-1 py-2 font-body text-ink placeholder-graphite outline-none focus:border-accent transition-colors;
   }

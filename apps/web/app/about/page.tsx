@@ -50,12 +50,12 @@ export default function AboutPage() {
         <p>
           Construction AI Brief is published by{" "}
           <a href="https://kjagsadvisors.com">kjags advisors</a> — a
-          consultancy based in the Baltimore + DC market that builds AI tools
-          and trains teams for commercial construction companies. Products we
-          build include AI submittal employees (mechanical + electrical), AI
-          compliance employees (certified payroll), <a href="https://jobhost.ai">jobhost.ai</a>{" "}
-          (construction management), and <a href="https://bidverify.ai">bidverify.ai</a>{" "}
-          (bid leveling).
+          consultancy that builds AI tools and trains teams for commercial
+          construction companies. Products we build include AI submittal
+          employees (mechanical + electrical), AI compliance employees
+          (certified payroll), <a href="https://jobhost.ai">jobhost.ai</a>{" "}
+          (construction management), and{" "}
+          <a href="https://bidverify.ai">bidverify.ai</a> (bid leveling).
         </p>
 
         <h2>Editorial disclosure</h2>
