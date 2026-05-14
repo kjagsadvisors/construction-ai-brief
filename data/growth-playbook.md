@@ -40,21 +40,31 @@ Every CAB article published autonomously embeds:
 2. A scroll-triggered subscribe pop-up (Beehiiv embed) at 70% read depth
 3. A footer subscribe CTA + a related-articles list
 
-## Cross-promo swap candidates (the autopilot's weekly target list)
+## Cross-promo swap candidates
 
-Newsletters to add to Recommendations + propose direct swaps:
-- **Construction Physics** (Brian Potter) — adjacent, technical AEC audience
-- **The Rundown AI** — large AI audience, occasional construction crossover
-- **AI Breakfast** — same model as us, large audience
+### Current Top 4 (live in Beehiiv Recommendations as of 2026-05-13)
+
+| Slot | Newsletter | Bucket | Audience size |
+|---|---|---|---|
+| 1 | **AI Breakfast** | AI mainstream | 25K-100K |
+| 2 | **The Rundown AI** | AI mainstream | 2M+ |
+| 3 | **Bricks & Bytes Bulletin** | Contech podcast | smaller |
+| 4 | **Automate Construction Newsletter** | Construction × automation | smaller |
+
+These show on the website signup flow + can be embedded in posts with `/recommendations`. The big AI picks (Rundown + AI Breakfast) drive audience; the construction picks (Bricks & Bytes + Automate Construction) signal niche fit. The weekly growth audit routine rotates underperformers every 4-6 weeks.
+
+### Bench (try when slots open, or as Beehiiv catalog grows)
+
+- **There's An AI For That** — 2.5M readers, AI tools
+- **simple.ai by @dharmesh** — HubSpot CTO, AI agents
 - **The Neuron** — broad AI, growing
-- **Bricks & Bytes** — contech-focused
-- **ContechCrew** — AEC tech
-- **AEC Tech Updates** (BuiltWorlds)
-- **Construction Dive** newsletter
-- **ENR Daily** — newsletter version
-- **The Pragmatic Engineer** (Gergely Orosz) — eng leadership; tangential overlap with AEC ops directors
+- **G'day Construction Newsletter** — AU-focused, daily
+- **Construction Management and Inspection** — small, technical
+- **Construction Physics** (Brian Potter) — Substack, NOT on Beehiiv catalog (verified empty search 2026-05-13)
+- **ContechCrew**, **BuiltWorlds**, **Construction Dive**, **ENR Daily** — NOT on Beehiiv catalog (verified empty searches)
+- **The Pragmatic Engineer** — Substack/own, NOT on Beehiiv
 
-The Recommendations setup routine adds these monthly as they become available + drops underperformers.
+The weekly growth audit routine reviews referral counts and rotates slots as needed.
 
 ## What "perfect" looks like (the autopilot's success bar)
 
