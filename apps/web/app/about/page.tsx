@@ -82,6 +82,19 @@ export default function AboutPage() {
           itself and waits.
         </p>
 
+        <h2>Corrections policy</h2>
+        <p>
+          When we get a fact wrong, we fix it inline with a strike-through, a
+          dated correction note at the bottom of the article, and an
+          acknowledgement in the next issue if the error materially changed
+          the takeaway. We don't silently rewrite history. To request a
+          correction, email{" "}
+          <a href="mailto:corrections@constructionaibrief.com">
+            corrections@constructionaibrief.com
+          </a>
+          .
+        </p>
+
         <h2>Subscribe</h2>
         <p>
           Free, three issues per week, one-click unsub.{" "}

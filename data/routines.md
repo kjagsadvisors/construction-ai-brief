@@ -19,6 +19,14 @@ All routines on claude.ai (remote CCR) unless noted. Manage at https://claude.ai
 | Daily IG carousel + social drafts | `trig_01CNQ1E1TrbNP7yum4xdpduM` | `0 13 * * 1-5` | 9:00 am Mon-Fri | Canva-generated 6-slide IG carousel + LinkedIn/X/Threads drafts saved to `data/social/` |
 | Monday growth audit | `trig_01S2jXkdniNCRtBsTxp1TucA` | `0 14 * * 1` | 10:00 am Mon | Beehiiv MCP → subs/opens/clicks/recs/Boosts → growth-{date}.md → Gmail to Keeran |
 
+## SEO + organic growth pipeline
+
+| Routine | ID | Cron (UTC) | Local (ET) | What it does |
+|---|---|---|---|---|
+| Breaking-news alert | `trig_011qS9gerrw1U7fngmAqVLRP` | `0 */2 * * *` | every 2h | Polls Anthropic/OpenAI/Procore/Trimble/ENR/Construction Dive RSS for items <2h old. Material+construction-applicable+fresh → drafts 400-600w reaction → MDX commit → Beehiiv schedule 1h out. Max 2/day. |
+| Weekly SEO pillar | `trig_01T7vRCYFFdmj46gAKSFoApm` | `0 14 * * 3` | 10:00 am Wed | Picks next pillar from the bank in `data/seo-organic-growth-plan.md` (Part 4), writes 3000+w long-form to `apps/web/content/seo/`, FAQ schema, refreshes any pillar >90 days old |
+| Weekly outreach drafter | `trig_018M99ocTCPGbLFhcwnssUfC` | `0 15 * * 4` | 11:00 am Thu | Drafts trade-pub pitch + newsletter swap (Gmail drafts) + Reddit/LinkedIn comment seeds (`data/outreach/{date}.md`). Rotates ENR/Construction Dive/BD+C/AGC across weeks. |
+
 ## Local routines (still active, dormant when remote handles same work)
 
 In `~/.claude/scheduled-tasks/` — run when Mac is on. Idempotency-checked so they no-op if today's MDX or social drafts already exist from CCR:
