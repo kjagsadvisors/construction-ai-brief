@@ -1,1 +1,19 @@
-IndexNow key file 403
+PAUSED — 2026-05-17 weekly audit
+
+Reason 1 (editorial quality — banned phrase shipped):
+  Post 2026-05-13-punch-list-procore-trimble-funding: body text contains "AI-driven"
+  ("running AI-driven safety platforms" — line 48 anchor text).
+  Per autopilot rules: any banned phrase shipped → pause all routines immediately.
+
+Reason 2 (prior, unresolved):
+  IndexNow key file 403 — still unresolved from previous run.
+
+Drift score this week: 0.70 (floor not breached, but banned-phrase rule overrides).
+  -0.10  1 banned phrase shipped (ai-driven)
+  -0.15  3/3 posts with citation rate < 80% (43%, 0%, 0%)
+  -0.05  1 zero-publication day (Tue 12 May — punch list ran Wed instead)
+
+To resume: fix voice spec prompt to hard-filter ai-driven/ai-powered; enforce
+inline citations in the publishing routine; fix CTA template to include kjags
+advisors link with UTM; investigate and resolve IndexNow 403; then delete this
+file and push.
