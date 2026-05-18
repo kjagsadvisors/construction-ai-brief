@@ -17,3 +17,17 @@ To resume: fix voice spec prompt to hard-filter ai-driven/ai-powered; enforce
 inline citations in the publishing routine; fix CTA template to include kjags
 advisors link with UTM; investigate and resolve IndexNow 403; then delete this
 file and push.
+
+---
+2026-05-18 socials run (user-overridden continue, despite pause):
+  - LinkedIn: posted (Keeran personal); permalink not captured (Chrome MCP
+    host-permission cut out mid-run before activity feed reachable).
+  - X: skipped — login wall, session expired.
+  - Threads: skipped — onboarding required for kjagsadvisors IG→Threads link.
+  - Facebook: skipped — facebook.com host permission not pre-approved;
+    /constructionaibrief vanity also 404 (Page username still in pending-manual
+    list per commit cd99ad6).
+  - Instagram: skipped — no Canva slide render + instagram.com host permission
+    not pre-approved.
+  Drafts saved at data/social/2026-05-18-{channel}.md. Resume checklist in
+  data/social/2026-05-18-STATUS.md.
