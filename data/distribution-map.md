@@ -65,7 +65,7 @@ Each platform is its own algorithm. The IG carousel routine + LinkedIn drafts al
 
 | Platform | How CAB shows up | Autopilot status |
 |---|---|---|
-| **LinkedIn (personal)** | Daily long-form post drafted from each issue | ✅ drafted by `cab-socials-daily`; posted via local Chrome MCP routine |
+| **LinkedIn Company Page** | Daily long-form post to the Construction AI Brief company page. **Personal LinkedIn is explicitly off-limits — the autopilot will skip the LinkedIn step entirely if the company page is unreachable rather than fall back to personal.** | ⏳ drafted by `cab-socials-daily`; posting waits on company page setup (see `data/social/COMPANY-PAGE-SETUP.md`) |
 | **LinkedIn Articles** | Cross-published full articles with canonical link back to CAB | ⚠️ **New routine in this commit** |
 | **LinkedIn Newsletter** | Native LinkedIn newsletter, ~10× LinkedIn organic reach | manual one-time setup; cross-pub via API after |
 | **X (Twitter)** | 4-6 tweet thread per issue | ✅ drafted; needs account |
