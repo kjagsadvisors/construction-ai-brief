@@ -44,6 +44,15 @@ export const metadata: Metadata = {
     description: TAGLINE,
     type: "website",
   },
+  verification: {
+    // Pull verification tokens from env so we don't commit codes to git.
+    // Set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION + NEXT_PUBLIC_BING_VERIFY in
+    // Vercel project env after claiming the property in each console.
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    other: {
+      "msvalidate.01": process.env.NEXT_PUBLIC_BING_VERIFY ?? "",
+    },
+  },
 };
 
 export default function RootLayout({
