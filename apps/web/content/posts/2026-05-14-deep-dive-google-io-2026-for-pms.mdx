@@ -1,0 +1,99 @@
+---
+title: "Google I/O 2026 for project managers: the four announcements worth acting on, and the three to ignore"
+date: "2026-05-14"
+excerpt: "Google's I/O 2026 keynote shipped Gemini 3.5, Daily Brief, Docs Live, and a smart-glasses preview. Three of those map directly onto how a PM's Monday morning actually runs. Here's what to test this week, and what's still vaporware for the jobsite."
+pillar: "playbook"
+audience: "gc_ops"
+sources:
+  - "https://www.techtimes.com/articles/316872/20260519/all-major-announcements-google-i-o-2026-gemini-ai-search-upgrades-smart-glasses-more.htm"
+  - "https://io.google/2026/"
+  - "https://workspace.google.com/solutions/ai/project-management/"
+---
+
+Google I/O 2026 just shipped, and most of the coverage focused on smart glasses and video generation. That isn't the part that matters to a project manager running a $40M tenant fit-out or a 200-unit multifamily build. What matters is that Google quietly moved four pieces of project management workflow inside Workspace — Gmail triage, document drafting, search, and the underlying Gemini model — and made them faster and cheaper.
+
+Here's the read. What to test this week. What to skip until 2027.
+
+## What actually shipped
+
+Google's headline product set for project managers, stripped of the keynote theater, is four things:
+
+1. **Gemini 3.5** and **Gemini 3.5 Flash** — the underlying model got faster. Flash variants now respond in well under a second for most reasoning tasks. <cite index="0">"Gemini 3.5 and Gemini 3.5 Flash arrived as major Gemini AI updates, improving performance, speed, and accessibility across Google AI services."</cite> [1]
+2. **Daily Brief** — a feature inside the Gemini app that <cite index="0">"summarize[s] emails, calendar events, and updates into a personalized morning digest."</cite> [1]
+3. **Docs Live** — Gemini directly inside Google Docs, with conversational drafting and contextual rewrites. Real-time collaboration with the model, not a sidebar.
+4. **AI Search with generative UI** — Search now generates answers, images, and short explainer videos inline rather than returning a list of links. [1]
+
+Plus two announcements that read well in the keynote but won't move the needle on your project schedule this year: **Gemini Omni** (video generation) and **Android XR smart glasses** previewed with Gentle Monster and Warby Parker. We'll come back to those.
+
+## 1. Daily Brief — the 6:30am inbox triage
+
+This is the one that pays for itself in a week. The average commercial PM walks in at 6:30am, opens Outlook or Gmail, and spends 45 to 90 minutes triaging overnight email, RFIs, submittal returns, and field-report attachments before the first jobsite call.
+
+Daily Brief sits over Gmail and the connected calendar and writes a one-page morning digest. What hit overnight, who needs a response today, what's on the calendar, what's been escalating.
+
+**What to actually do this week**
+
+Open the Gemini app, enable Daily Brief, set the delivery time to 6:00am local. Connect it to your project email inbox (not your personal one). For the first three days, audit the brief against your own triage — does it surface the urgent stuff first? Does it correctly identify which RFIs have been sitting for over 72 hours? Does it know your jobsite jargon?
+
+If it gets the priority order wrong, fix it in the Gemini app's "Show me less of" and "More like this" feedback. After a week of corrections, you'll have something that genuinely shaves 30–45 minutes off your morning.
+
+**What it doesn't do yet:** it won't pull from Procore, PlanGrid, Autodesk Construction Cloud, or your project management platform. If your most urgent overnight items live there, the brief is incomplete. Set up a Gmail rule that forwards critical notifications from those platforms into the same inbox so they're in scope.
+
+## 2. Docs Live — RFIs, dailies, meeting minutes
+
+The single biggest time sink in modern commercial PM work, after coordination, is documentation. RFIs that need a written response, daily reports, meeting minutes, scope clarifications, transmittals. Docs Live puts Gemini inside the document itself with conversational drafting.
+
+The use case worth testing first: **meeting minutes from a Zoom or Teams recording.** Drop the transcript in, ask Gemini to extract action items, owners, and follow-up dates. The output isn't perfect — it tends to over-attribute decisions to whoever talked the most — but it's faster than dictating to a junior PM.
+
+Second use case: **RFI draft response.** Paste the RFI question, paste the relevant spec section and drawing reference, ask Gemini to draft the response in the format your closeout requires. You still read every word before submitting, but the draft is 80% there.
+
+**What it won't do:** auto-route the RFI to the right design team, attach the right markups, or know that the architect has been slow on plumbing responses and needs a phone call follow-up. Workflow logic still lives with you.
+
+## 3. Gemini 3.5 Flash — speed matters more than you think
+
+The new Flash variant is roughly 3x faster than the prior generation on the kinds of tasks PMs use AI for: spec extraction, contract clause search, code-section lookup, schedule narrative drafting. [1]
+
+The reason speed matters isn't impatience. It's that **you only use AI when it doesn't slow you down**. The reason most PMs gave up on Copilot or ChatGPT for jobsite questions in 2024–2025 was the wait. If the answer takes 8 seconds, you Slack the architect instead. If the answer takes 700 milliseconds, you actually use it.
+
+Flash is the model that crosses that threshold for the dense reference-lookup work — what does the spec say about concrete cure times in cold weather, what's the AHJ amendment to IBC 2024 Chapter 11, did the submittal log get the right product number.
+
+**What to do:** in the Gemini app, switch to the 3.5 Flash variant for quick reference questions, and reserve full 3.5 for longer reasoning like a change-order narrative or a precon risk read.
+
+## 4. AI Search with generative UI — site lookups in the field
+
+Google Search rebuilt the answer page. Instead of a list of blue links, you get a generated answer with inline images and short explainer videos. [1]
+
+For a PM in the office this is incremental. For a super or PE on a jobsite using their phone, it's a real change. "How do I anchor a top-of-wall expansion joint into a fire-rated assembly" used to return ten manufacturer PDFs you had to scroll through on a 5-inch screen in direct sunlight. Now it returns a generated answer with one or two reference images and a 20-second clip.
+
+**What to do:** brief your field team that Google Search is now meaningfully better for one-handed quick lookups. The accuracy is still imperfect on code-level questions — never use it as the source of truth for a fire-rating or structural decision — but for product installation references and "is this the right detail" sanity checks, it's faster than digging through a binder or calling the trade.
+
+## What to skip
+
+**Smart glasses (Android XR with Gentle Monster + Warby Parker).** Early designs, audio-first, no battery story for an 8-hour shift, no hard-hat compatibility, no ANSI Z87.1 certification. Even if they ship in late 2026, they're a consumer-facing product first. The actual jobsite version — bonded to a hard hat, rated for impact, with a documented battery profile — is at least 18 months out, probably from Trimble or HoloBuilder before Google.
+
+**Gemini Omni (video generation).** Useful for marketing teams. Not useful for production work yet. Maybe interesting for showing schedule narrative animations to a non-construction owner during preconstruction in a year, but not in your top-10 problems today.
+
+**Gemini App's "Neural Expressive" redesign.** Cosmetic. The model is what matters, and the model is the same whether you use the old or new UI.
+
+## The Monday-morning action list
+
+If you do nothing else this week:
+
+1. Enable Daily Brief, set 6:00am delivery, three-day audit.
+2. Switch default to Gemini 3.5 Flash for reference-lookup queries.
+3. Pilot Docs Live on one set of meeting minutes and one RFI response. Measure the time difference.
+4. Tell two field staff that Google Search now generates answers and images directly. They'll start using it without further prompting.
+
+Total time investment to set up: about 20 minutes. Expected first-week time savings if Daily Brief lands cleanly on your inbox: 2–4 hours.
+
+---
+
+## Subscribe to Construction AI Brief
+
+We publish three times a week — a Tuesday news digest, a Thursday deep dive like this one, and a Friday one-chart trend piece. Free, one-click unsubscribe, no slop.
+
+[Subscribe at constructionaibrief.com](https://constructionaibrief.com/#signup)
+
+---
+
+[1] Google I/O 2026 announcements — primary source: [techtimes.com / Major Announcements at Google I/O 2026](https://www.techtimes.com/articles/316872/20260519/all-major-announcements-google-i-o-2026-gemini-ai-search-upgrades-smart-glasses-more.htm).
