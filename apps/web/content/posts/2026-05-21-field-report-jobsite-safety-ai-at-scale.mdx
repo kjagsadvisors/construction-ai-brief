@@ -1,0 +1,97 @@
+---
+title: "Field report: jobsite safety AI at the four biggest contractors, and what a 50-person mech sub should copy"
+date: "2026-05-21"
+excerpt: "Skanska, Turner, Balfour Beatty, and Fyld's customer roster all shipped AI into production safety work in the last twelve months. Each one took a different bet. Here's what landed, what stalled, and the three steps a mid-size mech contractor should pull out of it."
+pillar: "field_report"
+audience: "gc_ops"
+sources:
+  - "https://www.constructiondive.com/news/ai-safety-skanska-turner-balfour-beatty/819491/"
+  - "https://www.constructiondive.com/news/construction-safety-week-2026-ai-jobsite-hazards/819561/"
+  - "https://siliconangle.com/2026/02/17/ai-field-operations-startup-fyld-raises-41m-help-build-large-scale-infrastructure/"
+  - "https://www.constructionowners.com/news/construction-ai-adoption-doubles-in-2026-as-smart-tools-transform-jobsites"
+---
+
+Five of the biggest names in commercial construction and infrastructure shipped jobsite-safety AI into production work in the last twelve months. Three of them — Skanska USA, Turner Construction, Balfour Beatty — talked about it on the record this spring [1]. A fourth — Fyld, the field-ops AI platform — disclosed customer-side incident numbers when it closed a $41M Series B in February [3]. None of these rollouts came with a single bow on top. Each one was a different bet, a different early failure, and a different surprise about what actually moves a safety number.
+
+Here's the field-report read for any contractor sitting on a "should we even try this" conversation.
+
+## The starting state
+
+At the largest scale, the safety problem is volume. Megaproject GCs run thousands to tens of thousands of craft workers across dozens of active jobsites. The EHS team can't be everywhere. Pre-task hazard analyses get rubber-stamped. Confined-space permits get filed wrong. PPE compliance drifts in low-supervision areas — back-of-house, lift bay, off-shift. The data is there — incident logs, near-miss reports, OSHA standards, the company's own EHS manual — but it lives in PDFs nobody opens at 6:30am before a pre-shift.
+
+Fyld put a number on the upstream problem in its February disclosure: current customers include "some of the most complex infrastructure organizations, managing 30,000 to 40,000 field workers" [3]. At that scale, even a 5% lift in near-miss reporting beats a new safety officer hire.
+
+For a 50-person mechanical sub the volume is smaller but the structure is the same: one EHS lead trying to be in three places, supers running pre-shifts on memory, and an incident-reporting habit that lags 24–72 hours behind the event.
+
+## What they tried first
+
+Almost every contractor we read on the record started with a vendor demo and a pilot. Most of those pilots underperformed for the same reason: the AI tool didn't know the company's own safety standards.
+
+Skanska, per Brian Karas, the company's National EHS Director, went a different direction. Instead of buying an off-the-shelf safety camera or a vendor's "predictive incident" platform, Skanska built **Safety Sidekick** — a generative AI tool trained on the company's own EHS Manual plus OSHA standards and supplemental safety documentation [1]. Karas's framing on the Construction Dive record: the tool "gives us a leg up in terms of learning from this wealth of information" — and the EHS team vets every output to block hallucinations.
+
+Turner Construction took a similar path with **SafeT Coach**. It started inside an OpenAI ChatGPT environment with Turner's internal EHS database loaded in, then began migrating to Google Gemini [1]. Same principle: don't trust a model that hasn't read your own playbook.
+
+Balfour Beatty bet on hardware. On highway and roadside jobsites — where the dominant failure mode is a worker getting too close to heavy equipment — Balfour deployed **Cat Detect**, Caterpillar's intelligent-camera system, with scaling alarms that differentiate people from objects [1]. Jason Sikora, the Construction Manager on those sites, made a point of saying the system "augments" the human and that "a human brain was the best computer in the world" — i.e., the camera doesn't replace the spotter, it backstops one.
+
+## What actually moved the needle
+
+Four patterns emerged across the four deployments:
+
+1. **Generative tools work when they're trained on the contractor's own EHS docs**, not the vendor's general model. Skanska's Safety Sidekick and Turner's SafeT Coach both run on a foundation model (OpenAI or Gemini) but pull answers from internal documentation. That's the difference between a model that quotes a generic OSHA citation and a model that knows your company's permit-required confined-space procedure.
+2. **Decision support beats decision automation.** Turner's superintendents use SafeT Coach to ask plain-language questions — "is this vertical shaft a permit-required confined space?" — and the tool generates a decision flow chart, a permit checklist, and the relevant policy citations [1]. The superintendent still makes the call. The tool just gets them from 15 minutes of PDF hunting to 90 seconds of structured prep.
+3. **Edge computing matters in low-signal environments.** Fyld's pitch — and the reason infrastructure-heavy customers like Kiewit Corp., Quanta Services, Emery Sapp & Sons, Sulzer, and Ferrovial signed on — is that the AI engine runs on the device, not in a data center. A worker shoots a 20-second clip of a work area on a phone; the model flags hazards locally; the report syncs when signal returns [3]. On a roadside or pipeline jobsite, that's the difference between a usable tool and a paperweight.
+4. **Volume of interactions is the leading indicator.** Turner logged "tens of thousands" of SafeT Coach interactions across its jobsites [2], with more than 25,000 logged by the time the SafeT Coach piece ran in May [1]. That number — not "near-misses prevented" — is the early signal that adoption is real. If your tool launches and the interaction count flatlines after week two, the rollout failed regardless of what the dashboards say.
+
+## The numbers
+
+What's actually publicly verifiable as of May 2026:
+
+- **Fyld customers have reported reductions in serious workplace injuries of up to 48%** since deploying the platform [3]. The figure is cumulative and company-wide rather than a single contractor's quarterly delta, but the source is Fyld's own Series B disclosure, which gets scrutinized by the lead investor.
+- **Turner SafeT Coach: 25,000+ logged interactions** since pilot launch [1].
+- **Industry-wide context:** the Construction Owners Association of America reported that 38% of contractors saw measurable business impact from AI in 2026, up from 17% in 2025 [4]. Safety AI is one of the segments driving the largest share of that jump, because the ROI is tied to a hard baseline number — recordable rate, lost-time rate, EMR.
+
+None of the named contractors has published a hard incident-rate delta yet. Expect those to surface at the next round of ENR Safety summits and on Q4 earnings calls. We'll track and update.
+
+## What they'd do differently
+
+Pieced from on-the-record commentary and adjacent reporting:
+
+- **Pick the use case before the vendor.** Several contractors in the Safety Week coverage admitted evaluating five or six platforms before realizing they didn't know which workflow they were trying to fix. Permit-required confined space, PPE compliance, pre-task hazard analysis, and near-miss reporting each point to a different category of tool [2].
+- **Don't replace the spotter.** Balfour Beatty's framing on Cat Detect is the right one: the AI camera makes the human spotter better, not redundant [1]. Contractors who staged the AI as a replacement faced predictable pushback from field leadership, and most of those rollouts stalled at the first incident.
+- **Build the EHS doc set first.** Skanska and Turner both run their AI tools on top of a maintained, structured EHS document library [1]. Contractors without that prerequisite tried to drop a generative AI assistant onto an unindexed Google Drive of inspection forms and got back answers that were correct in general but wrong for the company.
+- **Audit the model output on a schedule.** Skanska's EHS team vets Safety Sidekick outputs to prevent hallucinations [1]. That's not a one-time gate. The contractors who treated AI safety tools as set-and-forget had to walk back at least one wrong call within the first six months.
+
+## The 50-person mech read
+
+A mid-size mechanical sub doesn't need to build a Safety Sidekick. The read is three steps.
+
+1. Pick the single safety workflow that costs the most EHS time today — usually pre-task hazard analysis or confined-space permitting in mechanical rooms.
+2. Take your existing EHS manual, the relevant OSHA standards, and your last 12 months of incident reports. Put them into a Claude or Gemini project with the safety standards loaded as context. Test the assistant against three real recent decisions. If it gets the policy-citation question right two times out of three, you have something to pilot.
+3. Don't buy a camera system until you've run the document-driven assistant for a quarter. The hardware tools (Cat Detect, edge-AI cameras) have higher ROI on equipment-dense jobsites — concrete pours, highway, large mech rooms with overhead cranes — but lower ROI on a typical commercial fit-out.
+
+The pattern across all four named programs is the same one we wrote about for [submittal automation](https://constructionaibrief.com/p/2026-05-14-tool-teardown-document-crunch) two weeks back: AI works when it's grounded in the company's own document set and the human is still the one making the call. The contractors who flipped that ratio — letting the tool decide and the human review — lost trust in the field inside a month.
+
+## What still requires human judgment
+
+- Whether to pause production after a near-miss the AI flagged as low-severity.
+- Whether to overrule the camera when the spotter sees something the model missed.
+- Which incidents to bring to the owner versus handle in-house — that's a relationship call, not a model call.
+- Which platform to sunset when two safety tools start fighting each other (a real failure mode reported in the Safety Week coverage [2]).
+
+---
+
+## Tell us what's working in your shop
+
+Have a story of AI shipping — or failing — inside your shop? Hit reply. Anonymized is always available; we never name a contractor without permission. The next field report will pull from your inbox.
+
+*Construction AI Brief publishes a new field report every third Thursday — owners, supers, estimators, subs, all reporting what actually changed on the jobsite. [Subscribe at constructionaibrief.com.](https://constructionaibrief.com/?utm_source=cab&utm_medium=newsletter&utm_campaign=field_report_cta)*
+
+---
+
+[1] Construction Dive — *How 3 builders are using AI for safety*: [constructiondive.com/news/ai-safety-skanska-turner-balfour-beatty](https://www.constructiondive.com/news/ai-safety-skanska-turner-balfour-beatty/819491/).
+
+[2] Construction Dive — *AI, new partnerships and safety tips: Takeaways from Construction Safety Week 2026*: [constructiondive.com/news/construction-safety-week-2026-ai-jobsite-hazards](https://www.constructiondive.com/news/construction-safety-week-2026-ai-jobsite-hazards/819561/).
+
+[3] SiliconANGLE — *AI field operations startup FYLD raises $41M*: [siliconangle.com/2026/02/17/ai-field-operations-startup-fyld-raises-41m](https://siliconangle.com/2026/02/17/ai-field-operations-startup-fyld-raises-41m-help-build-large-scale-infrastructure/).
+
+[4] Construction Owners Association of America — *Construction AI Adoption Doubles in 2026*: [constructionowners.com/news/construction-ai-adoption-doubles-in-2026](https://www.constructionowners.com/news/construction-ai-adoption-doubles-in-2026-as-smart-tools-transform-jobsites).
