@@ -18,7 +18,7 @@ The Beehiiv MCP can **create** the post but cannot send it to subscribers ("Prom
 
 ## Steps
 
-1. **Research** (WebSearch, then WebFetch to verify): gather the most important developments since the last issue (~2–3 days) across AI in construction, construction robotics, and construction technology generally. Cast wide, then keep the strongest.
+1. **Research** (WebSearch, then WebFetch to verify): gather the most important developments since the last issue (~2–3 days). **Construction is the lens, not the search filter** — construction-only news is a thin pond, so scan the WHOLE AI/tech landscape (frontier model & product launches, major AI features, funding/M&A, research/benchmarks, AI in adjacent physical industries like manufacturing/logistics/energy, robotics/autonomy, AI policy/security) AND the construction-tech world specifically (Procore/Autodesk/Trimble/etc., construction robotics, jobsite AI). For each big general-AI item, the job is to draw a **genuine, specific construction implication** — what a GC, trade sub, estimator, or PM would actually do differently. Cast wide, then keep the strongest. A forced construction tie-in is worse than leaving an item out.
 2. **Cross-link.** Read `apps/web/content/posts/` for articles published since the last issue (filenames are date-prefixed). Link relevant ones at `https://constructionaibrief.com/posts/{slug-without-.mdx}`.
 3. **Select** 4–7 of the strongest items. Each must have a real, verified source URL (confirm via WebFetch — no invented links, numbers, or quotes).
 4. **Voice.** Read `packages/voice/brand-voice.md` and `packages/voice/banned-phrases.json`. Write in that voice — plain, specific, useful to a working contractor. NEVER use any phrase from `banned-phrases.json`. No hype.
