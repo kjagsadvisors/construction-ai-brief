@@ -54,7 +54,13 @@ The repository is the current working directory. Articles are MDX in `apps/web/c
     ---
     ```
 11. **Critic pass.** If it reads like a generic AI-news rewrite, the construction angle is forced/thin, it hypes, uses a banned phrase, or any claim lacks a source — fix it or abort.
-12. **Publish.** Append to `data/published.jsonl`: `{"slug":"<slug>","channel":"web","title":"<title>","sources":[...],"published_at":"<ISO8601>"}`. Then `git add apps/web/content/posts data/published.jsonl && git commit -m "post: <title>" && git push`. If push fails, leave the commit and stop.
+12. **Publish.** Append to `data/published.jsonl`: `{"slug":"<slug>","channel":"web","title":"<title>","sources":[...],"published_at":"<ISO8601>"}`. Then commit and push **directly to `main`** (the session runs on a `claude/*` working branch, so a bare `git push` would NOT update main and the site would not deploy):
+    ```
+    git add apps/web/content/posts data/published.jsonl
+    git commit -m "post: <title>"
+    git push origin HEAD:main
+    ```
+    If the push is rejected (someone else pushed), run `git pull --rebase origin main` and retry the push once. Vercel deploys from `main`.
 
 ## Hard constraints
 
