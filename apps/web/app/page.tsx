@@ -114,8 +114,8 @@ export default function HomePage() {
           <div className="border-2 border-dashed border-ink/30 bg-paperLite p-10 md:p-14">
             <div className="flag flag-accent mb-4">Drafting</div>
             <p className="font-display text-2xl text-ink max-w-prose">
-              The first issue ships the moment the autopilot pipeline is wired
-              up — Phase 3 of the build. Subscribe above to be in for issue №001.
+              The first issue ships shortly. Subscribe above to be in for
+              issue №001.
             </p>
           </div>
         ) : (
@@ -163,7 +163,7 @@ export default function HomePage() {
               are. No "revolutionary," no fluff — just the week's biggest AI
               moves and what they mean for a 50-person mechanical contractor.
             </p>
-            <p className="mt-5 meta text-graphite">— Keeran Jagadesan, editor</p>
+            <p className="mt-5 meta text-graphite">— The editors</p>
           </div>
         </div>
       </section>

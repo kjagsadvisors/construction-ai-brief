@@ -1,5 +1,5 @@
 // TitleBlock — the CAD-style title block in the page footer. Lists project
-// metadata in a 4-column grid: drawn-by, dated, sheet, revision.
+// metadata in a 4-column grid: project, dated, sheet, revision.
 
 export function TitleBlock({
   sheet = "1 / 1",
@@ -11,9 +11,8 @@ export function TitleBlock({
   return (
     <div className="border-t-2 border-ink mt-24">
       <div className="max-w-sheet mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-2 md:grid-cols-5 divide-x divide-ink/30 border-x border-ink/30">
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-ink/30 border-x border-ink/30">
           <Cell label="Project" value="Construction AI Brief" wide />
-          <Cell label="Drawn by" value="K. Jagadesan" />
           <Cell label="Dated" value={new Date().toISOString().slice(0, 10).replace(/-/g, ".")} />
           <Cell label="Sheet" value={sheet} />
           <Cell label="Rev" value={revision} />

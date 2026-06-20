@@ -1,7 +1,7 @@
 export const metadata = {
   title: "About",
   description:
-    "Construction AI Brief is an editorial property covering AI in commercial construction. Published 3× weekly by kjags advisors.",
+    "Construction AI Brief is an editorial property covering AI in commercial construction. Three issues a week.",
 };
 
 export default function AboutPage() {
@@ -46,18 +46,6 @@ export default function AboutPage() {
           </li>
         </ul>
 
-        <h2>Who publishes this</h2>
-        <p>
-          Construction AI Brief is published by{" "}
-          <a href="https://kjagsadvisors.com">kjags advisors</a> — a
-          consultancy that builds AI tools and trains teams for commercial
-          construction companies. Products we build include AI submittal
-          employees (mechanical + electrical), AI compliance employees
-          (certified payroll), <a href="https://jobhost.ai">jobhost.ai</a>{" "}
-          (construction management), and{" "}
-          <a href="https://bidverify.ai">bidverify.ai</a> (bid leveling).
-        </p>
-
         <h2>Editorial disclosure</h2>
         <p>
           We do not write vendor PR. We disclose any client relationship when
@@ -65,21 +53,11 @@ export default function AboutPage() {
           of tools we ourselves resell or implement. Every stat in every issue
           traces to a public, cited source. If you spot something that looks
           off,{" "}
-          <a href="mailto:keeranj@kjagsadvisors.com">
+          <a href="mailto:editor@constructionaibrief.com">
             email the editor
           </a>{" "}
           and we'll either correct it on the public record or explain why we
           stand by it.
-        </p>
-
-        <h2>How the autopilot works</h2>
-        <p>
-          The site you're reading runs almost entirely on autopilot — news is
-          ingested daily, drafts are written and critique-checked against a
-          public brand voice spec, and approved pieces ship to the site +
-          newsletter + socials on a fixed schedule. A human editor reviews
-          weekly. If anything looks broken or off-tone, the pipeline pauses
-          itself and waits.
         </p>
 
         <h2>Corrections policy</h2>
