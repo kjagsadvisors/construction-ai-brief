@@ -1,43 +1,33 @@
-# Construction AI Brief — autopilot (two cloud routines)
+# Construction AI Brief — autopilot
 
-Two cloud routines on claude.ai, both pointed at this repo. Logic lives in repo skills (auto-loaded in cloud runs because they're part of the clone):
+Two cloud routines (claude.ai, pointed at this repo) + one local send routine. Logic lives in repo skills (auto-loaded in cloud runs as part of the clone):
 
 - `.claude/skills/cab-hourly-article/SKILL.md`
 - `.claude/skills/cab-newsletter/SKILL.md`
 
-## CRITICAL: one-time environment setup (or nothing works in cloud)
+**Editorial model:** construction is the **lens, not the search filter** — both skills scan the whole AI/tech news landscape and draw a genuine, specific construction angle. A forced tie-in is skipped.
 
-A cloud routine runs in a fresh VM with the repo cloned, but with **no internet and restricted git** by default. Configure the environment used by these routines (claude.ai → Code → the routine's environment, or claude.ai/customize/connectors):
+## Pipeline
 
-1. **Network access → Full** (or Custom with a news/AI-domain allowlist). Default ("Trusted") blocks WebFetch with `403 host_not_allowed`, so live research returns nothing. The hourly article routine **requires** this.
-2. **Allow unrestricted branch pushes** (per repo, in routine settings). Default only permits `claude/*` branches; our skills push to `main` so Vercel deploys. Without this, the push fails.
-3. **Attach the Beehiiv connector** to the newsletter routine (MCP traffic is proxied — no allowlist needed). OAuth tokens can expire in unattended runs (known limitation), so re-auth if the draft step starts failing.
-
-## The two routines
-
-| Routine | Schedule | Skill | Output |
+| Routine | Where | Schedule | What it does |
 |---|---|---|---|
-| **Hourly article** | hourly (preset) | `cab-hourly-article` | If something genuinely newsworthy + construction-relevant broke this hour, writes ONE article → `apps/web/content/posts/` → push `main` → Vercel. Max 3/day. No-ops most hours. |
-| **Newsletter** | Mon/Wed/Fri ~6:10 am ET | `cab-newsletter` | A **send-ready draft** in Beehiiv (`pub_6fb77ef1-3b8b-4f1e-a6f8-ab00c2d557df`). Final send is one click in Beehiiv. |
+| **Hourly article** (`trig_01TJe6NiLbbCX7xuSMJBSv5X`) | cloud | `0 * * * *` | If a significant AI story has a real construction angle, writes ONE MDX article and pushes to `main` → Vercel deploys. Max 3/day; no-ops most hours. |
+| **Newsletter** (`trig_01FNyeRuboVkAoDmWszpeaWm`) | cloud | `0 6 * * 1,3,5` (UTC = 2am ET) | Writes a paste-ready issue file to `data/newsletter-drafts/{date}-newsletter.md` on `main`. Does NOT publish to Beehiiv. |
+| **`cab-newsletter-publish`** | local | Mon/Wed/Fri hourly 8am–7pm ET | Reads today's newsletter file, creates the post in Beehiiv via the logged-in browser, and sends it. Idempotent + date-locked. |
 
-### Routine prompts (paste into the routine)
+## Why the newsletter is split (cloud drafts file, local sends)
 
-Hourly:
-```
-Read .claude/skills/cab-hourly-article/SKILL.md in this repo and execute its instructions exactly. Run silently; do not message anyone.
-```
-Newsletter:
-```
-Read .claude/skills/cab-newsletter/SKILL.md in this repo and execute its instructions exactly.
-```
+Beehiiv's current plan blocks MCP/API post creation (`save_post` → "not available on your current plan"); read tools work. So the cloud routine can't create the post. The cloud routine writes the issue as a repo file; the local routine (when the Mac is on and you're logged into Beehiiv) creates the post in the browser and sends it.
 
-### Schedule
+## Cloud environment requirements (already set)
 
-- Hourly: use the **hourly** preset.
-- Newsletter: Mon/Wed/Fri is not a preset. Create with the **weekly** preset, then `/schedule update` to cron `0 6 * * 1,3,5` — verify the displayed next-run is a Mon/Wed/Fri ET morning (adjust to `0 10 * * 1,3,5` if the field is UTC).
+- **Network access = Full** (live web research; default "Trusted" blocks WebFetch with 403).
+- **Allow unrestricted branch pushes** (skills push directly to `main` via `git push origin HEAD:main`; a bare `git push` would land on the session's `claude/*` branch and never deploy).
+- Beehiiv connector attached (read-only use given the plan limit).
 
-## Caveats
+## Open items
 
-- **Daily run cap:** hourly = 24 starts/day, which may strain the per-account routine cap (claude.ai/settings/usage). If so, drop to every-2-hours. Each run consumes rate limits even when it no-ops.
-- **Stateless:** the repo is the only memory. Dedup uses `data/published.jsonl` + existing post filenames.
-- The routines do **not** check `data/PAUSED.flag`. To pause, disable them in the routines UI.
+- **Daily run cap:** hourly = 24 starts/day; check claude.ai/settings/usage. Drop to every-2h if it strains the cap.
+- **Newsletter draft time:** `0 6` is UTC (2am ET). Change cron to `0 10 * * 1,3,5` for a 6am ET draft.
+- **Browser send is untested end-to-end** — needs one supervised run (logged into Beehiiv) to harden the create+paste+send flow.
+- Routines do **not** check `data/PAUSED.flag`; pause via the routines UI / Scheduled sidebar.
