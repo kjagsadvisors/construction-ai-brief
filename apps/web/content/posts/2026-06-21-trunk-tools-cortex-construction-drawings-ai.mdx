@@ -1,0 +1,53 @@
+---
+title: "Trunk Tools' Cortex makes construction drawings readable by AI — what the agents do and where the call is still yours"
+date: "2026-06-21"
+excerpt: "Trunk Tools launched Cortex on June 17, a drawing-reading AI layer with agents for submittals, RFIs, bid leveling, and drawing reviews. Specific claims: a 20-sheet change bulletin reviewed in under five minutes; submittal cycle time down 74%."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.globenewswire.com/news-release/2026/06/17/3313698/0/en/trunk-tools-launches-cortex-to-tackle-construction-s-hardest-ai-problem-drawings.html"
+  - "https://www.enr.com/articles/63178-trunk-tools-launches-cortex-ai-platform-to-interpret-construction-drawings"
+  - "https://www.enr.com/articles/61789-trunk-tools-removed-from-procore-api-access-groundbreak-attendance-refunded"
+---
+
+A project engineer reviewing a change bulletin spends two to four hours comparing revised sheets against the prior set, writing change narratives, and flagging what the architect clouded — plus what she didn't. On a complex commercial job, those bulletins arrive every four to six weeks.
+
+Trunk Tools says its new Cortex platform processes a 20-sheet bulletin with written change narratives in under five minutes, including changes the architect didn't cloud.
+
+That's the headline claim from the June 17 launch. Below is what each piece of the platform actually does — and where a person still needs to be in the room.
+
+## Why drawings were the hard problem
+
+Most AI tools embedded in construction management platforms — including the agent suite Procore just released — process text-based documents reasonably well. Specs, contracts, RFIs in Word format: manageable. Construction drawings are different. They're visual and spatial, structured around conventions that general-purpose vision models weren't built for. For most of the last three years, "AI for construction" effectively meant AI for everything except the drawing set — which holds a significant share of the project's actual information.
+
+Trunk Tools says it spent four years training bespoke models on 2D construction drawings, working alongside large GCs on live projects, before launching Cortex. That's the technical claim worth scrutinizing; the numbers below either bear it out or they don't.
+
+## What each agent does
+
+**TrunkReview** handles drawing bulletin review. A revised issue comes in; Cortex compares it against the prior set, identifies changes, and generates written narratives. It flags changes the architect marked up and those she didn't. Per the launch announcement, a 20-sheet bulletin takes under five minutes. What it can't do: assess whether a change creates a scope gap, a cost event, or a schedule impact. That interpretation stays with the PE or PM.
+
+**TrunkSubmittal** manages submittal review. Before each review, it automatically pulls the relevant spec sections and any related RFI responses and attaches them — even when they aren't tagged in the source system. Trunk Tools reports that the median user over the past 12 months saw submittal cycle time drop 74%, and submittals open more than 60 days fell from 42% of the log to 2%. What it can't do: make a compliance call when the spec section is ambiguous. The responsible engineer still closes the loop.
+
+**TrunkRFI** addresses the RFI log. It identifies questions that drawings or specs already answer — reducing unnecessary RFIs — and drafts RFIs that genuinely need to go out, with relevant context pulled from the document set. What it can't do: judge whether a vague spec section is worth the friction of a formal RFI or better handled as a field interpretation. That's a project management call.
+
+**TrunkBid** handles buyout. It reads every subcontractor bid against your scope, maps each line item to your requirements, and surfaces gaps, exclusions, and silences — places where subs simply didn't address a scope item. What it can't do: determine whether a gap is intentional, an oversight, or a genuine scope ambiguity. Pricing that gap requires estimating judgment.
+
+**TrunkRegister** builds the submittal register. It reads the full spec book, categorizes every requirement as Action, Informational, or Closeout, and writes the register back to the project management system. Trunk Tools puts the manual version of this task at 30-plus hours per project in preconstruction. What it can't do: catch a spec error or identify an owner requirement that didn't make it into the spec.
+
+## The platform question
+
+Cortex integrates directly with Autodesk Forma, Procore, Box, SharePoint, Egnyte, and Dropbox — reading across drawings, specs, RFIs, schedules, submittals, contracts, change orders, and bids. TrunkSubmittal is already embedded inside Procore as a workflow step.
+
+Context worth having: Trunk Tools lost Procore API access in fall 2025, when Procore updated its terms to restrict bulk data exports for AI training. Cortex is, in part, the response — a direct integration layer that works across platforms rather than through a single vendor's API. [We covered Procore's own five-agent release and the data terms question it raises earlier this week.](/posts/2026-06-21-procore-ai-agents-what-they-do) The two products aren't mutually exclusive; a GC running Procore could use both.
+
+## What to do with this
+
+The claims are specific enough to test. Request a Cortex demo and ask Trunk Tools for performance data from a project type similar to yours — commercial office, healthcare, multifamily, data center. The 74% submittal cycle reduction and the 20-sheet-in-five-minutes drawing review are the numbers to verify. If they hold on your work, the case for piloting is straightforward. If they don't hold, you've saved yourself a contract.
+
+The drawing-reading capability is new in a way that matters. Tools that can reason across a drawing set — not just search text documents — represent a different class of automation than what construction tech has offered before. The next question is whether the accuracy is production-grade on your specific document types, not just the vendors' own test sets.
+
+---
+
+Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com.](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta)
+
+*Construction AI Brief covers AI in commercial construction three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
