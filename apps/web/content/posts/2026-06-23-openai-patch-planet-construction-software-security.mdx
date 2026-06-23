@@ -1,0 +1,72 @@
+---
+title: "Construction was the third-most-targeted sector in ransomware last year. OpenAI just started patching the open-source foundations your project software depends on."
+date: "2026-06-23"
+excerpt: "Ransomware groups logged 418 confirmed construction victims in 2025 — third-highest across all industries. OpenAI's Patch the Planet initiative, launched June 22, uses AI to find and fix vulnerabilities in Python, Go, cURL, and other open-source components that construction management platforms are built on."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://openai.com/index/patch-the-planet/"
+  - "https://blog.trailofbits.com/2026/06/22/introducing-patch-the-planet/"
+  - "https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber/"
+  - "https://openai.com/index/daybreak-securing-the-world/"
+  - "https://www.breachsense.com/ransomware-reports/annual-report-2025/"
+  - "https://reliaquest.com/blog/report-shows-ransomware-has-grown-41-for-construction-industry/"
+---
+
+In 2025, ransomware groups logged 418 confirmed construction industry victims — more than finance, more than real estate, behind only healthcare and manufacturing [1]. Over the same period, the construction sector saw a 41% year-over-year increase in organizations appearing on ransomware data-leak sites [2].
+
+This isn't an abstract IT statistic. When ransomware lands on a GC, it shuts down Procore, freezes the submittal log, and kills access to the RFI queue. The downstream effects — subcontractor disputes, delayed milestone payments, owner notices of delay — tend to outlast the actual outage.
+
+On June 22, OpenAI expanded a cybersecurity initiative called Daybreak in a way that directly addresses a specific layer of this risk: the open-source code that construction management software is built on.
+
+## What your project software actually runs on
+
+Procore, Autodesk Build, Sage, Foundation, Viewpoint — these platforms aren't written from scratch. They're built on layers of open-source components: Python for backend logic, Go for networking and service infrastructure, cURL for data fetching, pyca/cryptography for handling login tokens and SSL connections, aiohttp for async web communication, and nginx (and its fork, freenginx) for serving web requests.
+
+A vulnerability in any of those layers can cascade into the application on top of it. This is what's meant by a software supply chain attack: you trust the application you're running, but you've never reviewed its dependencies, and one of those dependencies becomes the entry point.
+
+## What OpenAI launched June 22
+
+OpenAI's Patch the Planet initiative uses AI to find and fix vulnerabilities in widely used open-source software before attackers reach them first. The work is done in partnership with Trail of Bits, a security research firm whose engineers manually review every AI-generated finding before submitting it to a project maintainer — a design choice meant to avoid overwhelming already-burdened open-source volunteers with noisy automated reports [3].
+
+In its first deployment, the initiative found hundreds of bugs across the covered projects, resulting in 64 pull requests and 51 issues filed across 19 projects [3]. Initial participants include Python, Go, cURL, Sigstore, pyca/cryptography, aiohttp, NATS Server, freenginx, and python.org — with more than 30 open-source projects now committed [4].
+
+That list is not abstract for construction software users. pyca/cryptography handles encryption in Python web applications, including the token handling that keeps your Procore session secure. aiohttp powers async HTTP requests in many cloud services. freenginx is inside the web server infrastructure that construction platforms run on. Getting these patched before a CVE drops publicly means your vendor's next security update cycle has fewer critical exposures to race against.
+
+Alongside Patch the Planet, OpenAI also released an updated GPT-5.5-Cyber — a specialized security model that scored 85.6% on CyberGym versus 81.8% for the standard GPT-5.5 [5] — and a Codex Security plugin that embeds vulnerability scanning directly into AI coding workflows. For construction-tech developers building custom tools on top of Codex (estimating scripts, RFI drafters, schedule analyzers), this means security scanning is now in the same environment where the code is being written.
+
+## What this doesn't fix
+
+The construction ransomware problem is mostly a people problem before it's a code problem. The 418 victims in 2025 were not predominantly compromised through unpatched open-source libraries — they got in through phishing, credential reuse, weak remote-access configurations, and social engineering. Patch the Planet doesn't address those vectors.
+
+The initiative also doesn't cover the application layer your vendor built on top of these components. Procore's internal code, Autodesk's API handling, Sage's payroll module — those are out of scope. And GPT-5.5-Cyber is not available to your IT department; access is gated through OpenAI's Trusted Access for Cyber program, designed for vetted security organizations, not general enterprise use.
+
+None of this replaces multi-factor authentication on your project management accounts, strict Procore permission reviews, and a credential hygiene policy. Those remain the practical defenses that would have stopped most of last year's 418 attacks.
+
+## The question this raises
+
+What changes in the near term isn't which tools you have access to — it's the speed at which upstream software dependencies are being audited and patched. That has downstream effects on the platforms your teams use every day.
+
+A reasonable question for your Procore, Autodesk, or Sage account rep the next time they're on a call: "When a critical CVE drops in Python or Go, how quickly does your engineering team track and apply the upstream patch?" You're not looking for a guarantee. You're checking whether they have a process. The answer tells you something about the maturity of their security posture.
+
+If your firm has internal developers building custom tools with AI coding agents, point them to the Codex Security plugin. Automated vulnerability scanning in the development workflow is no longer a third-party add-on — it's now built into the tooling they're already using.
+
+This is part of the same vendor-dependency question [we covered when Anthropic's Fable 5 export ban forced a rapid software audit](https://constructionaibrief.com/posts/2026-06-20-anthropic-model-shutdown-vendor-risk-construction). The software your projects run on has dependencies, and those dependencies have owners.
+
+---
+
+*Forward this to whoever manages the software stack across your projects. If the question "when did we last review our project management vendor's security practices" doesn't have a clear answer, that's the starting point.*
+
+*Construction AI Brief publishes new analysis three times a week. [Subscribe at constructionaibrief.com.](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta)*
+
+---
+
+[1] Breachsense — Ransomware in 2025: 7,307 Victims Across 138 Groups: [breachsense.com/ransomware-reports/annual-report-2025/](https://www.breachsense.com/ransomware-reports/annual-report-2025/).
+
+[2] ReliaQuest — Report Shows Ransomware Has Grown 41% for Construction Industry: [reliaquest.com](https://reliaquest.com/blog/report-shows-ransomware-has-grown-41-for-construction-industry/).
+
+[3] Trail of Bits — Introducing Patch the Planet (June 22, 2026): [blog.trailofbits.com/2026/06/22](https://blog.trailofbits.com/2026/06/22/introducing-patch-the-planet/).
+
+[4] OpenAI — Patch the Planet: [openai.com/index/patch-the-planet/](https://openai.com/index/patch-the-planet/).
+
+[5] OpenAI — Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber: [openai.com/index/gpt-5-5-with-trusted-access-for-cyber/](https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber/).
