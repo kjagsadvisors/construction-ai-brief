@@ -1,0 +1,55 @@
+---
+title: "Before a robot can work on your jobsite, it needs a safety case. NVIDIA just built the infrastructure for one."
+date: "2026-06-24"
+excerpt: "NVIDIA's Halos for Robotics is the industry's first accredited safety certification framework for physical AI. It was built for warehouses. Understanding how its certifications work — and where they fall short for construction — is what a safety director needs before signing any robot pilot agreement."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.globenewswire.com/news-release/2026/06/22/3315323/0/en/NVIDIA-Announces-Halos-for-Robotics-the-Industry-s-First-Full-Stack-Safety-System-for-Physical-AI.html"
+  - "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Halos-for-Robotics-the-Industrys-First-Full-Stack-Safety-System-for-Physical-AI/default.aspx"
+  - "https://www.hpcwire.com/aiwire/2026/06/23/nvidia-announces-halos-for-robotics-the-industrys-first-full-stack-safety-system-for-physical-ai/"
+---
+
+Two days ago we covered [humanoid robots hitting production scale at Automate 2026](/posts/2026-06-22-humanoid-robots-production-scale-construction-labor) in Chicago. The open question at the end of that piece: when does the safety case for unstructured construction environments get built? On Monday, NVIDIA announced the infrastructure to start building it.
+
+Halos for Robotics is NVIDIA's entry into robot safety certification — the industry's first accredited inspection framework for physical AI systems working alongside humans. It's not a robot. It's the audit trail and hardware stack that robot manufacturers use to prove their machine won't injure a worker. Think of it as the UL listing process for autonomous systems operating on active worksites.
+
+## What Halos actually is
+
+The system combines four components: NVIDIA IGX Thor (an industrial-grade compute unit with built-in hardware safety mechanisms), Halos Core (software layer for safety-related operating functions), Halos OS, and an AI Systems Inspection Lab accredited by the ANSI National Accreditation Board — the first such program for physical AI. NVIDIA says it drew on more than 18,600 engineering years of safety development from its autonomous vehicle program to build the framework.
+
+The inspection lab has been recognized by TÜV Rheinland, TÜV SÜD, UL Solutions, exida, SGS, and CertX — the same certifying bodies that approve industrial machinery already used on construction projects.
+
+The target certifications: IEC 61508 (functional safety for electronic safety systems), ISO 13849 (safety of machinery), and ISO/IEC TR 5469 (AI safety). NVIDIA also released an "Outside-In Safety Blueprint" as an open-source project — a framework that lets robots connect to external cameras to detect workers around corners and inside trailers, adjusting speed dynamically based on what the external cameras see rather than relying solely on onboard sensors.
+
+The first integrator is Agility Robotics, whose Digit humanoid is operating commercially at Amazon, GXO, Schaeffler, and Toyota Motor Manufacturing Canada. Agility is embedding IGX Thor and Halos Core into Digit's worker-detection system and will pursue third-party certification through the inspection lab.
+
+## Why construction is watching, not there yet
+
+If you're a safety director or superintendent asked to sign off on a robot trial, your core question is: how do I know this machine won't hurt one of my workers?
+
+Until now, the honest answer was: you don't. There was no independent, standardized framework for evaluating a robot manufacturer's safety claims. Every vendor had internal testing. Some of it was rigorous; some of it was marketing.
+
+Halos creates the infrastructure for a verifiable answer. A manufacturer that has gone through the Halos inspection lab and pursued IEC 61508 or ISO 13849 certification has submitted its safety case to third parties — TÜV SÜD, UL Solutions, CertX — the same organizations that already certify industrial equipment on your projects. That's a materially different conversation than a vendor demo in a controlled showroom.
+
+But the current certifications target controlled industrial environments: predictable paths, stable surfaces, known traffic patterns. Warehouses and automotive assembly lines. Construction sites are the opposite. Terrain changes week to week. Temporary stairs appear and disappear as floors close out. Multiple trades move unpredictably in PPE that can confuse vision systems. There is no permanent operations center monitoring the equipment.
+
+The Outside-In Safety Blueprint — using external cameras to extend what a robot can see — is worth noting for construction specifically, where site camera infrastructure is already deployed on larger projects through platforms like OpenSpace, Buildots, and Multivista. Whether that existing camera network can serve as a safety input for autonomous equipment on a live jobsite is an open question. The blueprint is open source; the construction-specific implementation hasn't been built yet.
+
+OSHA 1926 construction safety requirements also create compliance questions that IEC 61508 and ISO 13849 alone don't address. A vendor certifying to warehouse-designed standards isn't automatically cleared for a construction environment. That work remains to be done.
+
+## Three questions for your next vendor conversation
+
+When any robot vendor asks you to sign a pilot agreement, add these to your evaluation:
+
+1. **Certification path**: Are you pursuing IEC 61508 or ISO 13849, and through which third-party certifier?
+2. **Inspection record**: Has your safety software been evaluated by the NVIDIA Halos inspection lab or a comparable ANAB-accredited body?
+3. **Construction data**: What real-world safety data do you have from active construction deployments — not warehouse deployments — documenting performance in unstructured environments?
+
+The vendors who can answer those questions with specifics are building serious safety cases. The ones who can't are asking you to hold the liability.
+
+---
+
+*Forward this to your safety director before the next vendor demo.*
+
+*Construction AI Brief covers what matters in construction AI, three issues a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
