@@ -1,0 +1,55 @@
+---
+title: "Six national intelligence agencies say AI-enabled attacks on critical infrastructure are months away. GCs' most exposed window is during commissioning."
+date: "2026-06-24"
+excerpt: "On June 22, the NSA, CISA, and counterparts from four allied nations issued a joint statement: AI-enabled cyberattacks on critical infrastructure are 'months, not years' away. For GCs on hospitals, data centers, airports, and utilities, the exposure that matters most isn't in your project software — it's in the building systems going live before owner IT takes control."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.cbsnews.com/news/ai-bypass-cybersecurity-systems-months-not-years-five-eyes/"
+  - "https://gizmodo.com/top-intel-agencies-say-ai-driven-cyber-catastrophes-are-imminent-the-timeline-is-not-years-it-is-months-2000775369"
+  - "https://www.whitehouse.gov/presidential-actions/2026/06/promoting-advanced-artificial-intelligence-innovation-and-security/"
+  - "https://www.cisa.gov/news-events/news/new-joint-guide-advances-secure-integration-artificial-intelligence-operational-technology"
+  - "https://www.cybersecuritydive.com/news/ai-critical-infrastructure-government-guidance/807052/"
+---
+
+On June 22, six national cybersecurity agencies — the NSA, CISA, and their counterparts in Australia, Canada, the UK, and New Zealand — released a joint statement on AI and cyberattacks. The key line: "The timeline is not years. It is months." Frontier AI models, the agencies said, are now close to being able to automate exploit development, generate novel malware, and conduct phishing and social engineering at a scale and speed that current defenses weren't designed to handle.
+
+Most of the coverage framed this as an IT story — company networks, enterprise software, credentials. For construction, the more specific exposure sits elsewhere: in the building automation systems, HVAC controls, access control, fire safety, and electrical monitoring that GCs and their subs install, network, and commission on every significant commercial project.
+
+## Why commissioning is the gap
+
+When a building's operational technology (OT) systems go from "being tested by the controls sub" to "accepted by the owner and connected to the enterprise network," they pass through a period that typically runs four to eight weeks. During that window, conditions that would not be acceptable in a hardened facility are routine on a construction site.
+
+Temporary credentials — set up by the BAS contractor or controls vendor for factory acceptance testing — often haven't been rotated or decommissioned by substantial completion. Multiple parties have active remote access at the same time: the controls contractor, the commissioning agent, the vendor's field technician, the owner's IT consultant. Those access points don't always close when a party's scope ends.
+
+OT networks are also sometimes bridged to the general project IT network for commissioning data collection, because it was faster than running dedicated cabling. That connection is usually temporary. "Usually" is doing a lot of work in that sentence.
+
+None of this is negligence. It's the standard working condition on any significant project in the weeks before and after substantial completion. What changed is the threat model around it.
+
+In January 2026, the same group of agencies published a 28-page joint guidance document on AI integration into OT systems, explicitly identifying the risk that agentic AI — including tools used legitimately — could be repurposed to map and probe OT environments. The June 22 statement puts a specific timeline on that risk: the AI capability to do this at scale is months away from being broadly accessible to adversaries, not years.
+
+## What the federal government just set in motion
+
+The White House executive order on AI and security, signed June 2, established a mechanism directly relevant to construction firms doing critical infrastructure work. Treasury is required to stand up an "AI cybersecurity clearinghouse" by July 2 — a voluntary program for critical infrastructure operators to share threat intelligence about AI-enabled attacks on OT systems. An August 1 deadline adds a framework for pre-release government access to frontier AI models, intended to generate faster intelligence about what those models can actually do offensively.
+
+If your firm is building federally funded critical infrastructure — a hospital receiving CMS reimbursement, an airport, a water treatment plant, a power substation — this clearinghouse is designed for your owner. The construction team is part of that ecosystem during the build period, which makes this worth tracking even before occupancy.
+
+## What to specify and subcontract
+
+The standard commissioning scope on most commercial projects doesn't include a cybersecurity audit of OT systems before handover. That gap is worth closing now, and it doesn't require significant additional cost or scope — it requires adding language in two places.
+
+**In the spec:** Division 25 (Integrated Automation) is where to require credential rotation and network isolation protocols as deliverables at substantial completion. Temporary remote access credentials should be documented and decommissioned as a close-out task, not left as something the owner's IT team cleans up after move-in. If it's not in the spec, it's not in any sub's scope.
+
+**In the subcontract:** A clause requiring the controls contractor and commissioning agent to provide written confirmation that non-essential remote access has been decommissioned by substantial completion creates documentation and accountability. Verbal close-out conversations don't.
+
+Brief the owner's facilities and IT team at 75% construction on the OT handover protocol: who takes administrative control of network configurations, what testing happens before the OT network connects to the enterprise network, and what the contractor's liability is if a breach occurs during the close-out period. This conversation is considerably harder after a problem appears.
+
+Those same agencies put a months-long timeline on a threat class that construction projects building critical infrastructure are already exposed to during commissioning. The spec is the most direct place to close the gap.
+
+See our earlier coverage of [AI-enabled attacks on construction's software stack](/posts/2026-06-23-openai-patch-planet-construction-software-security) for the parallel issue on the project IT side.
+
+---
+
+*Forward this to the spec writer or project director on your next hospital, data center, airport, or utility project.*
+
+*Construction AI Brief covers what matters in construction AI, three issues a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
