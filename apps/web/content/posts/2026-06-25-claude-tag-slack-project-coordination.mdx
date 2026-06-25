@@ -1,0 +1,51 @@
+---
+title: "Claude Tag puts a persistent AI agent inside your Slack channels. For project teams tracking open RFIs, the ambient mode is the new part."
+date: "2026-06-25"
+excerpt: "Anthropic launched Claude Tag this week — a shared AI agent that lives in a Slack channel, builds context from the thread history, and monitors for stalled conversations without being asked. For GC project teams running coordination through Slack, three of its four capabilities have real workflow implications."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://9to5mac.com/2026/06/23/anthropic-launches-claude-tag-enterprise-collaborative-tool-for-agentic-workflows/"
+  - "https://venturebeat.com/technology/anthropic-launches-claude-tag-replacing-its-slack-app-with-a-persistent-ai-teammate-that-learns-monitors-and-works-autonomously"
+  - "https://gbhackers.com/anthropic-launches-claude-tag-ai-agent/"
+---
+
+Your RFI log has nineteen open items. You know that because you pulled the report from Procore this morning. What you don't know is that RFI #31 was discussed in Slack three days ago, the team landed on an interpretation, and nobody logged it back in Procore. The decision is buried in a thread. A different PE is about to write up the same question because they have no way to know.
+
+That gap — between the conversation happening in Slack and the record sitting in your system of record — is where a lot of project coordination leaks. On June 23, Anthropic shipped a product that tries to close it.
+
+## What Claude Tag does
+
+Claude Tag puts a single shared AI agent inside a Slack channel. It's not a per-user chatbot — it's one persistent agent the whole channel shares, with its own memory of the thread history. Four things define how it works:
+
+**Persistent memory.** Claude Tag builds context from the channel's message history. You don't re-explain the project each time. If you've been running an RFI channel since kick-off, Claude Tag by week six knows the key design conflicts, the architect's contact pattern, and which spec sections keep generating questions. Ask it "which threads have been waiting on a design team response for more than ten business days" and it should be able to answer from what's in the channel.
+
+**Ambient monitoring.** When enabled, this mode has Claude Tag watching its channels and surfacing issues without being prompted. It flags threads that went quiet without resolution. For a project engineer juggling active submittals and a rolling RFI log, that's the difference between catching a stalled thread Tuesday morning and catching it Friday afternoon when it's already added two days of float.
+
+**Async task execution.** You ask Claude Tag to pull a status summary of all open change order discussions from the past three weeks. You leave for the field. The summary is in the thread when you come back. For longer research tasks, Claude Tag can schedule follow-on work over hours or days — it keeps running after you stop watching.
+
+**Connected system accounts.** Via MCP integrations, Claude Tag can reach into external tools under a dedicated service account and post results back into Slack. Third-party MCP connectors for Procore and Autodesk exist as part of the broader MCP ecosystem, though integration depth varies by connector. The more your project information lives in those platforms, the more valuable those connections become.
+
+Claude Tag runs on Claude Opus 4.8 and is in beta for Anthropic's Enterprise and Team plan customers. The older Claude in Slack integration it replaces goes away August 3.
+
+## Where the honest limits are
+
+The persistent memory only covers what's in the Slack channel. If your team uses Slack for real coordination decisions and logs them back to Procore, Claude Tag has good raw material. If Slack is casual chatter and your PM system holds the actual record, Claude Tag is reconstructing an incomplete picture.
+
+MCP connectors exist, but you'll need to validate what each one actually exposes before relying on it for project status questions. "What's the approved budget for PCO #12" may require a manual pull from Procore rather than something Claude Tag can retrieve through an integration.
+
+Ambient mode needs to be tuned carefully. An agent that proactively flags every quiet thread will get muted inside a week. Start with it off. Test the persistent memory on a few specific project questions, build trust in what it knows, then enable monitoring for the thread types — overdue RFIs, stalled submittals — where you actually want it watching.
+
+If your firm runs on Microsoft Teams rather than Slack, this doesn't apply today.
+
+We covered how Procore's built-in AI agents handle the structured project data layer from inside the platform [two weeks ago](/posts/2026-06-21-procore-ai-agents-what-they-do). Claude Tag addresses the conversation layer that runs alongside it — the decisions and context that never make it into the system of record.
+
+## What to test this week
+
+Claude Tag is in beta on Anthropic's Team and Enterprise plans. If you're already subscribed, the activation is the first step.
+
+Pick one active project's RFI coordination channel. Add Claude Tag. Ask it to list the five threads with the longest gap since their last response. That test alone tells you whether the persistent memory is working and whether the ambient monitoring will be worth enabling.
+
+If you're on the old Claude in Slack: you have until August 3 to migrate. Claude Tag is a meaningfully different product — not a feature update — so leave time to evaluate it rather than treating the cutover as a like-for-like swap.
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
