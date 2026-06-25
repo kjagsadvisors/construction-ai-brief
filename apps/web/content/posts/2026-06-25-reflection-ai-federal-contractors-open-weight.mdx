@@ -1,0 +1,57 @@
+---
+title: "Federal contractors can't use cloud AI on CUI projects. An open-weight frontier model would change that."
+date: "2026-06-25"
+excerpt: "SpaceX signed a $6.3B compute deal with open-weight AI lab Reflection AI last Sunday. For most contractors, it's background noise. For federal GCs and subs who've been told they can't use ChatGPT on certain jobs, it's worth understanding."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.cnbc.com/2026/06/22/spacex-ai-colossus-data-center-reflection.html"
+  - "https://techcrunch.com/2026/06/22/spacex-inks-compute-deal-with-reflection-ai-an-open-source-ai-lab/"
+  - "https://www.axios.com/2026/06/22/open-source-ai-gets-more-compute-from-spacex"
+  - "https://www.axios.com/2026/05/22/reflection-ai-genesis-mission-energy-partnership"
+  - "https://vso-inc.com/how-to-use-ai-without-breaking-cmmc-compliance-a-defense-contractors-guide/"
+  - "https://www.washingtontechnology.com/opinion/2026/04/ai-and-cmmc-double-edge-sword-defense-contractors/412981/"
+  - "https://www.krasa.ai/news/reflection-ai-pentagon-frontier-model-tens-trillions-tokens"
+  - "https://www.turingpost.com/p/reflectionai"
+  - "https://devblogs.microsoft.com/azuregov/azure-openai-fedramp-high-for-government/"
+---
+
+If your firm holds DoD contracts — USACE work, federal building construction, military facility PM — you've probably already hit the wall. The project engineer wants to run spec language through an AI tool. IT says no. Legal flagged the vendor agreement. The tools you bought are sitting unused on specific jobs because nobody has sorted the compliance picture.
+
+That's not over-caution. It's CMMC. Under CMMC 2.0, which entered Phase 1 enforcement in November 2025, any AI tool that processes Controlled Unclassified Information (CUI) must meet NIST SP 800-171 controls. Sending a project's scope-of-work document, an RFI containing sensitive design details, or a subcontract schedule to a third-party cloud API counts as CUI transmission — and most commercial AI services don't meet the bar without significant additional procurement overhead.
+
+ChatGPT's standard API isn't authorized for CUI. Claude's API isn't. Gemini's isn't. Azure OpenAI has a FedRAMP High offering that qualifies for some CUI handling, but it's slower, limited to a narrower set of models, and adds procurement complexity most subs can't absorb. The practical effect: a meaningful slice of construction AI adoption — spec parsing, RFI drafting, submittal review, daily log automation — is off the table on federal work, right where project complexity is often highest.
+
+## Open-weight models are the architectural path around this
+
+An open-weight model is one where the trained parameters are publicly released and downloadable. You run it inside your own environment — your cloud tenant, your on-prem server — and no data leaves your perimeter. No third-party API. No FedRAMP dependency. No CUI transmission.
+
+The problem has been capability. Until recently, the strongest open-weight options (Meta's Llama series, Mistral) lag the commercial frontier on the reasoning tasks that matter most in construction: interpreting spec sections, drafting RFIs, reviewing submittals for compliance against the contract documents. Useful for lightweight tasks; not reliable enough to trust on work product with real liability attached.
+
+That gap is what Reflection AI is betting $6.3 billion it can close.
+
+## What Reflection AI just committed to
+
+On June 22, SpaceX signed a compute deal with Reflection AI: $150 million per month starting July 1, 2026, running through 2029 if the contract holds. Reflection gets access to Nvidia GB300 chips at Colossus 2, SpaceX's data center near Memphis. Total value if fully executed: $6.3 billion.
+
+Reflection was founded in 2024 by Misha Laskin, who led reward modeling for Google's Gemini, and Ioannis Antonoglou, who co-created AlphaGo. The company's stated goal is a frontier-class open-weight language model trained on tens of trillions of tokens — a training run in the same compute neighborhood as GPT-5 and Claude Fable 5. Unlike those models, the weights would be publicly releasable and self-hostable.
+
+The company already has government customers. Reflection is the foundational AI layer for the DOE's Genesis Mission across 17 national laboratories, and has reported Pentagon AI program ties. A lab valued at $25 billion, backed by Nvidia, with DOE and Defense relationships, is positioning specifically for the use cases where closed commercial models are blocked.
+
+## The honest caveat
+
+Reflection has not shipped a public frontier model. The $6.3B deal secures training infrastructure; the data pipeline is still being engineered. As of mid-June 2026, the company's bottleneck is data preparation, not compute. For federal contractors evaluating their AI stack today, Reflection is not a product — it's a development worth watching.
+
+## Three things to do now, without waiting
+
+1. **Map which workflows touch CUI on your federal projects.** RFIs referencing classified design data, submittal packages for ITAR-controlled systems, schedules tied to restricted facility phases — write them down. That list is the business case you'll need when capable self-hostable models arrive.
+
+2. **Test current open-weight models on non-CUI tasks.** Llama 4 and Mistral's latest can already handle daily log drafting, meeting transcript summarization, and spec keyword extraction reliably enough to trial. A 30-day test on admin workflows that don't touch controlled data builds your team's muscle for the bigger deployment later.
+
+3. **Get ahead of Phase 2 CMMC.** Mandatory third-party C3PAO assessments for Level 2 contracts begin November 2026. Firms that haven't audited their AI tool stack for CUI handling will get caught — not by Reflection AI's schedule, but by their own compliance readiness. The two deadlines may intersect closer than you'd like.
+
+We covered the broader critical infrastructure threat picture [last week](/posts/2026-06-24-five-eyes-ai-threat-construction-commissioning) — the compliance arc for federal contractors is moving faster than most expect.
+
+The open-weight frontier is getting real compute and real government backing. That doesn't solve the federal contractor's AI compliance problem today. It tells you where the viable self-hosted stack is heading — and which workflows to have ready when the models arrive.
+
+*Construction AI Brief covers AI in commercial construction three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
