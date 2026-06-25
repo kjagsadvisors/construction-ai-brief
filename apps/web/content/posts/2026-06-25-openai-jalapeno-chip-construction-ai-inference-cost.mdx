@@ -1,0 +1,52 @@
+---
+title: "OpenAI's first custom chip targets the cost that limits how many documents your AI can review"
+date: "2026-06-25"
+excerpt: "OpenAI and Broadcom unveiled Jalapeño, a custom AI inference chip, on June 24. Here's what the inference cost curve it represents means for construction firms evaluating AI tools."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://openai.com/index/openai-broadcom-jalapeno-inference-chip/"
+  - "https://investors.broadcom.com/news-releases/news-release-details/openai-and-broadcom-unveil-llm-optimized-intelligence-processor"
+  - "https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/"
+  - "https://www.cnbc.com/2026/06/24/openai-and-broadcom-reveal-jalapeno-first-ai-chip-in-partnership.html"
+---
+
+A GC's AI drawing review tool doesn't usually fail because the AI is wrong. It fails the cost test first — the per-query cost of running the model over every document doesn't pencil out, so teams run it selectively rather than comprehensively.
+
+OpenAI and Broadcom unveiled Jalapeño on June 24 — OpenAI's first purpose-built inference chip, designed to attack exactly that cost. It's not a product you buy. It's infrastructure, heading into the gigawatt-scale data centers OpenAI is building with Microsoft starting late 2026. But the cost trajectory it signals affects every AI tool built on OpenAI's services that construction firms already use.
+
+## What inference costs actually are
+
+Every time a drawing AI flags a coordination clash, every time an AI agent drafts an RFI response, every time a document tool extracts a submittal requirement — that's an inference call. The model processes input and generates output, and that computation costs compute. That compute cost is the floor below which no vendor can price their per-query rate.
+
+Current AI infrastructure is built on NVIDIA GPUs — general-purpose accelerators adapted for AI. Jalapeño is a blank-slate design for LLM inference specifically. OpenAI built it around reducing data movement between compute, memory, and networking, and maximizing how close realized utilization gets to theoretical peak. OpenAI says early testing shows "performance per watt substantially better than current alternatives," though specific benchmarks are slated for a technical report later this year.
+
+The development timeline is worth noting: design-to-tape-out in nine months, with OpenAI's own AI models used to accelerate parts of the chip design process. Standard ASIC development cycles typically run three-plus years. Microsoft is expected to take approximately 40 percent of initial production capacity. Deployment into gigawatt-scale data centers with Microsoft and other partners begins late 2026.
+
+## What this means for construction firms
+
+AI inference costs have fallen substantially since 2023, driven by hardware efficiency improvements and competition between providers. Tools that once required careful rationing — "run the AI only on the highest-risk documents" — are increasingly affordable to run across full document sets. Jalapeño is designed to push that trend further for OpenAI's ecosystem.
+
+OpenAI's stated goal: "Every improvement in cost, speed, and reliability can show up as a faster ChatGPT answer, a Codex task that can take more steps with less waiting, an API product that is cheaper to build, or more dependable access when demand is high."
+
+For construction, the practical shift is in what becomes affordable to run comprehensively. A mid-size GC or trade sub with 200 drawings and 500 submittals per job faces a real cost decision today: run AI review over all of it or manually select the highest-risk documents to limit API spend. As inference costs fall, that threshold shifts.
+
+This already happened once in the last two years. Firms that looked at AI document review tools in 2023 and found the per-page math too steep found different math in 2025. [Procore's five built-in AI agents](/posts/2026-06-21-procore-ai-agents-what-they-do) and tools like Trunk Tools exist partly because inference got cheap enough to embed in standard project software subscriptions. Jalapeño is the next step in that curve.
+
+## What it doesn't mean
+
+**Jalapeño is proprietary to OpenAI.** Tools built on Anthropic Claude, Google Gemini, or open-source models have their own cost curves. This chip doesn't move those. If your construction software runs on non-OpenAI models, June 24's announcement doesn't change your cost structure.
+
+**No pricing changes are announced.** Deployment starts late 2026, and even after chips ship, lower infrastructure cost doesn't automatically flow to lower API prices. That's OpenAI's business decision. There's no contractual obligation for them to pass savings through.
+
+**The data center construction demand is real, but the constraints haven't changed.** Gigawatt-scale facilities require massive construction effort — but transformer lead times and electrical gear availability remain the binding constraint on how fast those projects move, not chip supply.
+
+## One procurement question worth asking now
+
+If you're evaluating or renewing contracts for AI tools built on OpenAI's services, ask how pricing is structured: flat per-seat, per-query, or usage-based. Per-seat pricing locks you into today's cost structure regardless of what happens to inference costs. Usage-based or per-query pricing is where cost deflation could work in your favor over a two- or three-year contract term.
+
+If a use case was priced out at today's rates — AI review of every site photo, every daily log entry, every change event on a large job — consider rerunning that analysis in early 2027. The inference cost floor has moved before. Jalapeño is OpenAI's bet that it moves again.
+
+Forward this to the person on your team who's still arguing AI is overhyped.
+
+*Construction AI Brief covers the AI developments that matter to commercial construction, three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
