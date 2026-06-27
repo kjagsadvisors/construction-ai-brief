@@ -1,0 +1,67 @@
+---
+title: "Gemini 3.5 Flash can now operate software without an API. Construction's compliance portals are the use case it was built for."
+date: "2026-06-27"
+excerpt: "Google baked computer use directly into Gemini 3.5 Flash on June 24 — an AI that sees software screens and clicks through them like a human. For trade subs buried in certified payroll portals that don't offer integrations, that's a meaningful opening."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/"
+  - "https://www.eweek.com/news/google-gemini-flash-computer-use-ai-agents/"
+  - "https://www.digitalapplied.com/blog/gemini-3-5-flash-computer-use-agent-automation-2026"
+---
+
+A payroll admin at a 60-person mechanical sub can spend four or more hours each Friday submitting certified payroll to the public agency portal. The work isn't complicated. It's opening the payroll export from ADP, reading the weekly hours and classifications, logging into LCP Tracker or the state DIR system, entering the data field by field, downloading the stamped PDF. Same steps, same screens, every week for the life of the prevailing wage job.
+
+The reason it's still manual isn't organizational — it's technical. LCP Tracker has no API. Neither does the California DIR's eCPR portal, most state DOT daily report systems, or the majority of municipal permit applications. There's no "connect to Procore" button. The only way in has been a human sitting in front of a browser.
+
+On June 24, Google shipped something that changes that calculation.
+
+## What computer use actually is
+
+Google released computer use as a built-in capability inside Gemini 3.5 Flash, one of its standard production models. The AI can now take a screenshot of whatever software interface is on screen, identify buttons and text fields, and take actions — clicking, typing, scrolling, switching tabs — to complete multi-step tasks without requiring a single API call.
+
+This isn't a separate product or an experimental mode. It's baked into the same Gemini 3.5 Flash model used for coding and document work, priced at $1.50 per million input tokens. On OSWorld-Verified, the main benchmark for this type of agentic desktop control, Gemini 3.5 Flash scores 78.4 — within a fraction of point of GPT-5.5's 78.7.
+
+The model also comes with a 1-million-token input context window, which matters for workflows that need to hold source data, step-by-step instructions, and action history all at once without losing track mid-task.
+
+Two enterprise safeguards are included: the option to require explicit user confirmation before sensitive or irreversible actions, and an automatic stop if the agent detects an indirect prompt injection attempt. Both are relevant when the data being handled is payroll or compliance information.
+
+## Why construction is a natural fit
+
+Most industries automating workflows today have a real choice: call an API (fast, reliable, auditable) or use computer use (slower, more fragile, but works on anything with a screen). In construction, the choice is frequently made for you.
+
+Certified payroll portals, permitting systems, and state DOT reporting platforms were built by agencies on limited budgets, often years ago. They serve their function but weren't designed with automation in mind. Integration with your project management or accounting software is not coming — the systems are too fragmented and the agencies too varied.
+
+That's exactly where computer use operates. It doesn't need the software to have an API. It reads the screen and acts on what it sees.
+
+Three specific workflows worth evaluating first:
+
+**Certified payroll submission.** Prevailing wage jobs require weekly or biweekly reporting — employee names, hours, classifications, wages, fringe benefit allocations — into whatever system the public agency uses. The data already exists in your payroll system. The problem is getting it from there to the portal, in the right format, for every employee, every week, without errors that trigger compliance flags. A computer use agent handles the repetitive data entry. A human still needs to verify classification changes and catch exceptions.
+
+**Municipal permit applications.** Each city portal has its own layout, required fields, document upload flows, and fee structures. A computer use agent can navigate the portal, fill in project data from a structured source file, and upload documents in sequence. It doesn't know what the permit requires — that judgment stays with the person who built the application package. But it eliminates manual data-entry runs across a half-dozen portals on the same project.
+
+**State DOT daily work reports.** Production reporting and force account submissions for state highway jobs typically run through agency-specific systems with no third-party integrations. The field data exists. Submitting it is rote. This is among the cleaner matches for computer use given the repetitive, structured nature of the entries.
+
+## Where it still breaks
+
+Computer use agents are fragile when software interfaces change. A portal update — even a minor layout change — can break an automated workflow without warning. They also fail on anything that requires project knowledge that lives outside the structured data: whether a worker's classification is correctly matched to the work actually performed, whether a submittal package is the right revision, whether a DOT daily report number matches the inspector's field count.
+
+Human review is still the required backstop. The model doesn't carry the accountability; the person who signs the certified payroll does.
+
+Production accuracy depends heavily on how deterministic the workflow is. A well-defined portal entry with the same fields every week is the easy end. An open-ended cross-system research task is the hard end. The practical question before starting a pilot: can you describe the task in ten steps that are identical every time? If yes, it's a reasonable candidate.
+
+Xero, the accounting software company, is already deploying Gemini 3.5 Flash computer use for supplier identification and tax form processing — workflows that are structurally close to construction compliance submissions.
+
+## What a first test looks like
+
+Pick last week's certified payroll report for one project. Write out the exact steps as if training a new employee: what system to open, what to export, where to log in, what to enter in each field. Run Gemini 3.5 Flash with computer use enabled via the Gemini API against a test account or staging environment if your portal has one. Measure accuracy and time.
+
+If the agent completes a four-hour manual task in 15 minutes and gets 95% of the fields right, that's a real signal. If it fails on step three because the portal's layout isn't what it expected, that tells you something different about the workflow structure.
+
+This is not a packaged product you can buy off a shelf today. Building it requires API access, workflow documentation, and enough testing time to catch the failure modes before they hit a live submission. The tools are available. The work of applying them still belongs to whoever sets it up.
+
+An earlier version of this same problem — AI agents automating multi-step document workflows — is what the [GPT-5.6 Sol multi-agent architecture](/posts/2026-06-27-gpt-56-sol-subagents-construction-document-review) is being evaluated for on the document review side. Computer use addresses the adjacent problem: what happens when the system you need to act on was never designed to accept a document.
+
+Forward this to the person on your team who's still arguing AI is overhyped.
+
+*Construction AI Brief covers the AI moves that matter for commercial GCs, trade subs, and estimators, three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
