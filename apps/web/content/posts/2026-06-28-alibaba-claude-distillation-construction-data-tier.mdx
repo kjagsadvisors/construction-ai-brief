@@ -1,0 +1,60 @@
+---
+title: "Alibaba used 28.8 million fake queries to clone Claude. Here's the data-tier audit every construction firm should run."
+date: "2026-06-28"
+excerpt: "Anthropic's disclosure of a state-linked distillation attack on Claude targeted model capabilities, not user data — but it's a useful moment to audit where your project information actually lands."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.cnbc.com/2026/06/24/anthropic-alibaba-distillation-campaign.html"
+  - "https://www.bloomberg.com/news/articles/2026-06-24/anthropic-accuses-alibaba-of-illicitly-accessing-its-ai-models"
+  - "https://easternherald.com/2026/06/27/anthropic-alibaba-claude-distillation-senate-sanctions/"
+  - "https://www.techtimes.com/articles/319105/20260625/alibaba-ran-largest-known-ai-theft-campaign-against-claude-anthropic-tells-senate.htm"
+---
+
+Between April 22 and June 5, 2026, operators linked to Alibaba's Qwen AI lab ran 28.8 million queries through Claude using 25,000 fraudulent accounts. They weren't after your project data. They were after Claude itself.
+
+Anthropic disclosed the campaign in a June 10 letter to the Senate Banking Committee, calling it the largest known distillation attack on its models to date — larger than three other disclosed Chinese AI campaigns combined, which totaled roughly 16.5 million exchanges earlier this year. Congress is now moving to add sanctions language to defense legislation in response. Alibaba has denied the allegations.
+
+The attack didn't expose construction firms' data. But it's a useful moment to check something most project teams haven't audited.
+
+## What a distillation attack is
+
+Distillation attacks don't target what users sent — they target how the model behaves. Attackers run massive volumes of structured queries designed to capture the model's reasoning patterns across thousands of scenarios. Collect enough of those query-response pairs and you can train a competing model to behave like the original without licensing it.
+
+In this case, the alleged campaign targeted Claude's Mythos Preview tier specifically — its most capable frontier model. Anthropic says the goal was to extract the model's software engineering, agentic reasoning, and long-horizon task completion capabilities: the features most valuable to enterprise customers building on top of the API.
+
+This is model-level IP theft, not data theft. Enterprise users' conversations were not the target.
+
+## The question this raises for contractors
+
+Most AI use in commercial construction falls into one of three buckets: a team member using a free or personal Claude or ChatGPT account; a firm-managed business or enterprise subscription with a signed data processing agreement; or an AI feature embedded inside a platform like Procore, Autodesk Construction Cloud, or Bluebeam, where the software vendor holds an enterprise agreement upstream.
+
+The tier distinction matters because the data handling terms are materially different.
+
+On enterprise plans — Anthropic's and OpenAI's — the commitments are explicit: conversations are not used to train models, data isn't retained beyond the session without deliberate configuration, and a signed agreement governs how inputs are handled.
+
+On free and individual accounts, those commitments don't apply. Anthropic's consumer terms allow conversations to be reviewed for safety and product improvement. OpenAI's consumer terms work the same way. This isn't a criticism — it's standard practice across the industry, and it's disclosed in the terms. The problem is that most firms haven't thought through which accounts their team is actually using for which tasks.
+
+If a project engineer is running a competitor's spec scope, bid-day pricing, or unit cost benchmarks through a personal account, the data handling is governed by different terms than what the firm's IT policy probably assumes.
+
+## The three-question audit
+
+Walk through these before the next bid cycle:
+
+**What are your team members actually using?** In most firms, AI use has spread faster than IT policy. Individual accounts linked to personal emails are common — especially among project engineers and estimators who started using AI tools on their own. The data handling terms on those accounts differ from firm-managed deployments.
+
+**What's going in?** Drafting a submittal cover letter is low sensitivity. Running a bid scope through a personal account alongside a competitor's pricing is a different exposure category. The risk scales with the sensitivity of what's in the prompt.
+
+**What does your plan actually say?** Anthropic's enterprise and consumer data agreements are public documents. So are OpenAI's. The relevant sections are under "Data Use" and "Privacy Policy" in each. Reading the applicable sections takes under 10 minutes.
+
+Most of the gap between current practice and acceptable data handling closes with a policy memo and a license audit — neither takes more than an hour.
+
+The [Anthropic model suspension earlier this month](/posts/2026-06-20-anthropic-model-shutdown-vendor-risk-construction) prompted a lot of conversations about platform dependency. This is a different angle on the same infrastructure: the vendor you depend on is also a target, and the tier you're on determines what protections apply to your data if something goes wrong.
+
+## What doesn't need to change
+
+If your firm has a managed enterprise agreement with Anthropic or OpenAI, there's no immediate action required here. Enterprise-tier data isn't what this attack touched.
+
+The goal isn't alarm. It's alignment between how your team is actually using AI tools and what your firm considers acceptable data practice. Run the audit. You'll either confirm things are fine or find a gap worth closing before it matters.
+
+*Construction AI Brief covers the AI moves that matter for commercial GCs and project engineers, three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
