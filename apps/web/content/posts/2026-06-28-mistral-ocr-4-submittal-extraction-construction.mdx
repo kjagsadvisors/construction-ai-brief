@@ -1,0 +1,54 @@
+---
+title: "Submittal review can't get faster until someone solves the PDF extraction problem. Mistral just made that cheaper."
+date: "2026-06-28"
+excerpt: "Mistral OCR 4 ships self-hostable document extraction at $2–$5 per 1,000 pages — the ingestion layer that AI submittal comparison has been waiting for."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://mistral.ai/news/ocr-4/"
+  - "https://www.marktechpost.com/2026/06/23/mistral-ocr-4/"
+  - "https://www.techtimes.com/articles/318978/20260624/mistral-ocr-4-ships-structure-aware-document-ai-runs-your-own-infrastructure.htm"
+---
+
+A project engineer on a commercial job manages a submittal log that might run 400 items by substantial completion. The subs send PDF packages — product data sheets, shop drawings, O&M excerpts. The PE opens the PDF, finds the relevant spec section, compares the submitted product against what Division 22 or 23 requires, stamps it, and logs the result. Then repeats.
+
+AI submittal review works in principle — a model compares the submitted product against the spec, flags mismatches, and hands off a candidate decision to the PE. It doesn't work in practice until you solve the step before it: getting text and tables out of those PDFs in a structured form that an AI can reason over. That extraction layer just got cheaper and self-hostable.
+
+On June 23, Mistral AI released OCR 4, a document intelligence model built for structured extraction from PDFs and office document formats. Unlike general-purpose vision models that describe what's on a page, OCR 4 returns a structured object: text blocks with bounding boxes (exact page coordinates), block-type labels (table, header, footnote, signature), and inline confidence scores at the word and block level. It handles PDF, DOC, PPT, and OpenDocument formats across 170 languages.
+
+## What it costs
+
+Standard API pricing is $4 per 1,000 pages. The Batch API cuts that to $2 per 1,000 pages for asynchronous jobs. The Document AI tier, which returns schema-defined structured JSON rather than free-form text, costs $5 per 1,000 pages.
+
+For comparison: 1,000 pages covers roughly 100 to 200 submittal packages at five to ten pages each. Processing an entire job's submittals at the batch rate runs somewhere between $10 and $30. That's the ingestion cost — the comparison logic still has to exist somewhere.
+
+## Why self-hosting matters here
+
+OCR 4 deploys as a single Docker container. Organizations that can't route documents to a third-party cloud — owner contract language, subcontract confidentiality terms, or government project data requirements — can run it on their own infrastructure with no data leaving their network.
+
+Most cloud OCR services require documents to be transmitted to provider servers. For packages that include change order pricing or subcontract unit costs, that can conflict with what the owner's contract says about data handling. Self-hosted extraction eliminates the issue.
+
+## What it can and can't do
+
+OCR 4 is an extraction layer, not a submittal review system. The realistic workflow:
+
+1. Submittal PDF → OCR 4 → structured text with block positions and types
+2. Spec section PDF → OCR 4 → structured text of requirements
+3. Downstream model compares submitted product data against contract requirements
+4. Output: a flag list for PE review
+
+The comparison step — number 3 — is where the actual judgment work happens. That requires a purpose-built workflow or an AI agent configured to understand compliance criteria for a given product category. OCR 4 doesn't provide that.
+
+Also worth noting: OCR 4 performs well on text-heavy documents. Specification sections, product data sheets, and O&M submittals are squarely in its range. Dense graphical drawings — architectural sheets, structural details, MEP plans with symbol layers — are a different problem. The more a document relies on spatial relationships between graphic elements rather than readable text, the less useful raw extraction output becomes.
+
+On independent benchmark testing (OlmOCRBench), OCR 4 scores 85.20, with annotators preferring its output over every competing system tested in 72% of head-to-head comparisons. Those numbers come from Mistral's own release documentation; independent evaluation against construction-document sets hasn't been published.
+
+## What to test first
+
+Pick one spec section from an active job. Division 22 or 23 work well — dense tables, specific product requirements, manufacturer approval lists. Run five to ten incoming submittals through OCR 4 via the API. Check whether the extracted output captures product tables, footnotes, and compliance notes the way a PE would need to see them.
+
+If the extraction is clean, the next step is a simple comparison test: feed OCR output from the spec section and the submittal into a model side-by-side and ask it to list discrepancies. That two-step test costs a few dollars and answers the practical question before anyone builds a full workflow.
+
+Trunk Tools' Cortex, [covered here earlier this month](/posts/2026-06-21-trunk-tools-cortex-construction-drawings-ai), is building an extraction-and-comprehension stack designed specifically for construction drawings. OCR 4 is the lower-level component you'd assemble and integrate yourself. The tradeoff is more control in exchange for more setup work.
+
+*Construction AI Brief covers the AI moves that matter for commercial GCs, trade subs, and estimators — three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
