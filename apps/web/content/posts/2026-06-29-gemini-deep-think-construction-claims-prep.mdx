@@ -1,0 +1,66 @@
+---
+title: "Your spec book, RFI log, and change order history can now fit in one AI session"
+date: "2026-06-29"
+excerpt: "Google released the Deep Think reasoning mode for Gemini 2.5 Pro last week. The 1M-token context window changes what's possible for project document analysis — here's the construction workflow worth testing first."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://blog.google/products-and-platforms/products/gemini/gemini-2-5-deep-think/"
+  - "https://cloud.google.com/blog/products/ai-machine-learning/expanding-gemini-2-5-flash-and-pro-capabilities"
+  - "https://faq.com.tw/en/ai-ml/2026-06-27-google-gemini-25-deep-think-reasoning-en/"
+---
+
+A claims analyst working through a disputed change order on a 12-month commercial project typically starts by pulling the original spec section, the RFI thread that modified scope, the submittal approval chain, and the schedule baseline. Those documents live across different folders, were created by different people at different points in the job, and may run to hundreds of pages. Synthesizing them isn't intellectually hard — it's just slow, labor-intensive, and exactly the kind of work that should be offloaded.
+
+Last week, Google made that synthesis meaningfully faster for any team with a well-organized project folder.
+
+## What Google released
+
+On June 22, Google launched the Deep Think reasoning mode for Gemini 2.5 Pro, making it available to Google AI Ultra subscribers through the Gemini app. Deep Think changes how the model reaches its output: instead of generating a direct response, it works through multiple hypotheses in parallel before answering. Google describes it as designed for "highly complex use cases" requiring multi-step reasoning.
+
+On a standard graduate-level reasoning benchmark (MMLU-Pro), Gemini 2.5 Pro with Deep Think reached 89.8%. On the harder GPQA Diamond evaluation — which tests near-expert-level science and reasoning — it scored 82.4%, higher than any other publicly available model at release.
+
+The benchmark that matters for construction isn't either of those. It's the context window: Gemini 2.5 Pro holds just over one million tokens — roughly 750,000 words, or about 3,000 pages — in a single session.
+
+## What that window actually holds
+
+A mid-size commercial interior renovation might generate:
+
+- A 600-page project manual
+- 280 RFIs with responses averaging two pages each
+- 400 submitted items with approval documentation
+- A 50-item change order log with backup
+
+That's approximately 1,400 pages of project documents. They fit — with room — inside one Gemini 2.5 Pro session.
+
+Most AI document tools today work through retrieval augmented generation: they chunk documents into fragments and surface the closest matches to a query. That approach handles narrow lookups well. It fails at questions that require synthesizing inconsistent information across five document types simultaneously, which is exactly what claims prep and scope analysis require.
+
+Putting the full project file in a single context means the model can reason across it holistically rather than retrieve fragments.
+
+## Three workflows worth testing
+
+**Claims prep.** Load your RFI log, approved submittals, change order log, and relevant spec sections. Ask: "Which owner-directed clarifications changed the scope of work without a corresponding approved change order?" The model will trace the decision chain across the document set. You'll still need to verify its output against source documents and have a qualified person organize the findings — but you're compressing two days of document archaeology into an afternoon of review.
+
+**Scope gap analysis during precon.** Load the project spec alongside your draft subcontract. Ask: "What work described in Division 21 through 23 isn't explicitly assigned in this subcontract scope?" This is the conversation that normally happens on a job walk. Surfacing coverage gaps before execution is substantially cheaper than surfacing them after the pour.
+
+**Close-out narrative for GMP reconciliation.** Load key correspondence, the approved schedule of values, and daily reports from disputed periods. Ask for a draft factual project narrative. You'll edit it — but you're editing, not writing from scratch.
+
+[GPT-5.6 Sol takes a parallel-subagent approach to the same document-set problem](/posts/2026-06-27-gpt-56-sol-subagents-construction-document-review), dispatching multiple agents across different document sections simultaneously. Gemini 2.5 Pro with Deep Think takes the opposite approach: one session, full context, reasoning across everything at once. The right choice depends on whether your documents are well-structured (favoring full context) or sprawling across disciplines (where parallel subagents can divide and conquer).
+
+## Where it falls short
+
+API access for Deep Think isn't available yet — Google says it's coming in the "coming weeks." Today this workflow runs through the Gemini app, which means pasting document text manually, not piping directly from your project management system. That's meaningful friction for any team that wants to automate the intake.
+
+One million tokens is enough for most medium projects. It won't hold the complete document set for a large multi-year job without selective loading.
+
+The model generates plausible synthesis, not verified legal analysis. Every cross-reference it surfaces needs a human to confirm against the source document. Dollar amounts and date calculations require manual verification before they land in any formal claim. Deep Think accelerates research; it doesn't replace a qualified claims professional.
+
+## The test to run this week
+
+Pull the RFI log and change order log from a recently completed project. Load them alongside the relevant spec sections into Gemini 2.5 Pro with Deep Think enabled. Ask: "Are there any approved RFI responses that changed the scope or means of work without a corresponding change order?"
+
+If the output is accurate and useful, you've found a workflow worth building into your standard close-out process. If it generates plausible-sounding but wrong connections, you've learned what tighter document inputs look like before you rely on it for a real claim.
+
+Forward this to the person on your team who's still arguing AI is overhyped.
+
+*Construction AI Brief covers the AI moves that matter for commercial GCs and project engineers, three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
