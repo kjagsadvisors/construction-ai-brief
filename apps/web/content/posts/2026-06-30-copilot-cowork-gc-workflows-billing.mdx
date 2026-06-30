@@ -1,0 +1,53 @@
+---
+title: "The Microsoft 365 agent that runs multi-step project workflows in the background starts billing tomorrow"
+date: "2026-06-30"
+excerpt: "Copilot Cowork, Microsoft's autonomous workflow agent built on Anthropic's Claude, went generally available June 16. For GC and sub teams in the preview program, July 1 is when the bill arrives."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/"
+  - "https://www.microsoft.com/en/customers/story/26012-wsp-microsoft-365-copilot/"
+  - "https://www.microsoft.com/en/customers/story/26418-kimley-horn-microsoft-365/"
+---
+
+If your project team is in Microsoft 365 — Teams, SharePoint, Outlook, Excel — there's now an agent that can execute multi-step workflows across all of them without someone sitting at a laptop supervising it. That agent went generally available on June 16. If your organization was in Microsoft's Frontier preview program, billing starts July 1.
+
+That deadline is worth a few minutes of your time today.
+
+## What Copilot Cowork actually does
+
+Most AI tools in project management require a person to ask a question and wait for an answer. Cowork is different in one specific way: it can be handed a task with multiple steps, exit the conversation, do the work across Microsoft 365 apps, and report back when it's done.
+
+The example Microsoft published from the preview: an engineering team asked Cowork to compare approximately 4,000 files across two product versions. That's not a one-shot prompt. It's a workflow that would take a project engineer a day or more — open the file inventory, compare versions, flag deltas, write a summary, move to the next file. Cowork ran it autonomously.
+
+For a GC or trade sub office, the equivalent tasks are obvious once you see the pattern:
+
+- **Weekly schedule comparison.** Pull the current P6 export from SharePoint, compare against last week's baseline, flag any activities that slipped more than three days, draft a summary for the owner. A PM currently does this in pieces across multiple apps.
+- **RFI log monitoring.** Watch the RFI log in SharePoint, identify any items open more than 14 days, draft a follow-up email to the design team, add to the weekly report. Currently a coordinator task done on a recurring basis.
+- **Submittal document comparison.** Compare the rev 2 submittal against the approved rev 1 in SharePoint, identify what changed, flag anything outside spec tolerance. Currently manual review.
+
+These aren't things a chatbot does. They require pulling from multiple files, making decisions, and writing outputs — the kind of multi-step work that typically requires a human to stay at their desk and drive.
+
+## The model underneath matters
+
+Cowork runs on Anthropic's Claude — specifically Opus 4.8 and Sonnet 4.6, depending on task complexity. Microsoft has disclosed it is building a fine-tuned "Cowork 1" model for lower per-task cost, but the current production version uses Claude directly. That's relevant because Claude's document handling and instruction-following are what make the multi-step, multi-file workflows reliable at scale.
+
+The performance claims Microsoft published from the preview are from engineering and consulting contexts, not construction specifically. WSP — a 75,000-person engineering firm with a $1B Microsoft partnership — reported 84%+ daily time savings on specific tasks and project validation cycles at 10–15% of the usual cycle time. Kimley-Horn, an engineering consultancy, reported a 50% reduction in grading work on a solar project. These are engineering workflows, which overlap meaningfully with construction project management.
+
+## What it costs and what it requires
+
+Billing runs at $0.01 per Copilot Credit on Pay-Go. Complex multi-step tasks consume more credits than simple ones — Microsoft has not published a standard credit table by task type, so you'll need to monitor actual usage during the first billing cycle.
+
+The hard requirement: Microsoft 365 Copilot User Subscription License. If your team is on base M365 without Copilot, Cowork isn't available to you yet.
+
+The hard limit: Cowork operates inside the Microsoft 365 ecosystem. It can reach Teams, SharePoint, Outlook, Excel, and OneDrive. It cannot reach Procore, Autodesk, Sage, or any other construction platform unless your IT team has configured Federated Connectors for those systems. Right now, for most GC and sub offices, that means Cowork's native reach is the back-office stack, not the project management stack.
+
+## The workflow design question
+
+[The same dynamic covered here two days ago about AI productivity gains staying with individual workers rather than flowing to the firm](/posts/2026-06-28-anthropic-81k-survey-ai-gains-gc-back-office) applies directly to Cowork. An autonomous agent that runs repetitive multi-step workflows can either free up a PM to do more high-value work, or just run in the background while the PM's work patterns stay unchanged.
+
+The firms that will actually extract value from Cowork are the ones that identify specific workflows — not general productivity goals — and assign the freed-up capacity to something concrete before they flip the switch. "Cowork handles the weekly schedule comparison" only matters if the PM's Tuesday morning is then pointed at something specific.
+
+If your team is in the Frontier program, look at your Microsoft 365 admin console today. July 1 is 24 hours out. Know what workflows you're running, how many credits they're consuming, and what you're getting back for it.
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
