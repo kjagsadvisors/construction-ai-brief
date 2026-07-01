@@ -15,8 +15,14 @@ export interface PostMeta {
   sources?: string[];
 }
 
+export interface FAQ {
+  q: string;
+  a: string;
+}
+
 export interface Post extends PostMeta {
   body: string;
+  faqs: FAQ[];
 }
 
 export function getAllPosts(): PostMeta[] {
@@ -61,6 +67,14 @@ export function getPost(slug: string): Post | null {
     pillar: (data.pillar ?? "punch_list") as Pillar,
     audience: (data.audience ?? "none") as Segment,
     sources: Array.isArray(data.sources) ? data.sources.map(String) : [],
+    faqs: Array.isArray(data.faqs)
+      ? data.faqs
+          .map((f: { q?: unknown; a?: unknown }) => ({
+            q: String(f?.q ?? ""),
+            a: String(f?.a ?? ""),
+          }))
+          .filter((f: FAQ) => f.q && f.a)
+      : [],
     body: content,
   };
 }

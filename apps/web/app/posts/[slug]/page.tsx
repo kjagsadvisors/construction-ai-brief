@@ -93,12 +93,33 @@ export default function PostPage({ params }: { params: { slug: string } }) {
     ].join(", "),
   };
 
+  // FAQPage schema — this is what Google's AI Overview and LLM answer engines
+  // extract to cite us directly. Driven by the `faqs` frontmatter field.
+  const faqLd =
+    post.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: post.faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }
+      : null;
+
   return (
     <article className="max-w-sheet mx-auto px-6 md:px-10 pt-10 md:pt-14 pb-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
+      )}
       {/* ── Title block ────────────────────────────────────────────── */}
       <div className="border-2 border-ink bg-paperLite">
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-ink">
@@ -142,6 +163,28 @@ export default function PostPage({ params }: { params: { slug: string } }) {
       </div>
 
       <SubscribeCTA />
+
+      {/* ── FAQ block — visible Q&A that mirrors the FAQPage schema ── */}
+      {post.faqs.length > 0 && (
+        <section className="max-w-prose mx-auto mt-16 border-t-2 border-ink pt-6">
+          <div className="meta-strong mb-4 flex items-center gap-3">
+            <span className="flag">FAQ</span>
+            <span>Common questions</span>
+          </div>
+          <dl className="space-y-6">
+            {post.faqs.map((f) => (
+              <div key={f.q}>
+                <dt className="font-display text-lg md:text-xl text-ink text-balance">
+                  {f.q}
+                </dt>
+                <dd className="font-body text-graphite mt-2 text-pretty">
+                  {f.a}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
 
       {/* ── Sources block — like a drawing reference list ──── */}
       {post.sources && post.sources.length > 0 && (

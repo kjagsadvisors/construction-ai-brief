@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="Construction AI Brief icon">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,900&amp;display=swap');
+      .mark { font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-style: italic; font-weight: 900; }
+    </style>
+  </defs>
+  <rect width="256" height="256" rx="48" fill="#1B1F2A"/>
+  <text x="128" y="138" class="mark" font-size="150" letter-spacing="-6"
+        text-anchor="middle" dominant-baseline="middle" fill="#F4F1EA">C<tspan fill="#E54B00">·</tspan>B</text>
+</svg>

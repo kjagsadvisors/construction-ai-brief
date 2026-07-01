@@ -40,7 +40,11 @@ The repository is the current working directory. Articles are MDX in `apps/web/c
    Be concrete about *who* on a project this touches and *what they'd do differently.* Don't overclaim — note limits and what's still hype.
 7. **Verify.** Confirm facts against at least one reputable primary source via WebFetch. Every claim/stat traces to a real URL you fetched. No invented numbers, quotes, or URLs.
 8. **Voice.** Read `packages/voice/brand-voice.md` and `packages/voice/banned-phrases.json`. Plain, specific, skeptical, useful to a working contractor. NEVER use a banned phrase. No hype.
-9. **Draft** 500–800 words. **Lead with the construction relevance**, not a generic AI-news recap — the headline and opening should make clear why a contractor should care. Sentence-case headline. End with a concrete takeaway for the reader's actual work.
+9. **Draft** 500–800 words, structured so Google's AI Overview and LLM answer engines (ChatGPT/Perplexity) can extract and cite you. **Lead with the construction relevance** — the headline and opening make clear why a contractor should care. Then:
+   - **Open with a direct, self-contained answer.** The first 1–2 sentences after the headline should stand alone as the answer to the implied question (this is the sentence an AI Overview quotes). No throat-clearing.
+   - **Use question-style H2 subheads** where natural (e.g., "What does this mean for estimators?", "Should a mid-size GC act now?") — match how people actually search.
+   - **Use a list or a comparison table** for anything enumerable (steps, options, tool comparisons, pros/cons). Extraction engines pull tables and lists directly.
+   - Sentence-case headline. End with a concrete takeaway for the reader's actual work.
 10. **Write** to `apps/web/content/posts/{YYYY-MM-DD}-{short-kebab-slug}.mdx` with frontmatter:
     ```
     ---
@@ -51,8 +55,14 @@ The repository is the current working directory. Articles are MDX in `apps/web/c
     audience: "<gc_ops | trade_sub | estimator>"
     sources:
       - "<url>"
+    faqs:
+      - q: "<a real question a contractor would type into Google about this>"
+        a: "<a direct, self-contained 1-3 sentence answer — no fluff>"
+      - q: "..."
+        a: "..."
     ---
     ```
+    Write **3–5 `faqs`**. Each `q` is a genuine search-style question tied to the article's topic (e.g. "Does X affect construction estimating software?"); each `a` is a standalone, factual answer that reads correctly out of context (AI Overviews quote these). The site renders them as a visible FAQ section AND as FAQPage structured data. Do not invent facts in answers — they must be supportable by the article's sources.
 11. **Critic pass.** If it reads like a generic AI-news rewrite, the construction angle is forced/thin, it hypes, uses a banned phrase, or any claim lacks a source — fix it or abort.
 12. **Publish.** Append to `data/published.jsonl`: `{"slug":"<slug>","channel":"web","title":"<title>","sources":[...],"published_at":"<ISO8601>"}`. Then commit and push **directly to `main`** (the session runs on a `claude/*` working branch, so a bare `git push` would NOT update main and the site would not deploy):
     ```

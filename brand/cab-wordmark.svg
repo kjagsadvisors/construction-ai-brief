@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 170" width="780" height="170" role="img" aria-label="Construction AI Brief">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&amp;family=JetBrains+Mono:wght@500&amp;display=swap');
+      .display { font-family: 'Fraunces', Georgia, serif; font-weight: 900; font-variation-settings: "SOFT" 25, "WONK" 1, "opsz" 96; letter-spacing: -2px; }
+      .meta { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 500; letter-spacing: 0.5px; }
+    </style>
+  </defs>
+  <!-- drawing-sheet corner crop-mark -->
+  <g transform="translate(20,52) scale(2.6)" stroke="#1B1F2A" stroke-width="1.5" fill="none" stroke-linecap="square">
+    <path d="M2 8 L2 2 L8 2 M22 16 L22 22 L16 22 M22 8 L22 2 L16 2 M2 16 L2 22 L8 22"/>
+  </g>
+  <!-- wordmark -->
+  <text x="95" y="80" class="display" font-size="54" fill="#1B1F2A">Construction AI Brief</text>
+  <!-- tagline -->
+  <text x="96" y="120" class="meta" font-size="16" fill="#1B1F2A">
+    <tspan fill="#E54B00">&#9679;</tspan><tspan dx="6">tools · news · field reports — 3× weekly</tspan>
+  </text>
+</svg>
