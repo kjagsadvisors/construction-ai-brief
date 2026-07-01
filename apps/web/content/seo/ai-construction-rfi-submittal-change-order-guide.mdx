@@ -1,0 +1,100 @@
+---
+title: "AI for RFIs, submittals, and change orders: what it actually does in 2026"
+description: "AI drafts RFI responses, checks submittals against spec, and reads change bulletins in minutes — but a human still signs off. Here's the honest line between the two, tool by tool."
+target_keyword: "AI for construction RFIs submittals change orders"
+audience: "gc_ops"
+updated_at: "2026-07-01"
+sources:
+  - "https://www.nasdaq.com/press-release/new-bluebeam-report-shows-early-ai-adopters-aec-seeing-significant-roi-despite-uneven"
+  - "https://media.arcadis.com/-/media/project/arcadiscom/com/expertise/global/contract-solutions/2025/2025-15th-annual-construction-disputes-report-final-19jun25.pdf"
+  - "http://pg.plangrid.com/rs/572-JSV-775/images/Ins_and_Outs_of_Construction_RFIs.pdf"
+  - "https://www.enr.com/articles/63042-procore-releases-new-ai-agients-after-datagrid-integration"
+  - "https://www.globenewswire.com/news-release/2026/06/17/3313698/0/en/trunk-tools-launches-cortex-to-tackle-construction-s-hardest-ai-problem-drawings.html"
+  - "https://www.constructiondive.com/news/builders-ai-transform-businesses-survey/807555/"
+  - "https://mistral.ai/news/ocr-4/"
+  - "https://arxiv.org/abs/2602.17753"
+faqs:
+  - q: "Can AI answer an RFI on its own, without a human reviewing it?"
+    a: "Not for anything that carries design or contractual weight. Current tools (Procore's RFI agent, Trunk Tools' TrunkText) draft an answer with cited spec and drawing references and route it to the right reviewer — they don't issue a binding response. The engineer or PM of record still signs off, especially on anything touching structural, life-safety, or scope."
+  - q: "How much faster is AI submittal review than manual review?"
+    a: "Trunk Tools has published submittal cycle-time reductions in the 70–75% range across two rounds of customer data; Procore's Submittal Reviewer Agent makes similar claims for the first-pass compliance check. Those are vendor-reported numbers from early deployments, not independently audited averages, so treat them as a ceiling to test against, not a guarantee."
+  - q: "Who is liable when AI flags a submittal or RFI answer incorrectly?"
+    a: "The contract doesn't change. The PE, submittal reviewer, or engineer of record who approves the output is still the liable party — AI tools are drafting and checking, not signing. Your submittal log and RFI register should show a named human approval on every item an AI touched, the same way it would for a junior engineer's draft."
+  - q: "Do subcontractors need to buy their own AI submittal tool?"
+    a: "Usually not. If the GC runs Procore, Autodesk Construction Cloud, or a platform with Trunk Tools embedded, the sub's submittals get the AI first pass for free as part of the GC's project instance. A sub only needs its own tool if it wants AI help drafting submittal packages before they go up, which is a separate workflow from the GC's review layer."
+  - q: "What does AI submittal or RFI software cost for a 50-person GC or sub?"
+    a: "There's no published flat rate — Procore and Autodesk bundle their agents into existing platform contracts (often a per-project or per-seat add-on you negotiate at renewal), and Trunk Tools prices as a separate subscription layered on top of Procore or ACC. Ask for numbers tied to your actual submittal or RFI volume before you sign; a vendor quote based on a much larger GC's usage will overstate your cost."
+  - q: "What's the real security risk in letting AI read subcontractor documents?"
+    a: "Prompt injection — instructions hidden inside a submitted PDF or RFI attachment that redirect what the AI agent does next. A 2026 academic study of 30 deployed commercial AI agents found 8 with documented incidents or vulnerabilities tied to this exact failure mode, and submittal/RFI review is a direct exposure point because the agent is, by design, reading documents an outside party controls."
+---
+
+AI does two things reliably in the RFI, submittal, and change-order stack today: it drafts a first-pass answer against your spec and drawings in minutes instead of hours, and it flags what doesn't match. It does not decide, sign, or replace the person whose stamp or signature makes the answer binding. If a vendor's pitch skips that line, that's the question to ask next.
+
+This is the paperwork layer of every commercial job — the RFI log, the submittal register, the change bulletin, the change order that follows it. It's also the layer where AI has shipped the fastest, because the work is pattern-matching against a fixed set of documents: does this cut sheet meet Division 23, does this bulletin change the scope on sheet A-412, has this RFI already been answered three weeks ago under a different number. That's a good problem for a language model. It's a bad problem for a model working alone.
+
+## What is AI actually doing with RFIs, submittals, and change orders right now?
+
+Three things, all shipping in 2026:
+
+1. **Drafting.** The AI reads the incoming RFI or submittal package, pulls the relevant spec section and drawing sheet, and writes a candidate response or comparison note with citations back to the source documents.
+2. **Routing and triage.** It classifies the item — mechanical, electrical, structural, "already answered," "needs the EOR" — and sends it to the right reviewer instead of sitting in a shared inbox.
+3. **Cross-referencing at scale.** It compares a 20-sheet change bulletin against the prior issue and writes out what changed, including revisions the architect didn't cloud — a task a project engineer would otherwise spend two to four hours doing by hand.
+
+None of these three replace the approval step. [Procore's five embedded AI agents](/posts/2026-06-21-procore-ai-agents-what-they-do) — covering submittals, RFIs, daily logs, and contract review — are explicit that a person still approves the agent's draft before it becomes the official record. [Trunk Tools' Cortex platform](/posts/2026-06-21-trunk-tools-cortex-construction-drawings-ai) frames its bulletin-reading agent the same way: it writes the change narrative, a human confirms it.
+
+## How much time does AI actually save on submittal review?
+
+The industry baseline is the problem AI is aimed at. The average commercial RFI takes design teams roughly eight hours to receive, log, review, and answer once you count the back-and-forth, and typical contract language gives 7 to 14 calendar days to respond — averages by region run from about 6.4 days on the West Coast to 9.7 days in the Southeast ([PlanGrid, "The Ins and Outs of Construction RFIs"](http://pg.plangrid.com/rs/572-JSV-775/images/Ins_and_Outs_of_Construction_RFIs.pdf)). Submittal review runs on a similar clock, item by item, all the way down a 200-to-400-line log.
+
+Vendors are now publishing specific numbers against that baseline. Trunk Tools reported submittal cycle-time reductions in the 70–75% range in its two most recent rounds of customer data, and says its bulletin-reading agent processes a 20-sheet change package with written narratives in under five minutes ([GlobeNewswire](https://www.globenewswire.com/news-release/2026/06/17/3313698/0/en/trunk-tools-launches-cortex-to-tackle-construction-s-hardest-ai-problem-drawings.html)). Procore makes comparable claims for its Submittal Reviewer Agent, which checks submissions against the project spec and flags discrepancies before a person opens the item ([ENR](https://www.enr.com/articles/63042-procore-releases-new-ai-agients-after-datagrid-integration)).
+
+Treat both as vendor-reported, early-deployment figures — neither is an independently audited industry average, and both come from the vendor's own customer base, which skews toward firms motivated enough to instrument the before-and-after. The honest read: expect a real reduction on the first-pass compliance check, and expect it to be smaller once you count the human review time you should still be spending on anything flagged.
+
+## Can AI answer RFIs on its own — or does it just draft them?
+
+It drafts. The distinction matters more than it sounds like it should, because it's the difference between a tool that saves your PE two hours and a tool that creates a liability gap.
+
+What AI does well: pulling the exact spec section and drawing reference an RFI is asking about, checking whether the same question has already been answered elsewhere in the log, and writing a response draft with citations. What it doesn't do: make the judgment call on anything that touches design intent, structural capacity, code interpretation, or owner decision-making — the roughly 70% of RFIs that aren't simple clarifications and that take anywhere from a week to several months to close because they need an engineer's actual judgment, not a lookup.
+
+The workflow that's actually shipping treats the AI as a drafting layer in front of the person who was going to answer the RFI anyway. That's also where document-heavy models are starting to matter: [OpenAI's GPT-5.6 Sol](/posts/2026-06-27-gpt-56-sol-subagents-construction-document-review), which runs parallel subagents on a single task, is built for exactly the bottleneck of checking 60-plus open submittal items against structural drawings at the same time instead of one at a time — but it's still government-gated as of this writing and not a tool a GC can deploy directly today.
+
+## What does AI change about the change-order and bulletin process?
+
+Change orders start further upstream than most GCs think about them — at the bulletin, the bid alternate, the bit of the drawing set that moved between issues. The expensive part isn't writing the change order once everyone agrees; it's the two-to-four-hour manual comparison a project engineer does to figure out *what changed* between drawing sets, especially when the architect didn't cloud every revision.
+
+That comparison is the specific task Trunk Tools' Cortex targets, and it's also where the stakes of getting it wrong show up fastest: construction disputes remain expensive and slow to resolve. The average U.S. construction dispute is now valued at $60.1 million and takes roughly 12.5 months to resolve in North America ([Arcadis, 2025 Global Construction Disputes Report](https://media.arcadis.com/-/media/project/arcadiscom/com/expertise/global/contract-solutions/2025/2025-15th-annual-construction-disputes-report-final-19jun25.pdf)). A faster, better-documented change process doesn't eliminate that risk, but a change narrative with a clear paper trail — which drawing changed, when it was flagged, who confirmed it — is exactly the kind of record that shortens a dispute when one happens.
+
+## Comparison: AI tools for RFIs, submittals, and change orders
+
+| Tool / approach | What it actually does | What still needs a human | Where it plugs in |
+|---|---|---|---|
+| **Procore AI Agents** (Submittal Reviewer, RFI agent, contract review) | Drafts submittal compliance checks and RFI responses inside Procore; flags discrepancies against spec | Final approval on every item; judgment calls on design/structural questions | Native to Procore, in paid private beta expanding through 2026 |
+| **Trunk Tools Cortex** (TrunkSubmittal, TrunkText, drawing-change agent) | Reads bulletins and writes change narratives; answers document questions with cited sources; submittal cycle-time claims of 70–75% | Confirming the narrative is complete and correctly scoped; anything the model wasn't shown | Embeds inside Procore and Autodesk Forma as a workflow step |
+| **DIY OCR + LLM pipeline** (e.g., self-hosted extraction + a general model) | Extracts text/tables from submittal PDFs cheaply — [Mistral OCR 4 runs $2–$5 per 1,000 pages](/posts/2026-06-28-mistral-ocr-4-submittal-extraction-construction) — then a model compares against spec | Building and maintaining the pipeline yourself; no vendor accountability for wrong flags | Custom build; fits firms with in-house dev capacity or a systems integrator |
+| **Status quo (manual review)** | Full human judgment on every item, no automation | Nothing — it's all human, which is also the bottleneck | No integration required; this is the baseline every AI tool is measured against |
+
+The pattern across every row: AI compresses the first pass. None of them remove the reviewer.
+
+## Who's liable when the AI is wrong about a submittal or RFI?
+
+The contract doesn't change because a model drafted the answer. The submittal reviewer, PE, or engineer of record who approves an item is still the party of record — the same as if a junior engineer had drafted it and a senior one signed off. What does change is the audit trail you need: your submittal log and RFI register should show a named human approval on every AI-assisted item, not just a system timestamp.
+
+The newer risk isn't the AI being wrong in an obvious way — it's the AI being wrong because of what it read. [A 2026 study of 30 deployed commercial AI agents found 8 with documented security incidents or vulnerabilities](/posts/2026-06-30-ai-agent-prompt-injection-construction-documents), most commonly tied to prompt injection: instructions embedded in a document that redirect what the agent does. A submittal package or RFI attachment from a sub is exactly the kind of outside-controlled document an AI agent reads by design. Before you give an agent review authority over anything a subcontractor submits, ask the vendor directly what it does to prevent instructions hidden in that document from changing the agent's behavior — most haven't published an answer.
+
+## What does it cost, and is it worth it for a 50-person GC or sub?
+
+There's no published flat rate. Procore and Autodesk bundle their AI agents into existing platform contracts, typically as a per-project or per-seat add-on negotiated at renewal. Trunk Tools sells as a separate subscription layered on top of Procore or Autodesk Construction Cloud. Get a quote scoped to your actual RFI and submittal volume — a number built off a 500-person GC's usage will overstate what a 50-person shop should pay.
+
+Adoption is still early enough that the honest framing is upside, not certainty: 87% of contractors surveyed believe AI will meaningfully transform their business, even though current adoption remains low and uneven ([Construction Dive](https://www.constructiondive.com/news/builders-ai-transform-businesses-survey/807555/)), and separate research puts firms actively using AI in daily operations at 27%, with 94% of those planning to expand usage in the next year ([Bluebeam AEC Technology Outlook 2026](https://www.nasdaq.com/press-release/new-bluebeam-report-shows-early-ai-adopters-aec-seeing-significant-roi-despite-uneven)). That gap — high belief, low current use — is normal for a tool category this new. It also means most of the productivity gain is still going to the people using the tools day to day rather than showing up yet as a firm-wide margin number ([Anthropic's economic research](/posts/2026-06-28-anthropic-81k-survey-ai-gains-gc-back-office) makes the same point about AI-assisted knowledge work generally).
+
+It's worth piloting if your submittal log regularly runs past 200 open items or your RFI response time is already blowing past contract windows — the tools are aimed squarely at that volume problem. It's not worth a platform-wide commitment yet if your paperwork volume is small enough that a project engineer with a clean template already keeps up; the AI layer saves the most time exactly where the manual process was already breaking down.
+
+## How to pilot this without betting the project on it
+
+1. **Pick one submittal-heavy division** — Division 22 or 23 (mechanical/plumbing) usually has the highest item count and the most repetitive spec-checking, which makes the AI's time savings easiest to measure.
+2. **Run it side by side with your current process for one full submittal cycle.** Don't remove the human reviewer; add the AI draft as a second input and compare.
+3. **Track two numbers**: time from submission to first-pass flag, and how many flags the human reviewer agreed with versus overrode. A high override rate on a specific submittal type tells you where the tool isn't ready yet.
+4. **Confirm the approval trail.** Every item the AI touched should still show a named human sign-off in your log — that's both good practice and your answer if a dispute ever asks who approved what.
+5. **Decide on real numbers, not the vendor's.** If your pilot shows a meaningful cycle-time cut and an override rate you can live with, expand division by division. If the override rate is high or the time savings don't clear the cost of the add-on, kill it and revisit next renewal.
+
+The tools are real and the time savings on the first-pass work are, too — vendor numbers aside, drafting and cross-referencing are exactly what current models are good at. The judgment calls that make an RFI or submittal binding are not going anywhere, and no vendor is claiming otherwise once you read past the headline.
