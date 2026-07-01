@@ -1,0 +1,39 @@
+---
+title: "GitHub Copilot's flat-rate plan ended June 1. The RFI script your ops team built on agent mode is now billed by the token"
+date: "2026-07-01"
+excerpt: "GitHub Copilot switched from flat per-seat pricing to metered AI credits, and the first full billing cycle just closed with users reporting 10-50x cost jumps. For subs and GCs running internal automation on Copilot's agent mode, that's a budget line that needs a cap before the next cycle starts."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://github.com/orgs/community/discussions/192948"
+  - "https://www.techtimes.com/articles/319340/20260629/github-copilot-billing-shock-confirmed-agentic-users-face-10x-cost-surge.htm"
+  - "https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/"
+---
+
+If someone in your shop has been quietly using GitHub Copilot to build small internal tools — a script that pulls the RFI log and flags anything open past 14 days, a submittal-tracking spreadsheet automation, a scraper that normalizes vendor cut sheets — check what plan they're on. As of June 1, the flat monthly price stopped covering that kind of work.
+
+## What actually changed
+
+GitHub moved Copilot off flat-rate pricing for anything beyond basic code completion. Per-seat subscriptions still exist, and inline code completions and Next Edit Suggestions stay unlimited. But Copilot Chat, agent mode, code review, and the Copilot CLI — the features that do multi-step work rather than just finishing a line of code — now draw down a monthly pool of "AI Credits" billed at each model's published API rate, one credit per cent. Individual Pro plans get 1,500 credits a month, Pro+ gets 7,000. Business gets 1,900 per user, Enterprise 3,900. Unused credits don't roll over.
+
+June was the first full 30-day cycle under the new system, and it closed on June 30. That's the number that matters here: this isn't a policy announcement anymore, it's a bill.
+
+## The bill is landing rough
+
+On GitHub's own community discussion board, users are reporting single agent-mode requests burning through over half a month's credit allotment — one developer logged 822 credits, 54% of their monthly quota, on one request. Others describe draining an entire 7,000-credit Pro+ allowance in a couple of hours of agentic work, or projecting full depletion within 48 hours at normal usage. Outside reporting on the June 30 close of the first cycle put dollar terms on it: developers projecting monthly bills jumping from roughly $29 to $750, and from $50 to $3,000, once their usage is priced at metered rates instead of the old flat subscription.
+
+The pattern in all of it is consistent: code completion (still unlimited) isn't what's expensive. Agent mode — handing Copilot a multi-step task and letting it work across files without you supervising every line — is what burns credits fast, because it's making many model calls to do work a person used to do by hand.
+
+## Why that's a construction problem, not just a dev problem
+
+Copilot's actual coding audience is thin in construction, but its agent-mode audience is wider than it looks. A lot of the "someone on our team automated this" tools running quietly inside GC and sub back offices — RFI status trackers, submittal-log watchers, spreadsheet cleanup scripts, basic estimating helpers — got built by whoever had a Copilot seat and enough curiosity to try agent mode instead of just autocomplete. Those are exactly the workflows that draw hardest on the metered pool, because they're multi-step and run with less human oversight per token than a developer typing code line by line.
+
+If your firm has one of these seats — an ops person, a precon lead, an IT generalist — and they've started leaning on agent mode to keep an internal tool running, the person paying the invoice needs to know that tool's cost profile just changed from "flat and predictable" to "metered and spiky." A script that ran fine in May at $39/month can hit multiples of that in June without anyone changing what it does.
+
+## What to actually do about it
+
+This isn't a reason to pull the plug on agentic coding tools — it's a reason to budget them like a real line item instead of an afterthought bundled into a software subscription. Two concrete steps before your next cycle closes: check the credit spend dashboard under Settings → Billing → GitHub Copilot to see which features and models are actually consuming the pool, and set a hard spending cap there so a runaway agent task can't silently blow past what you expected to pay. If the tool your team built is valuable enough to keep, it's valuable enough to know what it costs — and metered billing means that number now moves month to month, not just once a year at renewal.
+
+[We covered a similar billing cliff two days ago](/posts/2026-06-30-copilot-cowork-gc-workflows-billing) with Microsoft's Copilot Cowork — the pattern is the same across the industry: the free ride on flat-rate AI tooling is ending, one product at a time.
+
+*Three issues a week, one lens: what AI news actually means for your jobsite. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
