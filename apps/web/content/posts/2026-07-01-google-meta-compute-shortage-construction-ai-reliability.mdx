@@ -1,0 +1,39 @@
+---
+title: "Google can't fully supply Meta with AI compute. The AI features in your project software run on the same squeeze."
+date: "2026-07-01"
+excerpt: "Google is rationing Gemini access for Meta because it doesn't have enough compute to meet demand — even while spending over $180 billion this year. If the biggest AI buyers are capacity-constrained, the AI features inside your project management and estimating tools are further down the same line."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.cnbc.com/2026/06/28/google-limits-metas-use-of-its-gemini-ai-models-ft-reports.html"
+  - "https://techcrunch.com/2026/06/05/google-will-pay-spacex-920m-per-month-for-compute/"
+  - "https://www.datacenterdynamics.com/en/news/google-to-pay-920-million-to-spacex-monthly-for-ai-capacity/"
+  - "https://builtin.com/artificial-intelligence/meta-superintelligence-reorg"
+  - "https://www.tomshardware.com/tech-industry/big-tech/big-techs-ai-spending-plans-reach-725-billion"
+---
+
+Google told Meta it can't have all the AI compute it wants to buy. That sentence sounds backwards — Google runs one of the largest computing footprints on earth and is spending more than $180 billion this year to expand it — but according to Financial Times reporting confirmed by Google, the company has been rationing Meta's access to its Gemini models since March because it cannot supply enough capacity to meet demand. Meta employees have been told to use AI tokens more efficiently, and some of Meta's internal AI projects have been delayed as a result.
+
+Google isn't sitting still on it. The company is paying SpaceX $920 million a month for access to roughly 110,000 Nvidia GPUs at a Memphis data center — what Google itself is calling "bridge capacity" to cover surging demand for its Gemini Enterprise agent platform. That's a hyperscaler renting emergency compute from a rocket company because its own buildout, running at record pace, still isn't fast enough. Meta's response has been to reassign roughly 7,000 employees into new AI divisions and lean harder on its own internal model, Muse Spark, to cut its dependence on outside providers.
+
+## Why this matters past the two companies involved
+
+Every AI feature inside the construction software stack — submittal review copilots, RFI drafting assistants, scheduling agents, vision-based safety monitoring — runs on inference capacity purchased from one of a handful of cloud providers: Google Cloud, AWS, Azure, or a frontier lab's own API. Construction software vendors are not buying that capacity at Meta's scale. They're buying it as one account among thousands, competing for the same GPUs Google is short on for one of its largest customers.
+
+That doesn't mean your submittal tool is about to go dark. It means the assumption a lot of GC ops teams are making — that the "AI" feature bolted onto a platform is a fixed, always-on capability like a database lookup — isn't how the underlying economics work right now. Inference capacity is scarce and being rationed at the very top of the market. A feature that runs fast and accurate today can run slower, get rate-limited, or quietly degrade in accuracy when the underlying provider hits a capacity ceiling — and the contractor using it has no visibility into which is happening.
+
+## Three questions to ask a vendor before you rely on an AI feature for something time-sensitive
+
+1. **What happens to this feature under load?** Ask directly whether the AI feature has a rate limit, a queue, or a fallback to a smaller/cheaper model during peak demand. If the vendor doesn't know, that's an answer.
+2. **Is there an SLA that actually covers the AI feature, or just the platform?** Most software SLAs guarantee uptime for the core application. Very few extend that guarantee to the AI layer specifically. Read the contract language, not the sales deck.
+3. **Does the vendor have a reserved-capacity or dedicated-instance arrangement with its model provider, or is it buying on the open market?** Vendors serious about AI reliability have started asking this question of their own suppliers. If your rep can't answer it, they haven't asked either.
+
+None of this is a reason to hold off on AI tools — the productivity gains on submittal prep, RFI turnaround, and takeoff are real and documented. It's a reason to stop treating the AI feature in your stack as infrastructure with the same reliability as your email. It's a rented resource, and right now the market renting it out is telling its biggest customers to ration.
+
+The compute shortage also says something about the [construction demand for hyperscaler capex](/posts/2026-06-30-data-center-electrical-credentials-725-billion): if Google, Meta, and every other major buyer are still short on capacity after the largest infrastructure buildout in the industry's history, the data center construction pipeline behind it isn't slowing down anytime soon.
+
+---
+
+Forward this to the ops director evaluating an AI feature for a workflow where a delay actually costs money — submittal deadlines, bid day, close-out.
+
+*Construction AI Brief covers the AI moves that change contractor decisions three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
