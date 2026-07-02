@@ -1,0 +1,54 @@
+---
+title: "Anthropic's top coding AI finished a 2-month migration in a day. That's the number for the estimating database nobody wants to touch."
+date: "2026-07-02"
+excerpt: "Claude Fable 5 came back online July 1 after an 18-day, government-ordered blackout. In pre-launch testing it rewrote a 50-million-line production codebase in a day — a fact worth knowing if your firm is still running a decades-old estimating or ERP system too risky to touch."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.anthropic.com/news/redeploying-fable-5"
+  - "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+  - "https://www.anthropic.com/news/fable-mythos-access"
+  - "https://cyberscoop.com/us-lifting-export-control-restrictions-anthropic-mythos-fable/"
+  - "https://thehackernews.com/2026/07/anthropic-restores-claude-fable-5-after.html"
+faqs:
+  - q: "What is Claude Fable 5?"
+    a: "Fable 5 is Anthropic's top-tier agentic coding model, the first \"Mythos-class\" model the company has released for general use. It has a 1-million-token context window, persistent file-based memory for long-running tasks, and leads the public SWE-Bench Pro agentic-coding benchmark at 80.3%."
+  - q: "Why was Claude Fable 5 taken offline?"
+    a: "The US Commerce Department ordered Anthropic to suspend global access to Fable 5 and its more restricted sibling, Mythos 5, on June 12, 2026 — three days after launch — after Amazon researchers reported a jailbreak that let the model identify software vulnerabilities and, in one case, generate exploit code."
+  - q: "Is Claude Fable 5 safe to use again?"
+    a: "Anthropic redeployed Fable 5 on July 1, 2026 after the Commerce Department lifted the export control order on June 30. Anthropic added a new safety classifier that independent testing by the department's CAISI unit found blocks the jailbreak technique in more than 99% of attempts."
+  - q: "How much does Claude Fable 5 cost?"
+    a: "Fable 5 is priced at $10 per million input tokens and $50 per million output tokens through the API — less than half the price of the earlier Mythos Preview model. Pro, Max, Team, and select Enterprise subscribers get it included up to 50% of their weekly usage allowance at no added cost."
+  - q: "Can an AI model like Fable 5 replace an in-house developer for modernizing old construction software?"
+    a: "No. It can execute a bounded, well-scoped migration or refactor far faster than a human team, as Stripe's case demonstrated, but it still needs a person who understands the system to scope the job, review the output, and own what ships. It's a force multiplier for existing technical judgment, not a replacement for it."
+---
+
+Claude Fable 5, Anthropic's most capable coding model, is back in general use as of July 1 — 18 days after the US government ordered it pulled offline. In pre-launch testing, the model's launch partner Stripe pointed it at a 50-million-line production Ruby codebase and ran a full migration across it in a single day. Anthropic says the same work would have taken an engineering team more than two months by hand. If your firm has an estimating database, a custom ERP integration, or a scheduling tool built by someone who left the company a decade ago, that comparison is worth sitting with.
+
+## Why was it offline for 18 days?
+
+Fable 5 and its more restricted sibling, Claude Mythos 5, launched June 9. Three days later, the Commerce Department ordered Anthropic to suspend global access, citing export-control authority, after Amazon researchers reported a jailbreak that let the model bypass its safeguards, identify software vulnerabilities, and in one case produce exploit code for one of them. Anthropic disputed how serious the finding was and pushed back on the government's process; a White House adviser said Anthropic had refused to fix the issue. The standoff lasted until June 30, when Commerce lifted the order. Fable 5 returned July 1 across Claude.ai, the Claude Platform, Claude Code, and Claude Cowork, with a new safety classifier that the department's own CAISI testing unit found blocks the jailbreak technique over 99% of the time. Mythos 5 — the version with fewer safeguards — stays limited to vetted cyberdefenders and infrastructure providers working with the government.
+
+## What does it actually do that's new?
+
+Fable 5 is built for long, unsupervised runs, not quick chat answers. It carries a 1-million-token context window and persistent, file-based memory that Anthropic says roughly triples its performance on long tasks compared to its own flagship Opus 4.8. It tops the public SWE-Bench Pro leaderboard for agentic coding at 80.3%. The Stripe case is the proof point that matters more than the benchmark: a real production codebase, with real dependencies and real consequences for getting it wrong, handled end-to-end in a day.
+
+## What's the construction angle?
+
+Every mid-size-and-up GC or sub has at least one system nobody wants to open: a Timberline customization with fifteen years of undocumented patches, an Access database that runs job costing, a scheduling tool wired into payroll with no one left who understands the integration. These systems don't get modernized because the rewrite has always looked riskier and more expensive than living with the pain. A model that can execute a bounded migration in a day, self-verify its own work, and hold the entire codebase's context at once changes that calculus — not because it replaces the developer who understands your business logic, but because it collapses the labor cost of the mechanical part of the rewrite from months of billable hours to a token bill.
+
+That's also where the last three weeks are a warning, not just a feature launch. The same tool that finished Stripe's migration in a day was unavailable to every user, with no advance notice, for 18 days over a national-security dispute that had nothing to do with construction. [We covered a similar version of this risk when GitHub Copilot moved to usage-based billing](/posts/2026-07-01-github-copilot-usage-billing-construction-internal-tools) — anything your ops team builds on a single vendor's frontier model needs a plan for what happens when that model is priced differently, rate-limited, or pulled entirely.
+
+## Where this fits and where it doesn't
+
+| Good fit | Not a fit |
+|---|---|
+| One-time migration of a legacy estimating or job-costing system to a supported platform | Live production changes pushed without a human code review |
+| Refactoring an undocumented internal tool before a key employee retires | Anything touching certified payroll or prevailing-wage calculations without sign-off |
+| Batch-converting old spreadsheet macros into a real internal application | Scope or contract judgment calls — this is a coding model, not an estimating one |
+
+## What to do this week
+
+If your firm has a legacy system on the "someday" list, that someday got cheaper to schedule. Pick the most bounded one — a single-purpose tool, not your core ERP — and get a real quote: what would a migration cost at $10/$50 per million tokens against that codebase's actual size, versus the contractor-hours estimate you've been sitting on. Whichever number wins, you'll know instead of guessing. And don't build anything mission-critical on a single model with no fallback plan — the 18-day blackout just proved that risk is real, not theoretical.
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
