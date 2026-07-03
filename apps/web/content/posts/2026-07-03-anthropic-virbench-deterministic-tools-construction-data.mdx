@@ -1,0 +1,55 @@
+---
+title: "An AI agent went from 17% accuracy to 93% without a smarter model. The fix was the data plumbing."
+date: "2026-07-03"
+excerpt: "Anthropic's new benchmark shows AI agents fail on messy source data, not weak models — and construction's spec books, cost databases, and code references have the exact same problem."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://arxiv.org/html/2606.06749v1"
+  - "https://www.anthropic.com/research/agents-in-biology"
+  - "https://www.techtimes.com/articles/318062/20260609/ai-agents-biology-are-too-inaccurate-use-anthropics-deterministic-tool-fix.htm"
+faqs:
+  - q: "Does a more expensive AI model fix bad data extraction accuracy?"
+    a: "Not reliably. Anthropic's VirBench test found accuracy differences between models mostly disappeared once a standardized retrieval tool sat between the model and the raw data source — a cheaper model with the right tool matched or beat an expensive model without one."
+  - q: "What is a deterministic tool in an AI agent workflow?"
+    a: "It's a fixed piece of code — not a model — that pulls data from a source system and returns it in the same structured format every time, instead of leaving the AI model to interpret whatever raw text or file layout it's handed."
+  - q: "Why would this affect construction estimating or compliance software?"
+    a: "Spec sections, cost databases, and jurisdiction-specific code references are exported in inconsistent formats the same way scientific databases are. An AI agent querying those raw exports directly will show the same kind of accuracy swings Anthropic measured, tied to how clean that day's source file happens to be."
+  - q: "What should a GC or sub actually build first?"
+    a: "Pick one recurring data source — a cost database export, a submittal log, a jurisdiction's code amendments — and build a small connector that always returns the same fields in the same structure, before pointing any AI agent at it."
+---
+
+Anthropic ran the same AI model against the same 120 questions twice. The first time, it scored 16.9% accuracy. The second time — after engineers built a piece of ordinary, non-AI code to standardize the data the model was querying — it scored 92.8%. Same model. Same questions. The fix wasn't a better AI model. It was cleaning up what the model was reading from.
+
+That result comes from a new Anthropic benchmark called VirBench, and it lands squarely on a problem every construction firm building an internal AI tool is about to hit: your spec books, cost databases, and code references are exactly as messy as the scientific databases Anthropic tested against.
+
+## What did Anthropic actually test?
+
+VirBench asked several AI systems — Claude Sonnet 4, GPT-5.5, and two other research agents — to answer 120 viral-sequence retrieval questions spanning 40 pathogens, pulling from public databases run by the National Center for Biotechnology Information (NCBI). Run without any help, accuracy ranged from 16.9% (Claude Sonnet 4) to 91.3% (GPT-5.5) on identical questions.
+
+| Model | Accuracy, raw query | Accuracy, with connector tool |
+|---|---|---|
+| Claude Sonnet 4 | 16.9% | 92.8% |
+| GPT-5.5 | 91.3% | 99.7% |
+
+Anthropic's team then built "gget virus," a piece of fixed code that coordinates NCBI's REST, Datasets, and E-utilities APIs, batches large results, and always returns the same structured output — regardless of which model is asking. Every model tested crossed 92% accuracy once it queried through that layer instead of hitting the raw APIs directly.
+
+## Why did the same model swing 76 points?
+
+Not because the model got smarter — it didn't change at all. The raw databases return inconsistent formats depending on the query: different field orderings, partial records, batching quirks the model has to guess its way around. A model can be excellent at reasoning and still fail at parsing whatever inconsistent thing it's handed. The connector tool removes that guesswork by returning the same shape every time. Anthropic's stated conclusion: "reliable dataset construction should not depend on access to the newest or most expensive model."
+
+## What does this have to do with a submittal log or a cost database?
+
+Nothing about biology data is special here — it's a generic finding about AI agents and messy source systems, and construction's source systems are messy in the same way. A spec section pulled from one project's PDF export doesn't look like the next project's export. A jurisdiction's building code amendments are formatted differently county to county. A cost database export from an estimating platform doesn't use the same field structure as a competitor's export. Point an AI agent at any of those directly, and its accuracy on a Tuesday will differ from its accuracy on a Thursday — not because the model changed, but because the source file did.
+
+That's a dangerous failure mode specifically because it's invisible. A wrong number from an AI bid-leveling tool looks like "the AI got it wrong," when the actual cause is that this week's cost database export had a column order the connector didn't expect.
+
+## Should a mid-size GC or sub act on this now?
+
+Before evaluating which model to put behind an internal estimating, submittal, or code-compliance agent, audit what it's actually querying. If it's parsing raw PDF exports or spreadsheet dumps on the fly, that's the VirBench failure mode waiting to happen. The fix is boring and cheap relative to a model upgrade: build one small, fixed connector per recurring data source — a cost-code normalizer, a spec-section parser with a locked output schema, a lookup table for a jurisdiction's code amendments — that always hands the AI model the same structure. Do that once per data source, and the model choice behind it matters a lot less than the sales pitch suggests.
+
+Construction AI Brief covered a related piece of this problem [when Mistral's OCR 4 model shipped as the extraction layer for submittal review](/posts/2026-06-28-mistral-ocr-4-submittal-extraction-construction) — that's the ingestion half. Anthropic's benchmark is the evidence for why the standardization step after ingestion is not optional.
+
+Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).
+
+*Forward this to the person on your team who's still arguing AI is overhyped.*
