@@ -1,0 +1,55 @@
+---
+title: "Google's new AI model can fake a realistic jobsite video for about a dollar. Construction photo evidence needs a new standard."
+date: "2026-07-03"
+excerpt: "Google's Gemini Omni Flash generates and edits photorealistic video for $0.10 a second, right as insurers report AI-altered claim photos are already fooling them — and construction's entire documentation trail runs on the assumption that a photo is real."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://cloud.google.com/blog/products/ai-machine-learning/nano-banana-2-lite-and-gemini-omni-flash-available/"
+  - "https://www.verisk.com/company/newsroom/ai-editing-tools-are-fueling-a-new-era-of-insurance-fraud-according-to-new-research-from-verisk/"
+  - "https://www.debevoisedatablog.com/2026/01/19/use-of-ai-generated-images-for-fake-insurance-claims-and-other-frauds/"
+faqs:
+  - q: "What did Google release on June 30, 2026?"
+    a: "Nano Banana 2 Lite, a fast image generation and editing model (general availability, images in as little as four seconds), and Gemini Omni Flash, a video generation and conversational-editing model (public preview, $0.10 per second of output)."
+  - q: "Can AI-generated or AI-edited photos be used in construction insurance claims?"
+    a: "Insurers already report a rise in AI-edited claim photos across property and casualty lines, per Verisk's 2026 State of Insurance Fraud research — and builders risk and general liability claims, which lean heavily on photographic evidence, are named as a high-exposure category."
+  - q: "Does C2PA content credentials watermarking stop fake construction site photos?"
+    a: "It helps but doesn't solve the problem. Google enables C2PA content credentials and SynthID watermarking by default on both new models, which makes Google-generated content traceable — but the standard only works if the viewer checks for it, and plenty of other editing tools don't attach it at all."
+  - q: "Should contractors change how they document jobsites because of this?"
+    a: "Yes, at least for anything that could end up in a claim or dispute — progress photos, safety walk documentation, and damage evidence should move toward apps with tamper-evident, geo/time-stamped capture instead of a plain camera roll, the same way GPS-stamped photos replaced undated ones."
+  - q: "Is Gemini Omni Flash available to the public?"
+    a: "Yes, in public preview through Google AI Studio, the Gemini API, and the Gemini Enterprise Agent Platform, priced at $0.10 per second of video output."
+---
+
+Google shipped a video-generation model that produces a realistic 10-second clip for about a dollar. That's not a hypothetical for construction — it's a direct hit on an industry that runs its claims, safety, and dispute processes on the assumption that a jobsite photo is what it looks like.
+
+## What did Google actually release?
+
+On June 30, Google released two models. **Nano Banana 2 Lite** (Gemini 3.1 Flash-Lite Image) is now generally available and generates images in as little as four seconds, with character consistency across multiple generations. **Gemini Omni Flash** entered public preview: a video generation and conversational-editing model priced at $0.10 per second of output, capable of swapping elements in a scene, relighting it, or changing camera angles from a plain-language prompt while keeping the original audio track. Both models are part of Google's Gemini Enterprise Agent Platform, and both ship with C2PA content credentials and SynthID watermarking turned on by default.
+
+That default-on provenance matters, because the reason to build it in is already visible in the insurance market.
+
+## Why does this land on construction specifically?
+
+Construction runs on photographic evidence more than almost any other industry: daily progress photos, punch-list photos, safety walk documentation, pre-existing-condition photos before a sub starts work, damage photos after a storm or an accident, as-built verification against the drawings. Builders risk and general liability claims lean on exactly that kind of documentation to establish what happened and when.
+
+Insurers are already flagging a problem. Verisk's 2026 State of Insurance Fraud research found that AI editing tools are fueling a new wave of digitally altered claim submissions, and separate legal analysis has singled out property-related coverage — including commercial property and high-value claims that depend on photographic evidence — as a category of elevated exposure. A tool that turns "edit this photo convincingly" into a $0.10-per-second API call doesn't create that risk from nothing, but it does make it dramatically cheaper and faster to attempt.
+
+## Does this mean a jobsite photo can now be faked without a trace?
+
+Not cleanly, yet. Gemini Omni Flash's current limits work in your favor for now: outputs are short, single-shot clips, character and scene consistency isn't perfect across cuts, and Google attaches C2PA content credentials and an invisible SynthID watermark to everything it generates by default. Content carrying those credentials is verifiable — a viewer can check who created it, with what tool, and whether it's been altered since.
+
+The catch is that verification only works if someone checks, and that standard isn't universal. Plenty of editing tools don't attach content credentials at all, and metadata can be stripped. A missing credential doesn't prove a photo is fake — most real site photos today carry no C2PA data either, because the apps supers and PMs already use weren't built around that standard. That's the actual gap: legitimate documentation and fabricated documentation currently look the same to a claims adjuster or an opposing expert, because neither one is verified by default.
+
+## What should a GC or sub actually do now?
+
+- **Move claims-relevant photo capture off the plain camera roll.** Apps that geo/time-stamp and hash images at the moment of capture create a record that's harder to dispute than a photo pulled from a phone's gallery.
+- **Ask your builders risk and GL carrier what they now expect.** Some insurers are already asking claims teams to cross-check submitted photos against inspection records, weather data, and satellite imagery — know what your carrier checks before you're in a dispute, not during one.
+- **Treat unverified third-party photos as inputs, not ground truth**, in any internal AI tool that scores progress, safety, or quality from images — a vision model is only as trustworthy as the photo it's fed.
+- **Don't wait for a universal standard.** C2PA is real and useful where it exists, but the practical fix today is process: chain-of-custody on the photos that matter, not a wait for every app in your stack to adopt a watermark.
+
+Construction AI Brief covered the other side of this trend [when builders risk insurers started pricing in site-monitoring technology](/posts/2026-06-26-shepherd-brickeye-builders-risk-monitoring) — carriers are already rewarding verifiable data. The documentation you can prove is real is about to be worth more than the documentation you can't.
+
+Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).
+
+*Forward this to whoever owns claims documentation on your next dispute.*
