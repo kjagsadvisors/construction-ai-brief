@@ -1,0 +1,57 @@
+---
+title: "An index tracking AI spending just fell 20%. That's an early read on your data-center backlog."
+date: "2026-07-06"
+excerpt: "A Wall Street gauge of what companies actually pay for AI tokens has dropped 20% from its May peak. If that weakness holds, it's the earliest signal that the AI capex driving your data-center backlog is softening — well before an owner cancels a phase."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.bloomberg.com/news/articles/2026-07-03/the-ai-trade-is-losing-one-of-its-key-signals-taking-stock"
+  - "https://www.silicondata.com/products/silicon-index/llm-token-expenditure-index"
+  - "https://letsdatascience.com/news/silicon-data-index-signals-ai-spend-inflection-71324742"
+  - "https://aiweekly.co/alerts/silicon-data-token-index-drops-20-from-may-bloomberg-warns"
+faqs:
+  - q: "What is the Silicon Data LLM Token Expenditure Index?"
+    a: "It's an expenditure-weighted index tracking how much the market actually pays per million AI tokens across every model in use, not just list prices. Bloomberg treats it as a proxy for real-world demand for AI compute — the same demand that's driving hyperscaler data-center capex."
+  - q: "Does a falling token-price index mean the data-center construction boom is ending?"
+    a: "Not by itself. The index dropping can mean two very different things: buyers cutting how much AI they use, or buyers switching to cheaper models to do the same work. Bloomberg reported the index down about 20% from its May 2026 peak after nearly doubling since its December launch — analysts are watching whether the drop persists before calling it a demand slowdown."
+  - q: "Why should a GC or MEP sub bidding data-center work care about a Wall Street index?"
+    a: "Because the capex funding your backlog is downstream of exactly what this index measures: whether hyperscalers' AI revenue is growing fast enough to justify continued gigawatt-scale buildout. It's a leading indicator that shows up in financial data months before it shows up as a paused phase or a quiet RFP withdrawal."
+  - q: "What's a concrete way to use this signal on an active bid or project?"
+    a: "Ask which phase of a multi-building campus you're actually contracted for versus optioned. Contracted, financed, permitted work with a signed NTP carries different risk than a follow-on phase the owner has only announced. Track owner language for hedging words like 'subject to demand' or 'phased based on utilization' in scope documents."
+  - q: "Is this the same warning as earlier 2026 stories about an AI capex bubble?"
+    a: "It's related but more immediate. Broader capex-bubble commentary has circulated all year without a clean, updating number behind it. This index gives a specific, trackable data point — released regularly — rather than a one-time analyst opinion."
+---
+
+A Wall Street index that tracks what companies actually pay for AI tokens has dropped about 20% from its May 2026 peak, Bloomberg reported July 3 — after nearly doubling since the index launched in December. Macro strategist Andreas Steno Larsen called it "the chart everyone should be watching," warning that sustained weakness in token pricing would "end the memory, hardware, and data-center trades for this cycle." For a GC or MEP sub with data-center work in backlog, that's not a Wall Street curiosity. It's the earliest possible read on whether the capex funding your next several years of work is still growing the way the RFPs assume it is.
+
+## What is this index actually measuring?
+
+Silicon Data's LLM Token Expenditure Index is an expenditure-weighted average of what the whole market pays per million AI tokens, across every model in use — not list prices, actual spend. Bloomberg and several analysts treat it as a proxy for marginal willingness to pay for AI: if the number climbs, demand for AI compute is outrunning supply and hyperscalers keep justifying bigger buildouts. If it falls and stays down, that's a sign the revenue growth funding those buildouts is cooling.
+
+That revenue growth is not an abstraction in this industry. It's the same demand that's produced the last month of CAB coverage: [Crusoe's data-center delivery model](/posts/2026-07-05-crusoe-funding-multi-prime-data-center-delivery-model), the credentialed-labor crunch behind $725 billion in AI infrastructure capex, gas turbines sold out through 2030, and DOE emergency orders to keep the grid up under the load. All of it assumes the token economy keeps growing into the buildout, not just today.
+
+## Does this mean projects get canceled?
+
+Not yet, and maybe not at all. The index can drop for two different reasons that look identical on the chart:
+
+| Signal | What it means | Effect on your backlog |
+|---|---|---|
+| Buyers use less AI overall | Real demand slowdown | Capex growth cools; future phases get re-scoped or delayed |
+| Buyers switch to cheaper models for the same work | Efficiency gain, not a slowdown | Revenue per token falls but usage keeps growing; capex largely unaffected |
+
+Silicon Data's own methodology note flags this ambiguity — the index is usage-weighted, so a shift toward cheaper open-weight models shows up the same way a genuine pullback would. That's why one month of data isn't a verdict. It's why analysts are watching whether the 20% drop holds or reverses over the next couple of readings, not treating it as a single alarm.
+
+## What should a GC actually do with this?
+
+You're not going to trade this index. But you can use it the way a homebuilder watches mortgage rates: as a leading indicator that tells you which parts of your pipeline carry more risk than others.
+
+- **Separate contracted work from optioned work.** A signed NTP on a permitted, financed building is a different risk category than a "phase 3" your business development team is counting in the pipeline based on an owner's public roadmap.
+- **Read scope documents for hedge language.** "Subject to demand," "phased based on utilization," and open-ended notice-to-proceed windows on later buildings are the contract-level version of what this index is showing at the market level.
+- **Don't restaff around announced-but-unfunded phases.** The credentialed electrical and mechanical labor this sector has been fighting over is expensive to carry on the bench if a follow-on phase slips six months.
+- **Ask the owner what's actually pre-leased.** Hyperscaler-anchored campuses with signed offtake are structurally different from speculative builds betting on future demand — and this index is exactly the kind of number that speculative-build financing gets re-underwritten against.
+
+None of this means walk away from data-center work — it's still the biggest backlog driver most large GCs and MEP subs have right now. It means treat the pipeline the way a good estimator treats a soft market forecast: build the plan around what's actually committed, and keep a specific eye on this number for the next signal, not the last one.
+
+Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).
+
+*Forward this to whoever tracks your firm's data-center pipeline against what's actually funded.*
