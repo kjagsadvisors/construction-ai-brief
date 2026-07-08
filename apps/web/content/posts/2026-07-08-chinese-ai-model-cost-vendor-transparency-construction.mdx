@@ -1,0 +1,59 @@
+---
+title: "One AI company just swapped its entire model for a cheaper Chinese one. Your software vendor could do the same without telling you."
+date: "2026-07-08"
+excerpt: "Chinese AI models are now running a third or more of U.S. companies' AI traffic because they cost up to 90% less than Claude or GPT. That cost pressure is hitting the vendors your firm already pays for AI features — and most won't say which model is behind them."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.cnbc.com/2026/07/07/chinese-ai-models-costs-us-openai-anthropic.html"
+  - "https://www.techrepublic.com/article/news-chinese-ai-models-cost-risk/"
+  - "https://aiweekly.co/alerts/chinese-models-take-30-of-us-openrouter-token-use-since-feb-8"
+  - "https://cryptobriefing.com/openai-anthropic-pricing-pressure-chinese-ai/"
+faqs:
+  - q: "Why are Chinese AI models so much cheaper than Claude or GPT?"
+    a: "Labs like DeepSeek, Z.ai, and Alibaba's Qwen release open-weight models that any company can run or host through a router like OpenRouter, and they're pricing aggressively to win developer share. Reported gaps run from 60-90% cheaper on a per-token basis, and in some comparisons up to 9x cheaper than equivalent Anthropic or OpenAI pricing."
+  - q: "Is it risky for a construction company to use software built on a Chinese AI model?"
+    a: "The risk isn't that the model is worse — some, like Z.ai's GLM 5.2, score close to top U.S. models on coding benchmarks. The risk is data handling: bid pricing, drawings, and schedules processed by a model hosted in or operated by a Chinese company may be subject to different data-retention and disclosure rules than a U.S.-hosted model, which matters most on federally regulated or security-sensitive work."
+  - q: "How do I find out which AI model powers a feature in my project management software?"
+    a: "Ask the vendor directly and get it in writing: which model (or models) process each AI feature, whether that can change without notice, where the data is processed and stored, and whether your data is used to train the underlying model. Most vendor contracts don't currently disclose this."
+  - q: "Does this matter more for government or defense-related construction work?"
+    a: "Yes. Projects governed by CMMC, DFARS, or similar federal data-handling requirements typically restrict where covered information can be processed. A subcontractor's AI-enabled estimating or scheduling tool quietly routing data through a foreign-hosted model could put a prime's compliance status at risk even if the sub never intended it."
+  - q: "Are OpenAI and Anthropic cutting prices in response?"
+    a: "OpenAI was reported in early June 2026 to be considering significant token price cuts, which industry observers read as a sign the company sees Chinese pricing as a direct competitive threat rather than a niche trend."
+---
+
+Chinese AI models are now cheap enough — often 60% to 90% less per token than Claude or GPT — that U.S. companies have shifted more than 30% of their AI traffic to them every week since early February, up from roughly 11% the year before, according to OpenRouter usage data reported by CNBC on July 7. That's not a hobbyist trend. It's a cost decision being made inside the same software companies that sell AI features to construction firms, and most of those vendors won't tell you which model is doing the work.
+
+## What actually happened this week?
+
+CNBC reported that Chinese labs — DeepSeek, Alibaba's Qwen, and Z.ai (formerly Zhipu) among them — are winning enterprise workloads on price as AI spending gets scrutinized harder. The clearest example: Lindy, a U.S. AI startup, moved 100% of its traffic off Anthropic's Claude and onto DeepSeek in June, with CEO Flo Crivello saying the move would save the company millions of dollars within months. Z.ai's GLM 5.2, released in June, landed within a percentage point of Anthropic's Opus 4.8 on a widely watched agentic coding benchmark — at roughly a fifth of the cost. OpenAI is reportedly weighing its own steep price cuts in response.
+
+## How big is the price gap, really?
+
+| Model | Approx. price (per million tokens, input/output) |
+|---|---|
+| Claude Sonnet 4.6 (Anthropic) | ~$3 / $15 |
+| GPT-5.5 standard (OpenAI) | ~$5 / $30 |
+| GLM 5.2 (Z.ai) | roughly 1/5 of comparable frontier pricing |
+| DeepSeek V4 Flash | ~$0.14 / $0.28 |
+
+That's not a rounding difference — it's the gap between a tool an ops team can run constantly and one it has to ration. CAB has already covered how that pricing pressure hits construction firms directly: [GitHub Copilot's move to usage-based billing](/posts/2026-07-01-github-copilot-usage-billing-construction-internal-tools) and [Fable 5's billing cliff](/posts/2026-07-07-claude-fable-5-billing-cliff-construction-ai-tools) both turned internal AI tools from flat costs into metered ones almost overnight. A cheaper backend model is exactly how a vendor absorbs that squeeze without raising your subscription price.
+
+## What does this have to do with construction software?
+
+Nothing you'd notice on the surface — that's the point. Most construction AI features (spec extraction, RFI drafting, schedule risk flags, submittal review) are sold as a capability, not as "powered by Model X." The vendor picks the backend model and can change it. Under real cost pressure, the rational move is the one Lindy made: swap to whichever model is good enough and dramatically cheaper. Nothing stops a construction software vendor from doing the same thing with your bid data, drawings, or subcontractor pricing flowing through it.
+
+That's a different problem than the one CAB flagged with [Chinese-made jobsite robots facing a possible congressional ban](/posts/2026-07-05-unitree-ipo-guard-act-chinese-robots-construction) — hardware restrictions are visible and get written into procurement policy. A model swap inside a SaaS subscription is invisible unless you ask.
+
+## What should a GC or sub actually do?
+
+1. **Ask every AI-feature vendor which model or models process your data**, and whether that can change without notifying you.
+2. **Get data residency and training-use terms in writing**, not in a marketing page.
+3. **Flag it explicitly for federally regulated work.** If a project carries CMMC or DFARS obligations, a sub's AI tool routing data through a foreign-hosted model is a compliance question for the prime, not just an IT preference.
+4. **Don't assume the model behind a feature stays fixed.** The one running it today may not be the one running it in six months.
+
+This isn't a call to avoid cheaper models — plenty of internal tools don't touch sensitive data and a 5x cost cut is a real advantage. It's a call to know which model is running before you find out the hard way.
+
+Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).
+
+*Forward this to whoever owns your firm's next software renewal.*
