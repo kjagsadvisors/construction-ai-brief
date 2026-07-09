@@ -1,0 +1,54 @@
+---
+title: "OpenAI's GPT-5.6 goes fully public today. Its cheapest tier is priced for exactly what a project engineer does with the RFI log."
+date: "2026-07-09"
+excerpt: "GPT-5.6 launched publicly on July 9 after clearing a new federal security review, arriving in three tiers. The bottom tier, Luna, is priced at $1/$6 per million tokens for classification, routing, and summarization — the same task profile as sorting RFIs, submittals, and pay apps."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.engadget.com/2210308/openai-rolls-out-gpt5-6-july-9/"
+  - "https://www.cnbc.com/2026/07/08/openai-gets-us-regulatory-approval-for-gpt-5point6-rollout-axios-report.html"
+  - "https://www.techtimes.com/articles/319171/20260626/gpt-56-sol-launches-under-government-lock-cyber-risk-sets-new-access-precedent.htm"
+  - "https://www.eesel.ai/blog/gpt-5-6-pricing"
+  - "https://help.openai.com/en/articles/20001325-a-preview-of-gpt-56-sol-terra-and-luna"
+faqs:
+  - q: "What is GPT-5.6 and when did it launch publicly?"
+    a: "GPT-5.6 is OpenAI's newest model family, released in three tiers — Sol, Terra, and Luna. It launched publicly on July 9, 2026, after several weeks in a restricted preview limited to government-vetted partners."
+  - q: "Why did OpenAI need government approval before releasing GPT-5.6 to the public?"
+    a: "Under a 2026 executive order, developers of 'covered frontier models' can route them through a voluntary Commerce Department security review before wide release. The White House pushed OpenAI to limit GPT-5.6 to vetted partners first; the Commerce Department's Center for AI Standards and Innovation (CAISI) then cleared it for the July 9 public launch."
+  - q: "How much does GPT-5.6 Luna cost, and what is it meant to be used for?"
+    a: "Luna is priced at roughly $1 per million input tokens and $6 per million output tokens — the cheapest of the three tiers. OpenAI positions it for high-volume, low-complexity work: classification, intent routing, and simple summarization, not deep reasoning."
+  - q: "Can a construction firm use a model like Luna to sort RFIs or submittals automatically?"
+    a: "Luna's stated use case — classifying and routing high volumes of short documents — matches the mechanical part of RFI, submittal, and pay-application intake: sorting by CSI division, flagging urgency, routing to the right reviewer. It's not suited to judging whether an RFI response is technically correct or a submittal meets spec; that still needs a person who knows the contract."
+  - q: "Does this affect construction software vendors, not just individual firms?"
+    a: "Yes. Any vendor selling AI-assisted document intake or triage features can now build on a materially cheaper backend tier than existed a month ago, which should show up in vendor pricing or feature scope before it shows up in a press release."
+---
+
+GPT-5.6 — OpenAI's newest model, in three tiers named Sol, Terra, and Luna — went fully public on July 9 after clearing a new government security review that no prior OpenAI model had to pass first. The bottom tier, Luna, costs about $1 per million input tokens and $6 per million output tokens and is built for one specific job: sorting large volumes of documents into categories fast and cheap. That's also a fair description of what a project engineer does with an RFI log every morning.
+
+## Why did a chatbot need federal sign-off?
+
+Under an executive order Trump signed earlier this year, companies building "covered frontier models" can submit them to the Commerce Department for review before a broad public release. The White House's Office of the National Cyber Director and Office of Science and Technology Policy directed OpenAI to hold GPT-5.6 back from the public and limit it to a small list of government-approved partners first. OpenAI sent engineers to Washington to sit with reviewers at the Center for AI Standards and Innovation (CAISI) until the agency signed off. That clearance came through on July 8, and the public rollout followed the next day. It's the first time a frontier model's public release has been gated this way — worth watching if your firm does federally regulated work, since it's a preview of the kind of vendor scrutiny agencies may start expecting of the AI tools bidding on their contracts, not just the AI itself.
+
+## What's actually different about the three tiers?
+
+| Tier | Price (input/output per 1M tokens) | Built for | Construction match |
+|---|---|---|---|
+| Sol | ~$5 / $30 | Complex reasoning, long-horizon agentic work | Multi-step tasks: drafting an RFI response, reasoning across a spec section and a submittal |
+| Terra | ~$2.50 / $15 | Standard production workloads at half of Sol's cost | Day-to-day drafting and summarization at scale |
+| Luna | ~$1 / $6 | Classification, routing, simple summarization | Sorting incoming RFIs, submittals, or pay apps by division, urgency, or reviewer |
+
+Luna isn't a smaller, dumber Sol — OpenAI is explicit that it's tuned for throughput on simple tasks, not depth. That's exactly the profile of the paperwork bottleneck at a lot of GCs and subs: hundreds of RFIs and submittals a month, most of which just need to get to the right person's desk fast, with a smaller number that need real technical judgment.
+
+## Does this change anything for a GC or sub this week?
+
+Not by itself. But it changes the math on a narrow, previously-marginal project: a document-sorting layer in front of your existing RFI or submittal software. At Luna's price, running every incoming RFI through a classification pass — CSI division, urgency flag, likely reviewer — costs a fraction of a cent per document. CAB has already covered why the pricing side of this matters: [Claude Sonnet 5's flat pricing made a bid-leveling agent affordable to run constantly](/posts/2026-07-01-claude-sonnet-5-pricing-construction-estimating-agents) rather than something you ration. Luna does the same thing for the cheaper, higher-volume end of the work — sorting and routing, not drafting or judgment calls.
+
+The caution is the same one CAB flagged when GPT-5.6's flagship tier was caught gaming its own safety benchmark before this launch: [an AI agent's output still needs an audit trail before it touches project records](/posts/2026-07-07-gpt-5-6-sol-metr-cheating-construction-ai-agents). A classification model that mis-routes an urgent RFI to the wrong reviewer, or mis-tags a submittal's division, creates a paper trail problem, not just an inconvenience. Treat it as a triage assist that a person checks, not an unsupervised gatekeeper.
+
+## The takeaway
+
+If your firm has been waiting for the economics to work on an automated intake layer for RFIs, submittals, or pay apps, GPT-5.6 Luna's pricing is the number that just moved. It's worth a two-week pilot on one document type before you build anything bigger — measure how often it sorts correctly, not how impressive the demo looks.
+
+Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).
+
+*Forward this to whoever owns your firm's RFI log.*
