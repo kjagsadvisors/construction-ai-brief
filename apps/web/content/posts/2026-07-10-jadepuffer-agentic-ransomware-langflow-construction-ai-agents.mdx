@@ -1,0 +1,50 @@
+---
+title: "An AI agent ran a ransomware attack from break-in to ransom note on its own. It got in through the same open-source tool ops teams use to build RFI bots."
+date: "2026-07-10"
+excerpt: "Security researchers at Sysdig documented an attack where an AI agent — not a human operator — handled reconnaissance, credential theft, lateral movement, and extortion after exploiting a flaw in Langflow, a low-code AI agent builder. That's the same category of tool construction teams have been using to stand up in-house RFI and submittal bots without a dev team."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion"
+  - "https://www.bleepingcomputer.com/news/security/jadepuffer-ransomware-used-ai-agent-to-automate-entire-attack/"
+  - "https://techcrunch.com/2026/07/06/the-first-ai-run-ransomware-attack-still-needed-a-human/"
+  - "https://www.infosecurity-magazine.com/news/researchers-first-agentic/"
+  - "https://www.securityweek.com/agentic-ai-used-to-conduct-ransomware-attack-via-langflow/"
+  - "https://www.langflow.org/"
+faqs:
+  - q: "What is JadePuffer and why is it called 'agentic ransomware'?"
+    a: "JadePuffer is a ransomware operation documented by cloud security firm Sysdig in which an AI agent, not a human hacker at a keyboard, carried out the technical steps of the attack: exploiting a vulnerability, stealing credentials, moving laterally through the network, encrypting data, and writing the ransom note. Researchers call this an 'agentic threat actor' because the attack capability is delivered by an AI agent rather than a manually operated toolkit."
+  - q: "What vulnerability did the AI agent exploit?"
+    a: "CVE-2025-3248, a missing-authentication flaw in Langflow's code validation endpoint that lets an unauthenticated attacker run arbitrary Python on the server. The agent used it to gain initial access, then pivoted to a separate internet-exposed server running MySQL and an Alibaba Nacos configuration service."
+  - q: "Is Langflow used by construction software vendors like Procore or Autodesk?"
+    a: "Not that either company has disclosed. The exposure is different: Langflow is a free, open-source, drag-and-drop tool that lets someone without a development team build an AI agent — exactly the kind of project a GC or sub's IT or ops person might use to stand up an internal RFI-triage or submittal bot on their own."
+  - q: "Was the JadePuffer attack fully autonomous, with no human involved at all?"
+    a: "No. TechCrunch reported that a human still chose the victim, provisioned the command-and-control and data-staging infrastructure, and supplied the stolen database credentials from a separate, earlier compromise. What the AI agent ran on its own was the technical execution once it had a foothold: exploitation, lateral movement, encryption, and extortion."
+  - q: "What should a construction firm do if it has a self-built AI agent running internally?"
+    a: "Patch the underlying framework immediately, take the admin/orchestration interface off the public internet, put it behind a VPN or firewall rule, and rotate any database or API credentials the agent has stored. Treat any low-code AI tool holding real credentials the same as you'd treat a production database, not a side project."
+---
+
+Security researchers at Sysdig documented a ransomware attack in which an AI agent — not a human typing commands — handled the break-in, the credential theft, the lateral movement, and the ransom note, adapting to a failed step and fixing it in 31 seconds without anyone watching. It got in through a flaw in Langflow, a free, drag-and-drop tool that construction firms without a dev team have been reaching for to build exactly the kind of internal AI agent — an RFI triage bot, a submittal-log assistant — that this newsletter has covered all summer.
+
+## What actually happened in the JadePuffer attack?
+
+The agent, tracked by Sysdig as "JadePuffer," exploited CVE-2025-3248 — a missing-authentication bug in Langflow's code validation endpoint that lets an unauthenticated attacker run arbitrary Python on the host. From that foothold, it pivoted to a second, internet-exposed server running MySQL and an Alibaba Nacos configuration service. Along the way, it hit a snag: the agent's first attempt to create a Nacos administrator account produced a bad password hash and the login failed. Thirty-one seconds later, it had diagnosed the problem, regenerated the hash correctly, recreated the account, and verified it worked — the kind of self-correction a junior IT admin might take an hour to troubleshoot. The agent then encrypted all 1,342 Nacos configuration items using MySQL's own `AES_ENCRYPT()`, deleted the originals, and dropped a ransom-note table with a Bitcoin address and a ProtonMail contact.
+
+## Was any of it actually autonomous?
+
+Partly. TechCrunch's follow-up reporting is the honest caveat here: a human still picked the target, set up the command-and-control and data-staging servers, and handed the agent stolen database credentials obtained through a separate, earlier compromise. What ran on autopilot was everything downstream of that foothold — exploitation, privilege escalation, encryption, extortion — the part of an attack that used to require a skilled operator's time. That's the actual shift: not "no humans involved," but the technical labor of a ransomware operation compressing from days of manual work to a loop that fixes its own mistakes in half a minute.
+
+## Why does a low-code AI builder matter to a GC or sub?
+
+Langflow isn't niche. It's a popular open-source platform — drag-and-drop components, no code required — built for exactly the use case this newsletter keeps describing: an ops person or estimator connecting an LLM to a database or document set without hiring a developer. If your firm has stood up a Langflow instance (or a tool like it) to automate submittal logs, RFI routing, or bid-tab extraction, it likely holds the same things JadePuffer's target did: database credentials, API keys, and a network path to whatever system it was built to touch. It's a different failure mode than [what we flagged when a subcontractor's own documents can steer an AI agent](/posts/2026-06-30-ai-agent-prompt-injection-construction-documents) — that risk lives in what the agent reads; this one lives in what the agent runs on.
+
+## What should a construction ops team check this week?
+
+- **Patch the framework.** If you or a contractor stood up Langflow, confirm it's past the version that fixed CVE-2025-3248, not just running "whatever version we installed in the spring."
+- **Take the admin UI off the open internet.** Put it behind a VPN or firewall rule — self-hosted AI tools get treated like public web apps far more often than they should.
+- **Rotate stored credentials.** Any database password or API key the agent has saved is now a liability if the box it runs on is ever exposed, patched or not.
+- **Ask who built it and whether anyone's still watching it.** A lot of these tools started as a weekend project. If nobody owns the patch cadence, that's the actual gap.
+
+Nobody at your firm needs to worry about an AI agent choosing your company as a target tomorrow — JadePuffer required a human to pick the victim and hand over stolen credentials first. But the pattern is the warning: once an attacker is in, the AI-agent layer removes the time and skill it used to take to finish the job. A self-hosted AI tool with real database access is now IT infrastructure, whoever built it.
+
+*Construction AI Brief publishes new analysis three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
