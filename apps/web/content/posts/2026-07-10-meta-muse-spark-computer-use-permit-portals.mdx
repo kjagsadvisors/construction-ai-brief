@@ -1,0 +1,62 @@
+---
+title: "Meta's new AI model can operate a computer the way a person does. Permit portals are the construction workflow it was built for."
+date: "2026-07-10"
+excerpt: "Meta released Muse Spark 1.1 on July 9 — a model trained to click, type, and navigate unfamiliar desktop, browser, and mobile interfaces on its own. The clearest construction use case isn't the back office. It's the swivel-chair work of moving the same project data through a dozen different municipal permit portals."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/"
+  - "https://fortune.com/2026/07/09/meta-muse-spark-1-1-release-alexandr-wang-superintelligence-labs-mark-zuckerberg/"
+  - "https://www.threads.com/@zuck/post/DakyAwYFK5X/muse-spark-is-strongest-at-agentic-performance-tool-use-and-computer-use-it/"
+  - "https://officechai.com/ai/muse-spark-1-1-benchmarks/"
+  - "https://aiweekly.co/alerts/meta-prices-muse-spark-11-api-at-125425-per-m-tokens"
+  - "https://finance.yahoo.com/technology/ai/articles/exclusive-zuckerberg-says-ai-agent-201123441.html"
+faqs:
+  - q: "What is Muse Spark 1.1?"
+    a: "Muse Spark 1.1 is a multimodal AI model Meta Superintelligence Labs released on July 9, 2026, built specifically for agentic work: tool use, multi-step task orchestration, and operating computer interfaces directly rather than just answering questions in a chat window."
+  - q: "Can Muse Spark 1.1 actually use software the way a person does?"
+    a: "Yes — Meta says it's trained to use computer interfaces on desktop, mobile, and browser, deciding at each step whether to click through a screen like a human or write a script to move faster. On the OSWorld-Verified computer-use benchmark it scored 80.8%, behind Claude Opus 4.8's 83.4% but ahead of most prior-generation models."
+  - q: "Does this replace a permit expediter or project engineer who logs into city portals?"
+    a: "Not on its own. Meta shipped a foundation model and a developer API, not a permitting product — someone still has to build and supervise a tool around it. And an 80.8% success rate means roughly one in five multi-step tasks needs a human to catch or finish it, which is too high to leave unattended on a form with a filing deadline."
+  - q: "How much does Muse Spark 1.1 cost to use?"
+    a: "Meta's Model API prices it at $1.25 per million input tokens and $4.25 per million output tokens, with $20 in free credits for new developer accounts. The preview is limited to US developers at launch."
+  - q: "Is this different from the AI permitting tools cities are already using?"
+    a: "Yes. California's Anthropic-powered permit tools, which we covered on July 4, run on the government side to speed up plan review. A computer-use model like Muse Spark 1.1 would run on the contractor's side — operating the intake portal itself, not reviewing what's submitted to it."
+---
+
+Meta released Muse Spark 1.1 on July 9 — its second Superintelligence Labs model, and the first one Meta is selling through a paid developer API. The headline capability isn't writing or reasoning. It's operating a computer: clicking through unfamiliar screens, filling in forms, and switching between desktop, browser, and mobile interfaces without being told exactly where to click. For a GC or permit expediter, the clearest match for that isn't the office back-end everyone's been pitching AI for — it's the dozen browser tabs open to different municipal permit portals, each one a different login, a different form layout, and no API in sight.
+
+## What did Meta actually ship?
+
+Muse Spark 1.1 is a multimodal reasoning model with a 1-million-token context window, positioned by Meta as its strongest agentic and computer-use model to date. In his own announcement, Mark Zuckerberg described it as trained to use computer interfaces on desktop, mobile, or browser — built to decide, at each step, whether to click through a screen directly or write a script when that's faster. It can also delegate parts of a task to sub-agents running in parallel and hold context across long-running, multi-app sessions.
+
+It's available now in the Meta AI app's "Thinking" mode and on meta.ai, and — for the first time — as a paid developer API: $1.25 per million input tokens, $4.25 per million output tokens, with $20 in free credits for new US developer accounts.
+
+## How good is it, really?
+
+On OSWorld-Verified, the standard benchmark for agentic computer use, Muse Spark 1.1 scored 80.8%, compared with 83.4% for Claude Opus 4.8. That's a real, usable capability — not a demo trick — but it's also a roughly one-in-five failure rate on multi-step interface tasks. That number matters more to a contractor than the marketing copy does.
+
+## What's the actual construction workflow this touches?
+
+Permit intake is the workflow built almost exactly for this gap. Every jurisdiction runs its own portal — different login, different required fields, different file-upload format, different status-check page — and none of them talk to each other or to a GC's project management software. A permit expediter working a multi-jurisdiction job spends real hours re-keying the same project data and re-uploading the same drawing sets across portals that were never designed to be automated against, because there's no API to build against in the first place.
+
+| Where the manual re-entry happens today | What a computer-use agent targets |
+|---|---|
+| Re-typing project data into each city/county permit portal | Filling the same form fields across portals with saved project data |
+| Uploading the same drawing set to five different intake systems | Repeating a file-upload flow across sites with different UIs |
+| Manually checking status pages for each open permit | Logging in and reading a status screen across multiple portals |
+| Re-entering data into LCPtracker, COI trackers, lien-waiver platforms | Any web form that has no API and wasn't built to be integrated with |
+
+This is a different problem than the "does the government approve this faster" question California addressed with its Anthropic-powered permit review tools, which [we covered on July 4](/posts/2026-07-04-california-anthropic-deal-ai-permitting-gc-schedule). That's AI on the reviewer's side of the counter. A computer-use agent like Muse Spark 1.1 would sit on the applicant's side — operating the intake portal itself, not reviewing what lands in it.
+
+## Should a GC build something on this now?
+
+Not directly, and not yet. Meta shipped a foundation model and an API — it did not ship a permitting product, and no construction vendor has announced one built on Muse Spark 1.1. Three things are true at once: the capability is real and benchmarked, the failure rate is still too high to leave unsupervised on anything with a filing deadline or a government record attached, and building a reliable tool on top of a raw model API is a software project, not a subscription toggle.
+
+The one useful takeaway for now: if your firm is evaluating AI vendors that claim "we automate your permit submissions" or "we eliminate manual data entry across your systems," ask specifically whether they're doing computer-use automation (operating the actual interface) or a narrower API integration (which most permit portals still don't support). Those are different technical claims with different failure modes, and this is the model generation where the first one stopped being hypothetical.
+
+Also worth remembering: three days before this release, Meta's own CEO told staff that the company's AI agents had stalled for four months — [the story we covered here](/posts/2026-07-06-meta-ai-agent-stall-vendor-pitch-checklist). Muse Spark 1.1 is Meta's answer to that. Whether it holds up outside a benchmark is the thing to watch before anyone puts it near a live permit deadline.
+
+Forward this to whoever on your team is still refreshing five different city portal tabs by hand.
+
+*Construction AI Brief publishes new analysis three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
