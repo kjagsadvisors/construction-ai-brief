@@ -1,0 +1,61 @@
+---
+title: "OpenAI's new agent finishes a spreadsheet or slide deck on its own. That's your submittal log and bid tab it's aimed at."
+date: "2026-07-10"
+excerpt: "OpenAI launched ChatGPT Work on July 9 — an agent that plans and executes multi-step office tasks unattended, then hands back a finished spreadsheet, deck, or document. The example tasks OpenAI demoed map almost exactly onto submittal logs, OAC decks, and bid tabs."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://openai.com/index/introducing-chatgpt-agent/"
+  - "https://www.forbes.com/sites/madhulika-pathak/2026/07/09/openai-debuts-chatgpt-work-workplace-ai-agent-with-gpt-56/"
+  - "https://www.benzinga.com/markets/tech/26/07/60373541/chatgpt-goes-from-assistant-to-employee-as-openai-launches-workplace-ai-agent"
+  - "https://www.pymnts.com/news/artificial-intelligence/2026/openai-launches-chatgpt-agent-that-executes-complex-workflows/"
+  - "https://the-decoder.com/openai-pairs-its-gpt-5-6-public-rollout-with-chatgpt-work-a-new-agent-that-handles-entire-workflows/"
+  - "https://www.bloomberg.com/news/articles/2026-07-09/openai-unveils-chatgpt-work-agent-to-field-tasks-for-hours"
+faqs:
+  - q: "What is ChatGPT Work?"
+    a: "ChatGPT Work is an agent OpenAI added to ChatGPT on July 9, 2026, that plans and carries out multi-step tasks across apps and files without step-by-step supervision, then returns a finished spreadsheet, slide deck, document, or simple web app."
+  - q: "Which ChatGPT plans get ChatGPT Work, and when?"
+    a: "It started rolling out July 9 to Pro, Enterprise, and Edu plans on web and mobile, with Plus and Business plans following over the next few days. In the ChatGPT desktop app, it's available on every paid plan."
+  - q: "Can ChatGPT Work update an Excel bid tab without breaking the formatting?"
+    a: "OpenAI cites a formatting-preservation example — updating a spreadsheet with new data while keeping the existing layout — and reports the underlying agent scoring 45.5% on SpreadsheetBench versus 20.0% for Copilot in Excel. That's a real gap, but well short of a pass rate you'd trust unsupervised on a live bid tab."
+  - q: "Does this replace a project engineer or document control coordinator?"
+    a: "Not based on what's been demonstrated. The tasks shown are the mechanical parts of those roles — reformatting, drafting from source material, converting screenshots into slides — not the judgment calls about what belongs in a submittal package or what a schedule variance actually means."
+  - q: "What's the biggest risk if a GC tries this on financial documents?"
+    a: "Silent number errors. Independent reviews of ChatGPT's underlying models note that the most dangerous mistakes are the ones that look confident and correct — wrong figures embedded in an otherwise clean-looking spreadsheet or deck. Any output touching a schedule of values, unit cost, or contract number needs a human check before it moves."
+---
+
+OpenAI launched ChatGPT Work on July 9 — an agent, built on the new GPT-5.6 model family, that takes a single instruction, plans out the steps, works across your files and apps without asking permission at each one, and comes back with a finished spreadsheet, slide deck, document, or basic web app. The examples OpenAI used to demo it — updating a spreadsheet with new data while keeping the existing formatting, turning a screenshot or dashboard into a presentation, drafting a document from source material — are close to a word-for-word description of what a project engineer or document control coordinator does with a submittal log, an OAC meeting deck, or a bid tab.
+
+## What did OpenAI actually launch?
+
+ChatGPT Work is a workspace agent layered onto ChatGPT Enterprise, Business, Edu, Pro, and Plus, rolling out starting July 9. It shipped alongside GPT-5.6 — three new model tiers named Sol, Terra, and Luna that [we covered on pricing and RFI triage the day before](/posts/2026-07-09-gpt-5-6-launch-luna-pricing-rfi-triage) — plus a redesigned desktop app that merges Chat, Work, and Codex into one window. Rollout order: Pro, Enterprise, and Edu got it first on web and mobile; Plus and Business follow "over the next few days," per OpenAI's release. The desktop app has it on every plan already.
+
+The pitch is autonomy, not just chat. Instead of a back-and-forth where you paste in data and ask for edits, you hand the agent a task — "update this cost tracking sheet with the new invoice totals, keep the same tabs and formulas" — and it works the file directly, then hands back a finished version.
+
+## Where does this map onto a GC's back office?
+
+| OpenAI's demoed capability | Construction equivalent |
+|---|---|
+| Update a spreadsheet, preserve existing formatting | Bid tab refresh, SOV update, cost-to-complete log |
+| Convert screenshots/dashboards into a slide deck | Weekly OAC progress deck from Procore or Buildots dashboard exports |
+| Draft a document from source material | Submittal cover sheets, meeting minutes from raw notes |
+| Rearrange meetings, plan and book logistics | Subcontractor coordination scheduling, site-visit logistics |
+
+None of this is construction-specific — OpenAI didn't build it for the industry. But the actual work being automated is the mechanical layer of jobs that already exist on every GC's staff: the project engineer who reformats the OAC deck every Thursday, the document control coordinator who keeps the submittal log current, the estimator's assistant who refreshes the bid tab when a sub resubmits a number.
+
+## Is it accurate enough to trust unsupervised?
+
+Not yet, and OpenAI's own benchmark says so. On SpreadsheetBench — a test built around real-world spreadsheet edits — the agent scores 45.5%, compared to 20.0% for Microsoft's Copilot in Excel. That's more than double Copilot's rate, and it's also a coin-flip-adjacent number to hang a live cost log on. The failure mode that matters most in a bid tab isn't the agent refusing the task — it's a plausible-looking spreadsheet with one wrong cell that nobody catches until the bid is submitted. Independent reporting on ChatGPT's models makes the same point in general: the hallucinations worth worrying about are the ones that read as confident and correct, especially with numbers.
+
+## Should a GC or estimator try this now?
+
+If your firm already runs ChatGPT Business or Enterprise, this is worth a narrow pilot — not a rollout. Two things to check first:
+
+1. **Enterprise controls.** ChatGPT Work includes permissions for which tools and files the agent can touch, plus a Compliance API for monitoring what it did. Confirm those controls are configured before pointing it at anything with contract numbers in it — most AEC document-retention and audit requirements assume a human authored the record.
+2. **Pick a low-stakes first task.** A meeting-minutes draft or a slide deck from dashboard screenshots has a low cost if the agent gets something wrong. A live SOV or certified payroll spreadsheet does not. Start with the former.
+
+The honest read: this is the same office work your admin staff already does, now demonstrably automatable in one shot instead of a chat back-and-forth — but "demonstrably automatable" and "safe to leave unsupervised on a financial document" are two different bars, and ChatGPT Work has only cleared the first one so far.
+
+Forward this to whoever on your team maintains the bid tab template.
+
+*Construction AI Brief publishes new analysis three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
