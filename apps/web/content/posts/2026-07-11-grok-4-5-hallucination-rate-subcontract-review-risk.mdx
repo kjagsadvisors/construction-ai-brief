@@ -1,0 +1,59 @@
+---
+title: "Independent testing found Grok 4.5 wrong 54% of the time it doesn't know an answer. That's the model CAB flagged for subcontract review two days ago."
+date: "2026-07-11"
+excerpt: "Artificial Analysis's independent benchmark of Grok 4.5 found its hallucination rate more than doubled from its predecessor, even as raw accuracy improved — meaning the model is now more confident when it's wrong. That changes the guardrail needed before pointing it at a subcontract."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://artificialanalysis.ai/articles/grok-4-5-brings-spacexai-to-the-the-intelligence-frontier"
+  - "https://artificialanalysis.ai/evaluations/omniscience"
+  - "https://artificialanalysis.ai/models/grok-4-5"
+  - "https://www.techtimes.com/articles/320038/20260709/grok-45-cuts-coding-agent-cost-80-near-frontier-speed-higher-hallucinations.htm"
+  - "https://the-decoder.com/grok-4-5-is-so-cheap-compared-to-fable-5-and-gpt-5-5-that-benchmark-gaps-may-not-matter-much/"
+faqs:
+  - q: "Has Grok 4.5 been independently benchmarked yet?"
+    a: "Yes. Artificial Analysis, a third-party AI benchmarking firm, tested Grok 4.5 on its AA-Omniscience knowledge and hallucination index shortly after the model's July 9, 2026 public launch. Before that, the only performance claims came from xAI and its parent company SpaceX/Tesla."
+  - q: "What is Grok 4.5's hallucination rate?"
+    a: "On the AA-Omniscience benchmark, Grok 4.5's hallucination rate rose to 54%, up from 25% for its predecessor Grok 4.3. Its raw knowledge accuracy also improved, from 35% to 52%, but the hallucination rate grew faster than the accuracy gain."
+  - q: "Does a higher hallucination rate mean Grok 4.5 is worse than the previous model?"
+    a: "Not exactly — it knows more correct answers than its predecessor. But it's also more confident when it states a wrong answer, which is a worse failure mode for document review than being cautious and wrong, because a confidently wrong flag is harder to catch."
+  - q: "Should a contractor still use Grok 4.5 to scan a subcontract for risk clauses?"
+    a: "A low-cost first-pass flag is still reasonable, but every flag now needs a human to check the actual contract language before acting on it — treat the model's output as a list of things to verify, not a list of findings to trust."
+  - q: "How does this compare to using Claude or GPT for the same task?"
+    a: "The article does not contain a head-to-head hallucination comparison against Claude Opus 4.8 or GPT-5.6 on the same benchmark; the finding here is specific to Grok 4.5 versus its own predecessor, Grok 4.3."
+---
+
+Two days ago, [this publication flagged Grok 4.5](/posts/2026-07-09-grok-4-5-legal-finance-subcontract-review) as a cheap way to get a first-pass scan of a subcontract for risk-shifting clauses — priced at cents per document instead of a legal bill. That story noted xAI hadn't submitted the model to any independent benchmark yet. That gap just closed, and the result is a caution the original pricing story didn't have: Artificial Analysis, a third-party AI evaluator, found Grok 4.5's hallucination rate more than doubled from its predecessor, even as its raw accuracy improved. The model now gets more answers right — and is more confident when it gets one wrong.
+
+## What did the independent test actually find?
+
+Artificial Analysis ran Grok 4.5 through its AA-Omniscience Index, a benchmark built specifically to measure knowledge reliability and hallucination risk — it rewards correct answers, penalizes confident wrong answers, and doesn't penalize a model for saying "I don't know." Grok 4.5 scored 26 on that index, up from 18 for its predecessor, Grok 4.3. That improvement came from two numbers moving in the same direction:
+
+| Metric | Grok 4.3 | Grok 4.5 |
+|---|---|---|
+| Knowledge accuracy | 35% | 52% |
+| Hallucination rate | 25% | 54% |
+| AA-Omniscience Index score | 18 | 26 |
+
+The model answers more questions correctly. It also states a wrong answer with unwarranted confidence more than half the time it's tested. Artificial Analysis frames this as a known pattern in larger models: they know more, but they also grow more confident about the things they get wrong, because the routing efficiency that makes a bigger mixture-of-experts model cheap to run doesn't automatically improve how well-calibrated its confidence is.
+
+## Why does this matter more for contract review than for coding?
+
+A coding agent that hallucinates fails loudly — the build breaks, the test suite fails, someone notices before it ships. A model reading a 100-page subcontract and stating "no unusual indemnification language" doesn't fail loudly. It fails quietly, in a document someone already signed. That's the exact use case the July 9 story flagged Grok 4.5 for: a fast, cheap first-pass read of pay-if-paid clauses, indemnification scope, consequential-damages waivers, and notice-period deadlines. A model that's now more likely to sound certain about a clause it misread is a worse tool for that job than one that hedges when it isn't sure — even if its overall knowledge is better.
+
+## What should a sub actually do with this?
+
+The pricing math from two days ago hasn't changed — running a subcontract through Grok 4.5 still costs a fraction of a legal review. What changes is how much the output can be trusted on its own:
+
+- **Don't treat a clean read as clean.** A subcontract that comes back with "no flags" from the model needs the same human skim it would have gotten anyway — the hallucination risk applies to omissions, not just wrong statements.
+- **Ask for citations, not conclusions.** A prompt that requires the model to quote the exact clause language behind each flag is easier to spot-check than one that returns a summary judgment.
+- **Route every flag to a human before it changes a decision.** Whoever reviews contracts at the firm — in-house, outside counsel, or the owner — should see the shortlist before a bid, a signature, or a change-order argument depends on it.
+- **Re-test before trusting it more, not less, as the model improves.** The instinct with a newer, smarter model is to loosen the review process. This data says the opposite: as accuracy climbs, confidence in wrong answers climbs with it.
+
+## The takeaway
+
+The cost argument for using a frontier model as a first-pass contract scanner still holds. The trust argument just got weaker, not stronger, with a newer model. Keep the human review step in place — the one place cutting it would have been tempting is exactly where this data says not to.
+
+Forward this to the person on your team who's still arguing AI is overhyped.
+
+*Construction AI Brief publishes new analysis three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
