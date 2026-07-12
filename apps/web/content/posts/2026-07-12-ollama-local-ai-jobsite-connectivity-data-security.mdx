@@ -1,0 +1,52 @@
+---
+title: "Ollama raised $65 million to run AI without the cloud. That's the fix for the site trailer with no signal and the bid data you don't want leaving the building."
+date: "2026-07-12"
+excerpt: "Ollama's $65 million Series B validates AI that runs entirely on local hardware, no internet or cloud account required. For construction, that solves two problems cloud AI can't touch: jobsites with no signal, and bid data firms don't want leaving their network."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.businesswire.com/news/home/20260709429551/en/Ollama-Raises-$65M-Series-B-Funding-to-Grow-its-Open-source-AI-Platform"
+  - "https://techcrunch.com/2026/07/09/popular-open-source-ai-developer-tool-ollama-raises-65m-grows-to-nearly-9m-users/"
+  - "https://techfundingnews.com/14-employees-8-9m-developers-ollama-raises-65m-to-become-ais-platform-layer/"
+  - "https://www.hpcwire.com/aiwire/2026/07/09/ollama-raises-65m-series-b-funding-to-grow-its-open-source-ai-platform/"
+faqs:
+  - q: "What did Ollama just raise, and what does the company do?"
+    a: "Ollama closed a $65 million Series B on July 9, 2026, led by Theory Ventures with participation from Benchmark, 8VC, Y Combinator, and others, bringing its total funding to $88 million. Ollama makes free, open-source software that lets anyone run AI models directly on their own computer, with no cloud account and no internet connection required once the model is downloaded."
+  - q: "Can AI actually run on a jobsite with no internet or cell signal?"
+    a: "Yes, if the model and app are already installed on the device — a local model answers prompts using the device's own hardware and needs no network connection to run. That's different from ChatGPT, Claude, or cloud-based Copilot features, which fail the moment the connection to the provider's servers drops."
+  - q: "Does running AI locally actually keep bid data and drawings more private?"
+    a: "Running a model locally means whatever gets pasted into it never leaves the device — nothing is transmitted to an outside company's servers, unlike a cloud AI subscription where every query is sent to a third party. Ollama's announcement specifically cites customers in \"deeply regulated industries such as government, healthcare, and finance\" using it for that reason."
+  - q: "Are local AI models as capable as GPT-5.6 or Claude for construction work?"
+    a: "No. Open-weight models that run on a laptop are generally less capable than the largest frontier cloud models at complex reasoning and long documents, and they need real local computing power — typically a recent GPU or Apple Silicon chip — to run well. They fit narrower, repeatable tasks, not a full replacement for a frontier cloud assistant."
+  - q: "What should a GC or estimator actually do with this news?"
+    a: "Nothing to buy — Ollama itself is free software, not a construction product. The move is for IT or precon leadership to pilot a locally-run model on one task that doesn't need the internet, such as document summarization or draft RFI language, and use that to decide whether any bid or proprietary data should be going to a cloud AI subscription at all."
+---
+
+Ollama, the open-source tool that lets anyone run AI models on their own laptop instead of a cloud provider's servers, closed a [$65 million Series B on July 9](https://www.businesswire.com/news/home/20260709429551/en/Ollama-Raises-$65M-Series-B-Funding-to-Grow-its-Open-source-AI-Platform), led by Theory Ventures. The headline number is the funding. The number that matters for a GC is buried in the same release: Ollama says it's already used inside "deeply regulated industries such as government, healthcare, and finance" — the same category of client that construction firms doing public and infrastructure work answer to.
+
+## What did Ollama actually raise, and why does a construction firm care?
+
+The round brings Ollama's total funding to $88 million, with Benchmark, 8VC, Y Combinator, Pace Capital, 49 Palms, and GTMFund also participating, according to [TechCrunch](https://techcrunch.com/2026/07/09/popular-open-source-ai-developer-tool-ollama-raises-65m-grows-to-nearly-9m-users/). A 14-person team has built what's now the largest developer network in the open-model ecosystem: 8.9 million monthly active developers, usage that's doubled since January, and roughly one million new installs a week, per [TechFundingNews](https://techfundingnews.com/14-employees-8-9m-developers-ollama-raises-65m-to-become-ais-platform-layer/). The product itself is simple: one command downloads an open-weight AI model and runs it on whatever hardware you point it at — a laptop, a workstation, a server in a closet. After that, no internet connection is needed to use it.
+
+That's a genuinely different deployment model than every AI tool construction firms have been evaluating this year — ChatGPT, Claude, Copilot, Procore's AI features, Trimble's contract-review tools — all of which are cloud services that stop working the instant the connection drops.
+
+## Where does "no internet required" actually solve a real jobsite problem?
+
+Two places, and they're different problems with the same fix.
+
+| Problem | Why cloud AI fails here | What a local model changes |
+|---|---|---|
+| Jobsite connectivity | Basements, parking structures, tunnel work, and rural infrastructure sites routinely have no reliable cell signal or Wi-Fi | The model runs on the device itself — a laptop in the trailer or a tablet on-site works the same with zero bars as it does at the home office |
+| Bid and drawing confidentiality | Every prompt sent to a cloud AI service leaves the firm's network and lands on a third party's servers | Nothing leaves the device — there's no API call to any outside company to intercept, log, or repurpose |
+
+The connectivity fix is the more obvious one. The confidentiality fix is the one worth slowing down on. CAB [flagged in a prior piece](/posts/2026-07-08-chinese-ai-model-cost-vendor-transparency-construction) that a software vendor can swap the model behind its product without telling you — which only matters because your data is going somewhere you don't control in the first place. A locally-run model removes that question entirely: there's no vendor's server in the loop to swap, audit, or worry about.
+
+## Is this actually relevant to government and infrastructure work?
+
+More than most AI coverage this year. Ollama names government, healthcare, and finance specifically as sectors already running it because of data-handling requirements those industries can't waive for a cloud subscription. Public agency and DoD-funded construction work carries its own version of that bar — data residency and handling rules that make "just use ChatGPT" a real compliance question for a firm's IT and legal teams, not a hypothetical one. A tool built for exactly that constraint, already proven at Fortune 500 scale, is a more credible starting point than most construction-specific AI pitches.
+
+## Should a firm act on this now?
+
+Not by buying anything — Ollama is free, and it's infrastructure, not a finished construction tool. What it changes is the menu of experiments IT or precon leadership can safely run. Point a locally-installed model at one no-internet task — summarizing a spec section, drafting boilerplate RFI language — and measure whether it's fast and accurate enough before any real bid data or unreleased drawing ever touches a cloud AI service. That's a lower-stakes pilot than signing up for another SaaS seat, and it answers the confidentiality question before it becomes a contract dispute instead of after.
+
+*Construction AI Brief publishes new analysis three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
