@@ -1,0 +1,63 @@
+---
+title: "Grok's coding tool secretly uploaded entire codebases to Google's cloud, opt-out or not. That's your bid database if an estimator ever tried it."
+date: "2026-07-14"
+excerpt: "A wire-level teardown of xAI's Grok Build CLI found it uploads a project's entire repository to a Google Cloud bucket by default, ignoring the tool's own opt-out setting. Any construction firm where someone used it to prototype an estimating or takeoff script has the same exposure."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://gist.github.com/cereblab/dc9a40bc26120f4540e4e09b75ffb547"
+  - "https://www.internationalcyberdigest.com/xais-grok-build-cli-uploads-entire-git-repositories-to-a-google-cloud-bucket/"
+  - "https://aiweekly.co/alerts/xai-grok-cli-uploads-full-repos-and-secrets-opt-out-ignored"
+  - "https://glitchwire.com/news/xais-grok-build-cli-was-uploading-entire-repositories-to-google-cloud-the-compan/"
+faqs:
+  - q: "What did the Grok Build CLI security research actually find?"
+    a: "A researcher known as cereblab routed xAI's Grok Build CLI (version 0.2.93) through a traffic-inspection proxy and found it uploads a project's entire git repository — including files the agent never read, full commit history, and unredacted secrets like API keys — to a Google Cloud Storage bucket named grok-code-session-traces. On a 12 GB test repository, roughly 5.1 GB of code left the machine while only 192 KB was needed for the model to respond."
+  - q: "Does turning off the 'Improve the model' setting stop the uploads?"
+    a: "No. The researcher found the opt-out toggle only affects whether xAI uses the data for training — the server kept returning trace_upload_enabled: true and the repository upload continued regardless of the setting."
+  - q: "Has xAI explained what happened or what happens to the data already collected?"
+    a: "Not as of this writing. Follow-up testing found xAI quietly shipped a server-side flag that stopped new uploads, but the company has issued no advisory, no statement on how many users were affected, and no confirmation that previously uploaded repositories and secrets have been deleted."
+  - q: "Should a construction firm care if it doesn't have an IT department using Grok?"
+    a: "The risk isn't limited to a formal dev team. Estimators, PMs, and ops staff who have used Grok Build CLI to prototype a takeoff script, a bid-tab formula, or a Procore integration on their own laptop carry the same exposure — the tool doesn't distinguish a professional codebase from a one-off script with a database password in it."
+  - q: "What should a firm do if someone used Grok Build CLI this year?"
+    a: "Identify any machine that ran Grok Build CLI, rotate every credential that lived in a config file, connection string, or .env file on that machine, and set the documented mitigation (GROK_TELEMETRY_TRACE_UPLOAD=0 or disable_codebase_upload = true in the config) before using the tool again."
+---
+
+A security researcher's traffic capture of xAI's Grok Build CLI found the coding tool uploads a project's entire codebase — including files it never opened, full git history, and secrets like API keys — to a Google Cloud Storage bucket by default, and that disabling the tool's own opt-out setting does nothing to stop it. If anyone at your firm has used Grok's coding assistant to knock together an estimating script or a Procore integration, that machine's credentials and pricing data left the building.
+
+## What did the researcher actually find?
+
+Working under the handle cereblab, the researcher routed Grok Build CLI (version 0.2.93) through mitmproxy, an interception proxy that lets you see exactly what a piece of software sends over the network. Two channels stood out. The normal model conversation — the part where Grok reads your code and responds — moved 192 KB of traffic on a 12 GB test repository. A second, separate channel, `POST /v1/storage`, moved 5.1 GB in roughly 75 MB chunks, all landing with an HTTP 200 success response. That's a data transfer more than 27,000 times larger than what the coding task needed.
+
+The destination was a bucket called `grok-code-session-traces` — Google Cloud infrastructure, not xAI's own servers, which is not where most users would assume their code was going. To confirm the upload wasn't selective, the researcher planted a file called `never_read_canary.txt` with a unique marker and told Grok explicitly not to open it. The file still showed up, intact, in a git bundle recovered from the wire capture, along with the project's full commit history.
+
+## Does the opt-out setting actually work?
+
+No. Grok Build CLI ships an "Improve the model" toggle that most users would read as a data-collection control. Turning it off had no effect: the tool's own settings endpoint kept reporting `trace_upload_enabled: true`, and the full-repository upload kept running. The setting only governs whether xAI uses submitted data for training — not whether your code leaves the machine in the first place.
+
+| What a user expects | What the researcher found |
+|---|---|
+| "Improve the model" off = no data sent | Repository upload continued regardless of the setting |
+| Grok uploads what it reads | Grok uploaded the entire tracked repo, including unopened files |
+| Data goes to xAI | Data landed in a Google Cloud Storage bucket |
+| Uploads are logged/disclosed | No mention in Grok's documentation |
+
+## Has xAI said anything?
+
+As of this writing, no public statement. Follow-up testing after the report went public found that xAI had quietly flipped a server-side flag — `disable_codebase_upload: true` — that stopped new uploads on retest. There was no security advisory, no changelog entry, and no answer to the two questions that matter most to anyone who used the tool before the fix: how much data was collected, and has any of it been deleted.
+
+## Why does this matter for an estimator, specifically?
+
+Estimating runs on data a firm wouldn't hand a competitor — historical unit costs, markup logic, vendor pricing, win/loss patterns on past bids. It's also the function most likely to have someone quietly scripting a takeoff shortcut or a bid-tab reconciliation, because these tools now make that possible without a developer. Grok Build CLI is marketed for exactly that kind of fast, standalone coding session.
+
+If an estimator opened it on a laptop with a local pricing database, a `.env` file holding a Procore or BuildingConnected API key, or a folder of past bid tabs used as test data, that content had a documented path off the machine — one the tool's own privacy control didn't block. It's the same family of risk [flagged here two days after independent testing found Grok 4.5 wrong more than half the time it didn't know an answer](/posts/2026-07-11-grok-4-5-hallucination-rate-subcontract-review-risk): what a model outputs is one question; what the tool does with your input, silently, is a separate and here more concrete problem.
+
+## What should a firm do this week?
+
+- **Find every machine that's run Grok Build CLI.** Check estimating, precon, and ops laptops specifically — this is where ad hoc coding sessions with real project data are most likely to have happened.
+- **Rotate any credential that sat in a config file, connection string, or `.env` file on that machine** — Procore, BuildingConnected, cloud storage, or database passwords included.
+- **Set the documented mitigation before anyone uses the tool again**: the environment variable `GROK_TELEMETRY_TRACE_UPLOAD=0` or `disable_codebase_upload = true` under `[harness]` in the tool's config file.
+- **Don't assume the fix means the exposure is over.** xAI hasn't confirmed what happens to data already collected, so treat anything uploaded before this week as compromised for rotation purposes.
+
+None of this means AI coding tools are off the table for a precon team — it means treating the folder a coding assistant runs in the same way you'd treat a folder you were about to email to a stranger.
+
+*Construction AI Brief publishes new analysis three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
