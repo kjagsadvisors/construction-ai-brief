@@ -1,0 +1,67 @@
+---
+title: "Google turned on AI training for Lens photos and uploaded files by default. That's the spec sheet your foreman snapped this morning."
+date: "2026-07-14"
+excerpt: "Google quietly enabled a setting called Search Services History that saves images, audio, video, and uploaded files from Lens, Translate, Maps, and AI Mode to train its AI models for up to four years — on by default. For field crews who use those tools to ID parts and talk to multilingual crews, that's project data leaving the building with no one signing off."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://techcrunch.com/2026/07/06/if-you-use-google-youre-training-its-ai-heres-how-to-opt-out/"
+  - "https://www.computerworld.com/article/4183788/google-ai-training-opt-out.html"
+  - "https://www.techrepublic.com/article/news-google-search-uploads-train-ai-opt-out/"
+  - "https://9to5google.com/2026/06/22/google-saving-audio-images-used-to-search-how-to-turn-it-off/"
+  - "https://support.google.com/websearch/answer/17024959?hl=en"
+faqs:
+  - q: "What exactly did Google change about AI training on search uploads?"
+    a: "Google enabled a setting called Search Services History that saves images, audio, video, and files submitted through Google Search, Lens, Maps, Translate, Shopping, Flights, Hotels, News, and AI Mode, then uses that saved media to train its AI models for up to four years. It rolled out around June 22, 2026, and is on by default — users have to find it and turn it off."
+  - q: "Does this affect Google Photos?"
+    a: "No. Google says Google Photos is a separate product and isn't covered by this setting. The exposure is limited to media submitted through Search-related tools — Lens photo searches, Translate voice recordings, and files uploaded to AI Mode or Ask Maps."
+  - q: "How does this affect a construction company specifically?"
+    a: "Field staff routinely use Google Lens to identify a part or equipment nameplate, Google Translate to communicate with a multilingual crew, and Google's AI Mode to ask quick questions about an uploaded spec sheet or product cut sheet. All of that is now saved and used for AI training by default, usually through a personal Google account that sits outside whatever data policy a firm has for its estimating, BIM, or project-management systems."
+  - q: "How do you turn this off?"
+    a: "Go to myactivity.google.com, open Search Services History, and uncheck the 'Save media' option. It's a per-account setting, so a firm has to push it to every phone and laptop, not just fix it once in an IT console."
+  - q: "When did Google make this change?"
+    a: "The setting appears to have gone live around June 22, 2026, first documented by 9to5Google. It stayed largely unnoticed until TechCrunch reported on it more broadly on July 6, 2026, as an under-the-radar privacy change."
+---
+
+Google quietly turned on a setting called Search Services History that saves the images, audio, video, and files people submit through Search, Lens, Maps, Translate, and AI Mode — then uses that saved media to train its AI models for up to four years. It's on by default. For a jobsite, that means the equipment photo a foreman snapped with Lens, the voice note translated for a crew that doesn't speak English, or the spec sheet uploaded to ask AI Mode a quick question, is now training data unless someone opts out.
+
+## What exactly changed
+
+The setting rolled out around June 22, 2026, first documented by [9to5Google](https://9to5google.com/2026/06/22/google-saving-audio-images-used-to-search-how-to-turn-it-off/), and drew wider attention when [TechCrunch](https://techcrunch.com/2026/07/06/if-you-use-google-youre-training-its-ai-heres-how-to-opt-out/) flagged it on July 6 as an under-the-radar update. Under Search Services History, a sub-toggle called "Save media" captures:
+
+- Google Lens photo searches
+- Voice recordings from Search Live and voice search
+- Translate audio, including speaking-practice recordings
+- Files and images uploaded to AI Mode
+- Ask Maps threads that include file uploads
+
+That data is retained and used to improve Google's AI models for up to four years, according to [Computerworld](https://www.computerworld.com/article/4183788/google-ai-training-opt-out.html). Google Photos is explicitly not covered — this is about what you feed into Search-adjacent tools, not your personal photo library.
+
+## Who on a project is actually exposed?
+
+This isn't a hypothetical for construction. These are tools field staff already reach for daily, usually on a personal Google account, on a personal or company phone, with no IT policy in the loop:
+
+| Tool | Common field use | What gets captured |
+|---|---|---|
+| Google Lens | Snap a nameplate or part number to find a spec sheet or distributor | The photo itself |
+| Google Translate | Voice-translate instructions or safety talk for a multilingual crew | The audio recording |
+| AI Mode | Upload a submittal or cut sheet PDF and ask a quick question about it | The uploaded file |
+| Ask Maps | Research laydown areas, site access, or nearby suppliers with an uploaded image | The image and thread |
+
+None of that runs through whatever governance a firm has around Procore, BIM 360, or its estimating platform. It runs through a consumer Google account that most companies have never audited, because "someone used Lens to look up a part" has never been a data-security conversation before.
+
+## Should a GC or sub actually do something about this?
+
+Yes, and it's a five-minute fix per person, not a system overhaul. The setting lives at myactivity.google.com under Search Services History — uncheck "Save media" and Google stops saving new uploads for training (per [TechRepublic](https://www.techrepublic.com/article/news-google-search-uploads-train-ai-opt-out/) and Google's own [help documentation](https://support.google.com/websearch/answer/17024959?hl=en)). The catch is it's per-account, which means it has to get pushed to every phone in the field, not fixed once by IT.
+
+The honest caveat: this isn't a smoking-gun leak of a proprietary drawing set. Most of what gets captured this way — a part number, a translated safety instruction, a quick AI Mode question about a spec section — is low-sensitivity on its own. The real problem is that nobody decided this. It's an opt-out buried in a settings menu, quietly extending Google's AI training pipeline into whatever a field crew happens to point a camera or microphone at, on the same devices used for project work.
+
+## The takeaway
+
+Add "Search Services History off" to the same onboarding checklist as VPN and MFA for any device that touches a jobsite — it costs nothing and closes a gap most firms don't know they have.
+
+---
+
+*Data governance keeps showing up as an AI side effect this month, not a headline of its own — see [what an ex-employee's unreturned laptop meant for Apple's trade secrets, and for your bid database](/posts/2026-07-12-apple-openai-trade-secret-lawsuit-construction-data-offboarding).*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
