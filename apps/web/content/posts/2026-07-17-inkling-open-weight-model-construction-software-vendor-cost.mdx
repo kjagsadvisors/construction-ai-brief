@@ -1,0 +1,55 @@
+---
+title: "A rival AI lab just gave away a 975-billion-parameter model for free. That changes what your estimating software vendor pays to run it — and where your data goes."
+date: "2026-07-17"
+excerpt: "Thinking Machines Lab released Inkling, the largest US open-weight AI model, under a free commercial license. Construction software vendors can now run frontier-scale AI on their own servers instead of paying OpenAI, Anthropic, or Google per query — but self-hosting a model this size isn't something most of them can do overnight."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://thinkingmachines.ai/news/introducing-inkling/"
+  - "https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/"
+  - "https://www.axios.com/2026/07/15/mira-murati-thinking-machines-open-weight-model-inkling"
+  - "https://fortune.com/2026/07/15/what-is-mira-murati-thinking-machines-first-ai-model-inkling/"
+  - "https://www.theregister.com/ai-and-ml/2026/07/16/former-openai-cto-does-what-altman-wont-releases-a-frontier-ai-model-thats-actually-open/"
+faqs:
+  - q: "What is Inkling?"
+    a: "Inkling is a 975-billion-parameter AI model released July 15, 2026 by Thinking Machines Lab, the startup founded by former OpenAI CTO Mira Murati. It's a mixture-of-experts model that only activates about 41 billion parameters per task, trained on 45 trillion tokens of text, image, audio, and video, with a 1-million-token context window."
+  - q: "Is Inkling free to use commercially?"
+    a: "Yes. Inkling ships under an Apache 2.0 license, which gives any company the legal right to download, modify, fine-tune, and run the model commercially without paying a royalty. Thinking Machines pairs that with a separate Acceptable Use Policy that bars specific uses, including surveillance and fully automated decisions that affect a person's rights."
+  - q: "Does this mean AI features in construction software will get cheaper?"
+    a: "Not automatically. A vendor still has to pay for the GPU infrastructure to run a 975-billion-parameter model, which is a real cost most small AEC software companies don't currently carry. What it removes is the per-token fee and terms-of-service exposure that come with routing every query through OpenAI, Anthropic, or Google — savings only reach a contractor if the vendor passes them on."
+  - q: "Can a general contractor run Inkling itself?"
+    a: "Not in any practical sense. Running the full model requires enterprise-scale GPU infrastructure, typically a cloud virtual private cloud or a serious on-prem cluster, plus MLOps expertise most GC IT departments don't have in-house. This is a decision for a software vendor's engineering team, not something a project team installs."
+  - q: "How does Inkling compare to other open-weight models?"
+    a: "Thinking Machines says Inkling is now the largest US-built open-weight model, positioned as an American alternative to Chinese open-weight models like DeepSeek V4, GLM 5.2, and Kimi K2.6. The company has stated directly that Inkling is not the strongest model available, open or closed, and is marketing it as a customizable starting point rather than a finished product."
+---
+
+Thinking Machines Lab, the startup founded by former OpenAI CTO Mira Murati, released a 975-billion-parameter AI model this week under a license that lets any company download it, modify it, and run it commercially for free. That's the largest US-built open-weight model to date, and it changes the economics for the software vendors building AI into estimating, submittal review, and RFI tools — because those vendors currently pay OpenAI, Anthropic, or Google per query to do the same thing.
+
+## What is Inkling, and why does the license matter?
+
+Inkling is a mixture-of-experts model: 975 billion total parameters, but only about 41 billion active on any given task, trained on 45 trillion tokens spanning text, image, audio, and video. It carries a 1-million-token context window and is available now on Hugging Face and through Thinking Machines' Tinker platform for fine-tuning. It's also listed on Databricks for enterprise deployment.
+
+The part that matters more than the benchmarks is the Apache 2.0 license. That gives a company the legal right to download the model, modify it, fine-tune it on their own data, and run it on their own servers or in their own cloud, without paying Thinking Machines anything and without routing customer data through a third party's API. Thinking Machines is explicit that Inkling isn't the strongest model on the market, open or closed — it's positioning it as a starting point for companies that want to own and customize their AI, not a finished product to compete head-to-head with GPT-5.6 or Claude.
+
+## Why does that matter for a construction software vendor specifically?
+
+Most AI features shipping in construction software today — submittal drafting, RFI triage, spec extraction — are built on top of a frontier API from OpenAI, Anthropic, or Google. That means the vendor pays per token, and the vendor's product is subject to that provider's pricing changes and data policies. CAB has covered both risks this month: AI labs have been undercutting each other on price hard enough to reshape vendor margins overnight, and one AI coding tool was found uploading entire codebases to a third party's cloud regardless of a user's opt-out setting.
+
+An open-weight model removes both variables, at a cost:
+
+| | Frontier API (OpenAI, Anthropic, Google) | Self-hosted open-weight (Inkling) |
+|---|---|---|
+| Cost structure | Per-token fee, can change without notice | Fixed infrastructure cost, no per-query fee |
+| Data path | Leaves your servers, subject to provider's retention policy | Stays inside your own cloud or on-prem environment |
+| Customization | Limited to prompting and provider-approved fine-tuning | Full right to modify and retrain the weights |
+| Who can realistically run it | Any vendor with an API key | Only a vendor with GPU infrastructure and MLOps staff |
+
+## What's the catch?
+
+Running a 975-billion-parameter model isn't something a mid-size AEC software company does on a whim. It requires either a serious on-prem GPU cluster or a cloud virtual private cloud sized for a model this large, plus the engineering staff to maintain it — overhead a five-person estimating-software startup doesn't carry today. And the Acceptable Use Policy still draws a real line: it bars using the model for fully automated decisions that affect a person's rights, which would cover things like automated safety-violation scoring tied to individual workers without a human in the loop.
+
+## What should a GC or sub actually do with this?
+
+Nothing changes on your jobsite this week. But the next time a vendor pitches an AI feature in your estimating, submittal, or safety software, ask two direct questions: is this running on a frontier API you're paying per query for, and where does our project data go when it does. A vendor that's moved to self-hosting on a model like Inkling has a different — and arguably more defensible — answer to both than one still routing every query through someone else's servers.
+
+*Construction AI Brief tracks the AI infrastructure decisions your software vendors are making before they show up as a feature or a price increase — new pieces most days at [constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
