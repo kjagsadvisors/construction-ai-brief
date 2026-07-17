@@ -1,0 +1,86 @@
+---
+title: "Can federal construction contractors use ChatGPT, Claude, or Gemini on CUI projects?"
+description: "Not on the standard commercial API. Here's what CMMC 2.0 and NIST SP 800-171 actually restrict, which AI tools are authorized for Controlled Unclassified Information today, and what GSA's new AI clause changes for federal GCs and subs."
+target_keyword: "can federal contractors use AI on CUI projects"
+audience: "gc_ops"
+updated_at: "2026-07-17"
+sources:
+  - "https://www.federalregister.gov/documents/2026/06/17/2026-12205/general-services-acquisition-regulation-acquisition-of-information-and-communication-technology"
+  - "https://www.pilieromazza.com/gsas-revised-ai-clause-narrower-scope-broader-compliance-demands-on-government-contractors/"
+  - "https://www.hklaw.com/en/insights/publications/2026/03/gsas-proposed-ai-clause-a-deep-dive"
+  - "https://www.hklaw.com/en/insights/publications/2026/06/gsa-proposes-sweeping-ai-data-safeguarding-rules-for-llm-contractors"
+  - "https://secureframe.com/hub/cmmc/proposed-final-rule"
+  - "https://devblogs.microsoft.com/azuregov/azure-openai-fedramp-high-for-government/"
+  - "https://www.fedramp.gov/ai/"
+  - "https://www.wiley.law/alert-GSA-Seeks-Comment-on-Updated-AI-Contract-Clause"
+faqs:
+  - q: "What counts as CUI on a construction project?"
+    a: "Anything the government has marked as Controlled Unclassified Information under its category list — commonly force-protection and anti-terrorism design details, SCIF or restricted-facility specifications, ITAR-controlled building systems, and sometimes the scope-of-work or RFI text itself if it references those details. When in doubt, your contracting officer's CUI markings on the project documents are the answer, not a guess."
+  - q: "Can I use the free version of ChatGPT or Claude at all on a federal job?"
+    a: "For work that never touches CUI — general research, formatting a non-sensitive email, summarizing publicly available code content — yes. The restriction is workflow-specific, not account-specific: the moment CUI-marked text goes into the prompt, standard commercial ChatGPT, Claude, or Gemini access is out of bounds under CMMC 2.0."
+  - q: "Does GSA's new AI clause apply to construction and design-build contracts?"
+    a: "It applies to GSA's government-wide contract vehicles — Federal Supply Schedule, GWACs, and OASIS+ — so any construction or design-build firm holding or bidding work under those vehicles would be swept in once finalized. It's still a proposed rule: comments on the June 17, 2026 draft are due August 3, 2026, and it isn't in effect yet."
+  - q: "When does CMMC Phase 2 hit, and what happens if I've been ignoring AI/CUI compliance?"
+    a: "November 10, 2026, is when mandatory third-party (C3PAO) Level 2 certification assessments begin for most DoD contracts involving CUI — the DoD estimates roughly 80,000 Defense Industrial Base companies need that certification. An assessor checking your AI tool inventory and finding an uncontrolled ChatGPT or Claude workflow touching CUI is a control failure on the same audit, not a separate problem."
+  - q: "Is there a way around the CUI restriction besides waiting on FedRAMP paperwork?"
+    a: "Self-hosted, open-weight models are the architectural workaround — you run the model inside your own environment so no data leaves your perimeter and no FedRAMP authorization is required. Today's open-weight models (Llama, Mistral) are reliable for lightweight admin tasks but still lag the commercial frontier on judgment-heavy work like spec interpretation; that gap is closing but hasn't closed yet."
+---
+
+Not on the standard commercial API. Under CMMC 2.0, any AI tool that processes Controlled Unclassified Information must meet NIST SP 800-171 controls, and none of the big three — ChatGPT, Claude, Gemini — are authorized for that out of the box. Azure OpenAI's FedRAMP High offering and Amazon Bedrock's GovCloud authorization qualify for some CUI use cases, but both add procurement overhead most subs and mid-size GCs can't absorb quickly, which is why spec parsing, RFI drafting, and submittal review are largely off-limits on federal work today — exactly where project complexity tends to be highest.
+
+This isn't a permanent wall. It's a compliance gap with a moving deadline, a proposed federal rule about to tighten it further, and an emerging workaround. Here's the current state as of mid-2026.
+
+## What is CUI, and why does it block standard AI tools?
+
+Controlled Unclassified Information is government information that isn't classified but still requires safeguarding under federal law, regulation, or agency policy. On a construction project it commonly shows up as force-protection and anti-terrorism design details, SCIF or restricted-facility specifications, ITAR-controlled building systems, and sometimes the RFI or scope-of-work text itself if it references those details.
+
+CMMC 2.0 — the Cybersecurity Maturity Model Certification framework — requires any system that touches CUI to meet NIST SP 800-171, a set of 110 security requirements across 14 control families covering everything from access control to system integrity. A standard ChatGPT, Claude, or Gemini API call sends your prompt to the vendor's commercial cloud infrastructure, which hasn't been assessed against those controls. That transmission is the violation, not the AI model itself — the same document processed through an authorized, air-gapped, or FedRAMP High environment is fine.
+
+## Which AI tools are actually authorized for CUI right now?
+
+A short, specific list — not "it depends on the vendor."
+
+- **Azure OpenAI Service, inside Azure Government** — holds FedRAMP High and DoD IL4/IL5 authorization, including GPT-4o, per Microsoft's own compliance documentation ([Microsoft Azure Government devblog](https://devblogs.microsoft.com/azuregov/azure-openai-fedramp-high-for-government/)). This is the most commonly cited path for contractors who need CUI-eligible generative AI today.
+- **Amazon Bedrock, inside AWS GovCloud** — carries FedRAMP authorization for the GovCloud environment, per AWS's public compliance documentation.
+- **Google's Gemini for Government** — targeting FedRAMP High and DoD IL4 through Google's Assured Workloads boundary, but as of mid-2026 is earlier in that authorization path than Azure OpenAI or Bedrock.
+- **Standard ChatGPT, Claude, and Gemini consumer/commercial APIs** — not authorized for CUI. FedRAMP ran a 2025 AI Prioritization Initiative (August 2025–April 2026) specifically to speed authorization of AI services for federal use, which is why the government-cloud versions above exist — but the everyday commercial product you'd sign up for on the vendor's website is not the same authorized environment ([FedRAMP AI](https://www.fedramp.gov/ai/)).
+
+## What happens if I use a commercial AI tool on a CUI-touching workflow anyway?
+
+You've created a reportable incident, whether or not anyone notices right away. CMMC 2.0 entered Phase 1 enforcement in November 2025, requiring Level 1 or Level 2 self-assessments on covered contracts. Phase 2 — mandatory third-party (C3PAO) Level 2 certification assessments — begins **November 10, 2026**, and the DoD estimates roughly 80,000 Defense Industrial Base companies will need that certification ([Secureframe, CMMC 2.0 timeline](https://secureframe.com/hub/cmmc/proposed-final-rule)). An assessor who finds an uncontrolled ChatGPT or Claude workflow touching CUI in your document trail isn't flagging a side issue — it's a control failure on the same audit that determines whether you keep the contract.
+
+The practical risk isn't limited to the C3PAO assessment either. A subcontract RFI, a scope-of-work draft, or a daily log that references restricted facility details, run through an unauthorized tool, is a data-handling violation the moment it happens — the audit just determines when you get caught.
+
+## What's changing — GSA's new AI clause
+
+GSA published a revised draft AI clause, GSAR 552.239-7001, "Basic Safeguarding of Data within Large Language Model Artificial Intelligence Systems," in the Federal Register on **June 17, 2026** — a second draft, narrower in scope than the January 2026 version but with broader compliance demands on contractors that fall within it ([Federal Register notice](https://www.federalregister.gov/documents/2026/06/17/2026-12205/general-services-acquisition-regulation-acquisition-of-information-and-communication-technology); [PilieroMazza analysis](https://www.pilieromazza.com/gsas-revised-ai-clause-narrower-scope-broader-compliance-demands-on-government-contractors/)). It's built to apply to GSA's government-wide contract vehicles — Federal Supply Schedule, GWACs, and OASIS+ — so a construction or design-build firm holding or bidding work under those vehicles would be swept in once it's final.
+
+The earlier March 2026 draft required contractors to disclose every AI system used to perform a contract (not just AI sold to the government), pushed toward domestically developed "American AI Systems," and flowed those requirements down to subcontractors and any "Service Provider" touching the AI system ([Holland & Knight, deep dive](https://www.hklaw.com/en/insights/publications/2026/03/gsas-proposed-ai-clause-a-deep-dive); [June 2026 update](https://www.hklaw.com/en/insights/publications/2026/06/gsa-proposes-sweeping-ai-data-safeguarding-rules-for-llm-contractors)). GSA held a public listening session on July 14, 2026, and comments on the current draft are due **August 3, 2026** — it is not yet a binding requirement, but the direction is unambiguous: more disclosure, not less, and a narrowing of what counts as an acceptable AI system for government-touching work ([Wiley alert](https://www.wiley.law/alert-GSA-Seeks-Comment-on-Updated-AI-Contract-Clause)).
+
+## Is there a way around this besides waiting on FedRAMP paperwork?
+
+Self-hosted, open-weight models are the architectural workaround worth tracking. An open-weight model publishes its trained parameters for download, so you run it inside your own environment — your cloud tenant or an on-prem server — and no data leaves your perimeter, which sidesteps the FedRAMP-authorization requirement entirely because there's no third-party API call to authorize.
+
+The catch has been capability: today's open-weight options (Llama, Mistral) handle lightweight admin tasks — daily log drafting, meeting summarization, spec keyword extraction — reliably enough to trial, but still lag the commercial frontier on judgment-heavy work like interpreting spec sections or drafting a defensible RFI response. That gap is closing. Reflection AI's $6.3 billion SpaceX compute deal, its role as the foundational AI layer for the DOE's Genesis Mission across 17 national laboratories, and its Pentagon program ties all point toward a frontier-capable, self-hostable model built specifically for use cases where closed commercial APIs are blocked — [we covered the deal and what it means for federal contractors in detail here](/posts/2026-06-25-reflection-ai-federal-contractors-open-weight). As of this writing, that model hasn't shipped publicly. It's a direction to plan around, not a tool to deploy today.
+
+## Comparison: AI options for federal CUI-touching work, mid-2026
+
+| Option | CUI-authorized today? | What it takes to use it |
+|---|---|---|
+| ChatGPT / Claude / Gemini (standard commercial API) | No | Not usable on any CUI-touching workflow, period |
+| Azure OpenAI Service (Azure Government) | Yes, for authorized use cases | FedRAMP High / IL4-IL5 tenant setup, narrower model set, added procurement time |
+| Amazon Bedrock (AWS GovCloud) | Yes, for authorized use cases | GovCloud account, fewer available models than commercial Bedrock |
+| Gemini for Government (Assured Workloads) | Not yet fully authorized | Still completing its FedRAMP High / IL4 path as of mid-2026 |
+| Self-hosted open-weight model (Llama, Mistral, future Reflection) | Yes, if you control the infrastructure | In-house or vendor-managed hosting; capability gap on complex reasoning tasks today |
+
+## What should a federal GC or sub actually do this quarter?
+
+1. **Map which of your workflows touch CUI.** RFIs referencing restricted design data, submittal packages for ITAR-controlled systems, schedules tied to sensitive facility phasing — write the list down. Everything not on it is fair game for standard commercial AI tools today.
+2. **Check what foundation model powers every AI feature already in your stack.** A vendor's document-review or spec-search feature may be quietly routing CUI-adjacent content through a non-authorized API without your team realizing it — [the same question we raised after the June 2026 Anthropic model shutdown](/posts/2026-06-20-anthropic-model-shutdown-vendor-risk-construction) applies here.
+3. **If you need CUI-eligible AI now, budget for Azure Government or AWS GovCloud procurement**, not a workaround. The overhead is real, but it's the actual authorized path today.
+4. **Track the GSA clause comment period.** If your firm holds Federal Supply Schedule, GWAC, or OASIS+ work, the August 3, 2026 comment deadline is your window to flag construction-specific concerns before the rule locks in.
+5. **Put Phase 2 CMMC on the same calendar as your AI tool audit.** The C3PAO assessment window opening November 10, 2026 will catch unauthorized AI use as a control failure — find it yourself first.
+
+For the fuller risk picture beyond CUI — liability when AI gets it wrong, insurance exclusions, and vendor shutdown risk — see our [guide to AI risk, liability, and security in construction](/seo/construction-ai-risk-liability-security-guide).
+
+*Construction AI Brief covers what's actually shipping for GCs, trade subs, and estimators — three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=federal_cui_qa_cta).*
