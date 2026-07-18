@@ -1,0 +1,51 @@
+---
+title: "Google just delayed its flagship AI model because its own coding scores fell short. That's the question to ask before you trust any vendor's AI features."
+date: "2026-07-18"
+excerpt: "Gemini 3.5 Pro is months late after an internal coding-quality update made results worse, not better — and Google still won't give a new release date. If Google won't ship what it can't verify, a construction software vendor shouldn't get a pass on the same standard."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.bloomberg.com/news/articles/2026-07-16/google-gemini-launch-delayed-as-tech-falls-short-of-internal-goals"
+  - "https://www.cnbc.com/2026/07/16/alphabet-stock-gemini-3-5-pro-ai.html"
+  - "https://9to5google.com/2026/07/16/gemini-3-5-pro-delays/"
+  - "https://www.searchenginejournal.com/gemini-3-5-pro-delayed-over-coding-bloomberg-reports/582660/"
+faqs:
+  - q: "Why is Google's Gemini 3.5 Pro delayed?"
+    a: "Google announced Gemini 3.5 Pro at I/O in May 2026 and said it would roll out broadly the following month. It missed that deadline. In late June, Google updated the model's training data specifically to improve coding performance, but the resulting scores still fell short of the company's internal targets, according to Bloomberg. As of mid-July, Google is only testing the model with select partners and hasn't given a new public release date."
+  - q: "Is Gemini 3.5 Pro available at all right now?"
+    a: "Not to the general public. A Google spokesperson told Bloomberg the company is 'currently testing 3.5 Pro' with partners, alongside an upgraded Gemini 3.5 Flash model. Testing with partners is not a rollout, and Google has not committed to a new launch month."
+  - q: "Does this affect construction software that uses Google AI?"
+    a: "Not directly and not yet — this delay is specific to Gemini 3.5 Pro's public availability, and no major construction platform has announced it runs on that specific model. The relevant point for contractors is upstream: this is Google, with more testing infrastructure than any construction tech vendor, publicly missing its own accuracy bar on a coding task. That's a reason to ask any vendor marketing an AI feature what their own accuracy testing looked like, not to assume a specific product is affected."
+  - q: "What should a GC ask a vendor before buying an AI-branded feature?"
+    a: "Ask which model version powers the feature, when it was last changed, and what accuracy or error-rate testing the vendor ran on construction-specific documents — not on generic benchmarks. Ask what happens when the feature is wrong: does a human review every output, or only the ones that look suspicious? If the vendor can't answer with numbers, treat the feature as unvalidated until you test it yourself."
+  - q: "How is this different from the Grok 4.5 hallucination story CAB covered?"
+    a: "That story showed an already-released model, Grok 4.5, scoring worse on factual reliability than its predecessor despite being marketed for legal and contract review. This story is about a model that was never released publicly at all, because Google's own internal testing caught the shortfall before customers could. The lesson for a GC is the same either way: a lab's confidence in its own model, and your ability to verify a vendor's claim about that model, are two separate things."
+---
+
+Google's next flagship AI model, Gemini 3.5 Pro, is months late — and the reason is that its own coding-quality scores didn't clear Google's internal bar. That's not a marketing footnote. It's a data point every GC, sub, or estimator evaluating a construction software vendor's new "smart" feature should file away: even a company with Google's compute and testing infrastructure won't ship a model it can't verify. Most software vendors selling into construction don't have that infrastructure, and few publish the testing that would tell you whether their feature clears any bar at all.
+
+## What actually happened with Gemini 3.5 Pro?
+
+Google introduced Gemini 3.5 Pro at its I/O conference in May 2026 and told the market a broader rollout would follow within a month. That deadline passed. According to Bloomberg, Google updated the model's training data in late June specifically to shore up coding performance — writing code correctly is one of the core tests labs use to judge a model's reasoning — and the retrained version's scores still came in below Google's internal targets. As of mid-July, a Google spokesperson said the company is "currently testing 3.5 Pro" with select partners alongside an upgraded Flash model, with no new public release date attached. Alphabet's stock dipped on the report. Internally, Bloomberg reported frustration among engineers and researchers worried the delay is costing Google ground against Anthropic and OpenAI, both of which have shipped newer models in the same window.
+
+## Why does a delayed Google model matter to a construction jobsite?
+
+Because coding accuracy is a proxy for the same skill construction software vendors are now selling under an "AI assistant" or "smart automation" label: taking a messy input — a spec section, an RFI, a submittal packet, a schedule conflict — and producing a structured, correct output without a human checking every line. Google has more engineers, more compute, and more internal red-teaming than any construction tech vendor, and it still won't put a model in front of customers until it clears its own bar. Most construction software vendors don't publish an equivalent bar. A product page listing a smart assistant or automation feature tells you nothing about whether the underlying model was tested on documents like yours, or just on the same generic coding and reasoning benchmarks Google failed to clear this summer.
+
+## What should a GC or estimator actually ask a vendor?
+
+| Question | Why it matters |
+|---|---|
+| Which model and version powers this feature, and when was it last changed? | Vendors swap underlying models frequently; a feature that worked well last quarter may be running on a different model today with no changelog you've seen |
+| What accuracy testing did you run on documents like ours — spec books, RFIs, submittals? | Generic benchmark scores don't transfer to construction documents with CSI formatting, cross-references, and industry shorthand |
+| What's the output when the model is wrong, not just when it's uncertain? | A model can be confident and wrong at the same time — the failure mode that matters most in a submittal log or subcontract review |
+| Does a person review every output, or only flagged ones? | If review is selective, ask what triggers a flag and what's been caught by it so far |
+| Can we see a false-positive/false-negative rate, even a rough one? | If the vendor has never measured this, that's the answer |
+
+## What's the actual takeaway?
+
+Treat every vendor's AI feature the way Google is (for now) treating its own model: unproven until tested against your own documents, not the vendor's demo. That doesn't mean waiting for perfection — it means running your own two-week pilot with your own spec sections and RFIs before the feature touches anything that goes out under your company's name, the same standard [CAB flagged](/posts/2026-07-11-grok-4-5-hallucination-rate-subcontract-review-risk) when an independent benchmark caught a frontier model getting more confident and more wrong at the same time. Google's willingness to hold back its own model is the exception in this industry right now, not the norm — don't assume your vendor is doing the same.
+
+Forward this to the person on your team who's still arguing AI is overhyped. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).
+
+*The next vendor pitch that opens with a smart-assistant demo — ask for the accuracy number before the demo starts.*
