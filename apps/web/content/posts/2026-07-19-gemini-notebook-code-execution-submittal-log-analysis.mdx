@@ -1,0 +1,55 @@
+---
+title: "Google's document-reading AI tool just got a computer of its own. That's the difference between summarizing your submittal log and actually auditing it."
+date: "2026-07-19"
+excerpt: "NotebookLM is now Gemini Notebook, and every notebook comes with a sandboxed cloud computer that writes and runs code against your uploaded files. For a PM who's been using it to query spec books, that turns rough prose summaries into real computation."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/"
+  - "https://techcrunch.com/2026/07/16/google-continues-its-renaming-streak-by-turning-notebooklm-to-gemini-notebook/"
+  - "https://9to5google.com/2026/07/16/notebooklm-gemini-notebook/"
+  - "https://www.hngn.com/articles/272144/20260717/google-renames-notebooklm-gemini-notebook-adds-native-code-execution-30-million-users.htm"
+faqs:
+  - q: "What actually changed when NotebookLM became Gemini Notebook?"
+    a: "On July 16, 2026, Google renamed NotebookLM to Gemini Notebook and gave every notebook a secure, sandboxed cloud computer that can write and execute code against the documents you've uploaded. Previously the tool could only read your sources and answer in prose; now it can run calculations, build tables, and generate charts grounded in those same files. Google says more than 30 million people and 600,000+ organizations use the product."
+  - q: "Can Gemini Notebook actually analyze a spreadsheet or log file now?"
+    a: "Yes — that's the point of the new code-execution feature. Instead of describing a submittal log or takeoff spreadsheet in a paragraph, Gemini Notebook can write and run code inside its sandbox to compute exact figures: days outstanding per line item, quantity mismatches between two documents, or totals broken out by CSI division. The output is still grounded only in the files you uploaded, not general web knowledge."
+  - q: "Is this available on the free or Pro plan yet?"
+    a: "Not yet. As of the July 16 announcement, code execution is live for Google AI Ultra subscribers and Workspace business customers with AI Ultra Access or AI Expanded Access. Google said Pro users on the web would get it 'in the coming weeks' but hasn't given a firm date, so most individual PMs and estimators on a standard plan are still waiting."
+  - q: "Should a GC upload spec books or subcontracts to Gemini Notebook?"
+    a: "Only after checking your organization's data-handling terms. Uploaded files still leave your environment to run in Google's cloud sandbox, and consumer and Workspace plans carry different data-retention and training-use commitments. Firms with confidentiality obligations on subcontracts or owner-furnished specs should confirm which tier they're on and what Google's terms say before feeding it anything client-restricted."
+  - q: "Does this replace project management software like Procore for tracking submittals?"
+    a: "No. Gemini Notebook is a personal research and analysis tool that works on files you feed it in a given session — it has no audit trail, no permissions model, and no integration with your actual submittal workflow. It's useful for a quick calculation or cross-check, not as a system of record."
+---
+
+Google's NotebookLM — renamed Gemini Notebook on July 16 — can now write and run its own code against whatever documents you've uploaded, instead of just describing them in prose. For anyone who's already been feeding it spec sections or RFI logs to get answers grounded strictly in those files, that's a real capability jump: the tool moves from summarizing a submittal log to actually computing turnaround times, flagging quantity mismatches, and building tables from it.
+
+## What did Google actually change?
+
+Alongside the rename, Google gave every notebook a secure, sandboxed cloud computer — an isolated execution environment where the product can write and run code rather than approximate an answer in text. The upgrade runs on Gemini 3.5 Flash for reasoning and Google's Antigravity agent infrastructure to manage the multi-step work of writing code, running it, and turning the output into a table, chart, or document. Google says the product has more than 30 million users and 600,000+ organizations. The code-execution feature is live now for Google AI Ultra subscribers and Workspace business customers with AI Ultra or AI Expanded Access; Pro users on the web are told to expect it "in the coming weeks," with no firm date given.
+
+## Why does a Google product rename matter to a project engineer?
+
+Because a specific niche of construction users already relies on the underlying product for one reason: grounded answers. Upload a spec book, a contract, or an RFI log, and the tool will only answer from those files and cite the passage it pulled from — a meaningfully lower hallucination risk than asking a general chatbot to remember what a spec section said. That's why it shows up on some PMs' and estimators' desktops already, for quick lookups against a document set too long to keep re-reading.
+
+Up to now, that grounding only extended to prose. Ask it to summarize a submittal log and it would give you a rough paragraph — "roughly 40 items appear past due" — without a way to verify the count. Native code execution changes what "grounded" can mean: the tool writes actual code against the uploaded file and returns a number you can check, not an estimate.
+
+## What can a PM or estimator do with this that they couldn't before?
+
+| Task | Before (prose-only) | Now (code execution) |
+|---|---|---|
+| Submittal log aging | Rough prose estimate of overdue items | Exact days-outstanding per line, flagged against the spec's required response window |
+| Takeoff vs. spec cross-check | Manual side-by-side read of two documents | A generated discrepancy table between quantities in a takeoff sheet and spec section counts |
+| Schedule variance | Description of "some slippage" in narrative form | Computed float and delta per activity between a baseline and updated schedule export |
+
+Each of these still depends on the source files being clean and correctly labeled — a scanned PDF with garbled column headers will still produce a wrong answer, just a more confident-looking one. The value is that the output is now a checkable calculation instead of an eyeballed guess.
+
+## What's still hype, and what should a GC actually do?
+
+Two things to hold onto before treating this as a workflow upgrade. First, the rollout gates the feature behind Google AI Ultra or specific Workspace tiers — most individual PMs on a Pro plan don't have it yet, and Google hasn't committed to a date. Second, this is a personal analysis tool with no audit trail or permissions model, not a system of record — it won't replace the submittal tracking already running in Procore or a similar platform, and it shouldn't be the last check on anything that leaves the office under your company's name.
+
+The practical move: if your firm has Workspace with AI Ultra or Expanded Access, or someone on the team has an Ultra subscription, try it on one real file this week — a submittal log or a takeoff spreadsheet — and check its computed numbers against a manual count before trusting it on anything bigger. If your organization has confidentiality terms on subcontracts or owner-furnished documents, confirm what tier you're on and what Google's data-handling terms say before uploading anything client-restricted — the same due-diligence habit [CAB flagged](/posts/2026-07-18-google-gemini-3-5-pro-delay-vendor-ai-claims-due-diligence) when Google's own flagship model missed its own accuracy bar this month: verify before you trust the output, whichever vendor is behind it.
+
+Forward this to the person on your team who's still arguing AI is overhyped. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).
+
+*Next time someone hands you an AI-generated summary of a log or spreadsheet, ask whether it was computed or guessed — that distinction just got easier to check.*
