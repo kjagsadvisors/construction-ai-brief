@@ -1,0 +1,59 @@
+---
+title: "A $165 billion data center just had its power plan rejected twice after groundbreaking. That's the new critical path."
+date: "2026-07-19"
+excerpt: "Oracle switched Project Jupiter's power plant from gas turbines to fuel cells to quiet one New Mexico permit fight. The fuel cells need a gas pipeline that a different state agency has now rejected twice — the same project, a second failure point."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.oracle.com/news/announcement/blog/weve-overhauled-project-jupiters-power-plan-2026-07-01/"
+  - "https://www.abqjournal.com/news/land-commissioner-nixes-project-jupiter-pipeline-for-second-time/3083075"
+  - "https://sourcenm.com/2026/07/16/nm-environment-department-schedules-october-hearing-for-project-jupiter-air-quality-permit/"
+  - "https://www.taosnews.com/news/environment/nmed-says-data-center-project-jupiter-s-air-quality-applications-incomplete-for-now/article_90af8538-80b0-5ee0-819a-f067a25f55b0.html"
+  - "https://www.abqjournal.com/business/doa-ana-countys-project-jupiter-joins-500-billion-stargate-initiative-led-by-openai-oracle/493927"
+faqs:
+  - q: "What is Project Jupiter?"
+    a: "Project Jupiter is a $165 billion, 1,400-acre AI data center campus that OpenAI, Oracle, and SoftBank are building in Doña Ana County, New Mexico, near Santa Teresa, as part of the $500 billion Stargate infrastructure initiative. The developers plan to invest $50 billion in the first five years and expect roughly 2,500 construction jobs and 750 permanent positions."
+  - q: "Why did Oracle switch Project Jupiter's power plant from gas turbines to fuel cells?"
+    a: "Local officials and residents objected to the original on-site gas turbine plant over air emissions and water use. Oracle announced on July 1, 2026 that it would replace the turbines with Bloom Energy solid oxide fuel cells running behind-the-meter, which the company says cuts nitrogen oxide emissions by about 92% and needs minimal water."
+  - q: "Why didn't switching to fuel cells solve the project's permitting problems?"
+    a: "The fuel cells still run on piped natural gas. A pipeline developer's request to cross state trust land for that supply line was rejected by New Mexico's Land Commissioner — twice. Separately, the air-quality permit application for the fuel-cell microgrids was ruled administratively incomplete, and the state Environment Department has pushed its public hearing on that permit to October 19, 2026."
+  - q: "Does the pipeline rejection stop construction of the data center buildings?"
+    a: "Not directly — site and building construction can continue under the campus's existing approvals. What's stalled is energization: the project can't legally run its planned power source until both the land-access fight and the air-quality permit clear, which now stretches past October."
+  - q: "What should a GC or EPC building a data center take from this?"
+    a: "Track the fuel and power supply chain as its own critical path, separate from the building permit chain. A design change made to satisfy one regulator or one set of objectors can create a new dependency at a completely different agency with its own review clock — and that clock, not the structural steel, ends up setting the completion date."
+---
+
+Oracle redesigned Project Jupiter's power plant once already to get past local objections in New Mexico. The fix created a second, unrelated permitting fight — and as of this month, that fight has pushed the project's power decision into at least October. For any GC or EPC building data center power infrastructure, this is what the actual critical path looks like now: not the building, the fuel supply.
+
+## What happened at Project Jupiter?
+
+Project Jupiter is OpenAI, Oracle, and SoftBank's $165 billion Stargate data center campus outside Santa Teresa, New Mexico — four buildings on 1,400 acres, with $50 billion committed in the first five years and about 2,500 construction jobs on the near-term buildout. The original plan called for an on-site natural gas turbine plant to power it. Doña Ana County residents and local officials pushed back hard on the turbines' air emissions and water draw, and on July 1 Oracle announced it was scrapping that plan for Bloom Energy solid oxide fuel cells instead — a behind-the-meter system Oracle says cuts nitrogen oxide output by roughly 92% and needs water only for startup and maintenance, not day-to-day operation.
+
+That looked like a clean resolution to the loudest objection. It wasn't the last one.
+
+## Why did the fix create a new problem?
+
+Fuel cells still need fuel. Bloom's units run on natural gas piped to the site, with hydrogen or biogas floated as future options. Getting that gas to Project Jupiter requires a new pipeline, and the developer seeking a right-of-way across New Mexico state trust land to build it has now been turned down twice by the state Land Commissioner — once on the initial application, again on reconsideration. That's a different agency, a different statute, and a different objection than the air-quality fight the fuel cells were supposed to settle.
+
+Meanwhile the air-quality permit for the fuel-cell system itself hit its own snag: New Mexico's Environment Department ruled the application administratively incomplete and, as of a July 16 announcement, has scheduled a public hearing on it for October 19 in Sunland Park. Two separate approval tracks, two separate regulators, both still open, both directly gating whether the plant that was supposed to solve the original problem can actually run.
+
+## What does this mean for a GC or EPC on a data center job?
+
+The lesson isn't "data centers face permitting risk" — every large facility does, and CAB has covered several jurisdictions freezing new data center permits outright this month. The lesson here is narrower and more useful: on Project Jupiter, the redesign made to close one permitting gap opened a second one at an agency that had nothing to do with the first fight. That's a pattern worth planning around, not just a New Mexico story.
+
+| Risk point | Old assumption | What Project Jupiter shows |
+|---|---|---|
+| Power source | Owner picks a generation technology once, GC builds to spec | Generation technology can get redesigned mid-project in response to permitting objections |
+| Fuel supply | Treated as a utility hookup, not a schedule risk | A pipeline right-of-way can become its own multi-agency fight with a separate timeline |
+| Permitting | One review track (air, water, land) per project | Behind-the-meter generation can trigger parallel review tracks that don't share a clock |
+| Contract exposure | GC/EPC absorbs coordination delay as normal course | An owner-directed power-source change is a change order; the schedule impact from a second agency's rejection should be too |
+
+For a firm bidding or already under contract on data center power infrastructure, three things are worth doing now: track fuel and interconnection permitting as a critical-path item separate from the building permit set, ask whether a contract change to the generation plan comes with its own upstream approvals before pricing it as a like-for-like swap, and put in writing who eats schedule float when a regulator two agencies removed from the building permit reopens the clock.
+
+## The takeaway
+
+Project Jupiter's buildings are still going up under the campus's existing approvals — but the power plant that's supposed to run them can't legally operate until a land-access fight and an air-quality hearing both clear, and the hearing alone is now five months out. As more owners move to on-site generation to dodge grid queues and NIMBY fights over transmission lines, expect more of this: the fuel supply, not the structural steel, setting the completion date. [CAB flagged the same dynamic](/posts/2026-07-14-meta-alberta-data-center-gas-plant-dry-cooling-construction) when Meta priced its Alberta data center and its power plant as two separate contracts — treat them that way in the schedule, too.
+
+Forward this to the person on your team who's still arguing AI is overhyped. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).
+
+*Next time an owner changes a data center's power source mid-project, ask what new permit that change requires — and who owns the schedule risk if it gets rejected.*
