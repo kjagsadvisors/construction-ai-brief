@@ -1,0 +1,59 @@
+---
+title: "Any Chrome extension can hijack Anthropic's browser AI agent into reading your Gmail. That's the tool piloting your back office."
+date: "2026-07-21"
+excerpt: "Security researchers found an unpatched flaw in Claude for Chrome that lets an unrelated browser extension silently trigger the AI agent to read Gmail, Google Docs, and Calendar. GCs and subs testing browser agents for inbox and bid triage should treat that machine like it handles sensitive data — because it does."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.manifold.security/blog/claude-for-chrome-extension-bypass"
+  - "https://thehackernews.com/2026/07/claude-for-chrome-flaw-lets-other.html"
+  - "https://www.securityweek.com/unpatched-claude-for-chrome-flaw-lets-extensions-read-gmail-calendar/"
+  - "https://www.bleepingcomputer.com/news/security/claude-chrome-extension-flaw-lets-malicious-extensions-trigger-ai-actions/"
+  - "https://www.techradar.com/pro/the-bypass-is-still-six-lines-of-javascript-security-experts-warn-that-claude-for-chrome-browser-extension-could-be-hijacked-despite-it-alerting-anthropic-several-times-that-something-was-wrong"
+  - "https://claude.com/claude-for-chrome"
+faqs:
+  - q: "What is the Claude for Chrome vulnerability?"
+    a: "Security firm Manifold found that Claude for Chrome's approval-click handler doesn't verify a click came from a real user, so another browser extension can fake the click Claude treats as permission to act. A second flaw lets any extension force Claude's side panel into an unattended 'act without asking' mode via a URL parameter. Combined, an unrelated extension already in the browser can trigger Claude to read the user's Gmail, Google Docs, and Calendar without their knowledge."
+  - q: "Has Anthropic fixed it?"
+    a: "Not as of Manifold's report. Manifold first disclosed both issues to Anthropic on May 21, 2026. Anthropic closed the forged-click issue as already covered by an earlier open report and marked the URL-parameter issue 'informational.' Manifold says the flaw still reproduces in the current release, version 1.0.80, with the relevant code unchanged across eight releases since the report."
+  - q: "Does this affect construction firms specifically?"
+    a: "Not as a targeted attack — no construction company or vendor has been named. But GCs, subs, and estimators are exactly the audience piloting browser AI agents like Claude for Chrome to triage inboxes and pull documents, on machines that also run unrelated, unaudited browser extensions. That combination is the exact setup Manifold's research exploits."
+  - q: "What data is actually at risk?"
+    a: "Whatever the AI agent's account can see: subcontractor bid emails and pricing, executed contracts and change orders sitting in Gmail, RFI and submittal threads, and bid due dates on a shared calendar. Manifold's proof-of-concept read Gmail, Google Docs, and Calendar specifically."
+  - q: "What should a GC or sub do before piloting an AI browser agent?"
+    a: "Run it in a browser profile stripped to a minimal, reviewed extension list — no ad blockers, coupon tools, or PDF utilities installed alongside it. Don't leave it in an unattended 'act without asking' mode on an account that holds bid or contract data. And ask any vendor selling an agentic browser tool, not just Anthropic, what happens if another extension on that machine turns hostile."
+---
+
+Security researchers disclosed an unpatched flaw in Anthropic's Claude for Chrome that lets an unrelated browser extension — an ad blocker, a coupon finder, a PDF tool, anything with a content script — silently trigger the AI agent into reading a user's Gmail, Google Docs, and Calendar. No phishing click required, and no unusual network activity to catch it on: the reads happen through the AI agent's own sanctioned traffic. That's the exact tool GCs and subs are starting to pilot for inbox triage, bid document sorting, and submittal-deadline tracking.
+
+## What did the researchers actually find?
+
+Security firm Manifold identified two separate weaknesses in Claude for Chrome, Anthropic's browser-controlling AI agent. First, the extension's approval-click handler never checks whether a click came from a real person — it doesn't verify the browser's `event.isTrusted` flag — so another extension capable of injecting a script into claude.ai can fake the click Claude treats as a user granting permission. Second, Claude's side panel can be forced straight into an unattended "act without asking" mode through a URL parameter, `?skipPermissions=true`, skipping the approval step entirely. Chained together, Manifold demonstrated nine prompts that get Claude to read the victim's Gmail messages, Google Docs, and Calendar entries — triggered entirely by another extension already sitting in the browser, not by the user.
+
+## Why hasn't this been fixed?
+
+Manifold reported both issues to Anthropic on May 21, 2026, against version 1.0.72. Anthropic closed the forged-click report on the grounds that the underlying trust-boundary problem was already tracked under an earlier disclosure, which Anthropic says "remains open pending a complete fix." It marked the URL-parameter bypass "informational," reasoning that parameter is only ever set by the extension itself for tasks a user already told it to run unattended. Manifold says the flaw still reproduces in the current release, version 1.0.80 (shipped July 7), and that the vulnerable content-script and side-panel code has been byte-identical across the eight releases since the original report. Anthropic had not issued a public statement on the new findings as of publication.
+
+## Should a GC or sub piloting AI browser agents care?
+
+Yes, for a specific reason: the exact people testing tools like this are the ones with a browser full of extensions nobody's ever audited.
+
+| What's on the machine | What it's for | What it can now do |
+|---|---|---|
+| Claude for Chrome (or a similar browser agent) | Triage inbox, sort bid docs, check submittal deadlines | Reads Gmail, Docs, Calendar — with account holder's own access |
+| Ad blocker, coupon finder, grammar checker, PDF merger | Everyday browsing convenience | Can inject a script that forges Claude's approval click or forces unattended mode |
+| Result | — | The convenience extension silently drives the AI agent's account access, with no unusual network signal |
+
+An estimator's Gmail holds subcontractor pricing, competitor bid intel, and executed contracts. A PM's Calendar holds submittal and bid due dates. A back-office assistant's Google Docs folder holds RFI drafts and change-order language. None of that is exotic — it's the normal contents of the accounts a browser AI agent is being given access to, on a machine that also runs whatever browser extensions the person installed last year and forgot about.
+
+Anthropic's own guidance already tells users to avoid using Claude for Chrome on sites handling financial, legal, or medical data. That's the right instinct; a construction back office running bid pricing and executed contracts through the same browser profile is squarely inside that warning, whether or not anyone framed it that way when the pilot started.
+
+## What to do before the next pilot
+
+1. **Isolate the browser profile.** Run the AI agent in a profile stripped to a short, reviewed extension list — no ad blockers, shopping tools, or PDF utilities riding along.
+2. **Skip the unattended mode on sensitive accounts.** "Act without asking" is convenient; on an inbox holding bid data or contracts, keep the approval step on until this class of bug is actually closed.
+3. **Ask every agentic-browser vendor the same question**, not just Anthropic: if another extension on this machine goes hostile, what can it make your agent do, and how would we know?
+
+None of this means skipping browser AI agents — the inbox-triage and document-sorting time savings are real. It means treating the browser profile running one the same way you'd treat a laptop with QuickBooks access: locked down, not shared with whatever else the user happened to install. It's the same underlying lesson as [the prompt-injection flaw OpenAI's own red-teamer found in an autonomous vending-machine agent](https://constructionaibrief.com/posts/2026-07-17-openai-gpt-red-prompt-injection-procurement-agent-risk?utm_source=cab&utm_medium=web&utm_campaign=trend_cta): an AI agent that acts on untrusted input — whether that's a hidden instruction in a document or a forged click from another extension — needs a human check before anything it can't reverse actually happens.
+
+*Construction AI Brief tracks the AI agents landing inside construction back offices and what breaks when they do — new pieces most days at [constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
