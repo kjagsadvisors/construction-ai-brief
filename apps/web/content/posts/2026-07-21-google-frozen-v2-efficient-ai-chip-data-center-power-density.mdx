@@ -1,0 +1,57 @@
+---
+title: "Google is designing an AI chip that needs a tenth of the power. Your data center electrical scope is still sized for today's chips."
+date: "2026-07-21"
+excerpt: "Google is reportedly building a Gemini-specific chip, informally called Frozen v2, aimed at 6-10x more AI output per watt. It's years away and unconfirmed as a full rollout, but it's a signal every electrical and mechanical sub bidding data center work should be tracking."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://techcrunch.com/2026/07/20/google-is-working-on-a-new-ai-chip-designed-to-make-gemini-more-efficient/"
+  - "https://www.cnbc.com/2026/07/20/alphabet-googl-stock-ai-chip-report.html"
+  - "https://siliconangle.com/2026/07/20/google-reportedly-developing-frozen-v2-ai-chip-optimized-gemini-models/"
+  - "https://finance.yahoo.com/technology/ai/articles/google-plans-chip-run-gemini-135751706.html"
+  - "https://qz.com/google-gemini-chip-frozen-tpu-efficiency-072026"
+faqs:
+  - q: "What is Google's Frozen v2 chip?"
+    a: "Frozen v2 is the informal name for a specialized AI chip Google is reportedly developing that hardwires elements of its Gemini model architecture directly into the silicon, cutting the calculations and data movement needed to generate a response. It was first reported by The Information on July 20, 2026, and confirmed by outlets including TechCrunch, CNBC and SiliconANGLE."
+  - q: "How much more efficient is Frozen v2 supposed to be?"
+    a: "Google engineers reportedly estimate 6 to 10 times more AI tokens produced per watt compared with Google's current-generation TPUs. That figure comes from internal project estimates reported by The Information, not a published Google benchmark, so treat it as a target, not a confirmed spec."
+  - q: "When would Frozen v2 actually show up in a Google data center?"
+    a: "As early as 2028, and reporting describes the project as exploratory rather than a committed rollout. Production volumes are expected to fall well short of Google's general-purpose TPU lines, and the chip only works with future Gemini versions if Google keeps its core model architecture stable."
+  - q: "Does this mean data centers being built right now have oversized electrical infrastructure?"
+    a: "No. Google Cloud is currently declining outside compute deals because it doesn't have enough capacity, and that shortage is the reason efficiency projects like Frozen v2 exist. Near-term demand for power-hungry chips isn't slowing down — Frozen v2 is a signal about the multi-year power-density curve, not a reason to expect today's projects to sit half-empty."
+  - q: "Should electrical or mechanical subs change how they bid data center work because of this?"
+    a: "Not on jobs already scoped, but it's a reason to build modularity into new proposals — expandable switchgear, staged cooling capacity, substation designs that can flex rather than lock in a single power-density assumption for the facility's full life."
+---
+
+Google is reportedly engineering a chip, informally called Frozen v2, that could produce 6 to 10 times more AI output per watt than its current TPUs by baking parts of its Gemini model directly into the silicon. The report, from The Information on July 20 and confirmed by TechCrunch and CNBC, sent Alphabet's stock up on the news. For most of the tech industry this is a chip story. For anyone bidding electrical or mechanical scope on a data center, it's a preview of a number that's been driving your design assumptions: power per rack.
+
+## What is Google actually building?
+
+Frozen v2 hardwires elements of Gemini's architecture into the chip itself, which cuts the number of calculations the hardware has to run and how far data has to travel to produce an answer. That's different from Google's normal TPU upgrade cycle, which improves general-purpose AI chips generation over generation. This is a specialized, model-specific branch of the chip lineup — not a replacement for the TPUs that run most of Google's AI workloads today. Reporting describes it as an internal, exploratory project rather than a locked product roadmap, with a target deployment as early as 2028.
+
+## Why is Google doing this instead of just buying more chips?
+
+Because it's short on compute right now. Reporting tied to the Frozen v2 project describes Google Cloud turning down outside customer deals due to an internal capacity crunch — the AI boom has outrun Google's ability to build and power enough data centers to serve it. An efficiency chip is one lever to serve more AI demand without a matching increase in power draw. That's the same power constraint showing up in interconnection queues, ratepayer fights and grid buildout timelines nationally — Google is trying to engineer around it in silicon.
+
+## What does a 6-10x efficiency jump actually mean for a data center's design?
+
+Data center MEP scope — switchgear sizing, transformer capacity, chiller plant tonnage, backup generation — gets engineered around an assumed power density per rack, and that number has been climbing for years as chips got hungrier. A chip that does the same AI work on a fraction of the power would, if it ships at scale, bend that curve the other way for at least some fraction of a facility's compute. The catch is the "if": Frozen v2 is unconfirmed outside of anonymously sourced reporting, aimed at a narrow model-specific use case, and years from any real deployment.
+
+| What's confirmed | What's still speculative |
+|---|---|
+| Google is running an internal project targeting a Gemini-specific efficiency chip | Whether it ships at meaningful production volume at all |
+| Engineers' internal estimate is 6-10x tokens per watt vs. current TPUs | Whether that number holds up outside internal projections |
+| Google Cloud is capacity-constrained enough to decline outside deals today | Whether Frozen v2 measurably eases that constraint before 2028 |
+| Target deployment is "as early as 2028" | Whether Google's model architecture stays stable enough to keep the chip useful |
+
+## Should a GC or MEP sub change how they bid data center work today?
+
+Not the work in front of you. The capacity crunch behind Frozen v2 is the same thing keeping near-term data center demand strong — Google needs more compute now, not less, and an unproven 2028 chip doesn't change a contract that closes this year. [CAB has covered how bond-market jitters, not chip efficiency, are the nearer-term risk to hyperscaler capex](/posts/2026-07-20-wall-street-ai-capex-doubts-data-center-construction-risk). What Frozen v2 is worth doing is flagging in your own design conversations on new pursuits: an owner or design-build partner locking a facility's electrical infrastructure to today's power-density trendline for the next 15 years is betting against exactly the kind of efficiency gain Google is now trying to engineer. Push for switchgear and cooling plans that can step up or down in stages instead of one fixed number poured into the design on day one.
+
+## The takeaway
+
+Treat Frozen v2 as a watch item, not a design input — but the next time an owner's engineer hands you a power-density number for a data center's full lifecycle, ask what happens to that number if the chips inside it get five times more efficient before the loan is paid off.
+
+Forward this to the person on your team who's still arguing AI is overhyped.
+
+*Next time a data center RFP lands with a fixed power-density assumption baked into the electrical scope, ask what flexibility is built in if that number moves. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
