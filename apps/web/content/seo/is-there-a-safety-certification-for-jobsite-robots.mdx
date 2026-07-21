@@ -1,0 +1,79 @@
+---
+title: "Is there a safety certification for a robot working your jobsite?"
+description: "No accredited, government-mandated safety certification exists yet for a robot working a live construction jobsite. NVIDIA's Halos framework is the closest thing, but it's built for factory and warehouse floors. Here's what actually governs liability today, and what to ask a robot vendor before you sign a pilot agreement."
+target_keyword: "robot safety certification construction jobsite"
+audience: "gc_ops"
+updated_at: "2026-07-21"
+sources:
+  - "https://www.globenewswire.com/news-release/2026/06/22/3315323/0/en/NVIDIA-Announces-Halos-for-Robotics-the-Industry-s-First-Full-Stack-Safety-System-for-Physical-AI.html"
+  - "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Halos-for-Robotics-the-Industrys-First-Full-Stack-Safety-System-for-Physical-AI/default.aspx"
+  - "https://www.hpcwire.com/aiwire/2026/06/23/nvidia-announces-halos-for-robotics-the-industrys-first-full-stack-safety-system-for-physical-ai/"
+  - "https://www.iso.org/standard/91469.html"
+  - "https://theresarobotforthat.com/blog/humanoid-robot-safety-standards-2026/"
+  - "https://www.automate.org/robotics/news/new-ansi-a3-r15-06-2025-american-national-standard-for-industrial-robot-safety-now-available-for-purchase"
+  - "https://www.osha.gov/laws-regs/oshact/section5-duties"
+  - "https://www.osha.gov/robotics/standards"
+  - "https://www.prnewswire.com/news-releases/built-robotics-and-penn-engineerings-xlab-partner-to-advance-physical-ai-in-construction-302802050.html"
+  - "https://robotomated.com/certify"
+  - "https://bostondynamics.com/blog/introducing-the-latest-evolution-in-robotics-training-and-certification/"
+faqs:
+  - q: "Is there an official safety certification for construction robots?"
+    a: "No. No accredited, government-mandated certification exists yet for a robot working a live jobsite. NVIDIA's Halos framework is the first accredited inspection lab for physical-AI safety, but it targets standards built for factory and warehouse robots, and OSHA has no robotics-specific standard — a jobsite robot's safety today falls back on the General Duty Clause."
+  - q: "What is NVIDIA Halos for Robotics, and does it apply to construction?"
+    a: "Halos is NVIDIA's full-stack safety infrastructure for physical AI: IGX Thor hardware, Halos Core/OS software, and an ANAB-accredited inspection lab recognized by TÜV Rheinland, TÜV SÜD, UL Solutions, exida, SGS, and CertX. It targets IEC 61508, ISO 13849, and ISO/IEC TR 5469 certification. Its first partner, Agility Robotics, is certifying its Digit humanoid for factory and warehouse work — not construction."
+  - q: "Why don't existing robot safety standards cover a jobsite?"
+    a: "Because ISO 10218:2025 and ANSI/A3 R15.06-2025 — the standards Halos certifications target — assume statically stable machines that stay upright without power. Legged and dynamically-balanced robots like Boston Dynamics' Spot or Agility's Digit collapse if power cuts out, and the standard written specifically for that risk, ISO/CD 25785-1, is still a committee draft with no publication date."
+  - q: "What actually governs liability if a robot injures a jobsite worker today?"
+    a: "OSHA's General Duty Clause (Section 5(a)(1) of the OSH Act) — the same catch-all used for any recognized workplace hazard without its own standard. There's no robot-specific citation available, so OSHA must show the hazard was recognized, likely to cause serious harm, and correctable, a case that leans heavily on whatever safety documentation the vendor and GC can produce."
+  - q: "Should I require an operator certification too, separate from the machine's safety case?"
+    a: "Yes — they certify two different things. RCO (Robot Certified Operator) certifies the person running the robot, not the machine, and its Foundation-level credential is becoming the baseline for operating platforms like Spot. It doesn't substitute for asking the manufacturer about IEC 61508/ISO 13849 certification progress or safety data from real outdoor deployments."
+---
+
+No. As of mid-2026, no accredited, government-mandated safety certification exists for a robot working an active construction jobsite. NVIDIA's Halos for Robotics, announced in June, is the closest thing the industry has — the first accredited inspection framework for physical-AI safety — but it was built for factory floors and warehouse aisles, and its first certified partner isn't headed anywhere near a jobsite. If a vendor tells you their robot is "safety certified," the honest follow-up question is: certified for what environment, and by whom?
+
+## What is NVIDIA Halos, and why does it matter here?
+
+Halos for Robotics is NVIDIA's entry into robot safety certification: a combination of IGX Thor (industrial compute hardware with built-in safety mechanisms), Halos Core and Halos OS (the software layer), and an AI Systems Inspection Lab accredited by the ANSI National Accreditation Board — the first such program for physical AI ([GlobeNewswire](https://www.globenewswire.com/news-release/2026/06/22/3315323/0/en/NVIDIA-Announces-Halos-for-Robotics-the-Industry-s-First-Full-Stack-Safety-System-for-Physical-AI.html)). The inspection lab is recognized by TÜV Rheinland, TÜV SÜD, UL Solutions, exida, SGS, and CertX — the certifying bodies that already approve industrial equipment used on construction projects — targeting IEC 61508 (functional safety), ISO 13849 (safety of machinery), and ISO/IEC TR 5469 (AI safety) ([HPCWire](https://www.hpcwire.com/aiwire/2026/06/23/nvidia-announces-halos-for-robotics-the-industrys-first-full-stack-safety-system-for-physical-ai/)).
+
+That's real infrastructure, and it matters for construction eventually. But the first company through the lab is Agility Robotics, certifying its Digit humanoid — a robot already working at Amazon, GXO, and Toyota warehouses — for more factory and logistics deployment. Nothing in the announcement names a construction customer or an outdoor, unstructured-site use case. We [covered the announcement in full here](/posts/2026-06-24-nvidia-halos-robot-safety-certification-jobsite) when it broke.
+
+## Why doesn't a warehouse-grade certification just carry over to a jobsite?
+
+Because the standards Halos targets weren't written for the kind of robot most likely to end up on your site. ISO 10218:2025 and the newly revised ANSI/A3 R15.06-2025 — the U.S. industrial robot safety standard, expanded to more than 370 pages across three parts and updated in October 2025 with new content specifically for robot-cell users and operators ([Automate.org](https://www.automate.org/robotics/news/new-ansi-a3-r15-06-2025-american-national-standard-for-industrial-robot-safety-now-available-for-purchase)) — both assume a **statically stable** machine: one that stays upright with the power cut. That's a fair assumption for a fixed-base industrial arm or a wheeled robot like a bricklaying machine.
+
+It's not a fair assumption for the robots actually being piloted on jobsites today: Boston Dynamics' Spot, Agility's Digit, and any humanoid. All of them are dynamically stable — they need continuous power and active balance control to stay upright, and they can fall if that control loop drops. The standard written specifically for that failure mode, ISO/CD 25785-1 ("Robotics — Safety requirements for industrial mobile robots with actively controlled stability"), covers exactly this gap — legged, wheeled-balancing, and humanoid robots — but it's still at committee-draft stage with no publication date ([ISO](https://www.iso.org/standard/91469.html); [There's A Robot For That](https://theresarobotforthat.com/blog/humanoid-robot-safety-standards-2026/)). Until it publishes, there is no accredited standard that actually matches the robots your site is most likely to see.
+
+## Comparison: what covers a jobsite robot today, and what doesn't
+
+| Framework | What it covers | Status (mid-2026) | Does it cover legged/dynamically-stable robots (Spot, Digit, humanoids)? |
+|---|---|---|---|
+| IEC 61508 / ISO 13849 (via NVIDIA Halos) | Functional safety of the compute and control software | Active; Agility Robotics pursuing certification for Digit | Partially — covers the software/electronics, not the fall/balance risk itself |
+| ANSI/A3 R15.06-2025 | US industrial robot & robot-cell safety | Published October 2025, in force | No — assumes statically stable machines |
+| ISO 10218:2025 | International industrial robot safety | Published 2025, in force | No — same static-stability assumption |
+| ISO/CD 25785-1 | Safety requirements for dynamically stable robots | Committee draft — not yet published | Yes, by design — but unusable until it's finalized |
+| OSHA General Duty Clause | Catch-all for any recognized workplace hazard | Always in force; no robot-specific standard exists | Applies by default, with no robot-specific guidance |
+| RCO (Robot Certified Operator) | Human operator competency, not the machine | Active, industry-run credential | N/A — certifies the person, not the platform |
+
+## What governs liability on your site right now, then?
+
+OSHA's General Duty Clause — Section 5(a)(1) of the OSH Act — the provision used any time a recognized workplace hazard has no standard of its own ([OSHA](https://www.osha.gov/laws-regs/oshact/section5-duties)). OSHA confirms there's still no robotics-specific standard; its own guidance points to the general machinery chapter of the OSHA Technical Manual and to industry standards like ANSI/A3 R15.06 as reference points, not requirements ([OSHA](https://www.osha.gov/robotics/standards)). To cite an employer under the General Duty Clause, OSHA has to show the hazard was recognized, likely to cause serious harm, and correctable with a feasible fix — which means your paper trail (vendor safety documentation, site risk assessment, incident history) does most of the work if something goes wrong. That's the same liability structure we lay out for AI decision-making generally in [our guide to AI risk and liability in construction](/seo/construction-ai-risk-liability-security-guide) — the vendor's contract caps their exposure; the GC's exposure is what's actually on the line.
+
+## Does an operator certification cover the gap?
+
+It covers a different gap. RCO (Robot Certified Operator) — developed with input from Tesla's Optimus program, Boston Dynamics field teams, and Fortune 500 automation directors — certifies that the person running the robot knows what they're doing, not that the machine itself is safe ([Robotomated](https://robotomated.com/certify)). Boston Dynamics' own training program points operators toward at least a Foundation-level credential before running Spot on a live site ([Boston Dynamics](https://bostondynamics.com/blog/introducing-the-latest-evolution-in-robotics-training-and-certification/)). Require it — but don't mistake it for a machine safety case. It's a floor, not the whole answer.
+
+## Is anyone actually building a construction-specific safety case?
+
+One credible effort: Built Robotics and the University of Pennsylvania's xLAB (Safe Autonomous Systems Lab) announced a research partnership in June to close exactly this gap — using real jobsite data from Built's autonomous survey and piling equipment (more than 50,000 operating hours across 40+ solar sites) to train and validate personnel-detection AI for unstructured, outdoor conditions ([PR Newswire](https://www.prnewswire.com/news-releases/built-robotics-and-penn-engineerings-xlab-partner-to-advance-physical-ai-in-construction-302802050.html)). It's a research program, not a certification, and its first phase covers solar-site equipment specifically — but it's the only initiative we're tracking that's explicitly building a safety case for construction terrain rather than adapting one built for a warehouse floor.
+
+## What to ask before you sign a robot pilot agreement
+
+Three questions, in order, before any robot — humanoid, quadruped, or otherwise — sets foot on your site:
+
+1. **Which certification is this robot actually pursuing** — IEC 61508, ISO 13849, both — and through which third-party certifier?
+2. **What real-world safety data exists from outdoor, unstructured deployments** — not warehouse or factory hours, which don't transfer to your terrain?
+3. **Does the vendor require, or even offer, an operator certification** like RCO for your crew, separate from the machine's own paperwork?
+
+A vendor who can answer all three with specifics is building a real safety case. One who can't is asking your GL policy to absorb the gap. For the rest of what's actually deployed and working on jobsites today — not the trade-show demos — see [our full guide to construction robots and physical AI](/seo/construction-robots-jobsite-physical-ai-guide), and for what happens when the robot's decision (not just its balance) is the failure point, see [who's liable when construction AI makes a mistake](/seo/who-is-liable-when-construction-ai-makes-a-mistake).
+
+*Construction AI Brief covers what's actually shipping for GCs, trade subs, and estimators — three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=robot_safety_qa_cta).*
