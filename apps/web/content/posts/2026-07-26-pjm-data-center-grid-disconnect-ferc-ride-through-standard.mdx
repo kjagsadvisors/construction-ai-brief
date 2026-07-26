@@ -1,0 +1,57 @@
+---
+title: "A single downed power line knocked 3 gigawatts of data centers offline. FERC's fix is about to land in your electrical scope."
+date: "2026-07-26"
+excerpt: "A Northern Virginia transmission fault on July 22 caused data centers to auto-disconnect and destabilize the PJM grid for 10 minutes. FERC has already ordered new reliability standards by year-end — which means new ride-through requirements for anyone designing, building, or commissioning a data center right now."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.rtoinsider.com/136792-ferc-directs-large-loads-standards-by-end-of-2026/"
+  - "https://www.usnews.com/news/us/articles/2026-07-22/massive-disconnect-of-power-roiled-largest-us-electric-grid"
+  - "https://www.datacenterknowledge.com/outages/fault-in-data-center-alley-triggered-3-gw-load-drop-on-pjm"
+  - "https://www.whitecase.com/insight-alert/nerc-tees-plan-assess-grid-risks-associated-data-centers"
+  - "https://www.datacenterdynamics.com/en/news/pjm-grid-hit-by-voltage-disturbance-after-data-center-load-abruptly-drops-offline-report/"
+faqs:
+  - q: "What actually happened to the power grid on July 22, 2026?"
+    a: "A transmission line went out of service in Dominion Energy's Northern Virginia territory on the morning of Wednesday, July 22. Data centers in the area automatically disconnected from the grid and switched to backup power, dropping more than 3 gigawatts of load — about 3% of PJM's total demand at that moment — almost simultaneously. The resulting voltage disturbance was felt as far away as Chicago and took roughly 10 minutes to stabilize, versus the milliseconds a normal fault takes to clear."
+  - q: "Why did the data centers disconnect instead of riding out the fault?"
+    a: "Most data centers aren't built or configured to stay connected through a voltage disturbance — their protection systems are set to shed load and switch to backup power the moment grid conditions look abnormal, a behavior grid engineers call a lack of 'ride-through' capability. NERC has separately found that large computational loads can lose between 17% and 95% of their pre-disturbance power draw within milliseconds of a normally cleared transmission fault."
+  - q: "What is FERC requiring NERC to do about it?"
+    a: "On July 16, 2026, FERC ordered NERC (Docket No. RD26-7-000) to file one or more mandatory reliability standards covering 'computational loads' — data centers, crypto mines, and similar large IT facilities — by December 31, 2026, with a second-phase implementation plan due March 1, 2027. The direction toward providers is to engineer disturbance ride-through, accurate load modeling, and protection coordination before a facility is energized, not after."
+  - q: "Does this affect data centers that are already under construction?"
+    a: "It's aimed at exactly that population. A facility designed to today's protection settings and switchgear specs could need retrofit work once NERC's standard is finalized, since the rule targets computational loads broadly rather than only new interconnection requests. Projects mid-design now have the most room to build ride-through in cheaply, before the switchgear is ordered."
+  - q: "Is this only a Northern Virginia problem?"
+    a: "No. Northern Virginia has the world's densest cluster of data centers, which is why the fault showed up there first and hardest, but FERC's order applies nationally and CAISO and ERCOT are already moving on their own ride-through rules for large loads. Any GC or electrical sub with a data center in backlog, anywhere on the PJM, CAISO, or ERCOT grids, is inside the scope of this."
+---
+
+A transmission line fault outside Washington, DC on July 22 should have caused a blip nobody noticed. Instead, more than 3 gigawatts of data center load — about 3% of everything PJM was carrying at that moment — disconnected from the grid almost simultaneously, and it took roughly 10 minutes for voltage to stabilize as far away as Chicago. A disturbance that normally resolves in milliseconds took 1,000 miles and ten minutes. FERC had already ordered a fix six days before this happened, and that fix is a new mandatory reliability standard headed straight into the electrical design and commissioning scope of every data center now in backlog.
+
+## What went wrong on the grid
+
+Dominion Energy, the utility serving the Northern Virginia data center corridor, said a regional transmission line went out of service on the morning of July 22. Rather than staying connected and letting the grid's normal protective systems clear the fault, the affected data centers' own control systems read the disturbance as a threat, disconnected, and switched to backup power. Dominion said its operations team stabilized the situation within minutes, and there was no blackout — but lights flickered from DC to Chicago, and PJM, the largest grid operator in the US, watched roughly 3% of its load vanish and reappear inside a ten-minute window.
+
+That's the operational story. The regulatory story is what makes this a construction problem.
+
+## Why this becomes your problem, not just the utility's
+
+FERC issued an order on July 16 — six days before the Virginia incident — directing NERC to file mandatory reliability standards for "computational loads" (its term for data centers and similar large IT facilities) by December 31, 2026, with a second implementation phase due by March 1, 2027. The direction is specific: providers need disturbance ride-through, accurate load modeling, and protection coordination designed in **before energization**, not bolted on afterward. NERC had already flagged the underlying risk — its own research found large computational loads can shed 17% to 95% of their power draw within milliseconds of a normal transmission fault, which is exactly the failure mode Virginia just demonstrated at scale.
+
+For anyone building a data center, that turns into concrete scope changes:
+
+| Today's typical practice | What the coming standard pushes toward |
+|---|---|
+| Protective relays set to shed load fast on any abnormal voltage | Relay settings and switchgear coordinated to ride through a defined disturbance window |
+| Ride-through validated (if at all) as an afterthought during startup | Ride-through modeled and specified at design, tested as a discrete commissioning step |
+| Utility interconnection study focused mainly on steady-state capacity | Interconnection study also demanding disturbance-response data before service is granted |
+
+## What a GC or electrical sub should do this quarter
+
+1. **Ask your electrical engineer of record where the protection and relay settings land on ride-through today.** If the answer is "we haven't specified that," you're designing to a standard that's about to be superseded.
+2. **Flag interconnection timelines as a schedule risk, not a formality.** Utilities serving data-center-dense grids are the ones under the most NERC and FERC pressure right now — expect interconnection agreements to start asking for load-ride-through and protection-coordination data that wasn't required a year ago, and expect that to add time to an already slow queue.
+3. **Add ride-through testing to the commissioning plan now, while the switchgear order is still open.** Retrofitting protective relay logic after equipment is installed and energized is a change order; specifying it up front is a line item.
+4. **Don't assume this is a Virginia-only issue.** CAISO and ERCOT are already writing their own ride-through rules for large loads independent of NERC's national timeline — if you have data center work anywhere, this is coming to your grid too.
+
+The projects with the most room to absorb this cheaply are the ones still in design. If your switchgear and relay package is already on order, get your commissioning agent looped in on what NERC actually files by December — that's the document that will define whether your ride-through plan passes or needs rework before the owner takes the keys.
+
+For more on how grid and permitting friction is becoming the real critical path on data center jobs, see our [earlier report on the Project Jupiter pipeline rejection](/posts/2026-07-19-project-jupiter-pipeline-rejected-data-center-critical-path).
+
+*Construction AI Brief tracks the regulatory and infrastructure fine print that shows up in your scope before it shows up in the news — new pieces most days at [constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
