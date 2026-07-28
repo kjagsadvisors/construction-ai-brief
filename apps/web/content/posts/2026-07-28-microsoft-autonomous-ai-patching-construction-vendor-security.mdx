@@ -1,0 +1,61 @@
+---
+title: "Microsoft's AI now patches its own security bugs with no human involved 90% of the time. Ask your software vendor if that's true for them too."
+date: "2026-07-28"
+excerpt: "Microsoft launched an AI model and an agentic system that finds, patches, and confirms security fixes with no human review in most cases. Construction firms running project and access-control software on Microsoft's cloud should be asking vendors what their own patch-review process actually looks like."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://techcrunch.com/2026/07/27/microsoft-launches-its-first-cyber-model-and-a-new-agentic-cybersecurity-system/"
+  - "https://www.helpnetsecurity.com/2026/07/27/microsoft-mai-cyber-1-flash-ai-model/"
+  - "https://www.theregister.com/security/2026/07/27/microsofts-solution-to-ai-security-more-ai-and-more-acronyms/5279140"
+  - "https://www.axios.com/2026/07/27/microsoft-unveils-new-cyber-model-agentic-security-tools-to-fight-hackers"
+  - "https://microsoft.ai/news/introducing-mai-cyber-1-flash-inside-mdash/"
+faqs:
+  - q: "What did Microsoft announce on July 27, 2026?"
+    a: "Microsoft introduced MAI-Cyber-1-Flash, its first in-house AI model built specifically for cybersecurity work, and Project Perception, an agentic system that uses teams of AI agents to continuously monitor, patch, and close vulnerabilities. Perception enters public preview on August 3, 2026."
+  - q: "Does Microsoft's new security AI patch code without human review?"
+    a: "According to Microsoft, the MAI-Cyber-1-Flash model handles roughly 90 percent of vulnerability detection, patching, and fix-confirmation on its own inside Microsoft's MDASH system, escalating only the remaining harder cases to a larger model. That is Microsoft's figure for its own internal deployment, not a published number for any third-party vendor's software."
+  - q: "Does this affect construction software vendors like Procore, Autodesk, or Sage?"
+    a: "There's no public confirmation that specific construction software vendors have adopted MDASH or Perception. But many run on Microsoft Azure or Microsoft 365 infrastructure, so the shift toward AI agents shipping security patches with little or no human sign-off is an industry direction worth asking any vendor about directly, not something specific to Microsoft's own products."
+  - q: "Why does autonomous AI patching matter for a construction company's jobsite systems?"
+    a: "Cloud-connected access control panels, building automation systems, and safety monitoring tools increasingly sit on the same vendor infrastructure as back-office software. A patch that changes system behavior without a human-reviewed change window is a different risk on a system tied to a job-site door or crane telemetry than it is on a marketing website."
+  - q: "What should a GC or sub ask their software vendors about this?"
+    a: "Ask whether the vendor uses autonomous AI patching in production, what percentage of patches ship without human review, and what the rollback process looks like if an automated patch breaks an integration with your scheduling or ERP system mid-project."
+---
+
+Microsoft just launched an AI model and an agentic system that find, patch, and confirm security fixes in production code with no human involved in roughly nine out of ten cases. If your project management, scheduling, or access-control software runs on Microsoft's cloud — and a lot of construction software does — that's the new baseline you should be asking your vendors about before the next patch ships.
+
+## What did Microsoft actually announce?
+
+On July 27, Microsoft introduced MAI-Cyber-1-Flash, its first AI model built specifically for cybersecurity, running inside MDASH, the company's multi-agent system for finding and remediating vulnerabilities across large codebases. Paired with the larger GPT-5.4 model, MDASH scored 96% on CyberGym, an industry benchmark, 12 points ahead of Anthropic's comparable model. Microsoft says the combination runs at half the cost of its previous best configuration.
+
+Alongside it, Microsoft launched Project Perception, an agentic system that deploys teams of AI agents to continuously monitor code, patch vulnerabilities, and confirm the fixes actually worked — entering public preview on August 3. Microsoft says the model went through its internal AI Red Team, adversarial testing, and an outside security assessment before release.
+
+The number that matters most for anyone running software on Microsoft's stack: inside MDASH, MAI-Cyber-1-Flash handles about 90% of vulnerability detection and patching on its own, only handing the hardest 10% of cases to a larger model for review. That's Microsoft's own figure, for its own environment — but it's a clear signal of where vendor patch pipelines generally are headed.
+
+## Why should a GC or sub care about a Microsoft cybersecurity model?
+
+Because the software running your business almost certainly touches Microsoft's infrastructure somewhere. Microsoft 365 and Azure sit under a large share of construction tech — project management platforms, scheduling tools, accounting systems, and increasingly the cloud dashboards behind physical site systems like access-control panels, camera monitoring, and building automation. There's no public evidence that Procore, Autodesk, Sage, or other construction-specific vendors have adopted MDASH or Perception specifically. But the direction is clear: more of the vendor software your teams depend on is moving toward AI agents that patch production systems with little or no human review, because that's now measurably cheaper and, on Microsoft's benchmark, more accurate than the alternative.
+
+That distinction matters more on a jobsite than in a typical office. A patch that silently changes behavior on a marketing website is a non-event. The same kind of patch, if it ever touched a cloud-connected access-control panel, a crane telemetry feed, or a safety-monitoring integration, could change what happens at a door or a piece of equipment mid-shift with nobody on your team aware it happened.
+
+## What should you actually do about it?
+
+| Ask this | Why it matters |
+|---|---|
+| Do you use autonomous AI patching in production, and what share of patches ship without human review? | You need a real number, not "we take security seriously" |
+| What's the rollback process if an automated patch breaks an integration with our scheduling or ERP system? | Autonomous patches can pass a vendor's own tests and still break your specific setup |
+| Are any autonomous patches ever applied to systems tied to physical site operations — access control, BAS, safety monitoring? | These carry consequences an office SaaS bug doesn't |
+| Is there a change-control window we're notified of before automated patches touch systems we depend on during active work? | Determines whether you find out before or after something breaks |
+
+Add these questions to your next vendor security review or IT risk questionnaire, next to the SOC 2 report and uptime SLA you already ask for.
+
+## What's real here, and what's still to be proven?
+
+The real part: this is Microsoft's own production security tooling, independently benchmarked, backed by a named executive claim, and headed to public preview on a fixed date. It's not a lab demo.
+
+The unproven part: a 96% benchmark score and a 90% autonomy rate describe Microsoft's own environment on a standardized test. They don't tell you what patch-review process any specific construction software vendor runs today, or whether that vendor will adopt anything like Perception. This news doesn't hand you an answer — it hands you a better question to ask the vendors you already work with.
+
+*We covered a related risk two weeks ago when a flaw in [Anthropic's Claude for Chrome extension](https://constructionaibrief.com/posts/2026-07-21-claude-chrome-extension-flaw-back-office-ai-agent-risk?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) let outside code hijack an AI agent with access to back-office email and calendars — same underlying question of who's actually watching the AI making changes on your behalf.*
+
+Next vendor call, ask directly: what percentage of your patches ship without a human reviewing them first, and do any of those patches ever touch the systems tied to our jobsites?
