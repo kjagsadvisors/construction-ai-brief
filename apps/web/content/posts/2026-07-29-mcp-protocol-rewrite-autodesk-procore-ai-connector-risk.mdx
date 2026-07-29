@@ -1,0 +1,51 @@
+---
+title: "The protocol connecting AI agents to Revit and Procore just had its biggest rewrite ever"
+date: "2026-07-29"
+excerpt: "The Model Context Protocol — the open standard Autodesk already ships and outside integrators use to connect AI agents to Revit data and Procore budgets — shipped its largest spec change since launch on July 28. Here's what to ask before piloting any AI-to-BIM connector."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://blog.modelcontextprotocol.io/posts/2026-07-28/"
+  - "https://venturebeat.com/infrastructure/mcp-just-got-its-biggest-update-ever-heres-what-changes-for-ai-agents"
+  - "https://github.com/autodesk-platform-services/aps-aecdm-mcp-dotnet"
+  - "https://www.autodesk.com/blogs/aec/2026/06/17/revit-public-mcp-server/"
+  - "https://www.amcbridge.com/newsroom/news/amc-bridge-showcases-mcp-connector-for-autodesk-platform-services-and-procore-a-proof-of-concept-for-ai-orchestrated-interoperability-in-construction"
+faqs:
+  - q: "What is the Model Context Protocol (MCP) and why does it matter for construction software?"
+    a: "MCP is an open standard that lets AI tools connect to external data and software through one documented interface instead of a custom integration for every pairing. Autodesk and outside integrators are already using it to let AI agents read Revit and BIM data and post quantities into project platforms like Procore."
+  - q: "What changed in the July 28, 2026 MCP spec update?"
+    a: "The update rebuilt MCP's core as stateless, removing the session handshake and session-ID header earlier versions relied on, hardened authorization to align with OAuth 2.1, and set a 12-month minimum window before retired features stop working. Maintainers and industry press both called it the largest change to the protocol since launch."
+  - q: "Does this affect Autodesk's or Procore's AI features right now?"
+    a: "Not immediately. The spec sets a 12-month minimum deprecation window and the major SDKs already support the new version. But any connector built on the older session-based model — including published sample integrations for Autodesk's AEC Data Model API — will need updating within that window."
+  - q: "Should a GC or estimating team hold off on piloting an AI-to-BIM-to-Procore connector because of this?"
+    a: "No, but before committing budget or a schedule to one, ask whether it's built on MCP, which spec version it targets, and who owns the migration — the software vendor, or whoever wired the connector together."
+  - q: "How is MCP different from a vendor just saying its software 'uses AI'?"
+    a: "MCP is a specific, versioned, publicly documented protocol, not a marketing description. If an integration is actually built on MCP, you can check which spec version it targets against the public deprecation timeline instead of taking a vendor's word that it will keep working."
+---
+
+The Model Context Protocol — the open standard Autodesk already ships to let AI tools read live data out of Revit models, and that outside integrators have used to push BIM quantities straight into Procore budgets — shipped the largest rewrite of its rules on July 28 [1][2]. If anyone on your team is piloting, or paying an integrator to build, an AI connector between your design software and your project management platform, this is the change to ask about before the next invoice.
+
+## What actually changed?
+
+MCP's core moved from a stateful, session-based connection to a stateless one. The old handshake — a client and server opening a session, tracked with a session-ID header — is gone; every request now describes itself, which lets these connections run behind ordinary load balancers instead of needing dedicated, held-open connections [1][2]. Authorization was also hardened to align with OAuth 2.1, including issuer validation and a move away from older client-registration methods [1]. Maintainers set a 12-month minimum window before retired features are dropped entirely, and the major SDKs (TypeScript, Python, Go, C#, plus a beta Rust SDK) already support the new version [1]. Both the protocol's own maintainers and industry press describe it as the biggest change since MCP launched [1][2].
+
+## Why does this land on construction specifically?
+
+Because MCP already isn't theoretical in AEC software — it's shipped code. Autodesk publishes an official MCP server that connects AI chat clients like Claude Desktop to its AEC Data Model API: pull a hub or project's Revit data, query elements by category, and highlight results in a 3D viewer through natural-language requests instead of custom scripting [3]. Autodesk also shipped a public Revit MCP server in June [4]. And AMC Bridge, an outside engineering-software firm, built and demoed a proof-of-concept MCP connector that lets someone ask a BIM model a question in plain English and post the resulting quantities directly into Procore budget line items [5]. None of that is a "coming soon" pitch — it's a published GitHub repo and a public demo, both built on the version of MCP the July 28 rewrite just replaced.
+
+That's also the same portability question [we flagged with Microsoft CEO Satya Nadella's "AI gateway" warning last week](https://constructionaibrief.com/posts/2026-07-28-nadella-ai-gateway-reverse-information-paradox-construction-vendor-contracts): MCP's whole pitch is that an AI agent can talk to your BIM model, your budget software, and whatever tool comes next through one standard interface instead of a proprietary one-off integration you're stuck with. A protocol rewrite this size is the first real test of whether that promise holds up once vendors have to migrate.
+
+## What should an estimating or precon lead actually do about it?
+
+| Ask | Why it matters |
+|---|---|
+| Is any AI-to-BIM or AI-to-Procore connector we use, or are piloting, built on MCP — and which spec version? | Determines whether it's affected by the July 28 rewrite at all |
+| Who owns the migration — the software vendor, or the integrator who wired it up? | A takeoff pilot shouldn't stall because a third party's custom connector wasn't updated |
+| Does the connector rely on the old session handshake? | That's the specific piece the new spec retires first |
+| What's the vendor's migration plan against the 12-month deprecation window? | Sets your own budget and scheduling horizon for the tool |
+
+## The honest limit here
+
+This is plumbing, not a feature that breaks overnight — the 12-month window means nothing working today stops working this week, and most estimating teams will never touch an MCP server directly. The exposure sits with whoever built the connector: an Autodesk sample repo, a systems integrator, or a vendor's beta agent feature. But "our software has AI agents now" is doing a lot of work in vendor pitches this year, and MCP is the first time that claim comes with a name and a version number you can actually check instead of taking on faith.
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
