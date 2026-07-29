@@ -1,0 +1,57 @@
+---
+title: "The FCC just blacklisted new Chinese robot dogs and solar inverters. Check the FCC ID before you buy either one this quarter."
+date: "2026-07-29"
+excerpt: "The FCC added Chinese-made quadruped and humanoid robots, plus foreign-made connected power inverters, to its national security Covered List on July 28 — the same mechanism that grounded DJI drones. Nothing already on a jobsite is affected, but any new order in either category needs a paperwork check before it ships."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.fcc.gov/document/fcc-adds-foreign-produced-power-inverters-and-robots-covered-list-0"
+  - "https://www.fcc.gov/supplychain/coveredlist"
+  - "https://www.washingtonpost.com/technology/2026/07/28/fcc-bans-foreign-humanoid-robots-expanding-campaign-against-chinese-tech/"
+  - "https://www.nextgov.com/policy/2026/07/fcc-blocks-approval-new-foreign-made-robots-power-inverters/415070/"
+  - "https://pv-magazine-usa.com/2026/07/28/fcc-bans-foreign-produced-solar-inverters-grid-lockout-begins-today/"
+  - "https://cyberinsider.com/remote-access-backdoor-discovered-in-chinese-robot-dog-unitree-go1/"
+faqs:
+  - q: "What did the FCC actually ban on July 28, 2026?"
+    a: "The FCC added two new categories to its national-security Covered List: 'advanced robotic devices' (mobile robots, including humanoids and quadrupeds) and foreign-made 'connected power inverters.' New models in either category can no longer receive the FCC equipment authorization required to be imported, marketed, or sold in the US. Devices already owned, and models that already hold FCC authorization, are unaffected."
+  - q: "Does this stop the Unitree robot dogs some GCs use for site inspection?"
+    a: "Not the ones already in use. Unitree quadrupeds that already hold FCC equipment authorization can still be imported, sold, and operated; the block applies to new device models seeking authorization after July 28, 2026. The FCC's move follows a confirmed backdoor in Unitree's Go1 (CVE-2025-2894) that let anyone with a certain API key remotely control the robot — researchers traced nearly 1,900 vulnerable units worldwide, including ones connected from MIT, Princeton, and Carnegie Mellon networks."
+  - q: "Does the inverter ban affect solar-plus-battery-storage scope on a construction project?"
+    a: "Yes, for any new order of a foreign-made inverter model that hasn't already received FCC equipment authorization. Huawei and Sungrow, the two largest solar inverter makers globally, are both Chinese and squarely in scope. There's no grace period on new authorizations — an unauthorized model can't legally be imported or connected, full stop."
+  - q: "Can a manufacturer get an exemption?"
+    a: "Yes, through a new 'Conditional Approval' process. The Department of Defense can certify that a specific robotic device or class doesn't pose a national security risk; for power inverters, either the Department of Defense or the Department of Homeland Security can grant that exemption. No published timeline exists yet for how long that review takes."
+  - q: "Is this the same as the GUARD Act that was supposed to ban Chinese robots?"
+    a: "It's the same tool — the FCC Covered List — but it arrived through direct FCC and administration action, not the GUARD Act, which is still sitting in committee and hasn't had a floor vote. The bill would have made this outcome likely eventually; the FCC didn't wait for it."
+---
+
+The FCC added Chinese-made quadruped and humanoid robots, along with foreign-made connected power inverters, to its national-security Covered List on July 28, 2026. New models in either category can no longer get the FCC equipment authorization needed to be imported, marketed, or sold in the US, effective immediately, with no grandfather period for anything not yet authorized. Nothing you already own is affected. Anything you're about to order might be.
+
+## What exactly changed?
+
+The Covered List is the same mechanism that got DJI drones blocked from new US sales in December 2025. The FCC's notice this week expanded it to cover two new categories: "advanced robotic devices" — its term for mobile robots, humanoid and quadruped alike — and "connected power inverters produced in foreign countries." The rationale, per the FCC's own notice, is that "the networked capabilities of advanced robotic systems create extensive vulnerabilities and vectors for attacks that can manipulate the data and physical operation of the advanced robotic system." The restriction only touches new equipment authorizations. A robot or inverter model that already cleared FCC review before July 28 keeps selling. A model that hasn't is stuck.
+
+## Does this touch the robot dogs already doing inspection walks?
+
+We flagged this exact mechanism three weeks ago, when Unitree's $619 million Shanghai IPO landed next to two bills in Congress proposing to do precisely this. Neither bill has passed. The FCC did it anyway, administratively, without waiting for a floor vote.
+
+The security case behind it isn't theoretical. Unitree's Go1 quadruped shipped with a firmware backdoor (CVE-2025-2894) — a cloud tunnel service called CloudSail that connected back to a Chinese vendor and handed remote control of the robot to anyone holding the right API key. Researchers eventually traced nearly 1,900 vulnerable Go1 units still connected worldwide, including devices reached from inside MIT, Princeton, and Carnegie Mellon networks. That's the pattern the FCC cited in going after the broader robotic-device category, not just Unitree by name.
+
+For a GC already running a quadruped for progress capture or LiDAR scanning, the immediate exposure is narrow: existing units and already-authorized models keep working. The exposure shows up the next time you order a new one.
+
+## What about the inverter going into your data center's power scope?
+
+This is the less obvious hit, and it lands on a workflow the Brief has covered repeatedly this month: data centers and other large loads increasingly bring co-located solar and battery storage into their own power scope, in part because of the grid strain PJM and other operators are already flagging. Huawei and Sungrow are the two largest solar inverter manufacturers in the world by shipment volume. Both are Chinese. Any new order for one of their models that hasn't already cleared FCC equipment authorization can no longer legally be imported or connected — not delayed, blocked.
+
+| If you're procuring... | What to check now |
+|---|---|
+| A new inspection or reality-capture robot | Ask the vendor for the specific model's FCC ID and confirm it was authorized before July 28, 2026 |
+| A solar or battery-storage inverter for any project | Confirm the exact model number already holds FCC equipment authorization before you commit it to a submittal or a schedule |
+| Either category, mid-procurement | Ask whether the manufacturer is pursuing a Conditional Approval exemption through DoD or DHS, and get a realistic timeline in writing — don't assume it clears in time for your schedule |
+
+## What to do with this now
+
+None of this claws back equipment already on a jobsite or already authorized. The exposure is entirely forward-looking: the next robot you add to a fleet, the next inverter you specify for a solar-plus-storage scope. Both are decisions that usually get made weeks before delivery, which is exactly the window where an FCC ID check costs nothing and a missed one costs a schedule slip.
+
+*We covered [the legislative version of this fight](https://constructionaibrief.com/posts/2026-07-05-unitree-ipo-guard-act-chinese-robots-construction?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) three weeks ago, when it was still a bill in committee. It isn't anymore.*
+
+Forward this to whoever signs off on your next robot purchase or your next solar-plus-storage submittal.
