@@ -1,0 +1,51 @@
+---
+title: "NOAA just moved the weather forecasts your project runs on to Google's AI. Here's what changes before 2027 — and the new risk sitting behind every storm call."
+date: "2026-07-30"
+excerpt: "NOAA picked Google Cloud to run its national weather supercomputers, with AI models like WeatherNext already outperforming traditional forecasts on hurricane calls. For GCs and PMs, that means better lead time on severe-weather decisions eventually — and a new commercial-cloud dependency sitting behind the forecast your weather-delay documentation leans on."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://cloud.google.com/blog/topics/public-sector/modernizing-the-skies-noaa-google-cloud-collaborate-advance-weather-forecasting"
+  - "https://www.noaa.gov/news-release/noaas-use-of-cloud-infrastructure-grows-to-include-weather-prediction-models"
+  - "https://www.hpcwire.com/off-the-wire/noaa-shifts-weather-forecast-supercomputing-operations-to-the-cloud/"
+  - "https://www.theregister.com/hpc/2026/07/29/noaa-ditches-weather-predicting-supercomputers-for-google-cloud/5280697"
+  - "https://www.washingtontimes.com/news/2026/jul/28/us-weather-forecasting-heads-cloud-google-lead-provider/"
+faqs:
+  - q: "What did NOAA actually announce about Google Cloud?"
+    a: "On July 27, 2026, NOAA named Google Cloud the primary provider of high-performance computing infrastructure for its Weather and Climate Operational Supercomputing System (WCOSS) — the system that runs the government's core weather prediction models. It's a move off NOAA's own on-premises supercomputers onto Google's H4D virtual machines."
+  - q: "When will NOAA's weather forecasts actually run on Google Cloud?"
+    a: "NOAA plans to migrate key operational forecast models through early 2027, with the full transition off legacy supercomputing hardware targeted for the end of 2027. Nothing about how a contractor gets a forecast changes this quarter."
+  - q: "Does moving to Google Cloud make hurricane and severe-weather forecasts more accurate right now?"
+    a: "Google's WeatherNext AI model, developed with Google DeepMind, has already shown it can outperform legacy forecast models on specific extreme events — it flagged Hurricane Melissa's Category 5 landfall in Jamaica five days out. NOAA's cloud migration is meant to make it easier to fold models like that into the operational forecast, but that integration work is separate from the infrastructure move and isn't a solved problem yet."
+  - q: "Does this create a new risk for construction weather-delay documentation?"
+    a: "It adds a dependency that didn't exist before: national forecast operations now run through a single commercial cloud vendor's infrastructure instead of government-owned hardware. That doesn't make a delay claim invalid, but it's a new failure point worth a question to your weather-data vendor, the same way a cloud outage is now a standard line item in any SaaS vendor's risk profile."
+  - q: "Should a GC change which weather service it uses because of this announcement?"
+    a: "Not yet. The transition runs through 2027, and most commercial weather apps and services (DTN, WeatherWorks, and similar) already source from NOAA's model output rather than the raw supercomputing layer, so the practical change reaches contractors gradually as those vendors adopt improved forecasts — not the day NOAA flips a switch."
+---
+
+NOAA just handed the infrastructure behind the national weather forecast to Google. On July 27, NOAA named Google Cloud the primary provider of high-performance computing for the Weather and Climate Operational Supercomputing System — the system that runs the models behind every severe-weather warning, hurricane track, and daily forecast the government issues [1][2]. The pitch is better forecasts, sooner. The part worth sitting with is what "better" is riding on, and what changes when the hardware behind the national forecast belongs to a cloud vendor instead of the government.
+
+## What exactly is moving, and when?
+
+NOAA is shifting WCOSS off its own on-premises supercomputers onto Google Cloud's H4D virtual machines, built on fifth-generation AMD EPYC processors designed for tightly-coupled, low-latency simulation workloads — the kind numerical weather prediction needs [1]. NOAA plans to move key forecast models to the cloud through early 2027, with the full transition off legacy hardware completing by the end of that year [2][3]. This is one of the first national weather agencies globally to put its primary operational forecasting on public commercial cloud rather than government-owned supercomputers [3][4].
+
+## Why does the AI part matter more than the cloud part?
+
+The infrastructure move is what makes the AI model part practical. Google's WeatherNext, built by Google DeepMind and Google Research, already demonstrated it can beat legacy physics-based models on specific extreme events: it flagged Hurricane Melissa's Category 5 landfall in Jamaica five days before it happened, at a point when traditional models hadn't converged on that intensity [1]. The National Hurricane Center used it as an input on that call. Running the operational forecast on the same cloud infrastructure Google's AI models are built on is what lets NOAA fold tools like WeatherNext into day-to-day forecasting instead of running them as a side project.
+
+## What does that mean for a jobsite?
+
+| If it works as pitched | What it means on site |
+|---|---|
+| Longer, more reliable lead time on severe weather calls | More notice before a lightning stand-down, wind-driven crane shutdown, or concrete pour reschedule |
+| Faster model updates as conditions shift | Less reliance on the 6-hour-old forecast when you make a 6 a.m. go/no-go call |
+| Better track and intensity accuracy on named storms | Fewer false-alarm evacuations and fewer storms that outrun the warning |
+| A commercial cloud vendor now sits inside the forecast pipeline | A new outage dependency behind the data your delay documentation points to |
+
+That last row is the one nobody's advertising. Most commercial weather tools contractors already use — DTN, WeatherWorks, the apps built into project management platforms — pull from NOAA's model output rather than running their own physics engines. When NOAA's forecast improves, that improvement reaches the field secondhand, through whichever vendor a contractor already pays for. It also means a Google Cloud outage on the wrong day is no longer just a SaaS inconvenience — it's a gap in the same government forecast infrastructure a GC's weather-delay documentation and OSHA heat/lightning protocols are built around.
+
+## The honest limit here
+
+None of this changes anything on a jobsite today. The migration runs through 2027, NOAA hasn't said WeatherNext or any specific AI model is replacing its operational forecast outright, and a Category 5 hurricane call five days out is a headline result, not a baseline guarantee — AI weather models still miss, and NOAA is layering this in alongside its existing forecasting, not gambling the whole system on one vendor's model. The realistic move for a GC or PM: don't change your weather-service vendor over this announcement, but do ask that vendor, over the next year, whether and when they start incorporating NOAA's cloud-native forecast improvements — and whether they have a fallback if the cloud layer they now depend on goes down during the storm that matters. [McCarthy's build-out of an AI-native operations platform with Palantir raised the same question about what happens when core project data runs through one vendor's infrastructure](https://constructionaibrief.com/posts/2026-06-20-mccarthy-palantir-pulse-construction-ai) — this is the same trade at the federal level.
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
