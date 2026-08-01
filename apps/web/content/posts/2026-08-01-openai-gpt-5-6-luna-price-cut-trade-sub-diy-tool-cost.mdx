@@ -1,0 +1,54 @@
+---
+title: "OpenAI cut its cheapest AI model's price 80%. For a trade sub, that's an RFI draft for a tenth of a cent."
+date: "2026-08-01"
+excerpt: "OpenAI dropped the price of its budget GPT-5.6 tier from $1/$6 to $0.20/$1.20 per million tokens on July 30. Run the math on a typical RFI or submittal transmittal and the raw AI cost of a homemade back-office tool rounds to almost nothing."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://openai.com/index/gpt-5-6/"
+  - "https://venturebeat.com/technology/ai-price-wars-openai-cuts-gpt-5-6-luna-prices-by-80-as-model-competition-shifts-toward-cost"
+  - "https://www.cnbc.com/2026/07/30/open-ai-price-cut-gpt.html"
+  - "https://www.axios.com/2026/07/30/openai-cuts-prices-gpt-terra-luna5"
+  - "https://www.eweek.com/news/openai-gpt-5-6-api-price-cuts/"
+faqs:
+  - q: "How much did OpenAI cut GPT-5.6 Luna's price by?"
+    a: "OpenAI cut GPT-5.6 Luna's API price 80% on July 30, 2026 — from $1 per million input tokens and $6 per million output tokens at its July 9 launch down to $0.20 input / $1.20 output. The mid-tier Terra model dropped 20%, from $2.50/$15 to $2/$12."
+  - q: "What does a lower per-token AI price actually mean in dollars for a small back-office task?"
+    a: "At Luna's new rate, feeding a model roughly 3,000 tokens of context (an RFI thread plus a relevant spec excerpt) and getting back a 500-token draft response costs about $0.0012 — a tenth of a cent. Running that same task 200 times in a month costs roughly 24 cents in raw model fees."
+  - q: "Does a cheap AI model mean a trade sub can skip buying construction software?"
+    a: "No. The token cost is only the inference bill. Someone still has to build the prompt logic, connect it to email or a document system, and — critically — review every draft before it goes out, since a wrong RFI answer or a misread spec clause is a real liability. Cheap tokens lower the cost of experimenting, not the cost of getting it right."
+  - q: "Why did OpenAI cut prices only three weeks after launching GPT-5.6?"
+    a: "OpenAI said the cuts came from efficiency gains in the models and its inference systems, not a fire sale. But the timing lines up with intensifying competition on price from rival labs, including cheaper Chinese open-weight models — Sam Altman framed it on X as wanting 'the best price/intelligence tradeoff at every level,' which points to sustained price pressure across the industry, not a one-time discount."
+---
+
+OpenAI cut the price of GPT-5.6 Luna, its cheapest model tier, by 80% on July 30 — from $1 per million input tokens and $6 per million output tokens down to $0.20 and $1.20. Do the arithmetic on a typical back-office task, like drafting an RFI response from a spec excerpt, and the raw AI cost lands around a tenth of a cent. That's not a rounding error in a vendor's pricing page — it's the number that makes building a small internal tool, instead of paying for one, worth a second look for a trade sub with a developer on staff or a consultant on retainer.
+
+## What did OpenAI actually change?
+
+GPT-5.6 launched July 9 as three tiers: Sol (the flagship, $5 input / $30 output per million tokens), Terra (the balanced mid-tier, originally $2.50/$15), and Luna (the fast, cheap option, originally $1/$6). On July 30, OpenAI cut Luna to $0.20/$1.20 — an 80% drop — and Terra to $2/$12, a 20% drop. It also added a "Fast" mode for Sol at double the standard price ($10/$60) that runs up to 2.5x faster without a smarter model underneath. OpenAI said the cuts trace to efficiency improvements in the models and its inference stack. Sam Altman posted on X that the goal is "the best price/intelligence tradeoff at every level," which reads as a signal this won't be the last cut this year — GPT-5.6 is already OpenAI's fourth major pricing move since June.
+
+## Why does the cheap tier matter more than the flagship here?
+
+A frontier flagship model getting faster or smarter is a story for people building the hardest agentic workflows. Luna getting 80% cheaper is a story for the much larger set of narrow, repetitive jobs that don't need a flagship model at all — drafting a first-pass RFI response, summarizing a daily field report, flagging which spec section a submittal belongs to. Those are short, well-defined tasks with limited context, which is exactly where a budget model tier does fine and where token count — and therefore price — actually matters.
+
+## What would this cost a trade sub in practice?
+
+Take an RFI: feed the model the RFI thread plus a relevant spec excerpt (roughly 3,000 tokens of input) and have it draft a response (roughly 500 tokens of output).
+
+| Item | Tokens | Rate (Luna, post-cut) | Cost |
+|---|---|---|---|
+| Input (RFI + spec excerpt) | 3,000 | $0.20 / 1M tokens | $0.0006 |
+| Output (draft response) | 500 | $1.20 / 1M tokens | $0.0006 |
+| **Total per RFI** | | | **≈ $0.0012** |
+| 200 RFIs/month | | | **≈ $0.24** |
+| 2,000 RFIs/month (large sub, multiple projects) | | | **≈ $2.40** |
+
+Even a high-volume mechanical or electrical sub running thousands of these a month is paying single-digit dollars in raw model fees. That flips the usual objection to building an internal tool — "the AI costs too much" — for this category of task. It doesn't touch the real cost, which is engineering time to build and maintain the tool.
+
+## What Luna still can't do for you
+
+A cheap token doesn't buy judgment. Luna is OpenAI's fastest, least capable tier — fine for drafting and summarizing, weaker on multi-step reasoning across a full spec book or catching a subtle code conflict. Nothing here changes the standing rule for any AI-drafted construction document: a human reviews it before it goes out, because a bad RFI answer or a missed exclusion is a liability problem, not a formatting one. What's changed is that a sub can now afford to experiment with a homemade tool for a narrow task without the token bill being the reason it doesn't get built.
+
+Cheap inference is one input to a build-vs-buy decision, not the whole answer — the same caution applied when [Kimi K3's open-weight release made self-hosting cheap without making it simple](https://constructionaibrief.com/posts/2026-07-27-kimi-k3-open-weights-self-hosting-vendor-lock-in). Before greenlighting a homemade RFI or submittal drafter, price the engineering time to build and maintain it against what a vendor already charges — the token bill was never the expensive part.
+
+*Construction AI Brief tracks which AI-industry shifts actually change what a construction firm should build or buy — new pieces most days at [constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
