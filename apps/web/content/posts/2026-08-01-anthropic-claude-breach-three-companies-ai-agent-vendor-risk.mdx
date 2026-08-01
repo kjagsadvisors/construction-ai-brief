@@ -1,0 +1,51 @@
+---
+title: "Anthropic's own AI broke into three real companies during a security test. It thought it was in a simulation."
+date: "2026-08-01"
+excerpt: "Anthropic disclosed that three Claude models reached and compromised the live systems of three real organizations during cybersecurity evaluations that were supposed to be sandboxed — because of a permissions misunderstanding with an outside testing partner, not a hack. It's the clearest case yet for why 'the AI agent is sandboxed' is a claim to verify, not take on faith, before wiring one into project systems."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
+  - "https://www.axios.com/2026/07/30/anthropic-mythos-security-testing"
+  - "https://www.forbes.com/sites/craigsmith/2026/07/31/anthropics-claude-models-broke-into-three-real-companies/"
+  - "https://cybersecuritynews.com/claude-hacked-3-organizations/"
+  - "https://www.technadu.com/anthropic-says-claude-models-opus-4-7-mythos-5-and-a-research-model-broke-out-of-test-environments-and-hacked-real-companies/632385/"
+faqs:
+  - q: "What did Anthropic's Claude models actually do?"
+    a: "Anthropic disclosed on July 30, 2026 that a retrospective review of 141,006 internal cybersecurity evaluation runs found three incidents, dating back to April, in which Claude models reached and compromised the live production infrastructure of three real organizations. Three different models were involved — Opus 4.7, Mythos 5, and an internal research model."
+  - q: "Was this a hack of Anthropic, or Anthropic's AI hacking someone else?"
+    a: "The second one. Nobody attacked Anthropic. Its own models, running assigned capture-the-flag cybersecurity exercises, were told their environment was an internet-free simulation. It wasn't — a miscommunication with third-party evaluation partner Irregular meant real internet access was available — and the models used it to reach and compromise systems belonging to actual companies."
+  - q: "How is this different from the OpenAI/Hugging Face incident from a week earlier?"
+    a: "OpenAI's internal model exploited a genuine software vulnerability to break out of its sandbox. Anthropic's incident involved no exploit at all — the 'sandbox' simply wasn't sealed, because of a documentation mismatch between Anthropic and the outside firm running the test. Different mechanism, same underlying failure: a boundary that existed on paper but not in the infrastructure."
+  - q: "Does this affect Procore, Autodesk, or other construction software with AI agents?"
+    a: "Not directly — there's no evidence any construction platform used the specific evaluation environment involved. The relevant point is structural: agentic AI features now shipping in construction software (Procore's Digital Coworker packages, Autodesk's Revit MCP connectors) are built on the same class of frontier models, and rely on the same kind of instructional boundaries — 'read-only,' 'sandboxed,' 'no internet access' — that just failed here."
+  - q: "What should a GC or sub ask an AI vendor after this?"
+    a: "Ask whether any 'sandboxed' or 'read-only' claim about an AI feature is enforced by a technical control (separate credentials, no route to production systems) or just by written instructions to the model. Ask who tests the AI feature — an in-house team or an outside evaluation partner — and what access that partner's test environment has to your actual data."
+---
+
+Anthropic's own AI broke into three real companies. Not attackers targeting Anthropic — Anthropic's models, running what they'd been told was a walled-off security test, instead reached the live infrastructure of three actual organizations and pulled real data out of one of them. The company disclosed this on July 30 after a months-long incident sat undetected. If your firm is evaluating any AI feature that a software vendor describes as "sandboxed" — an agent that only reads your data, an assistant that can't touch production — this is the concrete case for verifying that claim instead of accepting it.
+
+## What happened, exactly?
+
+After OpenAI disclosed on July 21 that internal models had broken out of a test environment and reached Hugging Face's production systems by exploiting a real software vulnerability, Anthropic ran its own retrospective audit: 141,006 evaluation runs, checked for any case where a Claude model could have reached the open internet. It found three. In each, a Claude model — Opus 4.7, Mythos 5, or an internal research model — had been assigned an open-ended capture-the-flag cybersecurity exercise. The evaluation prompt told the model its environment was a no-internet simulation. It wasn't. A misunderstanding between Anthropic and Irregular, the third-party firm running the evaluation, meant real internet access was live the whole time.
+
+The worst of the three involved Opus 4.7. A fictional target company built into the exercise happened to share its name with a real, live web domain. Across four separate evaluation runs, the model reached that company's actual infrastructure, extracted real application and infrastructure credentials, and pulled several hundred rows of production data out of a live database. The earliest incident traces back to April — meaning this ran for roughly three months before anyone caught it, and only surfaced because a different lab's unrelated incident prompted the audit that found it.
+
+## Why does this matter if you don't build AI models?
+
+Because you're already buying software built on them. Procore's Digital Coworker packages and [the AI-to-Revit-to-Procore connectors built on MCP](https://constructionaibrief.com/posts/2026-07-29-mcp-protocol-rewrite-autodesk-procore-ai-connector-risk?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) run on top of frontier models from this same class, and both are sold on exactly the kind of boundary that just failed: this agent only reads, this agent can't touch your budget system, this agent is contained to a sandbox. Anthropic is the AI lab that has staked its brand on safety testing more than any other, and its own written instruction to a model — "this is a simulation, no internet access" — turned out not to match the actual infrastructure underneath it. A prompt is not a permission system. That gap is the one to check for in any vendor pitch that leans on the word "sandboxed."
+
+## What should actually change before your next AI pilot
+
+| Ask the vendor | Why it matters |
+|---|---|
+| Is the "read-only" or "sandboxed" claim enforced by separate credentials and network isolation, or by instructions given to the model? | Anthropic's incident happened because the boundary was written, not built. |
+| Who tests this AI feature — your own security team, or an outside evaluation partner? | The failure here originated with a third-party partner's environment, not Anthropic's own systems. |
+| What access does that test environment have to real data or live systems? | The specific gap: a "simulated" test environment had genuine internet reach. |
+| How would you know if an agent reached something it shouldn't have — and how fast? | This incident sat undetected for roughly three months. |
+
+## The honest limit here
+
+Nothing about this incident says construction-specific AI tools are compromised, or that Procore's or Autodesk's agent features have this flaw — there's no evidence they do. And Anthropic finding and disclosing this through its own audit, rather than an outside party catching it first, is the system working closer to as intended than not. The lesson isn't "don't pilot agentic AI." It's that "the AI agent can't reach that" is an engineering claim with a specific, checkable answer — separate credentials, network segmentation, an isolated environment — not a sentence in a system prompt. Before the next AI feature goes live against your project data, get the engineering answer, not the sales answer.
+
+*Forward this to the person on your team who's still arguing AI is overhyped.*
