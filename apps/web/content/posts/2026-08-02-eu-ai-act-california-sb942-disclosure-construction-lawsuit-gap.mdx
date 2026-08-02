@@ -1,0 +1,65 @@
+---
+title: "California and the EU both started enforcing AI disclosure rules today. Neither would have caught the fake case law that just hit a construction lawsuit."
+date: "2026-08-02"
+excerpt: "California's AI Transparency Act and the EU AI Act's Article 50 transparency rules both became enforceable August 2, 2026, requiring watermarks on AI-generated images, video, and audio. Neither law touches AI-generated text — the exact gap that let a fabricated court citation into a live construction lawsuit."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august"
+  - "https://infobytes.orrick.com/2025-10-17/california-delays-its-ai-transparency-act-and-passes-new-content-laws/"
+  - "https://hintzelaw.com/blog/2025/10/19/california-amends-artificial-intelligence-transparency-act-and-passes-ai-defenses-act"
+  - "https://www.troutmanprivacy.com/2025/10/california-ai-transparency-act-amendments-signed-into-law/"
+  - "https://dockets.justia.com/docket/texas/txndce/3:2026cv00206/414328"
+  - "https://www.joneswalker.com/en/insights/blogs/perspectives/fake-ai-citations-strike-in-a-construction-lawsuit.html"
+  - "https://www.mondaq.com/unitedstates/court-procedure/1807352/fake-ai-citations-strike-in-a-construction-lawsuit"
+faqs:
+  - q: "What AI laws took effect on August 2, 2026?"
+    a: "California's AI Transparency Act (SB 942, as amended by AB 853) and the EU AI Act's Article 50 transparency rules both became enforceable on August 2, 2026. Both require certain AI-generated content to be disclosed or watermarked as AI-made — California deliberately timed its delayed start date to line up with the EU's."
+  - q: "Does California's AI Transparency Act cover AI-written text like RFIs or legal briefs?"
+    a: "No. SB 942 applies only to image, video, and audio content produced by generative AI systems with more than one million California users. It does not require any disclosure or watermarking for AI-generated text."
+  - q: "What happened in the Fluor construction lawsuit involving AI?"
+    a: "In A2K Inc. v. Fluor Corp. (N.D. Tex., No. 3:26-cv-00206), a staffing subcontractor's brief opposing Fluor's motion to dismiss — in an antitrust case over 2022 New Mexico wildfire disaster-relief contracts — included a quote fabricated by AI and attributed to a nonexistent Texas Supreme Court decision. Fluor is arguing the subcontractor shouldn't get a do-over."
+  - q: "What are the penalties for violating these new AI disclosure laws?"
+    a: "Under the EU AI Act, transparency violations can draw fines up to €15 million or 3% of global annual turnover, whichever is higher. Under California's SB 942, the state attorney general and city or county attorneys can pursue civil penalties of up to $5,000 per violation, per day."
+  - q: "Should a contractor worry about these laws if the firm doesn't operate in California or the EU?"
+    a: "Indirectly, yes. The mainstream AI tools used for marketing renderings, drone-photo enhancement, or safety-training video — ChatGPT, Gemini, and similar platforms — already clear the one-million-user threshold, so their watermarking behavior applies to the tool everywhere it's used, not just to users physically located in California or the EU."
+---
+
+Two AI content-disclosure laws became enforceable on the same day, August 2, 2026: the EU AI Act's Article 50 transparency rules, and California's AI Transparency Act (SB 942). Both target AI-generated images, video, and audio. Neither one touches AI-generated text — which is exactly the category of content that just put a construction lawsuit's court filing in jeopardy.
+
+## What actually changes today?
+
+| | EU AI Act (Article 50) | California SB 942 |
+|---|---|---|
+| Covered content | Images, video, audio, and AI-generated text on public-interest matters | Images, video, and audio only — text is explicitly excluded |
+| Who's covered | Providers/deployers of AI systems used in the EU | "Covered providers" of generative AI systems with 1M+ monthly California users |
+| Core requirement | Machine-readable marking of synthetic content; disclosure when users interact with a chatbot or deepfake | Free public detection tool, plus a machine-readable "latent disclosure" embedded in generated content |
+| Penalty | Up to €15M or 3% of global annual turnover | Up to $5,000 per violation, per day, enforced by the CA AG and local prosecutors |
+
+California didn't land on August 2 by accident. SB 942 originally took effect January 1, 2026, but AB 853 — signed October 13, 2025 — pushed the operative date back specifically to align with the EU's rollout, giving the handful of companies that build the AI models everyone uses (OpenAI, Google, Anthropic, and similar) one compliance calendar instead of two.
+
+## What does this have to do with a jobsite?
+
+More than it looks like at first. Construction firms are already routine users of the exact content types both laws regulate:
+
+- **Marketing and BD renderings.** AI-generated concept images and walkthrough videos used in pitch decks, RFP responses, and public hearings now come from tools that are required to embed watermarking metadata in the output.
+- **Drone and progress-photo enhancement.** AI upscaling or cleanup applied to site photos and drone footage — increasingly common since Procore's DroneDeploy acquisition and similar reality-capture tools — falls into the same "AI-generated or manipulated" image category.
+- **Safety and training video.** AI-narrated or AI-edited toolbox-talk and orientation videos are audio/video content, squarely inside both laws' scope.
+
+For all three, the practical change is small: the output now carries a hidden, checkable marker saying it's AI-made. That's a net positive if a client or inspector ever questions whether a "site photo" was doctored.
+
+## The gap: it's the words, not the pictures
+
+Neither law reaches the content type where AI is causing the most damage in construction disputes right now: text. That gap is not theoretical. In *A2K Inc. v. Fluor Corp.*, a federal antitrust case in the Northern District of Texas over 2022 New Mexico wildfire disaster-relief staffing contracts, the plaintiff subcontractor admitted using generative AI to draft, research, and cite-check its opposition brief. The brief included a quote attributed to a Texas Supreme Court decision that doesn't exist. Fluor is now arguing the subcontractor shouldn't be allowed a do-over — that the fabrication should count against the filing itself, not just get quietly fixed.
+
+No watermarking law would have caught that, then or now. SB 942 excludes text outright, and Article 50's text-disclosure rule is scoped to "public-interest" content, not litigation filings, RFIs, or claim narratives. A hallucinated citation in an AI-drafted brief, change-order justification, or delay-claim narrative is a compliance gap nobody has voted to close.
+
+## What to actually do this week
+
+- **Don't assume a watermark protects your team.** It applies to renderings and video, not the RFI, submittal narrative, or claim letter drafted with AI help.
+- **Keep a human verification step on anything AI drafts that cites a fact, a code section, a contract clause, or a case.** The Fluor brief is what skipping that step looks like in federal court.
+- **Ask your marketing or BD vendor whether their rendering tool is a "covered provider" under SB 942.** If the tool clears a million users — most mainstream ones do — the outputs should already carry the required disclosure.
+
+This is the same lesson insurers were already writing into policies when [general liability carriers rolled out a generative-AI exclusion](https://constructionaibrief.com/posts/2026-07-23-generative-ai-exclusion-general-liability-construction-insurance-risk) last month: the law and the market are starting to police AI-made *pictures*. The words still run on the honor system.
+
+*Construction AI Brief tracks which AI-industry shifts actually change what a construction firm should build or buy — new pieces most days at [constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
