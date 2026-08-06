@@ -1,0 +1,57 @@
+---
+title: "Meta's new coding agent is 12x cheaper if you let it train on your code"
+date: "2026-08-06"
+excerpt: "Meta launched Muse Code on August 5, a terminal AI agent for building internal software. It's priced two ways: full price, or up to 21x cheaper if you hand over your prompts and code for Meta to train on — a real tradeoff for a GC or sub building an in-house estimating or submittal tool."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2"
+  - "https://www.macrumors.com/2026/08/05/meta-muse-code-for-mac/"
+  - "https://www.implicator.ai/meta-muse-code-21x-discount-for-developer-data/"
+  - "https://siliconangle.com/2026/08/05/meta-takes-anthropic-openai-first-ai-coding-agent-muse-code/"
+  - "https://techcrunch.com/2026/08/05/meta-launches-muse-code-an-ai-agent-for-large-code-bases/"
+faqs:
+  - q: "What is Meta's Muse Code?"
+    a: "Muse Code is a terminal-based AI coding agent Meta released in beta on August 5, 2026, built on its Muse Spark 1.2 model. It plans, writes, and validates multi-file code changes across large codebases, competing directly with OpenAI's Codex and Anthropic's Claude Code."
+  - q: "Does Muse Code cost less if you share your data with Meta?"
+    a: "Yes. Meta's standard API pricing is $1.25 per million input tokens and $4.25 per million output tokens. A 'contributor' tier drops that to $0.10 and $0.20 — 12.5x and 21.25x cheaper — in exchange for letting Meta train future models on your prompts and code."
+  - q: "Is it safe for a construction company to use the discounted tier to build internal tools?"
+    a: "Not if the tool touches anything proprietary. The contributor tier shares your actual prompts and code with Meta, which for an internal estimating or bid tool means your markup logic, pricing assumptions, and possibly client and project details end up in Meta's training data. The standard, non-shared tier avoids that but costs full price."
+  - q: "What can a GC or trade sub actually build with a tool like Muse Code?"
+    a: "Coding agents like this are increasingly used to build small internal utilities: a script that pulls data between Procore and QuickBooks, a submittal log tracker, an RFI drafting helper. They're not a replacement for licensed construction software, and they still need someone who can review the code before it touches real project data."
+  - q: "How does Muse Code compare to Claude Code and OpenAI Codex?"
+    a: "All three are terminal-based agents for large, complex codebases rather than single-file autocomplete. Muse Code's distinguishing feature is persistent, asynchronous background agents that keep working on a task across a session and can resume exactly where they left off after a crash, plus the option of steeply discounted pricing tied to data sharing."
+---
+
+Meta released its first AI coding agent, Muse Code, on August 5 — and priced it two ways: full price, or up to 21x cheaper if you let Meta train on everything you feed it. For a GC or trade sub building an internal tool with real project numbers in it, that second option isn't free money. It's a decision about what leaves the building.
+
+## What is Muse Code, and why does a contractor care?
+
+Muse Code is a terminal coding agent, built on Meta's new Muse Spark 1.2 model, that plans, writes, and validates changes across large, complex codebases rather than autocompleting single lines. It runs persistent background agents that keep working through a session and pick up exactly where they stopped after a crash, using a local event log as the record of every model call, tool run, and edit. That puts Meta squarely in competition with OpenAI's Codex and Anthropic's Claude Code — the same category of tool that a growing number of construction back offices are starting to use to build small internal utilities instead of paying a dev shop: a script that syncs data between Procore and QuickBooks, a submittal tracker, an RFI drafting helper.
+
+None of that requires a construction-specific tool. It requires someone on staff — often one IT-savvy ops person, not a software team — willing to sit with a coding agent and describe what they need. That's exactly the profile of the person now facing Meta's pricing choice.
+
+## What does the discount actually cost?
+
+Meta's standard API pricing for Muse Spark 1.2 is $1.25 per million input tokens and $4.25 per million output tokens. Opt into the "contributor" tier and those prices fall to $0.10 and $0.20 — a 12.5x cut on input, 21.25x on output — in exchange for granting Meta the right to train future models on your prompts and the code it generates for you.
+
+| | Standard tier | Contributor tier |
+|---|---|---|
+| Input price | $1.25 / million tokens | $0.10 / million tokens |
+| Output price | $4.25 / million tokens | $0.20 / million tokens |
+| Rate limit | 3,000 requests/min | 60 requests/min |
+| Your prompts & code | Not used for training | Used to train future Meta models |
+
+The tight rate limit on the contributor tier — 60 requests a minute versus 3,000 — signals Meta built it for individual developers and small experiments, not production workloads. That's roughly the scale of an internal tool build at a mid-size GC or sub, which is exactly why the tradeoff is worth naming.
+
+## What's the actual risk for a construction company?
+
+If the tool you're building is generic — a file converter, a formatting script — the contributor tier is free money. If it touches anything proprietary, it isn't. An internal estimating helper encodes your markup percentages and bid strategy in its logic. A submittal or RFI drafting tool built around your actual spec interpretations and project data puts client and project specifics into the prompts you'd be handing over. Once that's in a training set, it's not coming back out, and there's no construction-industry carve-out in Meta's terms.
+
+The standard tier avoids that exposure entirely — you just pay 12 to 21 times more per token for the privilege of Meta not learning from your code.
+
+## Should a GC or sub building an internal tool use this?
+
+Draw the line at what's in the prompt, not at the price tag. Generic, non-project-specific scripting — reformatting exported data, building a quick internal dashboard from public information — is a reasonable place to take the discount. Anything where an estimator, PM, or ops lead would type in real numbers, real client names, or real scope language belongs on the standard tier, full stop, or on a coding agent that doesn't train on your inputs at all. Whoever signs up for a Muse Code account at your company should know which bucket the project falls into before the first prompt gets typed — that's a five-minute conversation that's worth having before, not after.
+
+What this doesn't change: someone still has to review what the agent writes before it runs against real project data, and a home-built script is not a substitute for licensed, supported construction software when the stakes are a live job.
