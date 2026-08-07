@@ -1,0 +1,57 @@
+---
+title: "Unitree priced a $9 billion IPO. Its robot dogs still carry an unpatched security hole the FCC already flagged"
+date: "2026-08-07"
+excerpt: "Unitree priced a Shanghai IPO on August 6 at roughly a $9 billion valuation, nine days after the FCC put its robots on the Covered List over a wormable, unpatched Bluetooth exploit found live on units at MIT, Princeton, and Carnegie Mellon. For GCs and security subs running Unitree's budget quadrupeds on site walks, the IPO changes the company's cash position, not the due-diligence math."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.cnbc.com/2026/08/06/chinese-humanoid-robot-maker-unitree-prices-ipo-at-9-billion-valuation.html"
+  - "https://www.fcc.gov/document/fcc-adds-foreign-produced-power-inverters-and-robots-covered-list-0"
+  - "https://github.com/Bin4ry/UniPwn"
+  - "https://spectrum.ieee.org/fcc-covered-list-mobile-robots"
+  - "https://www.techtimes.com/articles/321890/20260728/fcc-bans-chinese-humanoid-robots-power-inverters-linked-confirmed-backdoors.htm"
+  - "https://www.roboticscenter.ai/blog/spot-vs-go2-price-comparison"
+faqs:
+  - q: "What did the FCC actually do to Unitree's robots?"
+    a: "On July 28, 2026, the FCC added Unitree's robots, along with certain foreign-made power inverters, to its Covered List. That blocks new equipment authorizations for new models from that date on. It does not revoke authorizations already granted, does not bar continued sale or use of previously authorized models, and does not affect federal government purchase or use."
+  - q: "Why did the FCC single out Unitree specifically?"
+    a: "The FCC cited a Bluetooth Low Energy exploit called UniPwn, which combines a hardcoded cryptographic key, a trivial authentication check, and unsanitized command injection to grant root-level access to Unitree's Go2, G1, H1, and B2 models. It's wormable: a compromised robot scans for other Unitree units in Bluetooth range and infects them automatically. Researchers disclosed it in September 2025 and confirmed it live, unpatched, on robots deployed at MIT, Princeton, Carnegie Mellon, and the University of Waterloo."
+  - q: "Is Unitree's IPO connected to the FCC action?"
+    a: "Not regulatorily — they're separate actions from separate governments. But the timing matters: Unitree priced its IPO on August 6 at roughly a $9 billion valuation, and its prospectus earmarks proceeds for new robot-body development and new product lines. Any new model Unitree ships after July 28, 2026 needs a fresh FCC authorization that the Covered List now blocks, absent a case-by-case waiver."
+  - q: "Can a contractor still legally buy a Unitree robot dog for a jobsite?"
+    a: "Models that were FCC-authorized before July 28, 2026 remain legal to import, sell, and use. But the UniPwn vulnerability affects that same already-authorized hardware, independent of FCC status. Legal to buy and safe to put on your project network are two different questions, and the FCC's action only answers the first one."
+  - q: "How much cheaper is a Unitree robot dog than Boston Dynamics' Spot?"
+    a: "Unitree's Go2 line runs roughly $1,600 to $4,500 depending on configuration. Boston Dynamics sells Spot by quote only, with configured units typically landing between $75,000 and $150,000-plus. That 20x-to-50x gap is the entire reason cost-conscious GCs and site-security subs have piloted Unitree hardware in the first place."
+---
+
+Unitree, the Chinese robotics maker whose $1,600 quadrupeds have become the budget option for site-walk documentation and perimeter patrol, priced a Shanghai IPO on August 6 at roughly a $9 billion valuation. Nine days earlier, the FCC put Unitree's robots on its Covered List over a Bluetooth exploit that hands an attacker root access to the same hardware — and as of the most recent public checks, Unitree still hadn't patched it.
+
+## What did the FCC actually do to Unitree?
+
+On July 28, 2026, the FCC added foreign-made "advanced robotic devices" — including Unitree's quadrupeds and humanoids — and certain foreign power inverters to its Covered List. That designation blocks new FCC equipment authorizations from that date on. It's narrower than a blanket ban: it doesn't revoke authorizations already granted, doesn't stop anyone from continuing to sell or use a model authorized before that date, and doesn't touch federal government purchase or use. Already-authorized units also keep a path to security and firmware updates through at least January 1, 2029. A producer that wants to bring a new model to the US market after the cutoff has to apply for a case-by-case conditional approval through the Department of War.
+
+## Why Unitree specifically?
+
+The FCC's action traces back to a disclosed vulnerability called UniPwn, published by security researchers on GitHub. It chains three flaws in the Bluetooth Low Energy interface Unitree robots use for Wi-Fi setup: a hardcoded cryptographic key, an authentication check that amounts to verifying the string "unitree," and unsanitized command injection through the Wi-Fi SSID or password fields. Together they hand an attacker root-level control of the robot. It's wormable — a compromised unit scans for other Unitree robots in Bluetooth range and infects them automatically, no user action required. It affects the Go2 and B2 quadrupeds and the G1 and H1 humanoids. Researchers disclosed it in September 2025 and, as of their most recent checks, found it live and unpatched on robots deployed at MIT, Princeton, Carnegie Mellon, and the University of Waterloo.
+
+## Does the IPO change any of this?
+
+No, and that's the point worth flagging. Unitree's IPO and the FCC's Covered List action are unrelated regulatory events that happen to land nine days apart. Unitree turned its first annual profit in 2025 — adjusted net profit around $90 million, up more than 600% year over year — and sold roughly 5,500 humanoid units. Its prospectus directs IPO proceeds toward robot-AI research, new robot-body development, and new products. That's exactly the pipeline the Covered List now complicates: any model Unitree launches after July 28, 2026 needs a new FCC authorization that isn't available without a waiver. Investors bidding the company up to a $9 billion valuation are pricing growth from a product line whose next generation faces a blocked or waiver-dependent path into the US market specifically.
+
+## Should a GC or security sub still buy one?
+
+| | Unitree Go2 | Boston Dynamics Spot |
+|---|---|---|
+| Price | ~$1,600–$4,500 | Quote-only, typically $75,000–$150,000+ |
+| US sale status (post 7/28/26) | Legal if model authorized before the cutoff; new models blocked absent waiver | Not on the Covered List |
+| Known unpatched exploit | UniPwn (root access, wormable via BLE) | None disclosed at this scale |
+| Typical construction use | Site-walk documentation, perimeter patrol | Industrial inspection, higher payload/certified use |
+
+If your team is evaluating a Unitree unit for site walks or overnight patrol, treat the FCC status and the security status as two separate checks:
+
+- **Confirm the specific model's authorization date.** Anything authorized before July 28, 2026 remains legal to import, sell, and use — get the FCC ID and check it, don't take the vendor's word.
+- **Ask for the UniPwn fix in writing, not just "latest firmware."** The underlying authentication architecture that enabled the exploit was still present in production firmware as of the most recent independent checks.
+- **Never let the robot join the same network as site cameras, badge readers, or trailer Wi-Fi.** Put it on an isolated guest SSID with no lateral path to anything else on the jobsite network.
+- **Don't equate "legal to buy" with "safe to deploy."** The FCC answered a supply-chain and authorization question. It didn't patch a robot that's still root-accessible over Bluetooth.
+
+The honest read: nothing about Tuesday's IPO pricing makes a Unitree robot dog more or less secure than it was the day before. It gives the company more capital and a public valuation — not a fix for hardware already patrolling a handful of university campuses with a known way in.
