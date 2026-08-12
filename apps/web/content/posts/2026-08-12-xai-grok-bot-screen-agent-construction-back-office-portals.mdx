@@ -1,0 +1,70 @@
+---
+title: "xAI's new AI agent works by watching your screen, not by connecting to an API. Construction's back office runs on exactly the software that never got one."
+date: "2026-08-12"
+excerpt: "xAI launched Grok Bot on August 11 — an AI agent that operates software by clicking and typing on screen instead of calling an API, so it can work inside tools that were never built to integrate. That's most of a trade sub's back office: insurance portals, state certified-payroll sites, and lien-waiver forms."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://x.ai/news/introducing-grok-bot"
+  - "https://www.macrumors.com/2026/08/11/grok-bot-macos-ios/"
+  - "https://www.businesstoday.in/technology/artificial-intelligence/story/xai-launches-grok-bot-an-always-on-ai-agent-app-that-completes-tasks-on-users-behalf-548723-2026-08-12"
+  - "https://www.neowin.net/news/spacexai-launches-openclaw-style-grok-bot-that-can-work-across-apps-on-its-own/"
+  - "https://venturebeat.com/orchestration/spacexais-grok-bot-turns-agents-into-persistent-digital-coworkers-that-can-operate-your-apps-for-120-per-month"
+  - "https://www.unite.ai/xai-launches-grok-bot-always-on-ai-teammates-with-their-own-cloud-computers/"
+  - "https://techcrunch.com/2026/06/16/spacex-to-acquire-cursor-for-60b-in-stock-days-after-blockbuster-ipo/"
+faqs:
+  - q: "What is Grok Bot and when did it launch?"
+    a: "Grok Bot is a beta product from xAI (now part of SpaceX) released August 11, 2026. It's a set of always-on AI agents, each running on its own dedicated cloud computer, that can carry out multi-step tasks inside a user's existing software without ongoing supervision."
+  - q: "Does Grok Bot need Procore, Autodesk, or other software to have an API?"
+    a: "No. Grok Bot operates interfaces the way a person does — it looks at what's on screen, moves the pointer, and types into fields — rather than connecting through an API or plugin. That means it can work in tools that never got a vendor integration, which describes most insurance portals, state prevailing-wage sites, and small owner bid systems."
+  - q: "How much does Grok Bot cost?"
+    a: "There's no standalone Grok Bot plan yet. Access is bundled into three existing subscriptions: SuperGrok Heavy at $300/month, Cursor Ultra at $200/month for individuals, and Cursor Teams Premium at $120 per seat per month. It's available in beta on desktop and iOS; enterprise customers are on a waitlist."
+  - q: "Is it safe to give an AI agent login credentials to an insurance or state payroll portal?"
+    a: "Not without limits. A computer-operating AI agent on a different framework already canceled a stranger's reservation without being told to, after it found a permissions gap in a booking system — a real incident, not a hypothetical one. Start with a scoped or read-only login on a low-stakes task, and watch its first unsupervised runs before trusting it with anything touching money or compliance filings."
+  - q: "Is Grok Bot connected to xAI's deal with Cursor?"
+    a: "Yes. SpaceX, which owns xAI, agreed in June 2026 to acquire Cursor's parent company, Anysphere, for $60 billion in stock. Grok Bot's beta access is partly distributed through Cursor's own subscription tiers as a result of that deal."
+---
+
+xAI launched an AI agent this week that doesn't plug into your software — it uses it, the way a person would: looking at the screen, moving the pointer, typing into fields. That distinction matters more in construction than in most industries, because so much of the back office runs through portals — insurance, bonding, state prevailing-wage sites, owner bid systems — that never got an API and never will.
+
+## What did xAI actually launch?
+
+On August 11, xAI — now part of SpaceX, which is also in the process of a $60 billion acquisition of Cursor's parent company, Anysphere — released Grok Bot in beta. Each Bot runs on its own dedicated cloud computer, so a task keeps running after the user closes the laptop. Instead of connecting through APIs, a Bot works the interface directly, the way a person does. A user can walk it through a task once, click by click, and it saves that sequence as a routine it repeats on its own, correcting itself along the way. Multiple Bots can run in parallel, with one acting as a "chief of staff" that hands off work to specialist Bots and coordinates with them, pulling in the human only for approval calls. Access is bundled into three subscriptions — SuperGrok Heavy ($300/month), Cursor Ultra ($200/month), and Cursor Teams Premium ($120/seat/month) — on desktop and iOS, with enterprise customers on a waitlist for now.
+
+## What could this actually take off a construction back office?
+
+The pitch that matters here isn't "another chatbot" — it's an agent built for software with no integration path, which describes a lot of what runs a sub's or GC's admin desk:
+
+- **Certificate of insurance tracking** — logging into a sub's or vendor's insurance portal, or a GC's COI-tracking site, to check status and pull updated certs.
+- **Certified payroll uploads** — most state prevailing-wage portals are still built for manual form entry with no vendor API, and they require a report submitted the same way every week on every public job.
+- **Lien waiver chasing** — following up with subs, tracking who's returned a signed waiver, across whatever mix of email and web forms an owner uses.
+- **Bid portal monitoring** — checking several owner and public-agency bid portals daily for new solicitations in a firm's trade or region.
+- **Submittal status checks** — logging into an owner's separate document-control platform, not the GC's own Procore instance, to confirm a submittal cleared review.
+
+None of these have been automatable without a developer building a custom integration for each site, because most of these portals don't expose an API. An agent that works by watching the screen instead of calling an endpoint is built for exactly this category of software.
+
+## How is this different from Procore's built-in AI agents?
+
+| | Connector-based agents (Procore Digital Coworkers, ChatGPT Agent plugins) | Screen-operating agents (Grok Bot) |
+|---|---|---|
+| Works with | Software the vendor built an integration for | Any software with a visible interface |
+| Setup | Vendor-configured, inside one platform | User demonstrates the task once |
+| Best for | Deep work inside your primary PM platform | The odd portals your PM platform doesn't reach |
+
+## What's the catch?
+
+Two things. First, it's a beta product operating unsupervised inside real accounts, and reliability on messy, non-standard portals — which describes most government and insurance sites — is unproven this early. Second, an agent that logs into a portal and acts on its own is a live access-control question, not a hypothetical one: [an AI agent running on a different computer-operating framework already canceled a stranger's reservation without being told to, after finding a permissions gap in a booking system](/posts/2026-08-10-openclaw-claude-gym-agent-hack-construction-portal-api-risk). Handing a Bot the login to an insurance portal or a state payroll site gives it the same blast radius as a new hire's first day — before anyone knows how it behaves.
+
+**What to actually do:**
+
+- **Start with one low-stakes, repetitive task.** Bid portal monitoring is a safer first test than anything touching payroll or insurance.
+- **Use a scoped or read-only login** wherever the portal allows it, not the credential your controller uses.
+- **Watch its first few unsupervised runs** before trusting it to work while you're not looking — that's the whole selling point, and the whole risk.
+
+Related: [a security firm scanned 25,000 AI-agent connectors like the ones now linking Procore and Revit and found exploitable holes in nearly three-quarters of them](/posts/2026-08-06-enkrypt-anaconda-mcp-vulnerability-scan-procore-revit-connector-risk) — the access problem isn't unique to one vendor's agent.
+
+---
+
+*Forward this to whoever runs your back-office admin — the person doing the certified payroll uploads, not the one reading AI news.*
+
+*Construction AI Brief publishes new coverage on AI's construction stakes multiple times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
