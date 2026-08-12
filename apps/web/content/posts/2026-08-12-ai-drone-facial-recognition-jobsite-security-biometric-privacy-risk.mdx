@@ -1,0 +1,67 @@
+---
+title: "AI can now fly a $100 drone that tracks a person by face. That's your next jobsite security drone — and a new legal exposure."
+date: "2026-08-12"
+excerpt: "Anthropic's drone research and a separate NBC News demonstration show today's AI models can write working flight-and-facial-tracking code for a sub-$100 consumer drone. The same capability is already showing up in police surveillance drones — and it's headed for the jobsite security quote sheet before most GCs have a policy ready for it."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.nbcnews.com/tech/tech-news/ai-wrote-code-make-100-drone-stalk-someone-using-facial-recognition-rcna590642"
+  - "https://www.anthropic.com/research/project-pilot"
+  - "https://truthout.org/articles/first-came-the-flock-cameras-now-local-cops-want-autonomous-drones/"
+  - "https://www.techtimes.com/articles/321472/20260724/autonomous-police-drones-reach-1000-agencies-no-federal-privacy-floor-sight.htm"
+  - "https://concreteproducts.com/index.php/2026/06/15/robot-security-dogs-perimeter-drones-curtail-construction-site-theft/"
+  - "https://www.landsky.ai/post/construction-sites-lose-1-billion-in-equipment-every-year-drone-patrols-are-closing-the-gap"
+  - "https://www.recordinglaw.com/us-laws/data-privacy-laws/biometric-privacy-laws/"
+  - "https://privacylawmap.com/blog/biometric-privacy-laws-by-state-2026"
+faqs:
+  - q: "What did the AI drone research actually demonstrate?"
+    a: "In late July, Anthropic and Andon Labs published Drone-Bench, testing 15 AI models from three developers on whether they could autonomously fly a drone to locate and follow a person, broken into five sub-tasks. Separately, NBC News reported on August 5 that researchers used publicly available AI models from Anthropic, OpenAI, and other companies to write the software that let a consumer drone costing about $100 autonomously find and follow a specific person around a house using facial recognition — without any custom autonomy hardware from the drone maker."
+  - q: "Are police departments already using AI-piloted surveillance drones?"
+    a: "Yes. More than 1,000 U.S. public safety agencies had cleared the FAA waiver process to fly autonomous, beyond-visual-line-of-sight drones as of February 2026, and vendors like Flock Safety, Skydio, and Brinc are adding automated license-plate reading and other AI detection features directly onto drone-as-first-responder platforms. Reporting in August 2026 noted there's no federal privacy floor governing what these systems can capture or how long they keep it."
+  - q: "Does adding facial recognition to a jobsite security drone create legal risk?"
+    a: "It can, depending on the state. Illinois, Texas, and Washington have dedicated biometric privacy statutes; Illinois' BIPA is the strictest, requiring written consent before the first face scan and allowing individuals to sue directly, with statutory damages of $1,000 to $5,000 per violation. Connecticut's consumer privacy law adds signage and policy requirements for on-premises facial recognition used for security starting October 1, 2026. Most other states have no dedicated biometric statute yet, though several comprehensive privacy laws treat biometric data as sensitive and require opt-in consent."
+  - q: "How much does construction site theft actually cost contractors?"
+    a: "Industry estimates put construction equipment and material theft at $300 million to $1 billion a year in the U.S., with roughly 70% of incidents happening after hours — which is why drone and robotic perimeter patrols have already become a standard offering from site security vendors, independent of the facial-recognition question."
+  - q: "What's the practical difference between a security drone that detects an intruder and one that identifies a specific person?"
+    a: "Detecting motion, heat, or an unauthorized presence at a fence line doesn't typically trigger biometric privacy law. Matching a face against a watchlist or building a face-based identity log does, because it's extracting and storing a biometric identifier. A GC evaluating a security drone should ask the vendor directly which one the product does before assuming 'AI detection' in the sales deck means the harmless version."
+---
+
+Anthropic's own drone research and a separate NBC News demonstration both landed in the first two weeks of August with the same finding: today's general-purpose AI models can write working flight-and-tracking code for a consumer drone that costs about $100, enough to autonomously locate and follow a specific person by face — no custom autonomy hardware, no drone-industry background required. That capability isn't staying in the lab. It's arriving on construction sites the same way it's arriving in police departments: as a feature on a security drone a GC already owns or is shopping for.
+
+## What did the research actually find?
+
+Anthropic, working with Andon Labs, published Drone-Bench in late July: a benchmark testing 15 AI models from three developers on whether they could autonomously fly a drone to find and follow a person, broken into five sub-tasks — reconstructing a 3D map from video, localizing the drone within it, navigating between rooms, detecting the target, and following them. The strongest models cleared detection and following above a human baseline; the weak point was building the initial map. Days later, NBC News reported researchers had gone further with the same class of models, using publicly available AI systems from Anthropic, OpenAI, and other developers to write the software that let a sub-$100 consumer drone autonomously stalk a person around a house using facial recognition, gliding through doorways on its own.
+
+## Why does this land specifically on a jobsite?
+
+Construction already has a theft problem drone vendors are selling into: industry estimates put annual equipment and material theft at $300 million to $1 billion nationally, with about 70% of incidents happening after hours, which is why perimeter drone patrols and robotic guard products have become a standard line item from site security vendors. Autonomous facial-recognition tracking used to be an expensive, enterprise-grade add-on. The AI capability jump means it's now cheap enough that a security vendor — or a GC's own IT-savvy PM — can bolt it onto an off-the-shelf drone instead of buying a purpose-built system.
+
+The same shift is already visible in public safety. More than 1,000 U.S. police, fire, and emergency agencies had cleared FAA approval to fly autonomous drones beyond visual line of sight as of February 2026, and vendors like Flock Safety, Skydio, and Brinc are adding automated plate-reading and detection features directly onto those platforms — with reporting this month noting there's no federal privacy floor on what gets captured. Those vendors sell to commercial and industrial sites too. Expect facial recognition to show up as a checkbox on the jobsite security drone quote sheet before most GCs have a policy for it.
+
+## Is that actually legal to run on a site?
+
+It depends on where the job is:
+
+| State/law | What it requires | Who can sue |
+|---|---|---|
+| Illinois (BIPA) | Written consent before first face scan, disclosure of purpose | Individuals directly — $1,000–$5,000 per violation |
+| Texas (CUBI) | Notice and consent before capture | Attorney General only |
+| Washington | Consent required for commercial biometric use | Attorney General only |
+| Connecticut | Signage and policy duties for on-premises security facial recognition, effective October 1, 2026 | State privacy law enforcement |
+| Most other states | No dedicated biometric statute yet; some comprehensive privacy laws treat biometric data as sensitive, requiring opt-in | Varies |
+
+Illinois is the one that has already produced large settlements against employers over biometric time clocks and badge systems — the same legal exposure a face-tracking security drone would create if deployed without consent.
+
+## What should a GC or sub do before adding this to a security program?
+
+1. **Ask the vendor a direct question:** does the drone detect an unauthorized presence, or does it identify a specific person by matching a face against a stored list? Sales copy that just says "AI detection" doesn't answer that.
+2. **Check the job's state before the drone's spec sheet.** Illinois, Texas, Washington, and — starting this fall — Connecticut have rules a generic perimeter-security contract won't cover.
+3. **Put the answer in the subcontract now.** Consent language, signage, and data-retention terms are cheap to write in before deployment and expensive to litigate after a worker or former employee finds out they were on a face-match log they never agreed to.
+
+Related: Construction AI Brief covered the [cost curve behind jobsite computer vision](/posts/2026-08-03-alibaba-qwen3-8-max-vision-pricing-reality-capture-cameras) in August — this is what happens when that same cost curve reaches a device that flies.
+
+---
+
+*Forward this to whoever on your team is about to sign a security vendor contract with "AI-enabled drone patrol" in the feature list.*
+
+*Construction AI Brief publishes new coverage on AI's construction stakes multiple times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
