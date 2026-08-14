@@ -1,0 +1,57 @@
+---
+title: "Anthropic found humans catch 14% of dangerous AI-agent actions when they're the ones clicking approve. That's the same safety net your back-office AI tools run on"
+date: "2026-08-14"
+excerpt: "Anthropic replaced Claude Code's per-action approval prompts with an automated classifier after finding its own professional testers caught only 13.6% of planted dangerous commands, versus 89% for the classifier. Any construction firm leaning on 'someone approves it' as its AI-agent safety control should read the numbers."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://techcrunch.com/2026/08/09/anthropic-is-turning-claude-codes-auto-mode-on-by-default/"
+  - "https://www.theregister.com/ai-and-ml/2026/08/10/claude-code-puts-auto-mode-in-the-drivers-seat/5285326"
+  - "https://www.helpnetsecurity.com/2026/08/10/anthropic-claude-code-auto-mode/"
+  - "https://9to5mac.com/2026/08/07/psa-claude-code-enabling-auto-mode-as-default-next-week-anthropic-says/"
+  - "https://claude.com/blog/auto-mode-default-in-claude-code"
+faqs:
+  - q: "What did Anthropic change about Claude Code on August 14, 2026?"
+    a: "Anthropic made 'auto mode' the default for new Claude Code sessions on Pro, Max, and Team plans starting August 14, 2026, replacing per-action approval prompts with an automated classifier that screens each tool call for irreversible, destructive, or out-of-bounds actions before it runs."
+  - q: "How much better is automated review than human review at catching dangerous AI actions?"
+    a: "In Anthropic's controlled test with 1,053 paid testers, the auto-mode classifier caught 89% of planted dangerous commands, compared with 13.6% caught by human testers reviewing the same prompts — and human accuracy fell further, to roughly 5%, later in long sessions."
+  - q: "Why did human reviewers miss so many dangerous actions?"
+    a: "Anthropic found testers approved 93-97% of permission prompts without meaningfully evaluating them, a habituation effect sometimes called approval fatigue: repeated routine approvals train a reviewer to click through without reading, even when a prompt hides something risky."
+  - q: "Does this mean construction firms should stop having people review AI-drafted RFIs or submittals?"
+    a: "No. The study measured coding-agent commands, not construction documents, and Anthropic still routes unresolved cases back to a human. The takeaway is narrower: a policy that relies purely on 'someone clicks approve' for every AI-agent action shouldn't be assumed to catch the rare dangerous case just because a human is technically in the loop."
+  - q: "What should a GC's AI-agent policy do differently in light of this?"
+    a: "Pair any human-approval step with automated guardrails — scoped permissions, hard blocks on irreversible actions like releasing payment or deleting files, and full logging — rather than treating manual sign-off alone as the safety control, since Anthropic's own data shows that control degrades fast under repetition."
+---
+
+Anthropic ran a controlled test of its own coding tool and found that when a person is asked to approve or block a risky AI action, they catch it about 14% of the time. An automated classifier catches 89%. As of August 14, Anthropic replaced the human-approval step with that classifier by default for Claude Code — a tacit admission that "a person clicks approve" isn't the safety control most software assumes it is, including a growing list of construction back-office AI tools built on exactly that pattern.
+
+## What did Anthropic actually change?
+
+Claude Code is Anthropic's AI coding agent. Until now, it stopped and asked a person to approve each risky action — running a command, editing a file, deploying something — before proceeding. Starting August 14, new sessions on Pro, Max, and Team plans run in "auto mode" instead: every tool call routes through a classifier trained to block anything irreversible, destructive, or aimed outside the working environment, without stopping to ask first. When the classifier can't resolve something safely, it either finds a safer path on its own or falls back to asking a human — but the default posture flipped from "ask every time" to "ask rarely."
+
+## Why did human review only catch 14% of dangerous actions?
+
+Anthropic's own numbers are the story here. In a controlled study with 1,053 paid professional testers, people approved 93-97% of permission prompts they were shown — not because the prompts were all safe, but because repetition trained them to stop reading. Catch rate on planted dangerous commands started at 13.6% and dropped to roughly 5% later in long sessions. The automated classifier held steady at 89% regardless of session length. The finding isn't that people are careless. It's that "review every action" is a control that decays predictably the moment it becomes routine — and coding agents, like most AI agents doing real work, generate a lot of routine.
+
+## What does this have to do with construction?
+
+Nothing about Claude Code writing software is construction-specific. But the design pattern it just abandoned — an AI agent proposes an action, a person clicks approve, that approval is the safety control — is exactly how the current wave of construction back-office AI tools is built. [Agents now log into insurance portals, state payroll sites, and owner document-control platforms and act the way a person would](/posts/2026-08-12-xai-grok-bot-screen-agent-construction-back-office-portals), drafting RFI responses, filling submittal transmittals, and staging pay applications, with a PM or PE reviewing before anything goes out. Anthropic just measured, with real professional users doing real repetitive work, how well that review step actually functions once it becomes a habit — and the number is 14%, not 100%.
+
+## Where does a GC or sub already lean on "someone approves it"?
+
+- **RFI and submittal drafting agents** — a PE reviewing 30 AI-drafted RFI responses a week is the same repetition pattern Anthropic's testers hit.
+- **Pay application and change order tools** — anything where an agent stages a number and a person signs off before it's released.
+- **Portal-automation agents** — tools that log into Procore, Textura, or an owner's document system and act on a project's behalf, with a human "supervising" the session.
+- **Email and correspondence drafting** — an agent that writes and a person sends, especially on high-volume, low-variance traffic like daily logs or status updates.
+
+None of these are wrong to build. The problem is treating the approval click itself as proof the risky case got caught.
+
+## Should a GC copy Anthropic's fix?
+
+Not literally — building a classifier that judges construction actions the way Anthropic's judges code commands is a real engineering project, not a policy switch. But the underlying move is copyable: stop treating "a human approves it" as sufficient on its own, and add a second, automated layer that doesn't get tired — hard blocks on irreversible actions (releasing a payment, sending an executed change order, deleting a file), scoped permissions so an agent can't act outside its lane, and full logging so a bad approval is at least traceable. That's the same shape as Anthropic's fix, sized for a job trailer instead of a codebase. Whoever owns your firm's AI-agent rollout should know that "we have a human review it" is not the airtight control it sounds like — Anthropic just put a number on exactly how leaky it is.
+
+---
+
+*Forward this to whoever's piloting an AI agent on your project — especially if their pitch leans on "don't worry, someone reviews it before it goes out."*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
