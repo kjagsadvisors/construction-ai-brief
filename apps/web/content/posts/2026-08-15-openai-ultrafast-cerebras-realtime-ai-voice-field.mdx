@@ -1,0 +1,59 @@
+---
+title: "OpenAI cut AI response time to under a second. That's what's been missing from hands-free AI on a jobsite."
+date: "2026-08-15"
+excerpt: "OpenAI's new Ultrafast tier runs GPT-5.6 Sol at up to 750 tokens a second on Cerebras hardware, 14 times faster than standard. The speed, not the intelligence, is what's been holding back voice-native AI for supers and foremen who can't stop to type."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://openai.com/index/previewing-ultrafast/"
+  - "https://www.cerebras.ai/blog/accelerating-gpt-5-6-sol-ultrafast-with-openai"
+  - "https://investors.cerebras.ai/news-releases/news-release-details/cerebras-powers-ultrafast-mode-openais-gpt-56-sol"
+  - "https://thenextweb.com/news/openais-new-ultrafast-mode-runs-gpt-5-6-sol-14-times-faster-on-cerebras-chips"
+  - "https://www.hpcwire.com/aiwire/2026/08/14/cerebras-powers-openais-gpt-5-6-sol-ultrafast-mode/"
+faqs:
+  - q: "What is OpenAI's Ultrafast mode?"
+    a: "Ultrafast is a new API service tier OpenAI began previewing on August 13, 2026, that runs its GPT-5.6 Sol model on Cerebras chips instead of standard GPU infrastructure. It generates up to 750 output tokens per second — up to 14 times faster than GPT-5.6 Sol's standard processing speed — while using the same underlying model, so the answers aren't smaller or dumber, just faster to arrive."
+  - q: "Is Ultrafast available to everyone?"
+    a: "No. As of publication it's a limited preview available to a select group of OpenAI API customers, with OpenAI saying access will expand over time. OpenAI has not published separate per-token pricing for the Ultrafast tier; GPT-5.6 Sol's standard rate is $5 per million input tokens and $30 per million output tokens."
+  - q: "Why does AI response speed matter for construction field work?"
+    a: "Most construction AI tools today are built for typing and reading — you send a text query and wait several seconds to a half-minute for an answer. That works at a desk. It doesn't work for a superintendent wearing gloves and PPE who needs to ask a question out loud mid-task. A model that replies in under a second closes that gap enough to make hands-free, voice-native field tools genuinely usable instead of a demo."
+  - q: "Does this replace jobsite AI tools that already exist?"
+    a: "No. Ultrafast is infrastructure, not a product — it's a faster way to run an existing model through OpenAI's API. Any speed benefit reaches the field only after a vendor (a jobsite radio assistant, a voice-based daily-log tool, a safety-alert system) builds on top of it. Nothing here is construction-specific; the industry has to adopt it."
+  - q: "What's the tradeoff with faster AI models?"
+    a: "Cost and availability. OpenAI hasn't published Ultrafast pricing, and Cerebras' wafer-scale chips are a smaller, more specialized pool of hardware than standard cloud GPUs, which is why access is limited and expanding gradually rather than open to everyone at launch."
+---
+
+OpenAI began previewing a new API tier called Ultrafast on August 13, running its GPT-5.6 Sol model on Cerebras chips at up to 750 output tokens a second — up to 14 times faster than the same model's standard speed, with no drop in answer quality. That's not a smarter model. It's the same model, arriving fast enough to hold a spoken conversation instead of making you wait for it.
+
+## What did OpenAI actually announce?
+
+Cerebras, the chipmaker whose wafer-scale processors OpenAI struck a compute deal with in January, is now powering a limited-preview tier of OpenAI's API. Standard GPT-5.6 Sol runs on conventional GPU infrastructure; Ultrafast runs the identical model on Cerebras hardware and returns answers up to 14 times faster, generating up to 750 tokens per second. OpenAI is rolling access out gradually to select API customers rather than opening it broadly, and hasn't published a separate price for the tier; standard GPT-5.6 Sol costs $5 per million input tokens and $30 per million output tokens. OpenAI describes the target use cases as live workloads that "cannot wait" — real-time voice, customer support, commerce, developer agents, financial research, and security response.
+
+## Why does typing speed on an API matter to a contractor?
+
+Because almost none of today's construction AI tools are built for someone who can't type. Submittal review bots, RFI drafters, and spec-search assistants are all designed around a desk workflow: open a laptop, type a question, wait several seconds to half a minute, read the answer. That loop works fine for an estimator or a submittal coordinator sitting at a screen. It doesn't work for a foreman standing at a wall assembly with a torque wrench in one hand, or a superintendent walking a punch list who needs an answer read back to them, not typed.
+
+Voice assistants that talk back in real time have existed for years, but the underlying models have mostly been too slow to hold a natural back-and-forth — ask a question, get a few seconds of dead air, then a rushed answer. At up to 14 times the standard speed, a response that used to trail behind a spoken sentence can complete before a person finishes asking the question.
+
+## Who on a project would actually feel this?
+
+| Role | Current bottleneck | What sub-second response changes |
+|---|---|---|
+| Superintendent / foreman | Field questions get typed into an app later, or radioed to the office and answered from memory | A spoken question — spec detail, fire rating, submittal status — gets a spoken answer without breaking from the task |
+| Safety officer | AI-assisted incident review happens after the fact, from footage or logs | A voice-based safety check-in or near-miss report can run live, in the moment, instead of as paperwork after |
+| PM on a multilingual crew | Live translation tools lag enough to make real conversation awkward | Latency low enough to approach normal conversational back-and-forth between languages |
+| Estimator on a live client call | Looking up a spec section or a comparable bid mid-conversation means putting the caller on hold | An assistant can answer inline, at conversational speed, without a visible pause |
+
+None of these are things Ultrafast does today — OpenAI hasn't announced a construction product, and it's infrastructure a vendor has to build on top of, not something a contractor can buy directly. But it removes the technical excuse. Field-voice AI has stayed a novelty because the model's "thinking" pause was long enough to feel broken. A model that answers in the time it takes to finish a sentence starts to feel like a tool instead of a demo.
+
+## Should a GC or sub do anything about this now?
+
+Not yet, and that's the honest answer. Ultrafast is a limited preview with no public pricing, running on a comparatively small pool of specialized Cerebras hardware — it isn't ready to be the backbone of a product, and OpenAI hasn't said when broader access lands. The practical move for now is to ask any vendor pitching a "hands-free" or "voice-native" jobsite tool one direct question: what model and what latency is this actually running on? A tool built on standard-speed inference will still have the awkward pause that's kept voice AI out of the field. A tool built on something like Ultrafast — or a competing low-latency tier from Anthropic or Google — is worth a real look.
+
+Related: [Meta's Muse Glimmer solves the other half of the field-AI problem — no signal at all](/posts/2026-08-11-meta-muse-glimmer-offline-local-ai-jobsite-connectivity) — one story is about a jobsite with no connection, this one is about a connection that's too slow to feel natural. Between the two, the "AI doesn't work in the field" excuse is getting harder to make.
+
+---
+
+*Forward this to whoever on your team is evaluating a voice-based field tool — the model behind the demo matters more than the vendor's script.*
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
