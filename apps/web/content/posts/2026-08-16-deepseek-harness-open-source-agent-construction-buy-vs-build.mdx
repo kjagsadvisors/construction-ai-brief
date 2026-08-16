@@ -1,0 +1,56 @@
+---
+title: "DeepSeek gave away its AI coding-agent framework for free. That changes the buy-vs-build math on back-office automation"
+date: "2026-08-16"
+excerpt: "DeepSeek open-sourced Harness, an MIT-licensed rival to Claude Code, paired with API pricing a fraction of the major labs'. For a GC or sub with one capable ops person, building a submittal or RFI agent in-house is now a real alternative to a per-seat subscription."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://github.com/deepseek-ai/deepseek-harness"
+  - "https://venturebeat.com/technology/deepseek-harness-launches-as-open-source-rival-to-claude-code-alongside-v4-pro-on-api-with-higher-prices"
+  - "https://openrouter.ai/deepseek/deepseek-v4-pro"
+  - "https://x.ai/news/introducing-grok-bot"
+faqs:
+  - q: "What is DeepSeek Harness?"
+    a: "Harness (dsh) is an open-source, MIT-licensed agent runtime that DeepSeek released on August 13, 2026, as a free alternative to integrated coding-agent tools like Anthropic's Claude Code. It's built on a plugin architecture — models, tools, sandboxes, and the interface can all be swapped without touching the underlying code — and is available now on GitHub."
+  - q: "Does this mean a construction company could build its own AI agent for RFIs or submittals?"
+    a: "Technically, yes, if someone on staff or on contract can code and configure it. Harness plus a cheap model API gives a technically capable person the same underlying building blocks — file access, web search, tool use, multi-step task execution — that vendors package into paid submittal or RFI agents. It does not come with a submittal log integration, a spec-book parser, or a Procore connector built in; someone has to build those parts."
+  - q: "Is it safe to route project or contract data through a Chinese AI company's API?"
+    a: "That's a legitimate concern to raise with IT or legal before using DeepSeek's own hosted API for anything containing confidential contract or client data. Harness's plugin design means the model itself is swappable, though — a firm can run the same open-source framework against a different model provider, or a self-hosted model, if data residency is a dealbreaker."
+  - q: "How does this compare to buying an agent from a construction-tech vendor?"
+    a: "Vendor packages like Procore's Digital Coworkers or a general tool like xAI's Grok Bot (about $120 per user per month) bundle the model, the integrations, security review, and support into one subscription. Harness gives you the free, open-source engine and near-free API tokens, but you're on the hook for building the integrations, testing accuracy, and maintaining it yourself."
+  - q: "Should a mid-size GC or sub act on this right now?"
+    a: "Not urgently — Harness is a developer preview, and DeepSeek's own documentation warns of compatibility-breaking changes ahead. But it's worth having whoever handles technology decisions evaluate whether an in-house build makes sense for one narrow, low-risk workflow, rather than defaulting straight to a per-seat subscription for every automation need."
+---
+
+DeepSeek open-sourced an AI agent framework on August 13 that does the same job as Anthropic's Claude Code — and gave it away for free. Paired with API pricing far below the major labs', it hands any contractor with one technically capable person on staff a real alternative to paying a construction-tech vendor by the seat for back-office AI agents.
+
+## What DeepSeek actually released
+
+Harness (internally called `dsh`) is an MIT-licensed, open-source agent runtime, posted publicly on GitHub alongside DeepSeek's new V4-Pro model. It's built around a plugin architecture: models, file-system access, web search, sandboxing, and even the user interface are all swappable modules rather than fixed code. DeepSeek says it's the same framework the company uses internally to benchmark its own models. The repository picked up more than 120,000 stars within days — a signal of how much developer interest this drew, fast.
+
+The pricing is the other half of the story. DeepSeek's V4-Pro API runs $0.435 per million input tokens and $0.87 per million output tokens, with cached input priced near-zero at roughly $0.0036 per million tokens. That undercuts GPT-5.5, Gemini 3.1 Pro, and Claude Opus 4.7 by a wide margin, and it comes with a 1-million-token context window — enough to hold a full spec book or contract set in one pass.
+
+## Why that matters for a contractor's back office
+
+Every construction-tech vendor pitching an AI agent this year — Procore's Digital Coworker packages, [xAI's Grok Bot at roughly $120 per user per month](/posts/2026-08-12-xai-grok-bot-screen-agent-construction-back-office-portals), the growing list of submittal and RFI tools — is selling the same underlying capability: a model, wired up to your documents and workflows, running semi-autonomously. What you're paying for is the integration work, the testing, the support, and the liability of someone else standing behind the output.
+
+Harness doesn't replace any of that. What it does is put the raw engine and near-free tokens within reach of anyone who can write the integration themselves. A 40-person mechanical sub with an ops-minded PM who can code, or a GC willing to hire a freelance developer for a few weeks, can now build a narrow internal tool — say, an agent that reads incoming RFIs against the spec book and drafts a first-pass response, or one that flags submittal packages missing a required cut sheet — without a recurring per-seat license.
+
+## What still has to be true before that's a good idea
+
+This isn't a drop-in replacement for a vendor tool, and treating it like one is how a firm ends up with a brittle internal system nobody can maintain.
+
+- **It's a developer preview.** DeepSeek's own documentation for Harness warns of compatibility-breaking changes ahead — not something to wire into a workflow that touches contract obligations without a fallback.
+- **Nothing is pre-built.** No Procore connector, no submittal log integration, no spec-parsing logic. Someone has to build and test all of that, and validate accuracy against real submittals before trusting the output.
+- **Data residency is a real question.** DeepSeek is a Chinese company. Before routing anything with contract terms, pricing, or client data through its hosted API, that needs a legal and IT sign-off — or a swap to a different model provider through the same plugin system, which the architecture allows.
+- **Cheap tokens don't guarantee good judgment.** A model drafting an RFI response still needs a human checking it against the spec before it goes out.
+
+## The takeaway
+
+This doesn't kill the market for vendor AI agents in construction — most firms don't have, and shouldn't need to hire, someone who can build and maintain a custom agent runtime. But it changes the default assumption. Before signing up for another per-seat AI subscription for a narrow, well-defined task, it's worth five minutes asking whether the person already running your project management software could build a rough version in-house for the cost of API tokens instead.
+
+---
+
+*If your firm already has someone who scripts reports or macros in Excel or Bluebeam, hand them one narrow task — RFI triage, or flagging incomplete submittal packages — and see what they can build against a cheap model API in a week. Compare it to what a vendor agent would cost per seat before you commit either way.*
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
