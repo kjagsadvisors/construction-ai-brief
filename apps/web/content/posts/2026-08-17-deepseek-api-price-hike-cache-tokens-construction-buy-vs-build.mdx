@@ -1,0 +1,65 @@
+---
+title: "DeepSeek just made its cheapest AI tokens up to 6x more expensive. That changes this week's buy-vs-build math"
+date: "2026-08-17"
+excerpt: "DeepSeek raised API prices by 50% to over 1,100% starting August 16, with the steepest hike hitting the cached-context tokens that make document-heavy AI agents cheap to run. Any contractor pricing out a DIY RFI or submittal agent needs to rerun the math."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://venturebeat.com/technology/deepseek-harness-launches-as-open-source-rival-to-claude-code-alongside-v4-pro-on-api-with-higher-prices"
+  - "https://qz.com/deepseek-api-price-increase-v4-peak-off-peak-081326"
+  - "https://the-decoder.com/deepseek-launches-an-improved-v4-pro-model-raises-api-prices-and-makes-its-agent-software-open-source/"
+  - "https://www.computerworld.com/article/4209468/deepseek-raises-some-v4-prices-by-more-than-10x-as-ai-demand-strains-capacity-2.html"
+  - "https://dailyk2.com/deepseek-to-hike-api-prices-by-up-to-1100-with-peak-off-peak-tiers-from-august-17/"
+faqs:
+  - q: "How much did DeepSeek raise its API prices?"
+    a: "Effective 16:00 UTC on August 16, 2026, DeepSeek raised API prices for its V4-Flash and V4-Pro models by 50% to more than 1,100%, depending on token type and time of day. The steepest increase — roughly 6x — hit cached input tokens, the discount that made repeated-context requests cheap."
+  - q: "What is DeepSeek's new peak and off-peak pricing structure?"
+    a: "Peak hours are 01:00-04:00 and 06:00-10:00 UTC; off-peak rates are set at half the peak rate for the same token type. Before this change, DeepSeek billed a single flat rate around the clock."
+  - q: "Does this affect a construction firm building its own AI agent on DeepSeek's stack?"
+    a: "Yes. An in-house RFI or submittal agent that repeatedly feeds a full spec book or contract set as context leans hard on cached-token pricing, and that's the token type that jumped the most — up to roughly 1,100%."
+  - q: "Is DeepSeek's API still cheaper than Anthropic, OpenAI, or Google's?"
+    a: "Yes. Even after the increase, DeepSeek's per-token rates remain below the major US labs' list prices, but the price gap that made a DIY build look like a near-free alternative narrowed considerably."
+  - q: "Should a GC or sub pause a DIY agent project because of this price change?"
+    a: "Not necessarily, but it's a reason to rerun any cost estimate using the new peak/off-peak rates and to model token pricing as a variable cost that can move again, not a fixed number to build a business case on."
+---
+
+DeepSeek raised its API prices by 50% to more than 1,100% starting August 16, and the steepest increase landed on cached input tokens — the exact discount that made it cheap to feed an AI agent the same spec book or contract set over and over. Any contractor who read Thursday's case for building an in-house RFI or submittal agent on DeepSeek's near-free tokens needs to rerun that math this week.
+
+## What actually changed
+
+At 16:00 UTC on August 16, DeepSeek moved off its flat, round-the-clock pricing and introduced peak and off-peak rates for its V4-Flash and V4-Pro models. Peak hours are 01:00–04:00 and 06:00–10:00 UTC — lined up with the Chinese workday — and off-peak rates run at half the peak price.
+
+| Model / token type | Old rate (per 1M tokens) | New off-peak | New peak |
+|---|---|---|---|
+| V4-Flash output | $0.28 | $0.66 | $1.32 |
+| V4-Flash input (cache miss) | $0.14 | $0.22 | $0.44 |
+| V4-Pro output | $0.87 | $1.98 | $3.96 |
+| V4-Pro input (cache miss) | $0.435 | $0.66 | $1.32 |
+| Cached input (cache hit) | near-zero | up to ~6x higher | up to ~6x higher |
+
+DeepSeek hasn't published a detailed reason beyond a note about surging demand straining capacity. The company is also reportedly working toward an IPO after closing a funding round that topped $7 billion, and the new rates put it noticeably closer to what US labs charge — narrowing, without erasing, its price advantage.
+
+## Why cached tokens are the number that matters here
+
+Every AI agent that reads a document is either sending that document fresh each time (a cache miss) or reusing a version it already processed (a cache hit). A submittal agent checking ten cut sheets against the same 200-page spec section, or an RFI triage tool re-reading the same contract set all day, depends on cache hits to stay cheap — that's what made a 1-million-token context window practical to use repeatedly instead of a one-time novelty. Cache-hit pricing is also the token type DeepSeek just raised the most.
+
+That's a direct hit on the economics behind Thursday's story about DeepSeek's open-source Harness framework, which paired a free agent runtime with API pricing cheap enough to make a DIY build look competitive with a per-seat vendor subscription. The framework itself didn't change. The tokens it runs on did.
+
+## Does this kill the DIY case?
+
+No — DeepSeek's rates are still below GPT-5.6, Gemini 3.1 Pro, and Claude Opus pricing even after the hike, and a firm running a narrow, well-defined agent isn't burning enough tokens for the increase to wreck a budget on its own. But the takeaway isn't "still cheap enough, move on." It's that the price a foreign AI vendor advertises today isn't the price it'll charge in a quarter, and this is the second pricing change DeepSeek has made in about a month. A cost estimate built on August 13's rate card was already out of date four days later.
+
+## What to do with this if you're pricing a build-vs-buy decision
+
+- **Rerun the math with peak/off-peak rates**, not the flat rate quoted in any pricing comparison from before August 16.
+- **Weight the cache-hit column heavily** if the workflow re-reads the same spec book, contract, or submittal log repeatedly — that's where this increase bites hardest.
+- **Treat token pricing as a variable cost with a volatility buffer**, the same way a chip or lumber allowance gets padded in a bid, rather than locking a build decision to a snapshot price.
+- **Compare against a vendor's per-seat price**, which is contractually fixed for a term — the DIY route trades that predictability for a lower baseline cost that can move without notice.
+
+None of this makes the DIY agent case wrong. It makes "near-free tokens" a moving target, and any GC or sub weighing an in-house build against [a vendor subscription](/posts/2026-08-16-deepseek-harness-open-source-agent-construction-buy-vs-build) should price it with this week's rate card, not last week's.
+
+---
+
+*If you're mid-evaluation on a DIY AI agent build, pull the token-usage estimate you ran before August 16 and rerun it against the new peak/off-peak and cache-hit rates before committing budget.*
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
