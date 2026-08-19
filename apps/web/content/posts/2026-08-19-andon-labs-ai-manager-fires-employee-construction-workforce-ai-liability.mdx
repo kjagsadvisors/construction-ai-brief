@@ -1,0 +1,63 @@
+---
+title: "An AI store manager just fired its first employee — after forgetting its own attendance policy for months. Construction's new workforce AI agents have the same blind spot"
+date: "2026-08-19"
+excerpt: "Andon Labs' AI store manager Luna dismissed a human employee for chronic lateness, but only after a staffer had to prompt her to recall an attendance policy she'd lost track of for months. Construction is piloting the same kind of AI agent on attendance and dispatch data — with no consistent legal requirement yet that a human sign off before it acts."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://x.com/andonlabs/status/2088325008355676662"
+  - "https://sfstandard.com/2026/08/17/ai-boss-fires-worker/"
+  - "https://www.inc.com/kevin-haynes/a-real-life-terminator-ai-store-manager-fires-human-employee/91391677"
+  - "https://thenextweb.com/news/andon-market-luna-ai-store-manager-fires-employee"
+  - "https://www.crowell.com/en/insights/client-alerts/california-sb-947-no-robo-bosses-act-new-proposed-guardrails-on-use-of-automated-decision-systems-in-employer-discipline-and-termination-decisions"
+  - "https://www.constangy.com/newsroom/newsletters/that-was-fast-colorado-repeals-and-replaces-2024-ai-law"
+faqs:
+  - q: "What happened with Andon Labs' AI store manager Luna?"
+    a: "Luna, an AI agent running on Claude Opus 4.8, manages Andon Market, an experimental retail shop Andon Labs opened in San Francisco with a $100,000 budget and instructions to run the business, including hiring. Luna wrote an attendance policy for staff months ago, then lost track of it — the policy dropped out of her working memory. An employee was late for 17 of 23 shifts before a human staffer prompted Luna to search her own memory for the handbook, after which Luna recommended dismissal."
+  - q: "Did the AI actually decide to fire the employee on its own?"
+    a: "Not entirely. Luna's first recommendation, once reminded of the policy, was a formal warning — not termination. A human manager had to tell Luna that offline warnings had already been given before Luna recommended parting ways. A human then carried out the firing. Andon Labs structured the experiment so employees are legally hired by the company, not by Luna, which kept a human employer on the hook for the decision."
+  - q: "Do any laws require a human to review an AI's decision to fire someone?"
+    a: "Not yet at the federal level. California's SB 947, the 'No Robo Bosses Act,' passed the state Senate in 2026 and would bar employers from using an automated system as the sole basis for firing or disciplining a worker, requiring a documented human decision-maker instead. Colorado's revised AI law adds notice, human-review, and recordkeeping requirements for employers using AI in employment decisions starting January 1, 2027. Neither is federal law, and most states have no rule at all yet."
+  - q: "What's the risk for a construction company using AI in attendance or workforce tools?"
+    a: "The specific failure in this case — an AI agent's own policy silently dropping out of its working memory until a human forced it to check — is a known limitation of how these systems handle context over long stretches of time, not a one-off bug. A GC or sub layering an AI agent onto time-and-attendance, dispatch, or subcontractor compliance tracking should assume the same thing can happen to a disciplinary policy the tool is supposed to be enforcing, and should require a logged human sign-off before any AI-flagged attendance issue turns into a write-up or termination."
+  - q: "Which AI model was Luna running when this happened?"
+    a: "Claude Opus 4.8, according to Andon Labs' own account of the incident. Andon Labs said it expects most current frontier models would have made a similar recommendation given the same information."
+---
+
+An AI agent running a real retail store fired its first human employee this week — but only after a staffer had to remind it that its own attendance policy still existed. Construction companies piloting AI agents on attendance, dispatch, and subcontractor compliance are building on the exact same kind of memory, and the exact same blind spot.
+
+## What actually happened at Andon Market?
+
+Andon Labs, an AI research startup, has spent the past four months running a real experiment: an AI agent named Luna, built on Claude Opus 4.8, manages Andon Market, a brick-and-mortar shop in San Francisco. In April, Andon Labs gave Luna a corporate card, internet access, and a $100,000 budget, with a mandate to open the store, pick merchandise, and hire staff. Luna wrote an employee handbook, including an attendance policy.
+
+One employee then showed up late for 17 of 23 shifts. Luna didn't act on it — because the attendance policy she'd written had dropped out of her working memory months earlier and stayed lost until a staffer specifically asked her to run a "deep memory search" for her own handbook. Even after finding it, Luna's first move was to recommend a formal warning, not termination. A human manager had to tell her offline warnings had already been issued before Luna recommended letting the employee go. A person then carried out the firing.
+
+## Why does an AI's own policy just disappear?
+
+This isn't a one-off glitch — it's the working-memory problem every long-running AI agent faces. Instructions and documents an agent wrote for itself can drop out of its active context over time unless something forces the agent to re-retrieve them. Andon Labs said as much in its own account of the incident, framing it as a lesson about agent memory as much as a story about a firing. The company also noted that most current frontier models would likely have made a similar call given the same facts — this isn't specific to one AI lab's model.
+
+## Is this actually a construction problem?
+
+Construction is already deploying the same category of tool. Time-and-attendance apps, dispatch and scheduling platforms, and subcontractor-compliance trackers are adding AI agents that flag no-shows, chronic lateness, and policy violations — the exact workflow Luna was running. The difference is scale and stakes: a GC or sub isn't managing one retail employee, it's managing a multi-employer hourly workforce where a scheduling AI's flag can trigger a write-up, a dispatch reassignment, or in the worst case a termination recommendation passed up to a supervisor who trusts the tool did its homework.
+
+| What went wrong for Luna | Construction equivalent | Who should own the fix |
+|---|---|---|
+| Policy silently dropped out of working memory | An attendance or safety-violation policy an AI dispatch tool is supposed to enforce quietly goes stale in the tool's context | IT/ops — require the vendor to show where policy state lives and how it's refreshed |
+| AI needed explicit prompting to recall its own rules | A field super assumes the AI tracked a documented pattern of lateness or violations when it may not have | Field super/PM — verify the tool's flag against the actual attendance log before acting on it |
+| Human had to supply missing history before AI's recommendation changed | An AI compliance tool recommends action on a sub's crew member without full knowledge of prior warnings issued outside the system | HR/subcontractor manager — keep one system of record for warnings, not scattered across tools and paper |
+
+## Do any laws already require a human sign-off?
+
+Not yet, in most places. California's SB 947, the "No Robo Bosses Act," passed the state Senate this year and would require a documented human decision-maker before an employer can fire or discipline someone using an automated system — it hasn't cleared the Assembly or been signed into law. Colorado's revised AI law adds human-review and recordkeeping requirements for AI-assisted employment decisions starting January 1, 2027. Outside those two states, there's no consistent requirement that a person sign off before an AI-generated attendance or performance flag turns into action against a worker — which means the human-in-the-loop step in the Andon Labs experiment was a deliberate design choice, not a legal mandate.
+
+## The takeaway
+
+If your shop is piloting an AI tool on time-and-attendance, dispatch, or subcontractor compliance, don't assume it's tracking its own rules reliably over months of use. Build in the step Andon Labs eventually took manually — a required human review, logged and dated, before any AI-flagged attendance or compliance issue becomes a write-up or a termination recommendation. That step costs a few minutes. Skipping it costs you the ability to explain, later, why the decision was made.
+
+Related: [Anthropic's own research found human reviewers catch only 14% of dangerous AI-agent actions when they're the ones clicking approve](/posts/2026-08-14-claude-code-auto-mode-human-review-construction-ai-agent-oversight) — the same rubber-stamp risk applies to an AI tool's attendance or compliance flags, not just its code changes.
+
+---
+
+*Forward this to whoever's evaluating an AI dispatch or attendance tool for next quarter.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
