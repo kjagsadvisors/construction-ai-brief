@@ -3,7 +3,7 @@ title: "AI for RFIs, submittals, and change orders: what it actually does in 202
 description: "AI drafts RFI responses, checks submittals against spec, and reads change bulletins in minutes — but a human still signs off. Here's the honest line between the two, tool by tool."
 target_keyword: "AI for construction RFIs submittals change orders"
 audience: "gc_ops"
-updated_at: "2026-07-01"
+updated_at: "2026-08-19"
 sources:
   - "https://www.nasdaq.com/press-release/new-bluebeam-report-shows-early-ai-adopters-aec-seeing-significant-roi-despite-uneven"
   - "https://media.arcadis.com/-/media/project/arcadiscom/com/expertise/global/contract-solutions/2025/2025-15th-annual-construction-disputes-report-final-19jun25.pdf"
@@ -13,6 +13,7 @@ sources:
   - "https://www.constructiondive.com/news/builders-ai-transform-businesses-survey/807555/"
   - "https://mistral.ai/news/ocr-4/"
   - "https://arxiv.org/abs/2602.17753"
+  - "https://www.businesswire.com/news/home/20260723618361/en/Procore-Introduces-Digital-Coworker-Packages-Expands-AI-Agent-Library-and-Previews-Skills-to-Help-Construction-Teams-Put-AI-to-Work"
 faqs:
   - q: "Can AI answer an RFI on its own, without a human reviewing it?"
     a: "Not for anything that carries design or contractual weight. Current tools (Procore's RFI agent, Trunk Tools' TrunkText) draft an answer with cited spec and drawing references and route it to the right reviewer — they don't issue a binding response. The engineer or PM of record still signs off, especially on anything touching structural, life-safety, or scope."
@@ -23,7 +24,7 @@ faqs:
   - q: "Do subcontractors need to buy their own AI submittal tool?"
     a: "Usually not. If the GC runs Procore, Autodesk Construction Cloud, or a platform with Trunk Tools embedded, the sub's submittals get the AI first pass for free as part of the GC's project instance. A sub only needs its own tool if it wants AI help drafting submittal packages before they go up, which is a separate workflow from the GC's review layer."
   - q: "What does AI submittal or RFI software cost for a 50-person GC or sub?"
-    a: "There's no published flat rate — Procore and Autodesk bundle their agents into existing platform contracts (often a per-project or per-seat add-on you negotiate at renewal), and Trunk Tools prices as a separate subscription layered on top of Procore or ACC. Ask for numbers tied to your actual submittal or RFI volume before you sign; a vendor quote based on a much larger GC's usage will overstate your cost."
+    a: "Procore now sells its agents as three named tiers — Starter Pack, Pro, and Enterprise — but hadn't published per-tier pricing as of the July 2026 general-availability launch. Autodesk still bundles its agents into existing platform contracts (often a per-project or per-seat add-on you negotiate at renewal), and Trunk Tools prices as a separate subscription layered on top of Procore or ACC. Ask for numbers tied to your actual submittal or RFI volume before you sign; a vendor quote based on a much larger GC's usage will overstate your cost."
   - q: "What's the real security risk in letting AI read subcontractor documents?"
     a: "Prompt injection — instructions hidden inside a submitted PDF or RFI attachment that redirect what the AI agent does next. A 2026 academic study of 30 deployed commercial AI agents found 8 with documented incidents or vulnerabilities tied to this exact failure mode, and submittal/RFI review is a direct exposure point because the agent is, by design, reading documents an outside party controls."
 ---
@@ -40,7 +41,7 @@ Three things, all shipping in 2026:
 2. **Routing and triage.** It classifies the item — mechanical, electrical, structural, "already answered," "needs the EOR" — and sends it to the right reviewer instead of sitting in a shared inbox.
 3. **Cross-referencing at scale.** It compares a 20-sheet change bulletin against the prior issue and writes out what changed, including revisions the architect didn't cloud — a task a project engineer would otherwise spend two to four hours doing by hand.
 
-None of these three replace the approval step. [Procore's five embedded AI agents](/posts/2026-06-21-procore-ai-agents-what-they-do) — covering submittals, RFIs, daily logs, and contract review — are explicit that a person still approves the agent's draft before it becomes the official record. [Trunk Tools' Cortex platform](/posts/2026-06-21-trunk-tools-cortex-construction-drawings-ai) frames its bulletin-reading agent the same way: it writes the change narrative, a human confirms it.
+None of these three replace the approval step. Procore's agents — [demoed in private beta in June](/posts/2026-06-21-procore-ai-agents-what-they-do) and [moved into three paid, generally available packages on July 23](/posts/2026-07-25-procore-skills-digital-coworker-packages-institutional-knowledge) — are still explicit that a person approves the agent's draft before it becomes the official record; the GA launch changed packaging, not the sign-off requirement. [Trunk Tools' Cortex platform](/posts/2026-06-21-trunk-tools-cortex-construction-drawings-ai) frames its bulletin-reading agent the same way: it writes the change narrative, a human confirms it.
 
 ## How much time does AI actually save on submittal review?
 
@@ -48,7 +49,7 @@ The industry baseline is the problem AI is aimed at. The average commercial RFI 
 
 Vendors are now publishing specific numbers against that baseline. Trunk Tools reported submittal cycle-time reductions in the 70–75% range in its two most recent rounds of customer data, and says its bulletin-reading agent processes a 20-sheet change package with written narratives in under five minutes ([GlobeNewswire](https://www.globenewswire.com/news-release/2026/06/17/3313698/0/en/trunk-tools-launches-cortex-to-tackle-construction-s-hardest-ai-problem-drawings.html)). Procore makes comparable claims for its Submittal Reviewer Agent, which checks submissions against the project spec and flags discrepancies before a person opens the item ([ENR](https://www.enr.com/articles/63042-procore-releases-new-ai-agients-after-datagrid-integration)).
 
-Treat both as vendor-reported, early-deployment figures — neither is an independently audited industry average, and both come from the vendor's own customer base, which skews toward firms motivated enough to instrument the before-and-after. The honest read: expect a real reduction on the first-pass compliance check, and expect it to be smaller once you count the human review time you should still be spending on anything flagged.
+Procore has its own single-customer figure in the same territory: when it moved its agents to general availability on July 23, it cited general contractor Haskell cutting submittal review time from seven days to ten minutes using the Submittals agent ([Businesswire](https://www.businesswire.com/news/home/20260723618361/en/Procore-Introduces-Digital-Coworker-Packages-Expands-AI-Agent-Library-and-Previews-Skills-to-Help-Construction-Teams-Put-AI-to-Work)). Treat all three as vendor-reported, early-deployment figures — none is an independently audited industry average, and each comes from the vendor's own customer base, which skews toward firms motivated enough to instrument the before-and-after. The honest read: expect a real reduction on the first-pass compliance check, and expect it to be smaller once you count the human review time you should still be spending on anything flagged.
 
 ## Can AI answer RFIs on its own — or does it just draft them?
 
@@ -68,7 +69,7 @@ That comparison is the specific task Trunk Tools' Cortex targets, and it's also 
 
 | Tool / approach | What it actually does | What still needs a human | Where it plugs in |
 |---|---|---|---|
-| **Procore AI Agents** (Submittal Reviewer, RFI agent, contract review) | Drafts submittal compliance checks and RFI responses inside Procore; flags discrepancies against spec | Final approval on every item; judgment calls on design/structural questions | Native to Procore, in paid private beta expanding through 2026 |
+| **Procore AI Agents** (Submittal Reviewer, RFI agent, contract review) | Drafts submittal compliance checks and RFI responses inside Procore; flags discrepancies against spec | Final approval on every item; judgment calls on design/structural questions | Native to Procore; generally available since July 2026 in three tiers — Starter Pack (5 agents), Pro (20 agents), Enterprise (adds Agent Studio for custom agents) |
 | **Trunk Tools Cortex** (TrunkSubmittal, TrunkText, drawing-change agent) | Reads bulletins and writes change narratives; answers document questions with cited sources; submittal cycle-time claims of 70–75% | Confirming the narrative is complete and correctly scoped; anything the model wasn't shown | Embeds inside Procore and Autodesk Forma as a workflow step |
 | **DIY OCR + LLM pipeline** (e.g., self-hosted extraction + a general model) | Extracts text/tables from submittal PDFs cheaply — [Mistral OCR 4 runs $2–$5 per 1,000 pages](/posts/2026-06-28-mistral-ocr-4-submittal-extraction-construction) — then a model compares against spec | Building and maintaining the pipeline yourself; no vendor accountability for wrong flags | Custom build; fits firms with in-house dev capacity or a systems integrator |
 | **Status quo (manual review)** | Full human judgment on every item, no automation | Nothing — it's all human, which is also the bottleneck | No integration required; this is the baseline every AI tool is measured against |
@@ -83,7 +84,7 @@ The newer risk isn't the AI being wrong in an obvious way — it's the AI being 
 
 ## What does it cost, and is it worth it for a 50-person GC or sub?
 
-There's no published flat rate. Procore and Autodesk bundle their AI agents into existing platform contracts, typically as a per-project or per-seat add-on negotiated at renewal. Trunk Tools sells as a separate subscription layered on top of Procore or Autodesk Construction Cloud. Get a quote scoped to your actual RFI and submittal volume — a number built off a 500-person GC's usage will overstate what a 50-person shop should pay.
+Procore's agents now come in a named package structure — Starter Pack, Pro, and Enterprise — but Procore still hasn't published per-tier pricing, so get real numbers from your account rep before assuming the cheapest tier is the safe default. Autodesk bundles its AI agents into existing platform contracts the same way it always has, typically as a per-project or per-seat add-on negotiated at renewal. Trunk Tools sells as a separate subscription layered on top of Procore or Autodesk Construction Cloud. Get a quote scoped to your actual RFI and submittal volume — a number built off a 500-person GC's usage will overstate what a 50-person shop should pay.
 
 Adoption is still early enough that the honest framing is upside, not certainty: 87% of contractors surveyed believe AI will meaningfully transform their business, even though current adoption remains low and uneven ([Construction Dive](https://www.constructiondive.com/news/builders-ai-transform-businesses-survey/807555/)), and separate research puts firms actively using AI in daily operations at 27%, with 94% of those planning to expand usage in the next year ([Bluebeam AEC Technology Outlook 2026](https://www.nasdaq.com/press-release/new-bluebeam-report-shows-early-ai-adopters-aec-seeing-significant-roi-despite-uneven)). That gap — high belief, low current use — is normal for a tool category this new. It also means most of the productivity gain is still going to the people using the tools day to day rather than showing up yet as a firm-wide margin number ([Anthropic's economic research](/posts/2026-06-28-anthropic-81k-survey-ai-gains-gc-back-office) makes the same point about AI-assisted knowledge work generally).
 
