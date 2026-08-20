@@ -1,0 +1,56 @@
+---
+title: "GitHub's 8-hour outage started with an AI coding tool. That's the same infrastructure your internal automation runs on"
+date: "2026-08-20"
+excerpt: "A bug in an AI coding assistant's retry logic helped knock out GitHub's Actions, pull requests, and API access for nearly 8 hours on August 17. Any contractor running submittal, RFI, or estimating automation on GitHub inherited that downtime."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.theregister.com/saas/2026/08/19/github-blames-8-hour-outage-on-autoscaling-fail-and-vs-code-retry-storm/5289547"
+  - "https://cyberinsider.com/github-suffers-eight-hour-outage-affecting-actions-apis-and-copilot/"
+  - "https://www.neowin.net/news/github-details-cascading-failures-behind-its-massive-8-hour-outage-on-monday/"
+  - "https://xenospectrum.com/en/github-outage-retry-storm/"
+faqs:
+  - q: "What caused the August 17, 2026 GitHub outage?"
+    a: "A load balancer component in GitHub's Central US facility (an Istio sidecar) hit its concurrency limit. GitHub's autoscaling policy was monitoring the wrong part of that system, so it didn't react. A separate, unrelated bug in VS Code's retry logic then amplified traffic to GitHub's Copilot Token Service roughly 10x, from a normal 7,000-9,000 requests per second to as high as 100,000, which deepened the overload."
+  - q: "Which GitHub services went down, and for how long?"
+    a: "Issues, pull requests, the API, GitHub Actions, and Copilot were degraded for about 7 hours 47 minutes, from 13:28 to 21:15 UTC on August 17, 2026. At peak, roughly 20% of web and API requests failed, and about 50% of archive and raw-content downloads failed. Git operations, Packages, Pages, and Codespaces kept working."
+  - q: "Does this matter if my company doesn't use GitHub directly?"
+    a: "Only if you or a vendor has automation running on it. If your firm has a scheduled GitHub Actions job pulling submittal data, syncing a spec library, or feeding a bid-leveling script, that automation was down for most of a workday. If a construction-tech vendor's product runs its own backend infrastructure on GitHub, your tool may have been affected even if you never opened GitHub yourself."
+  - q: "What should a contractor running internal AI automation on GitHub do differently?"
+    a: "Treat any GitHub Action tied to a same-day deadline the way you'd treat a single-source material with no backup supplier: know the manual fallback, and don't schedule a bid-day or submittal-due-date process to run only once with no buffer. GitHub's own postmortem describes the fix as autoscaling and retry-limit changes, not a redesign, so the same failure mode could recur."
+  - q: "Is GitHub Copilot or Claude Code specifically to blame for the outage?"
+    a: "No single AI tool caused the outage on its own. The root cause was an infrastructure monitoring gap (autoscaling watching the wrong metric); the VS Code retry bug made the resulting overload worse by flooding the Copilot Token Service with repeated requests. GitHub has committed to fixing both the monitoring gap and the retry behavior."
+---
+
+A retry bug in an AI coding assistant helped take down GitHub's pull requests, Actions, and API access for nearly 8 hours on August 17, 2026. If your firm has started building its own submittal, RFI, or estimating automation on GitHub's infrastructure — a growing pattern as contractors weigh buying AI tools versus building them in-house — that outage was your outage too, whether or not anyone at your company opened GitHub that day.
+
+## What actually broke
+
+GitHub published its incident report on August 19. The chain of failure: an Istio sidecar, a piece of networking infrastructure that manages traffic in GitHub's Central US data center, hit its concurrency limit. GitHub's autoscaling policy was supposed to catch that and add capacity, but it was configured to monitor the host service rather than the sidecar itself, so it never triggered. Separately, a latent bug in VS Code's retry logic kept resubmitting failed requests to GitHub's Copilot Token Service, pushing that service's traffic from a normal 7,000-9,000 requests per second up to as much as 100,000 — roughly a 10x spike that piled onto an already-overloaded system.
+
+The outage ran from 13:28 to 21:15 UTC — about 7 hours 47 minutes. GitHub mitigated it by cutting gateway retry rates and temporarily rejecting Copilot Token Service requests outright with an HTTP 403 response, buying the rest of the system room to recover.
+
+## What went down and what stayed up
+
+| Affected | Not affected |
+|---|---|
+| Issues, pull requests | Git operations (clone, push, pull) |
+| GitHub API | Packages |
+| GitHub Actions | Pages |
+| Copilot | Codespaces |
+
+At peak, about 20% of web and API requests failed, and roughly half of archive and raw-content downloads failed, according to GitHub's own numbers.
+
+## Why this matters if you've never opened GitHub
+
+Construction AI Brief has covered a run of stories this month about contractors weighing whether to buy an AI vendor's product or build a narrower tool in-house — an [open-source coding agent from DeepSeek](/posts/2026-08-16-deepseek-harness-open-source-agent-construction-buy-vs-build), a price cut on Google's agent-building model, cheaper API access generally. GitHub Actions is the default place that homegrown automation ends up running: a scheduled job that pulls a spec section, matches it against a cut-sheet library, or reformats a daily log into a project-management format.
+
+None of that is exotic anymore. A precon team that built a script to auto-flag missing submittal data before a bid deadline, or an ops group running a nightly sync between a scheduling tool and a shared spec library, is quietly dependent on GitHub staying up. This outage shows that dependency can fail for reasons that have nothing to do with the contractor's own code — a monitoring gap in someone else's data center, worsened by a bug in an editor plugin most people don't think of as backend infrastructure at all.
+
+## What still requires human judgment
+
+An outage report is not a reason to avoid building internal tools — GitHub's own numbers put this well outside its normal availability, and the company has named specific fixes (correcting the autoscaling policy, tightening retry limits, auditing Istio concurrency settings, and fixing the VS Code bug). But it is a reason to ask, before wiring a deadline-sensitive process into any single vendor's automation: what's the fallback if that vendor is down for most of a workday? For a bid due at 2 p.m. or a submittal package due end of day, "wait for GitHub to recover" is not a plan. A person who can run the process manually, even slower, is the plan.
+
+## The takeaway
+
+If your firm runs anything time-sensitive on GitHub Actions or through GitHub-hosted Copilot access, this outage is worth a five-minute conversation with whoever built it: what happens if this is down on a day it matters? The fix isn't switching platforms — it's making sure a single infrastructure failure two states away can't quietly become a missed deadline on your job.
