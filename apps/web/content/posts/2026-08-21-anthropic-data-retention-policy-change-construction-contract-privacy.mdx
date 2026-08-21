@@ -1,0 +1,60 @@
+---
+title: "Anthropic locked in 30-day data retention on its top AI models with no opt-out. Now it's letting companies hold that data themselves instead of handing it over"
+date: "2026-08-21"
+excerpt: "Anthropic is changing how it handles the mandatory 30-day data retention it requires on its most capable Claude models — enterprise customers will be able to keep that retained data on their own cloud infrastructure instead of Anthropic's. The 30-day requirement itself isn't going away, and it overrides zero-retention contracts with no opt-out."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://www.bloomberg.com/news/articles/2026-08-20/anthropic-plans-to-change-data-retention-policy-for-advanced-ai"
+  - "https://www.axios.com/2026/08/19/openai-previews-zero-retention-safety-system-as-anthropic-requires-data-logs"
+  - "https://www.itnews.com.au/news/anthropic-plans-to-change-enterprise-data-retention-policy-628315"
+  - "https://cryptobriefing.com/anthropic-data-retention-policy-frontier-ai/"
+  - "https://intellectia.ai/news/stock/trimble-integrates-with-claude-to-enhance-3d-modeling-workflows"
+faqs:
+  - q: "What is Anthropic's 30-day data retention policy?"
+    a: "Since June 2026, Anthropic has required 30-day retention of every prompt and output sent to its most capable models — Claude Fable 5 and Claude Mythos 5 — on both Anthropic's own platform and any third-party platform that calls those models. The data is used for safety monitoring, not model training, and is deleted after 30 days unless a specific interaction is flagged for a safety investigation or legal hold, in which case it can be kept much longer."
+  - q: "Does the 30-day retention rule override a zero-data-retention contract?"
+    a: "Yes. If a company had a negotiated zero-data-retention agreement with Anthropic, traffic sent to Fable 5 or Mythos 5 is retained for 30 days anyway. There is no opt-out and no enterprise carve-out for these two models."
+  - q: "What did Anthropic change on August 20, 2026?"
+    a: "Anthropic told Bloomberg it plans to let enterprise customers store that mandatory 30-day retention data on their own cloud infrastructure instead of Anthropic's servers. The 30-day retention requirement itself stays in place — this changes who holds the data, not whether it's held. The new system is expected to roll out later in 2026, and Anthropic said it has been working with more than 100 customers, including Salesforce, to build it."
+  - q: "How is this different from OpenAI's approach?"
+    a: "On August 19, 2026, OpenAI previewed Private Safety Processing, which is designed to let it keep offering zero data retention on its frontier models while still detecting misuse across related conversations through automated pattern-matching — without OpenAI staff seeing the underlying prompts. Anthropic's model retains the actual content for 30 days for review; OpenAI's approach is built around not retaining the content at all."
+  - q: "Does this affect a construction company that doesn't use Claude directly?"
+    a: "It can. Construction software vendors are building Claude into their platforms — Trimble has integrated Claude into its workflows, for example — and a contractor using that feature usually has no visibility into which Claude tier the vendor is calling behind the scenes. If it's Fable 5 or Mythos 5, the 30-day retention rule applies to that traffic regardless of what data agreement the contractor signed with the software vendor."
+---
+
+Anthropic requires 30 days of mandatory data retention on its most capable AI models, Claude Fable 5 and Claude Mythos 5, with no opt-out — even for customers who had negotiated a zero-retention contract. As of August 20, 2026, Anthropic says it's changing who holds that retained data: enterprise customers will be able to keep it on their own cloud infrastructure instead of Anthropic's. The 30-day retention rule itself isn't going away.
+
+## What Anthropic actually requires
+
+Anthropic introduced the policy in June 2026, framing it as a safety measure: retaining 30 days of prompts and outputs from its most powerful models lets the company research jailbreaks and catch novel misuse before it spreads. The rule applies to Fable 5 and Mythos 5 — and, Anthropic has said, future frontier models — on Anthropic's own platform and on any third-party product that routes traffic to those models.
+
+The retained data isn't used to train Claude and is automatically deleted after 30 days in the ordinary case, Anthropic says — except any interaction flagged for a safety investigation or legal hold, which some reporting puts at up to two years of retention.
+
+The part that drew enterprise pushback: this overrides existing agreements. A company that had negotiated a zero-data-retention (ZDR) contract with Anthropic still gets 30-day retention on any traffic sent to Fable 5 or Mythos 5. There's no configuration setting and no carve-out — using the model means accepting the retention.
+
+## What changed on August 20
+
+Bloomberg reported that Anthropic now plans to let enterprise customers host that mandatory retained data themselves, on their own cloud infrastructure, rather than on Anthropic's servers. Anthropic has reportedly been coordinating with more than 100 customers — including Salesforce — to build the new system, which is expected to roll out later this year.
+
+That's a real change in custody, not a change in the rule. The data is still collected. It's still kept for 30 days minimum. The difference is where it physically sits and, presumably, who controls access to it during that window. The timing lines up with a competitive jab: a day earlier, OpenAI previewed "Private Safety Processing," a system built to catch cross-conversation misuse on its frontier models without retaining the underlying content at all — a direct contrast to Anthropic's retain-then-review model.
+
+## What this means if your firm uses AI on contract or bid data
+
+Most contractors don't call Claude Fable 5 or Mythos 5 directly by name — they use a construction platform that has that model wired in somewhere. Trimble has already built Claude into parts of its workflow. As more estimating, drafting, and document-review tools add Claude-powered features, the practical question shifts from "do we trust Anthropic" to "do we know which model our vendor is actually calling."
+
+If it's one of Anthropic's top-tier models, anything you feed it — a change-order narrative, a claims letter, a subcontractor's markup, a specific pricing strategy — is retained for 30 days somewhere, no matter what your master service agreement with the software vendor says about data handling. A GC or sub has no way to check this from the outside.
+
+**Three questions worth putting to any construction-tech vendor selling an AI feature right now:**
+
+| Question | Why it matters |
+|---|---|
+| Which Claude model powers this feature — a standard model or Fable 5/Mythos 5? | Only the top-tier models carry the mandatory 30-day rule; retention terms differ by model. |
+| Is the retained data ever eligible for a longer hold — a "flag" or "legal reason"? | A contract dispute or a whistleblower report is exactly the kind of event that could trigger a longer hold on your data. |
+| Once Anthropic's new system ships, will retained data sit on your tenant, the vendor's, or Anthropic's? | Determines who can actually be compelled to produce it, and under whose security controls it sits for those 30 days. |
+
+## The limits here
+
+Anthropic hasn't published technical detail on how self-hosted retention will actually work, and it isn't live yet — "later this year" is Anthropic's own timeline, not a shipped feature. It's also unclear how this flows down when a construction software company, not the contractor, is Anthropic's enterprise customer; a GC using a vendor's Claude-powered feature may have no path to request self-hosted retention even once the option exists. None of this makes Fable 5 or Mythos 5 unsafe to use — catching real attacks against the most capable models is a legitimate goal. But it's a fine-print item worth checking before rolling out the next AI feature on a bid or a dispute.
+
+**The takeaway:** before your firm adopts an AI drafting or estimating tool that touches pricing, claims, or contract language, ask the vendor which underlying model it uses and where the retained data lives. If the answer is "we don't know" or "we'll check," that's the answer for now.
