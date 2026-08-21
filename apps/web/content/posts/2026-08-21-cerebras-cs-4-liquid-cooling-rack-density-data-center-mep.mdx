@@ -1,0 +1,66 @@
+---
+title: "Cerebras's new AI chip draws up to 140kW per rack. Most data centers built five years ago can't cool that"
+date: "2026-08-21"
+excerpt: "Cerebras's CS-4 system needs 120-140kW of direct liquid cooling per rack — a density its own engineers say rules out conventional colocation buildings. For mechanical and electrical subs bidding data center work, that number is the new design floor, not a ceiling."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://investors.cerebras.ai/news-releases/news-release-details/cerebras-unveils-cs-4-30-times-faster-gpu-based-solutions"
+  - "https://www.theregister.com/systems/2026/08/19/cerebras-cs-4-rack-systems-juice-chips-for-every-last-drop-of-ai-performance/5289286"
+  - "https://www.servethehome.com/cerebras-intros-faster-wse-3-turbo-processor-and-first-rack-scale-cs-4-system/"
+  - "https://www.networkworld.com/article/4211472/cerebras-reimagines-ai-cluster-design-with-switchless-cs-4-architecture.html"
+  - "https://www.implicator.ai/cerebras-cs4-three-wafer-rack-50-percent-fewer-parts/"
+  - "https://www.databank.com/resources/blogs/colocation-for-ai-workloads-power-cooling-gpu-density-requirements-explained/"
+  - "https://www.ramboll.com/en-us/insights/decarbonise-for-net-zero/100-kw-per-rack-data-centers-evolution-power-density"
+faqs:
+  - q: "How much power does the Cerebras CS-4 draw per rack?"
+    a: "Cerebras's CS-4 system draws roughly 120-140kW per rack, built from three wafer-scale processors packaged with their own direct liquid cooling, power conversion, and I/O in self-contained units the company calls Wafer-Scale Backpacks."
+  - q: "Can an existing data center just add CS-4 racks to its floor?"
+    a: "Not without a retrofit. Cerebras's own materials say the required direct-liquid-cooling infrastructure is compatible with modern hyperscale AI halls but materially restricts deployment into conventional enterprise and colocation buildings — most of which were designed around air cooling and far lower rack densities."
+  - q: "How does 130kW per rack compare to a normal data center?"
+    a: "Standard enterprise colocation runs 3-5kW per rack; older AI-ready colocation space runs 20-50kW. Nvidia's latest fully loaded GPU racks pull about 132kW, putting CS-4 in the same bracket — and vendors are already previewing a 240kW-per-rack generation within the next year."
+  - q: "What does this mean for a mechanical or electrical sub bidding data center work?"
+    a: "It means the MEP scope on a frontier AI compute hall now centers on direct liquid cooling loops, CDUs, and dense power distribution designed in from the first set of drawings — not air-handling capacity added later. Subs who can price and install DLC infrastructure have an edge; subs still quoting off older air-cooled data center jobs will misprice the work."
+  - q: "Is this only relevant to hyperscale data center contractors?"
+    a: "For now, yes — CS-4 deployments target hyperscale AI compute campuses, not enterprise IT rooms. But the density curve it represents (100kW+ racks becoming standard, not exotic) is the same one showing up in every AI data center RFP, so it's worth tracking even for subs not yet bidding this work."
+---
+
+Cerebras unveiled its CS-4 AI system this week, and buried in the spec sheet is a number that matters more to a mechanical contractor than to a chatbot user: each rack draws 120 to 140kW, and Cerebras says that's too dense for most existing data centers to cool. If you bid mechanical or electrical scope on data center projects, that's the design floor your next RFP is going to assume — whether or not the drawings say so yet.
+
+## What did Cerebras actually announce?
+
+At its Supernova event in San Francisco on August 19, Cerebras launched the CS-4, its first rack-scale AI system, built from three of its new WSE-3 Turbo wafer-scale processors. The company claims up to 30 times faster inference than GPU-based systems and roughly double the speed of its own CS-3 predecessor, positioning it as a direct challenger to Nvidia in the AI inference market. Shipments start this quarter, and Cerebras says it's targeting 600 megawatts of installed compute capacity by the end of 2027 — a real construction pipeline, not a press-release number.
+
+## Why does the rack draw so much power?
+
+Each CS-4 rack packages its compute, power conversion, direct liquid cooling, and networking into modular units Cerebras calls Wafer-Scale Backpacks — roughly 46kW apiece, three to a rack, for a system total in the 120-140kW range. That's not a byproduct engineers are trying to shrink; it's the tradeoff for cramming three wafer-scale processors and their supporting electronics into one rack footprint. Cerebras says the design cuts component count by half versus the CS-3 generation and cuts deployment time from days to hours — good news for the data center operator, but only once the facility around that rack is already built to handle it.
+
+## How does that compare to what's already out there?
+
+| Facility type | Typical rack density |
+|---|---|
+| Standard enterprise colocation | 3-5 kW |
+| Mid-range colocation | 8-20 kW |
+| AI-ready colocation (current) | 20-50 kW |
+| High-density AI colocation | 60-100+ kW (liquid-cooled) |
+| Nvidia's latest fully loaded GPU rack | ~132 kW |
+| Cerebras CS-4 | 120-140 kW |
+| Racks previewed for 2027 | ~240 kW |
+
+CS-4 isn't an outlier — it's confirmation that the AI hardware industry has settled on 100kW+ racks as the baseline for frontier compute, with vendors already previewing a jump to 240kW within the next year. Cerebras's own language is blunt about the consequence: this density is "compatible with modern hyperscale AI halls" but "materially restricts deployment into conventional enterprise and colocation environments." Translation: buildings designed for air cooling and 15-20kW racks, even ones marketed as AI-ready two years ago, are not going to host this hardware without a mechanical overhaul.
+
+## What changes for a mechanical or electrical sub bidding this work?
+
+Three things worth pricing differently on the next data center bid:
+
+1. **Direct liquid cooling is the base scope, not an add-alternate.** CDUs, secondary cooling loops, and rack-level manifolds need to be in the base design and the base bid — retrofitting DLC into an air-cooled shell after the fact is a materially different, more expensive job than building it in from slab-down.
+2. **Power distribution scope grows with density, not with square footage.** A hall built for 130kW racks needs meaningfully more busway, switchgear, and standby capacity per rack than the AI-ready spec most subs quoted eighteen months ago — measure the job by kW per rack in the spec, not by the building's total square footage.
+3. **Older "AI-ready" facility specs are already dated.** If a design-build RFP references AI-ready colocation density from a 2024 or 2025 spec sheet, flag it — the number has likely moved by 3-5x since then, and pricing to the old spec is how a sub eats a change order later. It's the same lesson as the data center power fights playing out at the state level: [Pennsylvania's new executive order](/posts/2026-08-20-pennsylvania-data-center-executive-order-grid-permitting-construction) shows how fast the ground rules for this building type are moving underneath contractors already mid-bid.
+
+None of this is a reason for a mid-size mechanical or electrical sub to chase hyperscale data center work — that market has its own bonding, schedule, and owner-relationship requirements that don't fit every shop. But if you're already bidding data center MEP, or evaluating whether to build out DLC capability, 120-140kW per rack is the number to design and price against starting now, not the 20-50kW figure that was standard even a year ago.
+
+---
+
+*Bidding data center MEP work? Pull the rack-density number out of the spec before you price the cooling scope — if it's below 100kW per rack for a compute hall going out to bid in 2027, ask why.*
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
