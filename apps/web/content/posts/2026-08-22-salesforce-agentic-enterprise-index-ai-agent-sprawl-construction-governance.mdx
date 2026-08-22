@@ -1,0 +1,71 @@
+---
+title: "Companies now run 13 AI agents on average and stand up a new one in two days. That's faster than most construction back offices can vet a single new vendor"
+date: "2026-08-22"
+excerpt: "Salesforce's latest Agentic Enterprise Index found the average enterprise went from 5 AI agents to 13 in about 15 months, and now deploys a new one in under two days. The report's own conclusion — the bottleneck is governance, not technology — is the exact gap opening on GC and sub back offices right now."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.salesforce.com/news/stories/agentic-enterprise-index-insights-2026/"
+  - "https://www.salesforce.com/agentforce/agentic-enterprise-index/"
+  - "https://futurumgroup.com/insights/salesforces-agentic-enterprise-index-a-paradigm-shift-in-ai-deployment/"
+  - "https://enterprisedna.co/resources/news/salesforce-agentic-enterprise-index-agent-deployments-double-2026/"
+  - "https://news.outsourceaccelerator.com/salesforce-ai-agents-double/"
+faqs:
+  - q: "What is Salesforce's Agentic Enterprise Index?"
+    a: "It's a Salesforce report combining aggregated usage data from its Agentforce agent-building platform (February 2025 through April 2026) with a proprietary survey of 4,689 respondents across seven countries, fielded in May 2026. The second edition, covering the past 15 months of deployment activity, was published in August 2026."
+  - q: "How many AI agents does the average company run in 2026?"
+    a: "13, according to Salesforce's report — up from 5 in February 2025, a roughly 160% increase in about 15 months."
+  - q: "How long does it take to deploy a new AI agent?"
+    a: "About 1.9 days on average, per the same report — a 53% drop in deployment time. A new agent can go from idea to production faster than most companies can complete a single vendor review."
+  - q: "Does the report say anything about construction specifically?"
+    a: "No — construction isn't one of the report's named industry categories, which include manufacturing, financial services, healthcare, retail, and tech. But its core finding — that manufacturing and other 'operationally complex, heavily regulated' industries build slower, more capable multi-step agents rather than narrow FAQ-style bots — describes exactly the kind of agent a submittal or RFI workflow would need."
+  - q: "What should a GC or sub do before letting staff build their own AI agents?"
+    a: "Set the rule before someone builds one, not after: which system the agent can write to (submittal log, schedule, accounting), who reviews its output before it reaches a client or inspector, and who owns it if it breaks or drifts. Salesforce's own report frames the current bottleneck as governance decisions, not technology limits."
+---
+
+The average company now runs 13 AI agents, up from 5 about 15 months ago, and can stand up a new one in under two days. That's the headline from Salesforce's latest Agentic Enterprise Index — and the report's own conclusion is the part that matters for construction: the bottleneck isn't building the agent anymore, it's deciding who's allowed to and what it can touch.
+
+## What did Salesforce actually measure?
+
+The index draws on two data sources: aggregated usage data pulled from Salesforce's own Agentforce platform between February 2025 and April 2026, plus a proprietary survey of 4,689 respondents across the US, UK, France, Canada, Australia, Spain, and Italy, fielded in May 2026. That combination makes it one of the larger deployment-plus-survey studies of enterprise AI agents published so far this year.
+
+The headline numbers: the average number of active agents per organization rose from 5 to 13, and average time to deploy a new agent fell 53%, down to about 1.9 days. Salesforce also found a split in how industries build agents — consumer-facing sectors lean into high-volume, narrow, task-specific bots (answer this, route that), while manufacturing, financial services, and healthcare build fewer but more capable agents that chain multiple steps together across systems.
+
+## Why does deployment speed matter more than the agent count?
+
+Thirteen agents isn't the number worth sitting with — 1.9 days is. That's roughly the time it takes to get a same-day RFI answered, not to stand up a new piece of software that can read data, write to a system, and act without someone watching every step. Salesforce's own read on this: the constraint has moved from "can we build it" to "where should it work, what data can it touch, and what does human sign-off look like" — governance questions, not technical ones.
+
+That's the finding a construction ops director should flag. Most GCs don't have 13 agents running yet, but the tools that let a non-technical employee wire one together — Copilot Studio, Agentforce, Claude's agent builder, a low-code workflow app — are already sitting on desktops across the industry. The two-day number means the jump from "one person's convenience script" to "several agents touching live project data" can happen faster than IT or ops leadership would notice.
+
+## What's the construction parallel?
+
+Salesforce's bifurcation finding maps cleanly onto construction work. A retail chatbot answering "where's my order" is the consumer-facing, high-volume pattern. A submittal-review agent that has to read a spec section, pull the matching cut sheet, check a compliance requirement, and flag a gap is the manufacturing pattern — multi-step, cross-system, judgment-dependent. That's the harder, slower-to-trust category the report says complex and regulated industries are building toward, and it's the category nearly every useful construction agent falls into: RFI triage, change-order drafting, daily-log summarization, schedule-impact flagging.
+
+| Deployment pattern | Report's example industries | Construction equivalent |
+|---|---|---|
+| High-volume, narrow, task-specific | Retail, consumer tech | A single-purpose bot answering a fixed FAQ (safety orientation questions, PTO lookup) |
+| Versatile, multi-step, cross-system | Manufacturing, financial services, healthcare | Submittal review, RFI drafting, change-order narrative generation, schedule-impact flagging |
+
+The second category is exactly where an ungoverned agent does the most damage — because it's touching pricing, spec compliance, or a document that goes to an owner or inspector, not routing a support ticket.
+
+## Who's accountable when an agent touches a submittal or a change order?
+
+Right now, probably nobody in writing. Before letting anyone on staff build or buy an agent that reads or writes to a system of record, put three things in place:
+
+- **A named owner per agent.** Not "the office" — one person accountable for what it does and who checks it.
+- **A write-access boundary.** Can it draft a submittal transmittal for review, or can it actually update the log and notify the sub? Those are different risk levels and should require different approval.
+- **A review step before anything client- or inspector-facing goes out.** Salesforce's 1.9-day deployment number is a feature for the vendor pitching you the tool. It's a warning if your firm doesn't have a faster review process to match it.
+
+## The limits here
+
+Salesforce is grading its own platform's customers, so this isn't neutral third-party research, and construction isn't broken out as its own category. The 1.9-day figure is also an average across agent types; a narrow FAQ bot and a multi-system submittal agent don't take the same effort to stand up safely, even if the platform lets you click "deploy" on both in the same afternoon.
+
+None of that changes the practical point: the tooling to build an agent that reads and writes construction documents is now cheap and fast enough that it will show up on a job whether or not ops leadership approved it first. Related read: how three AI agents on one shared task [started sabotaging each other](/posts/2026-08-14-anthropic-multiagent-turf-war-construction-ai-agent-governance) — the same ownership gap, at the next scale up.
+
+**The takeaway:** before your next AI tool pilot, write down who owns it, what it's allowed to touch, and who signs off before it goes external — on paper, before the two-day deployment clock starts, not after.
+
+---
+
+*Running more than one AI tool on your project already? Map what each one can read and write before you add a third.*
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
