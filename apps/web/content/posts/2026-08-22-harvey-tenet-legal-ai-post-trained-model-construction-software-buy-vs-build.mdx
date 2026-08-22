@@ -1,0 +1,64 @@
+---
+title: "Harvey ditched GPT and built its own legal AI model at a quarter of the cost. That's the buy-vs-build test coming for construction software"
+date: "2026-08-22"
+excerpt: "Harvey, the OpenAI-backed legal AI startup, stopped reselling frontier models and post-trained its own — Tenet now beats or matches GPT/Claude/Gemini on legal benchmarks at under a quarter of the cost. It's a working playbook for the vendors selling RFI and submittal tools to construction, and a new question for anyone buying from them."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://x.com/harvey/status/2090454750059958440"
+  - "https://dataconomy.com/2026/08/21/openai-backed-harvey-launches-new-legal-model-based-on/"
+  - "https://startupfortune.com/harvey-built-its-own-legal-ai-model-instead-of-renting-one-from-openai/"
+  - "https://thelegalwire.ai/harvey-launches-tenet-its-first-proprietary-ai-model-for-legal-work/"
+  - "https://www.scmp.com/tech/tech-trends/article/3364827/openai-backed-legal-tech-firm-pivots-chinese-kimi-k3-open-weight-model"
+faqs:
+  - q: "What is Harvey Tenet?"
+    a: "Tenet is the first proprietary AI model built by Harvey, a legal AI company backed by OpenAI. Instead of running on rented GPT, Claude, or Gemini access, Tenet is a Kimi K3 open-weight base model that Harvey post-trained with Fireworks AI on legal case data, synthetic data, and simulated long-horizon legal work like mock disputes."
+  - q: "Why did Harvey build its own model instead of using GPT or Claude?"
+    a: "Cost and control. Harvey says Tenet runs at under a quarter of the cost of leading frontier foundation models while matching or beating them on legal-specific benchmarks, and the company's stated goal is to stop being permanently dependent on someone else's model pricing and roadmap."
+  - q: "Is Kimi K3 a US model or a Chinese model, and does that matter?"
+    a: "Kimi K3 is an open-weight model from Moonshot AI, a Chinese lab. Harvey building its flagship legal product on it is a notable example of a Western enterprise AI vendor choosing a Chinese open-weight base over a US frontier lab's model to cut cost, which raises the same data-sovereignty and vendor-vetting questions any AEC firm should be asking its software providers."
+  - q: "Can a construction company build its own post-trained AI model like Harvey did?"
+    a: "Not yet, for almost all of them. The hard part isn't swapping in an open-weight base model — it's the large, curated proprietary dataset Harvey trained on. A national GC with decades of digitized RFIs, submittals, and closeout records across hundreds of projects might eventually have enough data to attempt this. A typical mid-size sub does not."
+  - q: "What should a GC or sub ask their construction AI vendor about this?"
+    a: "Ask which model actually powers the tool, whether that vendor's pricing is exposed to a frontier lab's next price change, and whether they have a roadmap toward owning a model trained on their own customers' project data the way Harvey did — or whether they're reselling API access indefinitely."
+---
+
+Harvey, the OpenAI-backed legal AI startup, just stopped reselling GPT, Claude, and Gemini and shipped its own model instead. Tenet — post-trained on top of an open-weight Chinese base model — now runs at under a quarter of the cost of the frontier labs' models while matching or beating them on legal-specific benchmarks. That's a working blueprint, with real published numbers, for every vertical AI vendor selling into construction that's currently just a thin wrapper around a rented model.
+
+## What did Harvey actually build?
+
+Tenet is built on Kimi K3, an open-weight model from Moonshot AI, a Chinese lab. Harvey post-trained it with Fireworks AI on a mix of public legal data, synthetic data, and human-expert data simulating long-horizon legal work — mock disputes and case files, not just single-question answers. According to Harvey, that training lifted Tenet's all-pass rate 82% on its internal LAB benchmark and 22% on LAB Contracts relative to the untrained Kimi K3 base, putting it in first place on LAB Contracts and second on LAB overall — while running at less than a quarter of the cost of leading foundation models per Harvey's own figures.
+
+The strategic point Harvey is making publicly: it built an $11 billion-plus business reselling other labs' models, and Tenet is the first step toward law firms — and eventually Harvey's customers generally — owning a model trained on their own accumulated case work instead of renting intelligence by the token forever.
+
+## Why does a legal AI company's model choice matter to construction software?
+
+Because nearly every AI feature that's shipped inside construction software in the past two years was built the same way Harvey used to build: a layer of prompts and retrieval sitting on top of a rented frontier-model API. RFI drafting, submittal review, daily-log summarization, schedule-risk flagging — the vendor pays per token to GPT, Claude, or Gemini, and passes that cost (and that lab's rate limits, outages, and price changes) straight through to your subscription. We've already covered what that dependency looks like when it turns against a vendor: DeepSeek raised its API prices [up to 6x in a single week](/posts/2026-08-17-deepseek-api-price-hike-cache-tokens-construction-buy-vs-build) in August.
+
+Harvey just showed, with a published benchmark and a real product ship, what the other side of that trade looks like: a vertical AI company with enough proprietary domain data can post-train its own open-weight model, cut its per-query cost by 4x, and match or beat the frontier labs on the specific tasks its customers actually pay for — without licensing anything from those labs at all.
+
+| | Renting a frontier model | Post-training an owned model (Harvey's path) |
+|---|---|---|
+| Ongoing cost | Per-token, set by the lab | Harvey claims under 1/4 the cost per query |
+| Pricing risk | Exposed to the lab's next price change | Insulated once trained |
+| Accuracy on domain tasks | General-purpose, prompted for the task | Tuned on the vendor's own case/document corpus |
+| What it requires | An API key | A large curated proprietary dataset and post-training budget |
+
+## What should a GC or sub ask a construction AI vendor now?
+
+Two questions, and neither requires waiting for your vendor to announce anything:
+
+- **Whose model is actually running behind this feature, and what happens to my price if that lab raises theirs?** If the answer is "we pass through API costs," you're exposed to the same swings DeepSeek's customers just felt.
+- **Does this vendor have enough of my industry's proprietary data — submittals, RFIs, specs, punch lists, change orders — to ever follow Harvey's playbook, or are they reselling access indefinitely?** A vendor sitting on a decade of real project documents across hundreds of clients is in a fundamentally different position than one prompting GPT with your spec book each time.
+
+## Should a mid-size GC try to build its own model?
+
+No — not yet, and Harvey's own story explains why. The open-weight base model was the easy part. What made Tenet work was the proprietary training corpus: legal case data, synthetic scenarios, and human-expert simulations of real long-horizon work, at a scale a well-funded, years-old legal AI company had to build deliberately. A national GC or CM firm with decades of digitized RFIs, submittals, and closeout records across hundreds of projects might eventually have the raw material to attempt something similar. A 40-person mechanical sub, or most GCs, does not — and won't for a while.
+
+What's actionable today isn't post-training your own model. It's asking your vendors the two questions above, before your next renewal, not after their pricing changes the way DeepSeek's did.
+
+---
+
+*If your construction AI vendor can't tell you which model runs behind their product, that's the answer.*
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
