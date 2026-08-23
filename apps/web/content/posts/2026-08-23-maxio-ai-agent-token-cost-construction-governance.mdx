@@ -1,0 +1,58 @@
+---
+title: "A CEO's AI agent spent $1,000 while he was at dinner, on autopilot. That's the billing model behind the estimating and submittal bots headed for your back office"
+date: "2026-08-23"
+excerpt: "Maxio CEO Branden Jenkins found his AI coding agent had auto-recharged his card $1,000 over one unsupervised weekend. The same usage-based billing sits under the estimating, submittal, and RFI agents construction firms are piloting — and most haven't set a ceiling on it."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://fortune.com/2026/08/22/tokenmaxxing-ceo-dinner-1000-dollars-insecurity-maxio-jenkins/"
+  - "https://finance.yahoo.com/technology/ai/articles/ceo-dinner-caught-ai-agent-110000990.html"
+  - "https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027"
+  - "https://www.ey.com/en_us/insights/ai/agentic-ai-token-costs"
+faqs:
+  - q: "What happened with the Maxio CEO's AI agent?"
+    a: "In August 2026, Maxio CEO Branden Jenkins found that an autonomous coding agent he was running from his phone had spent $1,000 in a single weekend, auto-recharging his card in $1,000 increments each time its token wallet ran dry, until he checked his usage dashboard at dinner."
+  - q: "How much does an agentic AI workflow cost compared to a simple AI query?"
+    a: "EY's analysis of enterprise AI costs found a simple linear AI interaction ran about $0.04 in 2023, while a fully orchestrated agentic workflow that plans, calls tools, and retries now runs about $1.20 per interaction in 2026 — roughly 30 times more, because the agent is doing sustained work rather than answering one question."
+  - q: "Why should a construction company care about AI token costs?"
+    a: "Estimating, submittal-drafting, and RFI-response agents now being piloted by GCs and subs bill the same usage-based way as the tool in the Maxio story, so an agent left running unsupervised on a takeoff or a spec review can rack up real cost before anyone checks the meter."
+  - q: "What controls should a contractor put on an AI agent before using it unsupervised?"
+    a: "Cap or disable auto-recharge on the token wallet tied to a company card, set a per-agent spending ceiling with a real-time alert, route routine drafting work to a cheaper model, and define an explicit stopping point so the agent hands an ambiguous task back to a person instead of looping on it."
+  - q: "What percentage of agentic AI projects does Gartner expect to fail?"
+    a: "Gartner predicts more than 40% of agentic AI projects will be canceled by the end of 2027, citing escalating costs, unclear business value, and inadequate risk controls as the leading reasons — not that the underlying technology doesn't work."
+---
+
+Maxio CEO Branden Jenkins was at dinner when he checked his phone and found a $1,000 charge on his card. His own AI coding agent had run up the bill over the weekend, auto-recharging itself in $1,000 increments every time its token wallet ran dry — with nobody watching until the total came due. It's a small, specific story about one executive's side project. But the billing model underneath it — pay-per-use, auto-recharge, an agent that keeps working after you've stopped paying attention — is the same one showing up in the estimating, submittal, and RFI-response agents construction software vendors are shipping into GC and sub back offices this year.
+
+## What actually happened at Maxio?
+
+Jenkins, a self-described technical CEO who builds his own agents and automations, was debugging and iterating on a project from his phone using Claude, even away from his desk. The token wallet funding those sessions was configured to auto-refill by $1,000 every time it ran dry, silently recharging his card without a second prompt. By the time he checked his usage dashboard at dinner, he'd landed near the top of his own company's internal AI spending leaderboard — an odd place, he told Fortune, for the chief executive to end up.
+
+## Why does one CEO's bar tab matter to a mechanical sub?
+
+Because the meter runs the same way on the tools GCs and subs are now piloting for takeoff, submittal packages, and RFI drafting. EY's analysis of enterprise agent costs found that a simple, single-step AI interaction ran about $0.04 in 2023. A fully orchestrated agentic workflow — one that plans, calls tools, checks its own work, and retries — now runs about $1.20 per interaction in 2026, roughly 30 times more, because the agent isn't just answering a question, it's doing sustained work. Point one of those workflows at a 40-section spec book over a long weekend to chase down every citation and cross-reference, and the bill scales with how long it keeps going, not how long you meant it to run.
+
+Gartner has been warning about the same gap for a year: it expects more than 40% of agentic AI projects to be canceled by the end of 2027, and the leading reasons are escalating costs and unclear return, not the technology failing to do what it was asked. The tools work. Most buyers haven't priced what "working" actually costs when nobody's watching the clock.
+
+## What should you put in place before turning an agent loose?
+
+Before piloting an agent on takeoff, submittal prep, or RFI drafting without a person watching every step:
+
+- **Cap or disable auto-recharge** on any token wallet tied to a company card. If the tool has to reload automatically, cap the total balance it can hold, not just the size of each reload.
+- **Set a per-agent spending ceiling with a real-time alert** — treat it the way you'd flag a sub's pay application running ahead of the schedule of values.
+- **Route routine drafting to a cheaper model** and reserve the more expensive, more capable one for judgment calls — interpreting an ambiguous spec section or drafting change-order language, not formatting a cover sheet.
+- **Define what makes the agent stop.** A fixed step count, a confidence threshold, or an explicit "hand this back to a person" trigger — so it doesn't loop indefinitely trying to resolve something a person would flag as a question in five minutes.
+
+## Is the bill really the risk, or something else?
+
+Jenkins told Fortune the invoice wasn't what kept him up at night — his own employees' insecurity about the technology was. He argued that anxiety does more damage to a company than any single runaway charge, because it decides whether people actually use the tools or quietly avoid them out of fear the tool is coming for their job. Maxio's response was to make the arrangement explicit: every executive mapped their department not just by the people reporting to them, but by the AI agents those people now manage directly — a literal hybrid org chart the company treats as a living document.
+
+That's worth borrowing directly. [Salesforce's own research this month](/posts/2026-08-22-salesforce-agentic-enterprise-index-ai-agent-sprawl-construction-governance) found the average enterprise went from five AI agents to thirteen in about fifteen months, standing up a new one every couple of days — faster than most back offices can vet a new vendor, let alone write down who's accountable for what one of those agents does. A submittal coordinator who's now supervising a drafting agent needs that ownership written down as much as a CEO who just found out what his own agent cost him over one unsupervised weekend.
+
+The fix isn't slowing down the pilot. It's writing the ceiling and the owner into the tool setup before the agent's first unsupervised run, not after the first surprise invoice.
+
+---
+
+*Before you let any agentic tool run unsupervised on a spec book or submittal log, check whether its token wallet auto-recharges — and if it does, cap it.*
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
