@@ -1,0 +1,56 @@
+---
+title: "OpenAI and xAI's new AI agents get standing access to your inbox and apps. Here's the permission question before one touches your bid data"
+date: "2026-08-25"
+excerpt: "OpenAI's desktop agent can read your Slack and private messages by design, and xAI's own docs say its Grok Bot agents share one computer with no security wall between them. Both are the shape of the 'AI project assistant' being pitched into construction back offices right now."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://techcrunch.com/2026/08/24/openai-is-building-an-ai-agent-for-everything-will-everyone-use-them/"
+  - "https://x.ai/news/introducing-grok-bot"
+  - "https://venturebeat.com/orchestration/spacexais-grok-bot-turns-agents-into-persistent-digital-coworkers-that-can-operate-your-apps-for-120-per-month"
+  - "https://forum.cursor.com/t/grok-bot-ship-real-session-fences-bots-are-not-a-security-boundary/168476"
+faqs:
+  - q: "What does 'standing access' mean for an AI agent connected to email or Slack?"
+    a: "It means the agent stays logged into your accounts continuously, rather than reading one message at a time when you ask it a question. OpenAI's desktop app and xAI's Grok Bot both work this way — they sign into your existing tools once and keep that access to complete multi-step tasks without you re-approving each step."
+  - q: "Did OpenAI say its AI agent could leak private messages?"
+    a: "OpenAI's own lead engineer for the desktop app, Andrew Ambrosino, was asked by TechCrunch whether the agent could pull from a private direct message when writing a document and not realize the content shouldn't be shared. He answered 'Yes.'"
+  - q: "Can I run separate AI agents for separate projects so they can't see each other's data?"
+    a: "Not with xAI's Grok Bot as currently built. xAI's own documentation states twice, in the FAQ and the security page, that separate Bots on one account should not be treated as a security boundary — all of a user's Bots share one persistent cloud computer, so files, logins, and browser sessions are pooled across them."
+  - q: "Is this the same risk as the Copilot vulnerability construction AI tools use?"
+    a: "It's related but different. The Copilot issue (CoSnitch, patched in August 2026) was a bug an attacker had to exploit. The access pattern here is not a bug — it's how OpenAI and xAI designed these agents to work, which means the risk is a permissions and vendor-vetting question, not something a patch fixes."
+  - q: "What should a GC ask an AI agent vendor before giving it access to email or project management software?"
+    a: "Ask exactly which systems the agent can read, whether access can be scoped per project or per division instead of company-wide, whether separate agents are actually isolated from each other, and whether there's an audit log of what the agent read and did. If the vendor can't answer specifically, treat that the same as a sub with no certificate of insurance — don't let it start work."
+---
+
+OpenAI's desktop AI agent is built to read your inbox, your Slack messages, and your files by design — and the engineer who leads that product told a reporter it could pull from a private message without knowing it shouldn't. xAI's competing product, launched two weeks earlier, comes with a warning buried in its own documentation: don't assume one AI agent is walled off from another, because they share the same machine. Both are the exact shape of tool now being pitched into construction back offices as an "AI project assistant" — and both just showed why the access question matters more than which model is under the hood.
+
+## What did OpenAI and xAI actually ship?
+
+On August 24, TechCrunch reported on OpenAI's push to expand ChatGPT beyond coding into "an AI agent for everything," built around a desktop app that runs for long stretches with deep, standing access to a user's tools. Andrew Ambrosino, who leads the desktop app, described giving it control over his own inbox, Slack account, phone, and apps like Notion and Figma. Asked directly whether the agent might pull from a private DM while drafting a document and not know it wasn't supposed to share that information, Ambrosino said "Yes." ChatGPT Work, the entry point for this at $20 a month, shipped last month.
+
+Two weeks earlier, on August 11, xAI launched Grok Bot in beta: AI agents that get their own persistent cloud computer, sign into the tools a business already uses, and work through multi-step jobs unsupervised — checking in only when something needs approval. It's bundled into Cursor's $200-a-month and $120-per-seat plans and xAI's own top subscription tier. The catch is in xAI's own docs, which state — twice, in the FAQ and the security page — that separate Bots on one account are not a security boundary. All of a customer's Bots run on one shared computer, so credentials, files, and browser sessions any one bot can reach are reachable by every other bot on that account, including ones created later.
+
+## Why does this matter for a construction back office?
+
+Because this is precisely the pitch construction software is making right now: an "AI agent library" or "digital coworker" that logs into your project management system, your email, and your document store and works through RFIs, submittal review, or bid assembly on its own. The design pattern OpenAI and xAI both shipped this month — persistent login instead of one-off prompts — is the same pattern showing up in construction-specific tools.
+
+That pattern creates two concrete problems for a GC or sub:
+
+| Risk | What it looks like on a job |
+|---|---|
+| Cross-context leakage | An agent drafting a change-order email pulls phrasing or figures from a different project's confidential subcontractor pricing thread, because it has standing access to both |
+| False isolation | You assume a separate agent scoped to safety incident review can't see your bid-comparison agent's data — but if the underlying platform pools sessions the way Grok Bot does, that assumption is wrong |
+
+Neither is hypothetical. Competitive bid pricing, certified payroll, and safety incident records carry real legal exposure if they cross between projects or reach the wrong party — and an agent with broad, standing access doesn't respect the same confidentiality boundaries a person would.
+
+## What should you ask before deploying one?
+
+Before letting any vendor's AI agent touch your inbox or project system, get specific answers to four questions: exactly which systems it can read, whether access can be scoped per project instead of company-wide, whether separate agents are actually isolated from each other or share a session the way Grok Bot's do, and whether there's an audit log of what it read and did. A vendor demo that leads with the model name and skips these is skipping the part that actually determines your exposure.
+
+---
+
+We've flagged this same pattern building before — see how fast [enterprise AI agent adoption is outrunning vendor vetting](/posts/2026-08-22-salesforce-agentic-enterprise-index-ai-agent-sprawl-construction-governance).
+
+*Forward this to the person on your team who's still arguing AI is overhyped.*
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
