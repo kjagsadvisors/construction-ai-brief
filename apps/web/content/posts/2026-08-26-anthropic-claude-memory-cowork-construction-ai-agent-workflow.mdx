@@ -1,0 +1,55 @@
+---
+title: "Anthropic gave Claude's agents a shared memory. That's good news for submittal drafting — and a new bid-data risk to check first"
+date: "2026-08-26"
+excerpt: "Claude's chat and its Cowork agent now share one memory that updates live, so an AI assistant no longer needs re-briefing every session. For contractors piloting AI on RFIs and submittals, that cuts real friction — but it also means job data can leak between chats unless you isolate it."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.theregister.com/ai-and-ml/2026/08/25/claude-and-cowork-now-share-what-they-know-about-you/5292412"
+  - "https://www.engadget.com/2243753/claude-memory-now-works-across-both-chats-and-cowork-sessions/"
+  - "https://9to5mac.com/2026/08/25/anthropic-update-unifies-memory-feature-across-claude-cowork-and-chat/"
+  - "https://www.maginative.com/article/anthropic-brings-project-based-memory-to-paid-claude-users/"
+  - "https://www.anthropic.com/product/claude-cowork"
+  - "https://www.procore.com/press/procore-introduces-digital-coworker-packages-expands-ai-agent-library-and-previews-skills-to-help-construction-teams-put-ai-to-work"
+faqs:
+  - q: "What did Anthropic actually change about Claude's memory on August 25, 2026?"
+    a: "Anthropic unified memory between Claude's chat interface and its Cowork agent product, so both now draw on the same, continuously updating memory instead of two separate ones. Memory also now updates live as a conversation happens, rather than only being summarized once a chat ends."
+  - q: "Will Claude automatically remember sensitive business information like bid pricing or subcontractor rates?"
+    a: "Yes, by default — the privacy filter Anthropic ships only blocks a specific list of personal categories (health data, race, ethnicity, religion, political views, gender identity), not business or project data. Anything you discuss about pricing, scope, or contract terms is stored as memory unless you delete it, isolate it in a separate Claude Project, or use incognito chat."
+  - q: "How do I keep two different jobs or competing bids from mixing in Claude's memory?"
+    a: "Use a separate Claude Project for each job. Anthropic gives each Project its own isolated memory space, so context and figures from one job's Project don't carry into another's — unlike the general chat memory, which is shared across everything you discuss outside a Project."
+  - q: "Does every contractor get Claude Cowork, or is it a paid feature?"
+    a: "Cowork requires a paid Claude plan (Pro, Max, Team, or Enterprise) and runs through the Claude desktop app on macOS or Windows, with web and mobile access still rolling out in beta. Free-plan users get the memory update in chat but don't have Cowork access."
+  - q: "Is this the same risk as the AI agent permission issues reported with OpenAI and xAI this week?"
+    a: "It's a related but different problem. OpenAI's and xAI's agents raised alarms about standing access to inbox and app data across sessions. Claude's memory update raises a narrower version of the same question: whether information from one job or client stays contained once an AI assistant starts remembering things on its own."
+---
+
+Anthropic said on August 25 that Claude's chat and its Cowork agent now run on one shared memory that updates while you're still talking, instead of summarizing a conversation only after it ends. For a construction team piloting AI on RFIs, submittal drafting, or contract review, that closes a specific, common complaint: today, every new chat or Cowork task starts from zero, and someone has to re-explain the project's spec format, the sub's scope, or the GC's submittal numbering before the tool is useful. It also opens a new question worth checking before anyone on the team turns memory on for anything involving money: what happens when two different jobs share the same account.
+
+## What did Anthropic ship?
+
+Cowork is Anthropic's agent product for knowledge work — instead of a back-and-forth chat, you describe a task and Cowork works through files, folders, and connected apps like Slack and Google Drive to produce a real output, citing back to the source documents. It requires a paid Claude plan and runs through the desktop app. Until this week, Cowork's memory and Claude's regular chat memory were separate systems. Anthropic's update merges them: a detail mentioned in a chat — say, that a project uses a nonstandard submittal template — is now available to a Cowork task assembling that submittal package, and vice versa. Memory also updates in real time as a conversation happens rather than waiting for the session to close, so switching between chat and Cowork mid-task no longer means repeating yourself.
+
+## What's the actual construction workflow change?
+
+This targets a friction that shows up any time a GC or sub tries to build a repeatable AI workflow around back-office paperwork. Procore's own pitch for its AI agent library, which added company-standard customization to its Submittal Review and RFI agents this summer, runs into the same problem from the other direction: someone still has to configure and re-confirm those standards. A general-purpose assistant with working memory reduces how often that setup has to happen — a project engineer who explained a job's RFI numbering convention in one chat shouldn't have to explain it again the next day in a different session.
+
+## What's the new risk, and who should care?
+
+The catch is what memory retains by default. Anthropic's privacy filter blocks a specific list of personal categories — health data, race, religion, political views, gender identity — from being stored automatically. It does not filter business data. Bid numbers, subcontractor pricing, and contract terms discussed in a chat are retained as memory the same as anything else, unless someone deletes them or turns the feature off for that conversation.
+
+That matters most for estimators quoting two competing jobs, or PMs managing several clients, from the same Claude account. Without separation, there's a real path for pricing or scope language from one job's chat to surface, unprompted, in a completely different job's output.
+
+The fix already exists in the product: Claude Projects, a feature for grouping related chats, gets its own isolated memory per project — details inside a Project don't leak into general chat memory or other Projects. Before piloting memory-on AI workflows for anything with dollar figures attached, set that up first:
+
+| Do this | Not this |
+|---|---|
+| One Claude Project per job or client | One shared chat thread for everything |
+| Delete or edit memories tied to a closed bid | Leave old bid data sitting in general memory indefinitely |
+| Use incognito chat for one-off sensitive questions | Assume a "private" question isn't retained |
+
+This is a narrower version of the [standing-access question the industry already ran into this week with OpenAI's and xAI's always-on agents](https://constructionaibrief.com/posts/2026-08-25-openai-xai-always-on-agents-construction-permission-risk) — whether an AI tool that remembers things keeps one client's information from bleeding into another's. Memory that carries forward useful project context is a genuine upgrade for a submittal coordinator or PM. Memory that carries forward a competitor's number into the wrong bid is not. The setup step that separates the two takes about five minutes per job.
+
+---
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
