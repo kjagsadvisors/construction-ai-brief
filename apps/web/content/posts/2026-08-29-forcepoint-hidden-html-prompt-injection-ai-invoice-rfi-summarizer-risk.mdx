@@ -1,0 +1,57 @@
+---
+title: "Researchers hid text in an email that made an AI summarizer report an invoice 5x too high. Your RFI and invoice summarizer has the same blind spot"
+date: "2026-08-29"
+excerpt: "Forcepoint X-Labs proved an AI email summarizer can be silently hijacked with invisible HTML text a human never sees. Construction firms feeding RFIs, submittals, and AP invoices into AI summarizers are exposed to the same trick."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.forcepoint.com/blog/x-labs/html-payload-hijacks-email-summarizer"
+  - "https://www.darkreading.com/cyber-risk/hidden-prompts-trick-ai-false-email-summaries"
+  - "https://www.csoonline.com/article/4214814/ai-can-be-made-to-read-an-email-much-differently-than-you-do.html"
+faqs:
+  - q: "What did Forcepoint X-Labs actually find?"
+    a: "Forcepoint researchers embedded a hidden instruction inside an email using HTML styled to be invisible to a human reader (font-size:0px, white text, zero line-height) but still present in the text an AI summarizer processes. Run through a summarizer built on Claude Haiku 4.5, the resulting summary reported an invoice amount more than 5 times the real figure and changed the dates, with no visible sign in the original email that anything had been altered."
+  - q: "Is this a flaw in a specific AI model?"
+    a: "No. Forcepoint was explicit that this isn't a bug in any particular LLM or vendor's product — it's a structural problem in how untrusted email content gets fed to a language model without separating what the model should read from what it should treat as instructions. Any AI summarizer built without that separation is exposed, regardless of which model powers it."
+  - q: "Does this affect construction software specifically?"
+    a: "No construction platform has been named or shown to have this exact flaw. The risk is architectural: any tool that has an AI model read and summarize an RFI email, a submittal transmittal, or a subcontractor invoice without stripping hidden formatting first is built on the same pattern Forcepoint tested."
+  - q: "How would a PM or AP clerk notice this happened?"
+    a: "They likely wouldn't from the summary alone — that's the point of the finding. Forcepoint's mitigation is to validate AI-generated summaries against the underlying source document, particularly for anything with a dollar figure or a date, rather than trusting the AI output as the final read."
+  - q: "What should a GC or sub ask before turning on AI email or document summarization?"
+    a: "Ask whether the tool strips invisible HTML/CSS formatting before the content reaches the model, whether it separates the sender's visible message from any embedded markup, and whether dollar amounts and dates in AI summaries are cross-checked against the source file rather than taken at face value."
+---
+
+Security researchers at Forcepoint X-Labs hid an instruction inside an ordinary-looking email using HTML formatting invisible to a human reader — white text, zero font size, zero line height — and had it silently rewrite what an AI summarizer told the recipient. The doctored summary reported an invoice amount more than five times the real one and got the dates wrong, with nothing in the visible email hinting that anything was off. Construction firms now routing RFIs, submittal transmittals, and subcontractor invoices through AI summarizers are built on the exact pattern that failed.
+
+## What did Forcepoint actually test?
+
+Forcepoint's proof of concept used an Outlook add-in that pulled an email's headers and body, merged them into a single block of text with a Python script, and sent that block to a summarizer running on Claude Haiku 4.5. The visible email ran 537 characters. The text actually delivered to the model ran 1,009 characters — the extra 472 characters were an injected instruction, styled with `font-size:0px; color:#ffffff; line-height:0` so it rendered as nothing on screen while still reading as plain text to the AI. The summarizer followed the hidden instruction, not the visible email, and reported a different invoice total and different dates without flagging any discrepancy. Forcepoint was clear this isn't a Claude-specific or vendor-specific bug — it's what happens whenever an AI model is handed raw email content without separating "text to summarize" from "text a stranger snuck in that reads like an instruction."
+
+## Why does this land on construction specifically?
+
+Because the workflow Forcepoint attacked — an AI tool auto-summarizing inbound email so a busy person doesn't have to read the whole thing — is precisely the pitch behind the AI agents construction software vendors have been shipping into RFIs, submittals, and back-office correspondence this year. Procore's Digital Coworker packages include prebuilt RFI and Submittal Review agents reading live project correspondence. AP departments at GCs and subs increasingly route subcontractor and supplier invoices through AI tools to pull line items and flag discrepancies before a human signs off. Every one of those tools ingests external email or PDF content the way Forcepoint's test target did — and none of them can be assumed immune just because they're a construction product instead of a generic inbox summarizer.
+
+## Where's the actual exposure on a project?
+
+| Document type | Who relies on the AI summary | What a hidden payload could flip |
+|---|---|---|
+| Subcontractor or supplier invoice | AP clerk, PM approving payment | Dollar amount, due date, line-item quantities |
+| RFI or submittal transmittal | PM, submittal coordinator | Deadline, requested action, referenced spec section |
+| Change order correspondence | PM, owner's rep | Cost impact, schedule impact, approval status |
+| Subcontractor daily report or field email | Superintendent, PM | Reported quantities, safety incident details, delay claims |
+
+The common thread: anywhere a dollar figure, a date, or an approval status gets extracted from an email or attachment by AI and handed to a person who acts on the summary without opening the source file.
+
+## What should you actually check before trusting an AI summary?
+
+- **Ask the vendor if hidden formatting gets stripped first.** Forcepoint's mitigation list starts with extracting only what's visible to a human reader and detecting suspicious HTML/CSS styling (zero-size fonts, matching background/text colors, zero line-height) before content ever reaches the model.
+- **Never approve a payment or a schedule change off a summary alone.** Cross-check the AI-generated number against the source PDF or email for anything tied to money or dates — the exact two categories Forcepoint's test flipped.
+- **Ask whether headers and body are separated from embedded content.** Forcepoint recommends the model receive email headers, visible body text, and any markup as clearly labeled, distinct inputs — not one merged blob, which is what let the hidden text pass as an instruction in the first place.
+
+This isn't a reason to pull back from AI-assisted RFI or invoice processing — the time savings are real and the tools aren't going away. It's a reason to treat "does it strip hidden formatting before summarizing" as a standard vendor question, the same way you'd ask about data retention or SOC 2 compliance, before letting an AI summary substitute for reading the actual document on anything that touches money or a deadline.
+
+---
+
+*The pattern of AI agents reading untrusted documents as a security surface keeps showing up — [a chained Copilot bug exposed the same architecture](/posts/2026-08-23-cosnitch-copilot-vulnerability-construction-ai-agent-architecture-risk) now shipping in Procore's and Trimble's construction AI agents.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
