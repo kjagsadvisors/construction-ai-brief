@@ -31,7 +31,7 @@ The repository is the current working directory. Beehiiv MCP **read** tools (e.g
    date: "<YYYY-MM-DD>"
    subject: "<email subject line — specific, ~max 80 chars, pipe-separated lead items are fine>"
    title: "<post title, sentence-case, tied to the lead story/theme>"
-   preview: "<one-line preview/subtitle text>"
+   preview: "<preheader text — HARD LIMIT 150 characters, one sentence>"
    ---
 
    <BODY in clean markdown:>
@@ -42,5 +42,6 @@ The repository is the current working directory. Beehiiv MCP **read** tools (e.g
    ```
    Target 600–1000 words in the body. Use real markdown links `[text](url)` so they survive a paste.
 8. **Critic pass.** If it reads like a generic AI-news rewrite, an angle is forced/thin, it hypes, uses a banned phrase, or any claim lacks a source — fix it.
+   - Also check `preview` is **≤150 characters**. Most inboxes truncate the preheader around there, so a long one is silently cut mid-sentence. It is a teaser, not a summary of every item — do not restate the whole issue in it. Count the characters and rewrite if over.
 9. **Commit + push to main:** `git add data/newsletter-drafts && git commit -m "newsletter: <YYYY-MM-DD> — <subject>" && git push origin HEAD:main`. If the push is rejected, `git pull --rebase` and retry once.
 10. Output a one-line confirmation with the file path. Do NOT email or message anyone. Do NOT call Beehiiv write tools.
