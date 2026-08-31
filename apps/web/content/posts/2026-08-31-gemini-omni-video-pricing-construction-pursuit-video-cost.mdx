@@ -1,0 +1,61 @@
+---
+title: "Google's Gemini Omni 1.1 Flash bills AI video by the second. Here's what a pursuit video actually costs now"
+date: "2026-08-31"
+excerpt: "Google's updated AI video model prices generated footage by resolution and second instead of a flat production fee. For a precon team's proposal budget, that turns a multi-thousand-dollar minute of video into cents of compute — with hard limits on what it can and can't replace."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://the-decoder.com/googles-gemini-omni-1-1-flash-makes-ai-video-generation-cheaper-and-more-flexible/"
+  - "https://www.eesel.ai/blog/gemini-omni-1-1-flash"
+  - "https://www.digitalapplied.com/blog/gemini-omni-1-1-flash-scene-extension-draft-pricing"
+  - "https://www.marktechpost.com/2026/08/29/google-ai-releases-gemini-omni-1-1-flash-40-second-scene-extension-first-last-frame-control-and-4k-upscaling/"
+  - "https://vidico.com/news/corporate-video-cost/"
+  - "https://www.yumyumvideos.com/blog/how-much-does-animation-cost-per-minute-of-video/"
+  - "https://www.ailawsbystate.com/blog/california-ai-transparency-act-sb-942"
+faqs:
+  - q: "What is Gemini Omni 1.1 Flash?"
+    a: "It's Google's updated AI video-generation model, released August 27, 2026. New in this version: scenes can be chained in 10-second increments up to a 40-second cumulative clip, a first-and-last-frame control lets you set the opening and closing image and have the model generate the motion between them, and output can be upscaled to 4K."
+  - q: "How much does Google charge for AI-generated video?"
+    a: "Per second of generated output: $0.03 at 360p (a draft tier for testing prompts), $0.10 at 720p, $0.15 at 1080p, and $0.30 at 4K. A 60-second 1080p clip runs about $9; the same clip at 4K runs about $18."
+  - q: "Can a contractor use Gemini Omni to render its actual building design for a proposal?"
+    a: "No. Generative video models don't hold precise geometry, so the output won't match your architect's dimensions, structural layout, or MEP routing. For a to-scale rendering of the specific project, you still need a BIM-based rendering tool like Enscape, Lumion, or Twinmotion. Gemini Omni is for narrative and brand content, not project visualization."
+  - q: "Does AI-generated video have to be labeled as AI-made?"
+    a: "As of August 2, 2026, California's SB 942 requires covered AI providers with more than 1 million users — which includes Google — to embed a hidden, hard-to-remove provenance watermark in generated video by default. A company using Gemini Omni output can't strip that watermark; the law makes the licensee responsible for keeping it intact."
+  - q: "What can a GC or trade sub actually use this for in a pursuit package?"
+    a: "Narrative and culture content that doesn't need to depict the real building: a self-perform capability reel, a safety-culture segment, a 'meet the team' clip for a design-build interview, or generic b-roll for a capabilities deck. It's not a substitute for the technical rendering the owner is actually evaluating."
+---
+
+Google's newest AI video model, Gemini Omni 1.1 Flash, doesn't charge by the clip anymore — it charges by the second and by resolution. A 60-second 1080p video costs about $9 to generate. The same clip at 4K costs about $18. That's not a marginal upgrade to a chatbot feature; it's a line item a precon team can put a real number next to when they're deciding whether to hire an outside video shop for the next pursuit package.
+
+## What changed in this release
+
+Google shipped the update on August 27, 2026, adding three things developers had been asking for: scenes that chain in 10-second increments up to a 40-second cumulative clip (versus a single short pass before), a first-and-last-frame control where you supply the opening and closing image and the model generates the motion connecting them, and a 360p "draft" tier priced at a third of the 720p rate so teams can iterate on a prompt before paying full price for a finished render. It's live now in Google AI Studio, the paid Gemini Developer API, and Google Flow for AI Plus, Pro, and Ultra subscribers.
+
+## What does a minute of AI video cost now?
+
+| Resolution | Price per second | Cost for a 60-second clip |
+|---|---|---|
+| 360p (draft) | $0.03 | $1.80 |
+| 720p | $0.10 | $6.00 |
+| 1080p | $0.15 | $9.00 |
+| 4K | $0.30 | $18.00 |
+
+Compare that to what a precon team currently pays for proposal video. Corporate video production runs $1,000 to $10,000 per finished minute depending on complexity, and animated explainer content — the kind used for capability reels or sequencing narratives — runs $3,000 to $20,000 per finished minute, with a median 60-second custom animated explainer quoted around $9,680 in 2026 market research. Even a generous three-minute pursuit video at 4K comes out to roughly $54 in raw generation cost. That's not the all-in cost of a finished piece — someone still has to write the script, direct the prompts, edit the output together, add voiceover and music, and run quality control — but it collapses the vendor line item that used to gate whether a mid-size GC or sub could afford video at all for a given pursuit.
+
+## What it's actually good for — and what it isn't
+
+The honest use case is narrative and brand content that doesn't need to match your architect's drawings: a self-perform capability reel, a safety-culture segment for an interview presentation, a "meet the team" clip for a CMAR or design-build shortlist, or b-roll for a capabilities deck. It is not a substitute for the technical rendering an owner is actually scoring you on. Generative video models don't hold precise geometry — they approximate visual motion between two reference frames, not your engineer's dimensions, structural grid, or MEP routing. If the pursuit requires a to-scale fly-through of the actual project, that still comes from a BIM-based rendering tool like Enscape, Lumion, or Twinmotion, run off the real model.
+
+There's also a disclosure wrinkle worth knowing before you use this for a client-facing pitch. California's SB 942, which became operative August 2, 2026, requires AI providers with more than 1 million users — Google qualifies — to embed a hidden, hard-to-remove provenance watermark in every video their systems generate. If your firm licenses Gemini Omni through Google's API, you're the licensee, and the law prohibits you from stripping or disabling that watermark. Passing off AI-generated footage as a live site shoot isn't just an editorial-integrity problem; on content run through a covered provider like Google, it's now something the content itself is built to resist.
+
+## The takeaway for a precon team
+
+If your firm has been skipping video in a pursuit package because the outside vendor quote didn't pencil against the deal size, the math changed this week. Use it for the narrative content that never needed to be technically accurate in the first place, keep the actual project visualization on your BIM rendering pipeline, and don't try to pass generated footage off as something it isn't — the watermark is built in either way.
+
+---
+
+*This is the second AI tool this week to land on the BD side of the business rather than the field — [see how Salesforce putting Claude in the CRM changes who touches your bid pipeline](/posts/2026-08-30-salesforce-anthropic-claudeforce-crm-bid-pipeline-data-risk).*
+
+*Forward this to the person on your team who's still arguing AI is overhyped.*
+
+*Construction AI Brief publishes a new piece on AI's construction angle most days. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
