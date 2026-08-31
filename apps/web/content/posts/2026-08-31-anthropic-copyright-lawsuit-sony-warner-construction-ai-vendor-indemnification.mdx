@@ -1,0 +1,63 @@
+---
+title: "Sony and Warner just sued Anthropic over Claude's training data. Here's the contract clause every GC using AI tools should check"
+date: "2026-08-31"
+excerpt: "Sony Music Publishing and Warner Chappell sued Anthropic on August 28 over how Claude was trained, months after Anthropic paid $1.5 billion to settle a similar claim from book authors. Construction software already runs on these same models — here's the vendor-contract question that lawsuit should trigger."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://techcrunch.com/2026/08/29/sony-music-warner-sue-anthropic-alleging-a-brazen-campaign-of-intellectual-property-theft/"
+  - "https://www.musicbusinessworldwide.com/now-sony-music-publishing-and-warner-chappell-sue-anthropic-in-multi-billion-dollar-lawsuit-one-of-the-largest-and-most-blatant-ongoing-thefts-of-intellectual-property-in-history/"
+  - "https://www.npr.org/2025/09/05/nx-s1-5529404/anthropic-settlement-authors-copyright-ai"
+  - "https://authorsguild.org/news/court-grants-final-approval-anthropic-copyright-settlement/"
+  - "https://www.procore.com/ai"
+  - "https://www.autodesk.com/products/fusion-360/blog/fusion-comes-to-claude-for-creative-work-bringing-ai-directly-into-the-design-workflow/"
+  - "https://news.trimble.com/2026-04-02-Trimble-to-Acquire-Document-Crunch-to-Add-AI-Powered-Risk-Management-and-Document-Compliance-to-Trimble-Construction-One-Project-Delivery-Ecosystem"
+faqs:
+  - q: "What is the Sony Music and Warner Chappell lawsuit against Anthropic about?"
+    a: "Sony Music Publishing and Warner Chappell Music sued Anthropic on August 28, 2026, in federal court in the Northern District of California. The suit alleges Anthropic ran a 'brazen campaign' of torrenting, scraping, and downloading tens of thousands of copyrighted songs to train its Claude models, and it names co-founders Dario Amodei and Benjamin Mann as individual defendants."
+  - q: "How much money is Anthropic facing in this case?"
+    a: "The publishers are seeking up to $150,000 in statutory damages per infringed work, plus $25,000 for each instance of stripped copyright management information. Given the suit cites 'tens of thousands' of works, total exposure could reach several billion dollars if a court awards the maximum."
+  - q: "Has Anthropic settled a case like this before?"
+    a: "Yes. Anthropic agreed to pay $1.5 billion to settle Bartz v. Anthropic, a class action brought by book authors over roughly 500,000 pirated titles used in training, at about $3,000 per work. A federal judge granted that settlement final approval on July 20, 2026."
+  - q: "Does this lawsuit actually affect construction companies?"
+    a: "Indirectly, yes, if your firm uses AI features inside construction software. Autodesk has a direct partnership connecting Claude to its design tools, and Procore's own AI documentation names Claude, ChatGPT, and Gemini as models its features work with. Litigation risk tied to how a foundation model was trained sits underneath any product built on that model."
+  - q: "What should a GC or sub actually do about this?"
+    a: "Before signing or renewing a contract for any AI-enabled construction tool, ask the vendor which foundation model powers the feature and whether the vendor's IP indemnification clause covers claims tied to that model's training data — not just claims arising from your own uploaded documents."
+---
+
+Sony Music Publishing and Warner Chappell Music sued Anthropic on August 28, alleging the company illegally torrented and scraped tens of thousands of copyrighted songs to train Claude. It's the second time in a year Anthropic has faced a copyright case at this scale — and construction's own software vendors already build on the model at the center of it.
+
+## What did the labels actually file?
+
+The suit, filed in the U.S. District Court for the Northern District of California, calls the alleged infringement "one of the largest and most blatant ongoing thefts of intellectual property in history." It accuses Anthropic of a "brazen campaign" of illegally torrenting, scraping, and downloading copyrighted compositions — including songs like "Eye of the Tiger" and "All I Want for Christmas Is You" — to train Claude, and names co-founders Dario Amodei and Benjamin Mann as individual defendants. The publishers are seeking up to $150,000 per infringed work in statutory damages plus $25,000 for each instance of stripped copyright metadata. Across "tens of thousands" of alleged works, that math reaches into the billions. Anthropic told TechCrunch it disagrees with the claims and intends to "defend ourselves robustly in court." Universal Music Publishing Group, Concord, and ABKCO already sued Anthropic separately back in 2023 — so all three major music publishers are now litigating against the company.
+
+## Hasn't Anthropic already paid for this once?
+
+Yes, in a different content category. In Bartz v. Anthropic, a class of book authors alleged Anthropic trained Claude on roughly 500,000 pirated books pulled from sites like LibGen. Anthropic settled for $1.5 billion — about $3,000 per book — and a federal judge granted that settlement final approval on July 20, 2026, just five weeks before the music publishers filed. The pattern across both cases is the same: a court has already found that training an AI model on copyrighted material can be lawful, but obtaining that material through piracy is not.
+
+| Case | Content | Works alleged | Outcome |
+|---|---|---|---|
+| Bartz v. Anthropic | Books | ~500,000 | $1.5B settlement, approved July 20, 2026 |
+| Sony/Warner v. Anthropic | Music | "Tens of thousands" | Filed Aug. 28, 2026, unresolved |
+
+## Why does this touch construction software at all?
+
+Because Claude isn't a standalone product your project team chooses to use — it's increasingly the engine sitting inside tools your firm already runs. Autodesk partnered with Anthropic this spring to connect Claude directly to Fusion for text-to-CAD work. Procore's own AI documentation states customer data is never used to train "models like ChatGPT, Claude, or Gemini" — confirming those are the actual models its Copilot and agent features are built on. Trimble bought Document Crunch specifically to add automated contract and compliance review across its Construction One platform. None of that means those products did anything wrong. It means the legal exposure now attached to Claude's training data doesn't stay contained to Anthropic's balance sheet — it's a dependency risk for every vendor built on top of it, OpenAI and Google included, since both face their own pending training-data suits.
+
+## What should actually change in your next vendor conversation?
+
+Most construction software contracts include some form of IP indemnification — a promise the vendor will cover you if their product infringes someone else's IP. The gap is scope. A clause written to cover "claims arising from use of the software" doesn't necessarily cover a claim that the underlying foundation model itself was trained on stolen content, which is a claim against the model, not against how you used it. Before your next AI-tool contract signs:
+
+- Ask which foundation model (or models) actually power the AI feature you're buying, not just the vendor's product name.
+- Ask whether the indemnification clause names training-data and IP-provenance claims specifically, or only covers infringement from your own inputs.
+- Ask what happens to the feature — pricing, availability, output — if the underlying model provider settles or loses a training-data case, the way Anthropic already has once.
+
+None of this is a reason to avoid AI features in your estimating, submittal, or contract-review software. It's a reason to read the indemnification paragraph before your ops director or general counsel has to find out what it covers during litigation instead of before signing.
+
+---
+
+*This follows the same pattern flagged in [Anthropic's shift on enterprise data retention](/posts/2026-08-21-anthropic-data-retention-policy-change-construction-contract-privacy) — the vendor terms around AI features are moving faster than most construction contract templates.*
+
+*Forward this to whoever reviews your firm's software contracts.*
+
+*Construction AI Brief publishes a new piece on AI's construction angle most days. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
