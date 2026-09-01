@@ -1,0 +1,55 @@
+---
+title: "Malware is hijacking Claude logins without a password or 2FA. That's a new risk for the bid data sitting in your AI account"
+date: "2026-09-01"
+excerpt: "Anthropic is signing out Claude users after commodity infostealer malware stole active login sessions and used them to access accounts undetected. Any GC or sub running estimating, RFI, or bid work through a shared or poorly managed device is exposed the same way."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-warns-infostealer-malware-is-hijacking-claude-sessions-to-drain-usage/"
+  - "https://www.securityweek.com/anthropic-warns-claude-users-of-infostealer-malware-infections/"
+  - "https://www.helpnetsecurity.com/2026/08/31/claude-accounts-compromised-through-infostealer/"
+  - "https://cybersecuritynews.com/hackers-steal-claude-login-sessions/"
+  - "https://securityaffairs.com/198166/ai/infostealers-are-hijacking-claude-sessions-and-draining-subscriptions.html"
+faqs:
+  - q: "What happened with Claude accounts and infostealer malware?"
+    a: "Anthropic said a bad actor used common infostealer malware already on some users' computers to steal active Claude login sessions, then reused those sessions to access the accounts and burn through their usage without needing a password. Anthropic identified six malware families behind it — Vidar, LummaC2, StealC, RedLine, and Acreed on Windows, plus Atomic Stealer (AMOS) on a smaller number of Macs — and is signing affected users out, removing saved payment methods, and refunding unauthorized charges."
+  - q: "Does this mean Claude itself was hacked or breached?"
+    a: "No. Anthropic was explicit that the malware isn't related to Claude, wasn't installed through Claude, and isn't tied to anything a user did inside Claude. The infections came from the usual vectors — pirated software and other illicit downloads — on the user's own device, and the stolen browser session cookie was then replayed to walk into an already-logged-in Claude account."
+  - q: "Why does stealing a login session matter more than stealing a password?"
+    a: "A session cookie represents a state where the login and two-factor check already happened. Replaying it hands an attacker an already-authenticated account with no password prompt and no 2FA challenge to beat — the exact protections most companies rely on to stop credential theft don't fire, because from the server's point of view nothing about the login looks wrong."
+  - q: "What's actually at risk for a construction firm beyond the subscription bill?"
+    a: "Anthropic's fix — refunding usage charges — covers the billing damage, not the data exposure. A hijacked session gives an attacker the same access a logged-in user has for as long as the session lasts: chat history, any project files or spec sections uploaded into that account, and any connected data source (Drive, SharePoint, a Procore or project-management integration) tied to it. For a firm running bid data, RFIs, or client documents through an AI account, that's the part worth worrying about, not the bill."
+  - q: "How should a GC or sub protect its AI accounts from this?"
+    a: "Treat AI logins with the same hygiene as banking logins: don't leave sessions signed in on shared job-trailer or field laptops, keep AI accounts off machines running pirated CAD, estimating, or takeoff software (the most common infection vector Anthropic named), and periodically revoke active sessions from account settings. Signing out stops a stolen session from being used, but it doesn't remove the malware — if the device is still infected, the next login can be stolen the same way."
+---
+
+Anthropic is signing Claude users out of their accounts, wiping their saved payment methods, and refunding usage charges after finding that commodity infostealer malware on people's own computers had been hijacking active login sessions — no password, no two-factor prompt, no breach of Claude itself required. For most affected users this was a billing headache. For a construction firm that has started routing RFIs, submittal drafts, or bid data through an AI account, it's a preview of a data-exposure problem that a refund doesn't fix.
+
+## What did Anthropic actually find?
+
+Anthropic said it identified a bad actor using widely available infostealer malware — Vidar, LummaC2, StealC, RedLine, and Acreed on Windows, and Atomic Stealer (AMOS) on a smaller number of Macs — already present on some users' machines. That malware harvests browser cookies, including the session cookie that proves a person is logged in, and ships them to the attacker. Because the cookie represents an already-authenticated session, replaying it gets an attacker into the account without a password and without tripping two-factor authentication, which only guards the initial login, not a session that's already open. Anthropic was clear the malware has nothing to do with Claude — it infects machines through pirated software and other illicit downloads, the same way it infects machines for online banking or email theft. Claude accounts were just the thing it happened to be pointed at this time.
+
+## Why should a construction firm care about someone else's billing fraud?
+
+Because the mechanism, not the target, is the story. Anthropic's response — signing users out and refunding charges — only cleans up the financial side of the incident. It doesn't undo whatever the attacker saw while the session was live: chat history, any spec sections or drawings a user uploaded for an RFI draft or a submittal review, and anything reachable through a connected integration (a Drive folder, a SharePoint site, a project-management connector) tied to that account. Construction back offices are a plausible target for exactly this style of attack, for reasons that have nothing to do with AI:
+
+- Job-trailer and shared field computers often run without centralized device management or endpoint protection.
+- Cracked or unlicensed CAD, estimating, and takeoff software is a known infection path for the same malware families Anthropic named — pirated software was the vector it called out directly.
+- AI accounts used for estimating and precon work increasingly hold live bid numbers, subcontractor pricing, and unreleased drawings — data with real value to a competitor or a bad actor, unlike a personal ChatGPT subscription.
+
+## What should change on Monday?
+
+| Risk | Why it applies to construction | What to do |
+|---|---|---|
+| Shared or field devices with saved AI logins | Job-trailer and jobsite laptops are rarely centrally managed | Don't leave AI accounts signed in on shared machines; require sign-out at end of shift |
+| Pirated CAD/estimating/takeoff software | Named directly as an infection vector by Anthropic | Standardize on licensed software; treat cracked-software use as a policy violation, not a shortcut |
+| Long-lived, never-reviewed AI sessions | A stolen session stays useful until it's revoked | Periodically revoke active sessions in account settings, the same habit as rotating passwords |
+| Project files/integrations connected to a personal AI account | Bid data, specs, and drawings now live inside chat history and connected drives | Use company-managed AI accounts with admin visibility, not personal logins, for anything touching live project data |
+
+Signing out of a hijacked session stops that specific attacker, but Anthropic's own warning applies here too: it doesn't remove the malware. If the underlying device is still infected, the next login session can be stolen the same way. For a firm that's leaned into AI for estimating, RFIs, or submittal work over the past year, this is the moment to check which devices those accounts get opened on — and whether IT, not an individual estimator, controls who's logged in.
+
+---
+
+*The pattern of AI tools becoming a new place where project data leaks keeps showing up — [a hidden-text trick in Forcepoint's research made an AI summarizer misreport an invoice by 5x](/posts/2026-08-29-forcepoint-hidden-html-prompt-injection-ai-invoice-rfi-summarizer-risk), a different failure mode with the same lesson: know what's actually protecting the data behind the AI tools your team uses.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
