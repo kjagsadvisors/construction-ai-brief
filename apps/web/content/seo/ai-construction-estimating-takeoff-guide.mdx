@@ -3,7 +3,7 @@ title: "AI construction estimating and bid leveling: what actually works in 2026
 description: "AI takeoff tools now claim 95-98% accuracy on clean drawings and cut takeoff time by roughly half. Bid leveling is less mature. Here's the honest line for estimators and precon teams in 2026."
 target_keyword: "AI construction estimating and bid leveling"
 audience: "estimator"
-updated_at: "2026-07-03"
+updated_at: "2026-09-02"
 sources:
   - "https://www.bls.gov/ooh/business-and-financial/cost-estimators.htm"
   - "https://www.abc.org/News-Media/News-Releases/abc-construction-industry-must-attract-349000-workers-in-2026-despite-macroeconomic-headwinds"
@@ -11,18 +11,21 @@ sources:
   - "https://www.autodesk.com/design-make/research/state-of-design-and-make-2025"
   - "https://construction.autodesk.com/products/autodesk-takeoff/"
   - "https://www.togal.ai/news/togal-ai-raises-5-million"
+  - "https://www.togal.ai/pricing"
+  - "https://www.togal.ai/case-study/ku-study-togal-vs-ost"
   - "https://www.stackct.com/takeoff-and-estimate-pricing/"
   - "https://www.kreo.net/pricing"
+  - "https://help-takeoff.kreo.net/en/articles/5481199-auto-measure"
   - "https://construction.autodesk.com/products/buildingconnected-pro/"
 faqs:
   - q: "How accurate is AI takeoff compared to a manual takeoff?"
     a: "Vendors including Togal.AI and STACK claim 95-98% accuracy on quantity extraction from clean, well-organized drawing sets. That figure drops on messy scans, hand-marked revisions, or non-standard symbols, where a manual sanity check still catches what the model misses. Treat vendor accuracy numbers as a ceiling on a good day, not an average across your actual drawing quality."
   - q: "Will AI replace construction estimators?"
-    a: "The U.S. Bureau of Labor Statistics projects cost estimator employment will decline 4% from 2024 to 2034, and names estimating software productivity as the direct cause — but still projects about 16,900 openings a year from retirements and turnover. That's consolidation, not elimination: fewer estimators doing more volume each, not an empty department."
+    a: "The U.S. Bureau of Labor Statistics' latest projections (2025-2035) put cost estimator employment down 3%, and still name estimating software productivity as the direct cause — but the same forecast projects about 17,600 openings a year from retirements and turnover. That's consolidation, not elimination: fewer estimators doing more volume each, not an empty department."
   - q: "Is AI bid leveling as reliable as AI takeoff?"
     a: "No. Takeoff AI has years of training data (drawings follow standard conventions) and clear accuracy benchmarks. Bid-leveling AI has to parse subcontractor quotes that arrive as PDFs, emails, and spreadsheets in wildly inconsistent formats with no shared schema, so the tools are newer and less proven. Expect takeoff automation to save you real hours today and bid-leveling automation to save you a first pass that still needs a full manual review."
   - q: "What does AI estimating software cost for a small GC or sub?"
-    a: "Entry points range from Kreo's $35-per-user-per-month AI takeoff tier to STACK's roughly $2,599-$2,999-per-year Takeoff & Estimate plans to Autodesk Takeoff at around $1,250 per user per year. Free tiers exist (STACK's free plan, for instance) but cap project count and strip out assemblies and cost databases, so budget for a paid tier once you're bidding real work."
+    a: "Kreo's Lite plan is $35 per user per month, but that tier is manual takeoff tools — its Auto Measure, Auto Count, and Caddie AI features only unlock on the $175-per-user-per-month Pro tier, so check what you're actually buying before you budget off the headline number. Togal.AI now lists Growth-plan pricing directly at $299 per user per month, STACK's Takeoff & Estimate plans run roughly $2,199-$2,999 per year depending on user count, and Autodesk Takeoff lists at around $1,250 per user per year. Free tiers exist (STACK's free plan, for instance) but cap project count and strip out assemblies and cost databases, so budget for a paid tier once you're bidding real work."
   - q: "Who's liable if AI miscounts a takeoff or misses an exclusion in a bid comparison?"
     a: "The estimator who signs the bid, not the software vendor. Every AI takeoff and bid-leveling tool on the market positions itself as a first-pass assistant, not an authority — the contract and the bid still carry the name of the person who submitted them. See our [guide to AI liability and risk in construction](/seo/construction-ai-risk-liability-security-guide) for how that plays out when something goes wrong."
 ---
@@ -45,7 +48,9 @@ None of the three replace the estimator's sign-off. Every vendor in this space �
 
 Vendors are converging on a similar number: 95-98% accuracy on quantity extraction from clean, well-drawn sheets. Togal.AI reports its vision engine detecting spaces at up to 98% accuracy and says one contractor cut a 30-story high-rise takeoff from two weeks to 48 hours using the tool ([Togal.AI, funding announcement](https://www.togal.ai/news/togal-ai-raises-5-million)). Autodesk's own positioning for Forma Takeoff centers on automated symbol detection and counting across hundreds of sheets — the same category of claim.
 
-Two caveats worth sitting with before you take those numbers at face value. First, they're vendor-reported figures from the vendor's own test conditions, not an independently audited industry average — the same caveat we'd apply to any vendor accuracy claim in this space. Second, "clean, well-drawn sheets" is doing a lot of work in that sentence. A hand-marked addendum, a scanned drawing from a 1990s renovation set, or a symbol the model has never seen before will drop that accuracy fast, and none of the vendors publish a number for that scenario. The honest practice: run the AI takeoff, then spot-check the categories with the highest dollar value and the sheets with the most hand annotation, rather than assuming a uniform 95%+ across the whole set.
+That's no longer purely a vendor claim. An independent University of Kansas comparison of Togal.AI against traditional On-Screen Takeoff on a fire-station drawing set found the AI tool's quantities within a 5% margin of the manual result while cutting takeoff time by roughly 70-76% ([Togal.AI, University of Kansas case study](https://www.togal.ai/case-study/ku-study-togal-vs-ost)). That's a real third-party check, not just a marketing number — but it's still one drawing set from one study, not an industry-wide audit.
+
+Two caveats worth sitting with before you take any of these numbers at face value. First, most of what's published is still vendor-reported from the vendor's own test conditions — the KU study is the exception, not the norm, so treat a standalone accuracy claim as a ceiling until you've seen it checked. Second, "clean, well-drawn sheets" is doing a lot of work in that sentence. A hand-marked addendum, a scanned drawing from a 1990s renovation set, or a symbol the model has never seen before will drop that accuracy fast, and none of the vendors publish a number for that scenario. The honest practice: run the AI takeoff, then spot-check the categories with the highest dollar value and the sheets with the most hand annotation, rather than assuming a uniform 95%+ across the whole set.
 
 ## Is AI bid leveling as mature as AI takeoff?
 
@@ -57,7 +62,7 @@ The document-extraction layer underneath both takeoff and bid leveling is improv
 
 ## Will AI replace construction estimators?
 
-The labor data says consolidation, not elimination. The U.S. Bureau of Labor Statistics projects cost estimator employment will decline 4% from 2024 to 2034 — a rare occupation with a projected drop rather than growth — and its own explanation names the cause directly: "cost estimation software is improving the productivity of these workers, requiring fewer estimators to do the same amount of work" ([BLS Occupational Outlook Handbook](https://www.bls.gov/ooh/business-and-financial/cost-estimators.htm)). At the same time, BLS still projects about 16,900 openings a year over the decade, almost all from retirements and people transferring to other roles, not from net-new hiring.
+The labor data says consolidation, not elimination. The U.S. Bureau of Labor Statistics' current projections put cost estimator employment down 3% from 2025 to 2035 — a rare occupation with a projected drop rather than growth — and its own explanation still names the same cause: "cost estimation software is improving the productivity of these workers, requiring fewer estimators to do the same amount of work" ([BLS Occupational Outlook Handbook](https://www.bls.gov/ooh/business-and-financial/cost-estimators.htm)). At the same time, BLS still projects about 17,600 openings a year over the decade, almost all from retirements and people transferring to other roles, not from net-new hiring.
 
 Read together, that's a shrinking headcount doing more volume per person, not a profession disappearing. It also lines up with the broader AI economics: Anthropic's survey of 81,000 workers found that when an AI tool speeds up a task like pulling quantities or drafting bid notes, [the time savings tend to land with the individual worker, not automatically flow back to the firm as headcount reduction](/posts/2026-06-28-anthropic-81k-survey-ai-gains-gc-back-office) — unless a firm deliberately redesigns the workflow to capture it. The estimators worth hiring in 2026 are the ones who can direct and audit an AI takeoff, not the ones who can out-click it.
 
@@ -67,8 +72,9 @@ There's also a widening gap between firms that have adopted this workflow and fi
 
 Pricing spans a wide range depending on how much of the stack you're buying:
 
-- **Entry-level AI takeoff:** Kreo's Lite plan starts at $35 per user per month for its "Caddie AI" assisted takeoff feature, scaling to $70 and $175 tiers for more advanced assemblies ([Kreo pricing](https://www.kreo.net/pricing)).
-- **Mid-market takeoff and estimating:** STACK's Takeoff & Estimate plans run roughly $2,599 to $2,999 per year flat, with automated takeoff features concentrated in the higher tier ([STACK pricing](https://www.stackct.com/takeoff-and-estimate-pricing/)).
+- **Entry-level takeoff, but check the AI is actually included:** Kreo's Lite plan starts at $35 per user per month, scaling to $70 (Plus) and $175 (Pro). The AI features — Auto Measure, Auto Count, and the "Caddie AI" assistant — are gated to the $175 Pro tier, not the entry price ([Kreo pricing](https://www.kreo.net/pricing); [Kreo, Auto Measure documentation](https://help-takeoff.kreo.net/en/articles/5481199-auto-measure)).
+- **Vision-based AI takeoff, now list-priced:** Togal.AI moved from contact-sales-only to published pricing — $299 per user per month (about $3,588/year) for its Growth plan, with a custom Business plan for teams of four or more ([Togal.AI pricing](https://www.togal.ai/pricing)).
+- **Mid-market takeoff and estimating:** STACK's Takeoff & Estimate plans run roughly $2,199 to $2,999 per year depending on user count, with automated takeoff features concentrated in the higher tiers ([STACK pricing](https://www.stackct.com/takeoff-and-estimate-pricing/)).
 - **Enterprise / ACC-integrated:** Autodesk Takeoff lists at approximately $1,250 per user per year standalone, or as part of a broader Autodesk Construction Cloud precon bundle with custom pricing ([Autodesk Takeoff](https://construction.autodesk.com/products/autodesk-takeoff/)).
 - **Free tiers exist but are limited.** STACK's free plan supports basic digital takeoff and a capped number of projects, but strips out custom assemblies and cost databases — useful for testing the workflow, not for running a real bid. See our [breakdown of what's actually free across the category](/seo/free-ai-estimating-software-small-contractors) before you pick a trial to run.
 
@@ -78,10 +84,10 @@ None of these prices include the cost database or the historical job data that m
 
 | Tool | What it's actually good at | What still needs a human | Starting price |
 |---|---|---|---|
-| **Togal.AI** | Fast, vision-based quantity takeoff from drawings; claims up to 98% detection accuracy | Verifying non-standard symbols and hand-marked revisions | Custom/subscription (contact sales) |
+| **Togal.AI** | Fast, vision-based quantity takeoff from drawings; claims up to 98% detection accuracy, backed by an independent University of Kansas case study | Verifying non-standard symbols and hand-marked revisions | $299/user/month (Growth); custom for 4+ users (Business) |
 | **Autodesk Forma Takeoff** | 2D/3D takeoff inside the Autodesk Construction Cloud ecosystem; automated symbol detection | Cost database accuracy; best fit if you're already on ACC | ~$1,250/user/year |
-| **STACK Takeoff & Estimate** | Digital takeoff plus assemblies and cost estimating in one platform | Bid leveling is not the core feature; use alongside a bid-management tool | Free tier (limited); ~$2,599-$2,999/year for Pro/Premium |
-| **Kreo (Caddie AI)** | Lowest-cost entry to AI-assisted takeoff for a small team | Depth of assembly library and historical cost data at the entry tier | $35/user/month |
+| **STACK Takeoff & Estimate** | Digital takeoff plus assemblies and cost estimating in one platform | Bid leveling is not the core feature; use alongside a bid-management tool | Free tier (limited); ~$2,199-$2,999/year depending on user count |
+| **Kreo (Caddie AI)** | Lowest-cost entry to AI-assisted takeoff for a small team | AI features (Auto Measure, Auto Count, Caddie) require the $175 Pro tier, not the $35 entry tier | $35/user/month (Lite, no AI); $175/user/month for AI (Pro) |
 | **Autodesk BuildingConnected Pro** | Bid invites, subcontractor prequalification, and bid leveling at scale | Normalizing genuinely inconsistent sub quote formats | Custom (contact sales) |
 | **Status quo (manual takeoff + spreadsheet leveling)** | Full human judgment on every quantity and every quote | Nothing — it's all human, and it's the slowest option here | No new spend |
 
@@ -95,6 +101,6 @@ Practically, that means your buyout file should show the same kind of audit trai
 
 ## What should a small GC or sub actually pilot first?
 
-Start with takeoff, not bid leveling — it's the more mature technology and the faster payback. Run one recent job's drawing set through a free or low-cost tier (STACK's free plan or Kreo's $35/month tier are both low-commitment starting points) side by side with how your estimator would normally take it off. Compare the quantities line by line, not just the total, and time both processes. If the AI catches what your estimator caught — plus maybe a count your estimator missed on a repetitive floor plan — and does it in a fraction of the time, that's your signal to move to a paid tier and put it in front of a real bid.
+Start with takeoff, not bid leveling — it's the more mature technology and the faster payback. Run one recent job's drawing set through a genuinely AI-enabled low-cost tier — STACK's free plan or a single seat of Kreo's $175/month Pro tier, since Kreo's cheaper $35 tier is manual takeoff without the AI features — side by side with how your estimator would normally take it off. Compare the quantities line by line, not just the total, and time both processes. If the AI catches what your estimator caught — plus maybe a count your estimator missed on a repetitive floor plan — and does it in a fraction of the time, that's your signal to move to a paid tier and put it in front of a real bid.
 
 Hold off on a bid-leveling tool until the takeoff pilot is running cleanly. The bid-leveling category is younger, the accuracy claims are thinner, and the workflow only pays off once your incoming sub quotes are already reasonably standardized — which is worth fixing with a quote template before you add AI on top of messy inputs. [Pricing on the underlying model layer keeps moving in your favor too](/posts/2026-07-01-claude-sonnet-5-pricing-construction-estimating-agents): if you're weighing a custom-built internal tool instead of an off-the-shelf product, the cost of the AI model itself is no longer the expensive part of that build.
