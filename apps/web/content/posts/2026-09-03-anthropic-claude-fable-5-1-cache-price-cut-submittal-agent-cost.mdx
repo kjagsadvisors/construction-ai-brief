@@ -1,0 +1,57 @@
+---
+title: "Anthropic cut the price of AI re-reading a document by 75%. That's the number behind an always-on submittal checker"
+date: "2026-09-03"
+excerpt: "Claude Fable 5.1, released September 1, cuts the cost of reusing cached context from $1.00 to $0.25 per million tokens. For any AI tool whose job is holding a full spec book or drawing set in memory and checking new documents against it, that's the line item that decides how often it can afford to run."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://www.anthropic.com/claude-fable-and-mythos-5-1"
+  - "https://venturebeat.com/technology/anthropics-claude-fable-5-1-and-mythos-5-1-arrive-with-a-75-cost-reduction-for-fable-cache-reads"
+  - "https://www.marktechpost.com/2026/09/01/anthropic-releases-claude-fable-5-1-and-claude-mythos-5-1-52-6-on-terminal-bench-science-and-75-cheaper-cache-reads/"
+  - "https://alternativeto.net/news/2026/9/claude-fable-5-1-and-mythos-5-1-launch-with-lower-cache-costs-and-fewer-restrictions/"
+faqs:
+  - q: "What is Claude Fable 5.1 and when did Anthropic release it?"
+    a: "Claude Fable 5.1 is Anthropic's updated flagship model, released September 1, 2026. It's a generally available upgrade to Fable 5, with the same $10-per-million-input / $50-per-million-output token pricing but a 75% cheaper rate for reading cached context."
+  - q: "What exactly got cheaper?"
+    a: "Cache-read pricing — the cost of having the model re-reference context it already processed, like a document loaded earlier in the same session — dropped from $1.00 to $0.25 per million tokens. Anthropic says that cuts the effective cost of a typical workload by about 25%, and by up to roughly 45% for heavily agentic workloads that lean on cached context."
+  - q: "What's the difference between Fable 5.1 and Mythos 5.1?"
+    a: "Same underlying model, different safeguards. Fable 5.1 is the generally available version with Anthropic's standard production restrictions. Mythos 5.1 is a more permissive variant limited to vetted cybersecurity and life-sciences organizations through a restricted-access program — it isn't relevant to a typical construction AI tool."
+  - q: "Why does cache pricing matter more than headline pricing for construction AI tools?"
+    a: "Because the core construction use case — checking a new submittal, RFI, or change order against an entire spec book or drawing set — works by loading that large document once and querying it repeatedly. Cache-read cost, not the price of a single question, is what scales with how often the tool runs."
+  - q: "Will this price cut show up in what I already pay for a construction AI tool?"
+    a: "Not automatically. If your vendor bills a flat subscription, the savings land in their margin, not your invoice, unless they choose to pass it on or expand what the tool checks. If you're running an in-house agent that calls the Claude API directly, the lower cost applies to your bill immediately."
+---
+
+Anthropic released Claude Fable 5.1 and a restricted-access sibling, Mythos 5.1, on September 1. The headline number that matters for construction isn't a benchmark score — it's a pricing change: the cost of having the model re-read context it already has in memory dropped 75%, from $1.00 to $0.25 per million tokens. That's the exact cost structure behind any AI tool built to hold a full spec book, drawing set, or submittal log in memory and check new documents against it.
+
+## What actually changed in Fable 5.1?
+
+Base pricing is unchanged from Fable 5: $10 per million input tokens, $50 per million output tokens. What changed is "cache read" pricing — the discounted rate for asking the model to reference content it already processed earlier in the same session, instead of paying full price to re-send it. Anthropic cut that rate by 75% and says it lowers effective cost by roughly 25% on typical workloads and up to roughly 45% on workloads that are heavily agentic — meaning the tool runs in a loop, repeatedly checking things against the same held context. Fable 5.1 also posted real capability gains alongside the price cut: on Anthropic's own Terminal-Bench 4.0 agentic-coding benchmark, it scored 55.8% against 42.0% for Fable 5. Those numbers are Anthropic-run and not independently verified, so treat them as directional, not proof.
+
+## Why does this matter for a sub or GC specifically?
+
+Most AI tools pitched at construction back offices — submittal checkers, RFI cross-referencers, spec-compliance flags — work the same way: load one large, mostly static document (the spec book, the drawing set) once, then run every new submission through it. That repeated lookup against the same cached context is exactly the workload that just got 75% cheaper per lookup.
+
+Do the rough math. A spec book runs somewhere in the range of a few hundred thousand tokens for a mid-size commercial job. At the old $1.00-per-million-token cache rate, checking one submittal against a 500,000-token spec book cost about $0.50 in cache reads alone. At the new $0.25 rate, that's about $0.125. On a job running 40-50 submittals a week, that's roughly $20-25 a week down to $5-6 — not a number that changes anyone's budget on its own, but multiplied across every project a vendor runs this against, or every job a firm checks continuously instead of in a weekly batch, it's the difference between "affordable to run occasionally" and "affordable to run on every issue."
+
+| | Old cache price ($1.00/M tokens) | New cache price ($0.25/M tokens) |
+|---|---|---|
+| Cost per submittal check (~500K-token spec book) | ~$0.50 | ~$0.125 |
+| 40 checks/week | ~$20 | ~$5 |
+| Annualized, one project | ~$1,040 | ~$260 |
+
+Those figures are a back-of-envelope illustration built from Anthropic's published per-token rates, not a quote from any vendor's actual bill — but the direction is real and it's the same lever construction AI vendors and in-house tool builders are now pulling on.
+
+## Should a sub or GC do anything about this?
+
+If you're evaluating or already running a submittal, RFI, or spec-compliance tool built on Claude, ask the vendor directly whether they check every submission against the full spec now, or still sample or batch it to manage cost — a 75% drop in the most expensive part of that workload is a reasonable moment to ask them to widen coverage. If your team runs an in-house agent — even something built in an afternoon with Claude Code, as Construction AI Brief covered with the AI-coding-cost story a few weeks back — the lower rate applies the moment you upgrade the model you're calling, no negotiation required.
+
+The honest limit: a subscription vendor has no obligation to pass this savings to you, and most won't advertise it. This changes what's economically possible to build and run, not what you're actually being charged today — that's a conversation you have to start yourself.
+
+---
+
+For the mechanics of how usage-based AI billing works and what it looks like when nobody sets a spending ceiling, see [our story on the AI agent that spent $1,000 unsupervised over a weekend](/posts/2026-08-23-maxio-ai-agent-token-cost-construction-governance).
+
+*Forward this to whoever's evaluating your next submittal or RFI tool.*
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
