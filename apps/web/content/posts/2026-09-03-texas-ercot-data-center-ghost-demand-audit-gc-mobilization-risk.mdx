@@ -1,0 +1,60 @@
+---
+title: "Texas froze new data center power hookups over 'ghost demand.' Here's the question to ask before you mobilize"
+date: "2026-09-03"
+excerpt: "Texas has paused new data center grid connections and is auditing up to 300 projects because most of the demand in its interconnection queue may never get built. Here's how a GC tells a real data center pursuit from a queue placeholder."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.texastribune.org/2026/08/03/texas-data-center-project-audit-greg-abbott/"
+  - "https://www.texastribune.org/2026/08/14/texas-data-center-approval-pause-ercot-power-grid/"
+  - "https://www.realtytoday.com/articles/114474/20260820/texas-just-put-number-its-data-center-freeze-250-300-projects-200-gigawatts-tomorrow-next.htm"
+  - "https://www.constructiondive.com/news/texas-data-center-pause-puts-us-pipeline-risk-of-delay-bnef/827255/"
+  - "https://www.utilitydive.com/news/pennsylvania-executive-order-data-centers/828261/"
+  - "https://www.datacenterdynamics.com/en/news/aep-ohio-slashes-data-center-pipeline-by-more-than-half/"
+faqs:
+  - q: "What did Texas actually do about data center power hookups?"
+    a: "On August 3, 2026, Governor Greg Abbott directed the Public Utility Commission of Texas and grid operator ERCOT to freeze approval of new data center interconnections and audit every project already in the queue. The audit covers roughly 250 to 300 projects representing about 200 gigawatts of requested demand, and no new data center can advance in the interconnection process until it clears."
+  - q: "What is 'ghost demand' in a power interconnection queue?"
+    a: "It's a project that holds a place in a utility's queue without a signed tenant, secured financing, or a real intent to build — often one developer filing several overlapping requests to keep options open at low cost. Texas's data center queue grew from about 48 gigawatts in 2023 to more than 474 gigawatts now, over five times ERCOT's peak demand record, and regulators don't believe most of that growth will turn into built projects."
+  - q: "Does the freeze stop construction on data centers already underway?"
+    a: "No. Projects already advancing through ERCOT's process, including the first audited group known as Batch Zero, can keep building. What the audit gates is energization — the final connection of a finished building to the grid — which now requires ERCOT sign-off on ownership, water use, and cost-sharing disclosures first."
+  - q: "How much could the Texas audit delay or cost data center projects?"
+    a: "BloombergNEF estimates the audit could delay up to 49.8 gigawatts of demand, roughly 20% of the entire U.S. data center development pipeline, and cost affected projects between about $8 billion and $15 billion cumulatively by the first quarter of 2027, depending on how much of the delayed capacity turns out to be AI-related."
+  - q: "Is this a Texas-only problem?"
+    a: "No. Pennsylvania's governor signed an executive order in August 2026 requiring data center developers to pay for their own grid upgrades and secure binding commitments before permitting even begins, and Ohio utility AEP Ohio cut its reported data center demand pipeline from about 30,000 megawatts to under 6,000 after adding grid-study fees of up to $100,000 per request."
+---
+
+Texas has frozen new data center grid connections and is auditing roughly 250 to 300 projects already in line, because state regulators believe most of the demand behind them isn't real. If a chunk of your backlog or pursuit list is data center work, the practical question just changed from "how big is this project" to "is this project actually going to get built."
+
+## What did Texas order, exactly?
+
+On August 3, 2026, Governor Greg Abbott directed the Public Utility Commission of Texas and ERCOT, the state's grid operator, to freeze approval of any new data center interconnection and audit every project currently in the queue before letting another one advance. The trigger was the size of the queue itself: requests to connect large data centers to the Texas grid grew from about 48 gigawatts in 2023 to more than 474 gigawatts today — over five times ERCOT's own peak demand record of 91.3 gigawatts. The audit, which ERCOT expects to take several months, requires developers to disclose who actually owns the project (not just the shell affiliate that filed the paperwork), what tax incentives they've claimed, and their water and on-site power plans.
+
+## Why does "ghost demand" matter to a GC?
+
+Because the queue number was never a construction forecast — and a lot of contractors have been treating it like one. The industry's own term for the gap is "ghost demand": developers file multiple speculative interconnection requests to hold a spot in line cheaply, often with no signed tenant or committed financing behind any single one of them. Texas isn't alone in finding this. AEP Ohio added grid-study fees of up to $100,000 per request last year, and its reported data center pipeline dropped from about 30,000 megawatts to under 6,000 once developers had to actually pay to keep their place. That's an 80%-plus haircut on paper demand that regulators now treat as the more honest number.
+
+| State / utility | Action taken | Effect on reported pipeline |
+|---|---|---|
+| Texas (ERCOT) | Froze new interconnections, ordered ownership/water/incentive disclosure audit | ~250–300 projects, ~200 GW under review before clearing |
+| Pennsylvania | Executive order requires binding commitments and developer-funded grid upgrades before permitting | Removes projects from fast-track permitting until commitments are binding |
+| Ohio (AEP) | Added interconnection study fees up to $100,000 | Pipeline fell from ~30,000 MW to under 6,000 MW |
+
+## Does this stop work on jobs already underway?
+
+Not directly. Projects already moving through ERCOT's process — the first audited group, called Batch Zero — can keep building. Concrete, steel, MEP rough-in, and equipment installation continue. What the audit gates is energization: the finished building can't get its final grid connection until ERCOT clears the owner's disclosures on financing, water use, and who pays for grid upgrades. That means the schedule risk on a Texas data center job right now sits at the back end — commissioning and owner turnover — not at notice-to-proceed. A GC holding a completion date tied to permanent power should treat that date as provisional until the owner can show the project has cleared, or is scheduled to clear, its audit batch.
+
+## What should a GC check before mobilizing or bidding data center work?
+
+- **Ask for interconnection status, not just a signed contract.** A letter of intent or GMP doesn't tell you whether the power request behind it is a real, funded interconnection agreement or one of several speculative filings the developer made to hold a spot.
+- **Check whether the operator is one of the names committing to disclosure.** Skybox Datacenters, Mara, Digital Realty, QTS, Compass Datacenters, and Montera Infrastructure have all publicly committed to Texas's disclosure standards — a reasonable signal the demand behind a given job is real.
+- **Tie long-lead procurement to a verified milestone, not the owner contract date.** If you're ordering switchgear and transformers early to beat multi-year lead times, confirm interconnection status first — a project stuck behind the audit doesn't need its gear sitting in a yard for a year.
+- **Expect the same filter wherever you build.** Pennsylvania and Ohio reached versions of the same conclusion through different mechanisms. If your pipeline runs through any large utility territory, assume regulators there will eventually ask the same question Texas just did.
+
+The data center boom didn't get smaller this week — the honest number behind it did. The gap between 474 gigawatts of requests and 91 gigawatts of actual peak demand was always going to close somehow; it's closing now, in Texas first, as an audit that separates the projects that get built from the ones that were only ever holding a place in line.
+
+For more on the procurement side of this same boom, see our [look at why data center equipment lead times are pushing GCs to order before design is final](https://constructionaibrief.com/posts/2026-08-29-a16z-machine-age-fund-data-center-equipment-lead-times-procurement).
+
+---
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
