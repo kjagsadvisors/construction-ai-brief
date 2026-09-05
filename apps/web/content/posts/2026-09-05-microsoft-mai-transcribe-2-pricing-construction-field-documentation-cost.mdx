@@ -1,0 +1,60 @@
+---
+title: "Microsoft cut AI transcription to 10 cents an hour. Here's what that's actually worth on a jobsite"
+date: "2026-09-05"
+excerpt: "MAI-Transcribe-2, in public preview on Microsoft Foundry, prices audio transcription at $0.10 an hour through the end of 2026 — a 72% cut from Microsoft's own prior model. Here's the real math on daily logs and OAC minutes, and why the price drop alone won't put this in a superintendent's hands."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://microsoft.ai/news/mai-transcribe-2-is-the-fastest-most-accurate-and-cheapest-speech-recognition-model-in-the-world/"
+  - "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/mai-transcribe-2-highest-quality-transcription-at-the-fastest-speed-and-lowest-c/4550972"
+  - "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/mai-transcribe"
+  - "https://venturebeat.com/infrastructure/microsoft-ais-mai-transcribe-2-undercuts-openai-google-and-elevenlabs-on-price-and-speed"
+  - "https://247wallst.com/cards/msft-xpost-01m1ktxqbw91phbdh91mw9g17d"
+faqs:
+  - q: "How much does Microsoft's MAI-Transcribe-2 cost?"
+    a: "$0.10 per audio hour (about $1.67 per 1,000 minutes) in public preview on Microsoft Foundry, a promotional rate Microsoft has committed to through December 31, 2026. That's down from $0.36 an hour for Microsoft's prior model, MAI-Transcribe-1.5 — a 72% cut. Microsoft hasn't said what it will charge after the promotion ends."
+  - q: "Can a superintendent or PM start using MAI-Transcribe-2 for daily logs today?"
+    a: "Not directly. It's an API-level model on Microsoft Foundry, Microsoft's developer marketplace — not a consumer app. A GC would need a field-management vendor (or an internal dev team) to build it into an actual tool before anyone on a jobsite could use it."
+  - q: "Is MAI-Transcribe-2 accurate enough for official jobsite documentation like OAC minutes or RFIs?"
+    a: "It leads Microsoft's benchmark set at a 5.2% average word-error rate on the FLEURS test across 60 languages, but that's clean multilingual speech, not construction jargon, model numbers, or CSI section references. Anything headed into an official record still needs a human to check it first."
+  - q: "Does it support non-English-speaking crews?"
+    a: "Yes — 60 languages, up from 43 in the prior version released in June 2026. But confirm the specific language and dialect you need is actually covered before assuming full crew coverage."
+  - q: "How does MAI-Transcribe-2 compare in speed to OpenAI, Google, and ElevenLabs?"
+    a: "Microsoft says it's 10 times faster than OpenAI's GPT-Transcribe, 7 times faster than ElevenLabs' Scribe v2, and 5 times faster than Google's Gemini 3.5 Transcribe. Those are Microsoft's own comparisons, not an independent benchmark."
+---
+
+Microsoft's newest transcription model prices a full hour of audio-to-text at 10 cents, a 72% cut from its own prior model. On its own, that's a vendor pricing update. For a GC's daily log, OAC minutes, and toolbox talks, it means the cost of turning spoken field documentation into text is now close enough to zero that price stops being the reason it isn't happening — the reason becomes whatever your project software still can't do with it.
+
+## What did Microsoft actually release?
+
+MAI-Transcribe-2 went into public preview on Microsoft Foundry, Microsoft's model marketplace for developers, running alongside MAI Playground. It covers 60 languages (up from 43 in June's MAI-Transcribe-1.5 and 25 in the original April release), returns speaker-labeled segments and word-level timestamps, and tops Microsoft's own FLEURS benchmark across those 60 languages with a 5.2% average word-error rate. Microsoft says it's 10 times faster than OpenAI's GPT-Transcribe, 7 times faster than ElevenLabs' Scribe v2, and 5 times faster than Google's Gemini 3.5 Transcribe — self-reported comparisons, not an independent test. The price: $0.10 per audio hour, locked in through December 31, 2026, versus $0.36 an hour for the model it replaces.
+
+## What does 10 cents an hour actually buy on a jobsite?
+
+Run the math on documentation a GC already generates every week:
+
+| Field record | Typical length | Annual audio | Cost at $0.10/hr | Cost at old $0.36/hr rate |
+|---|---|---|---|---|
+| Superintendent daily voice log | 5 min/day, 250 days | ~21 hours | ~$2.10/year | ~$7.50/year |
+| Weekly OAC meeting | 60 min, 50 weeks | 50 hours | $5.00/year | $18.00/year |
+| Daily toolbox talk | 10 min/day, 250 days | ~42 hours | ~$4.20/year | ~$15.00/year |
+
+Per project, per year, the whole set runs under $12. That's not a rounding error a CFO needs to approve — it's a budget line too small to be a line item. The transcription cost argument against recording every field conversation effectively disappears at this price.
+
+## So why wouldn't a GC just turn this on tomorrow?
+
+Because there's nothing to turn on. MAI-Transcribe-2 is a raw model sitting on Azure, reachable by API calls a developer writes — not a button in Procore, Fieldwire, or a superintendent's phone. Nothing changes on a real jobsite until a field-management vendor wires it into an actual product, or a GC with in-house developers builds a voice-memo pipeline themselves. The price collapse removes the cost objection from that build decision; it doesn't do the building.
+
+The accuracy number carries the same caveat. A 5.2% word-error rate on FLEURS is measured against general multilingual speech — not a superintendent yelling over a compressor, and not vocabulary like "Div 23 VAV box" or a specific submittal number. Treat any transcript headed into an OAC record, an RFI, or a claims file as a draft that needs a human read before it's official, the same rule that applied to last week's transcription models and will apply to next week's.
+
+## Should a mid-size GC act now?
+
+Not by deploying anything yourself. Do this instead: ask your field-management or project-management vendor whether they plan to add voice-to-text logging, and ask what it would cost you if the underlying transcription now runs at a dime an hour. If the answer is still an add-on fee close to what it cost a year ago, that's worth pushing back on — the input cost just dropped 72%, and better pricing from Microsoft, Google, and OpenAI's own transcription models means the whole category is repricing under vendors' feet. The number to remember: turning every field conversation on a project into searchable text now costs less per year than a single sheet of plywood.
+
+---
+
+*This is a pricing story about the same category covered in [Google's multilingual transcription model for jobsite safety documentation](/posts/2026-08-31-gemini-transcribe-85-languages-construction-multilingual-safety-documentation) — that piece was about whether non-English speech could be captured accurately at all; this one is about what happens once capturing it costs almost nothing.*
+
+*Forward this to whoever negotiates your field-software contract.*
+
+*Construction AI Brief publishes a new piece on AI's construction angle most days. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
