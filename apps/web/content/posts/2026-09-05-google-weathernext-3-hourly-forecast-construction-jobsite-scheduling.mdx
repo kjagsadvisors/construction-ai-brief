@@ -1,0 +1,66 @@
+---
+title: "Google just shipped an hourly, 3-mile-resolution weather forecast for free. Here's what that buys a super making the morning pour call"
+date: "2026-09-05"
+excerpt: "WeatherNext 3, Google DeepMind's new global forecasting model, updates every hour at roughly 5-kilometer resolution and is already live in Search, Maps, and the Gemini app. For anyone making a same-day pour, crane, or roofing call, that's a sharper, fresher forecast than the free tools most jobsites use today — with real limits on what it can't see."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/"
+  - "https://techcrunch.com/2026/09/03/googles-latest-ai-weather-model-gives-you-no-excuse-to-forget-your-umbrella/"
+  - "https://www.marktechpost.com/2026/09/03/google-deepminds-weathernext-3-trains-on-weather-station-observations-to-deliver-5-km-global-forecasts-refreshed-every-hour/"
+  - "https://developers.google.com/weathernext/guides/models"
+  - "https://mpost.io/weathernext-3-integrates-across-google-search-gemini-and-maps-with-breakthrough-renewable-energy-and-precipitation-forecasting/"
+faqs:
+  - q: "What is Google's WeatherNext 3 and when did it launch?"
+    a: "WeatherNext 3 is a global AI weather-forecasting model from Google DeepMind and Google Research, announced September 3, 2026. It generates a fresh forecast every hour at roughly 5-kilometer resolution and is already integrated into Google Search, Google Maps, the Gemini app, the Google Maps Platform Weather API, BigQuery, and Earth Engine."
+  - q: "How much more accurate is WeatherNext 3 than the weather forecasts most people use today?"
+    a: "Google says it's up to 50% more accurate on precipitation forecasts a day or more out, with the biggest gains in regions where forecasts have historically been weakest. Independent tracking by Brightband's Operational WeatherBench rates it the most accurate global model it has evaluated. It also updates hourly at 5-km resolution, versus every six hours at 25-km resolution for its predecessor, WeatherNext 2."
+  - q: "Can a superintendent or PM use WeatherNext 3 for free right now?"
+    a: "Yes, indirectly. It's already powering the weather results in Google Search, Google Maps, and the Gemini app — no separate signup or purchase needed. Developers and vendors who want the raw hourly, 5-km data feed for a scheduling or field-management tool can pull it through the Google Maps Platform Weather API, BigQuery, or Earth Engine."
+  - q: "Does this replace anemometers, crane wind sensors, or a paid weather-delay documentation service?"
+    a: "No. WeatherNext 3 is a regional forecast model, not a site instrument — it won't catch a wind funnel effect between two towers or a microburst forming over one specific site. It also isn't a legal weather-delay record on its own; most delay-documentation vendors combine forecast data with logged, timestamped on-site conditions, which this model doesn't provide by itself."
+  - q: "Is WeatherNext 3 useful for solar or wind construction projects specifically?"
+    a: "It's built with that use case in mind. The model outputs 100-meter wind speed (turbine height), full cloud-layer detail, and solar irradiance components, aimed at helping renewable-energy developers and grid operators forecast production. A GC or EPC building solar or wind assets could use the same data to plan crew and equipment scheduling around expected generation windows."
+---
+
+Google DeepMind's newest weather model, WeatherNext 3, generates a full forecast for anywhere on Earth every hour at roughly 5-kilometer (3-mile) resolution — a five-fold sharpening and six-fold refresh over its predecessor — and it's already live for free in Google Search, Maps, and the Gemini app. For whoever makes the 6 a.m. call on today's slab pour, crane pick, or roof dry-in, that's a meaningfully different forecast than the 25-kilometer, six-hour-old update most free weather tools have been running on.
+
+## What actually changed in WeatherNext 3?
+
+The previous version, WeatherNext 2, refreshed every six hours at 25-kilometer resolution and — like almost every forecast model before it — trained on the *output* of traditional numerical weather prediction runs, inheriting whatever lag those runs carried. WeatherNext 3 trains directly on raw satellite and weather-station observations instead, which removes that lag and lets it publish an updated forecast every hour at 5-kilometer resolution. Google says the result is up to 50% more accurate precipitation forecasts a day or more out, with the largest gains in places forecasts have historically been worst. Brightband, an independent group that continuously scores operational weather models against real outcomes, currently rates WeatherNext 3 the most accurate global model it tracks.
+
+## Where does a GC actually run into this?
+
+Nobody needs to install anything. Google folded WeatherNext 3 straight into products already on a phone:
+
+| Access point | Who uses it | What it looks like |
+|---|---|---|
+| Google Search weather results | Anyone | Same search box, sharper hourly forecast underneath |
+| Google Maps | Anyone with the app | Location-specific hourly conditions along a route or at a site |
+| Gemini app | Anyone asking Gemini about weather | Conversational forecast queries |
+| Google Maps Platform Weather API | Software vendors, internal dev teams | Raw hourly, 5-km data for a scheduling or field tool |
+| BigQuery / Earth Engine | Data and analytics teams | Bulk historical and forecast data for modeling |
+
+That last row matters more than it looks. A field-management vendor doesn't have to build its own forecasting model anymore — it can pull this data straight into a go/no-go dashboard, the same way several already pull from NOAA.
+
+## What's the concrete use on a jobsite?
+
+Three decisions on most commercial jobs run on same-day, hyperlocal weather: whether a concrete pour happens (temperature and precipitation windows), whether a crane runs (wind), and whether the roof stays open for dry-in work (precipitation timing). All three get made hours, not days, ahead — which is exactly the gap WeatherNext 3 is built to close. An hourly, 5-km forecast that reflects live satellite data instead of a six-hour-old model run gives the person making that call a tighter, fresher picture of what the next few hours actually look like at that specific site, not the nearest airport 20 miles away.
+
+## What about solar and wind construction?
+
+WeatherNext 3 also outputs 100-meter wind speed — turbine height — along with cloud-layer detail and solar irradiance, aimed squarely at renewable-energy developers forecasting production. A GC or EPC building solar farms or wind installations can use the same feed to plan crew, crane, and equipment schedules around expected wind and sun conditions, not just around whether it's going to rain.
+
+## What this isn't
+
+It isn't a replacement for a site instrument. A regional model at 5-kilometer resolution can't see the wind funneling between two adjacent towers or a pop-up storm cell over one specific parcel — that's what an anemometer on the crane and a superintendent's judgment are for. It also isn't a weather-delay record by itself: delay-documentation practice pairs forecast data with logged, timestamped site conditions, which WeatherNext 3 doesn't create. And the 50%-more-accurate figure is Google's own claim, backed by one independent tracker (Brightband) rather than a peer-reviewed study — a strong signal, not a settled number.
+
+The practical move: if your field-management or scheduling software doesn't already source from a model this current, ask the vendor whether they plan to, now that the data is sitting in a public API instead of locked inside Google's own apps.
+
+---
+
+*[NOAA's move of the national forecast onto Google Cloud](/posts/2026-07-30-noaa-google-cloud-ai-weather-forecast-jobsite-scheduling) covered the earlier WeatherNext model and a 2027 migration timeline — this is the model that's actually shipping today, in the free consumer apps a super already has open every morning.*
+
+*Forward this to whoever owns the weather-delay log on your current job.*
+
+*Construction AI Brief publishes a new piece on AI's construction angle most days. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
