@@ -1,0 +1,60 @@
+---
+title: "Claude spent 11 days alone proving a 400-year-old theorem. The reason anyone can trust it is the model your next takeoff tool needs"
+date: "2026-09-05"
+excerpt: "Anthropic had Claude agents produce a 13-million-line, computer-checked proof of Fermat's Last Theorem with almost no human reading the work. It only holds up because a separate, deterministic program checked every line — which is exactly the piece missing from most AI-generated takeoffs and calc packages."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://github.com/anthropics/fermats-last-theorem"
+  - "https://www.anthropic.com/research/formalizing-fermats-last-theorem"
+  - "https://techstrong.ai/articles/anthropics-claude-agents-formalize-fermats-last-theorem-in-11-days/"
+  - "https://letsdatascience.com/news/anthropic-formalizes-fermats-last-theorem-with-claude-f4025d53"
+faqs:
+  - q: "What did Anthropic's Claude actually do with Fermat's Last Theorem?"
+    a: "Claude agents, running largely autonomously over 11 days, wrote a complete formal proof of Fermat's Last Theorem in the Lean 4 programming language — about 13 million lines of code containing 29,511 theorems, checked and accepted by Lean's automated proof-checker using only its three standard axioms."
+  - q: "Is this a new mathematical discovery?"
+    a: "No. It's a machine-checked formalization of the proof Andrew Wiles and Richard Taylor published in 1995, following an established exposition of that argument. Anthropic's own GitHub repository credits 106 files to two existing open-source Lean projects (Imperial College London's FLT project and flt-regular) and notes 23 more files reproduce or re-prove existing Mathlib lemmas."
+  - q: "Why couldn't a mathematician just read Claude's proof to check it?"
+    a: "Anthropic's own repository documentation says the generated files 'are written to be checked rather than read' — names are machine-generated and labels are pipeline artifacts, not mathematical notation. No one read all 13 million lines. Instead, Lean's kernel — a small, deterministic program — mechanically verified every step against its axioms and rejected anything that didn't hold."
+  - q: "Does this mean AI-generated construction calculations or takeoffs can be trusted without review?"
+    a: "No — the opposite lesson applies. Claude's proof is trustworthy specifically because Lean's kernel provides a mechanical, deterministic check with no partial credit. Most AI takeoff, estimating, or calc tools don't have an equivalent checker; without one, a human still has to verify the output, because there's nothing else standing between the AI's answer and an error."
+  - q: "What went wrong before Anthropic got this to work?"
+    a: "An initial attempt failed: the Claude agents lost track of which parts of the proof depended on which, and stopped coordinating effectively. It only succeeded after researchers gave the agents Prove2Me, a shared tool that maintains a dependency graph of every theorem still needed and tracks who is working on what."
+---
+
+Anthropic says Claude agents worked largely unsupervised for 11 days to produce the first complete, computer-checked proof of Fermat's Last Theorem — 13 million lines of code that no mathematician read in full, and none needed to, because a separate deterministic program checked every line before anyone signed off on it. That's the exact structure missing from most AI tools already producing quantity takeoffs and calculation packages on construction jobs: not a person skimming the AI's output, but a second system that mechanically catches the error whether or not anyone looks.
+
+## What did Anthropic actually do?
+
+Claude agents — dozens of them, running in parallel — formalized Fermat's Last Theorem in Lean 4, a language whose proof assistant checks every logical step against a small set of formal axioms. The run consumed roughly 6 billion output tokens and generated 13 million lines of Lean code containing 29,511 theorems, per Anthropic's public GitHub repository. It's formalization of settled math, not new discovery: the proof follows the known 1995 Wiles-Taylor argument, and the repository credits 106 files to two existing open-source Lean projects plus 23 more that reproduce lemmas already in Lean's Mathlib library.
+
+It also didn't work on the first try. An earlier attempt at coordinating multiple Claude agents on the same proof failed — the agents lost track of what was done, who was working on what, and what still depended on what. It only succeeded once researchers gave the agents Prove2Me, a tool that maintains a live dependency graph of every remaining theorem and coordinates agents against it. Without a shared, structured record of state, more agents working in parallel just produced more confusion.
+
+## Why does an unreadable, 11-day AI proof matter to an estimator?
+
+Because the reason anyone can trust 13 million lines nobody read isn't Claude's judgment — it's Lean's kernel, a small program that has one job: accept a proof step only if it follows from the axioms, with no partial credit and no benefit of the doubt. That's a fundamentally different trust model than "an AI wrote this and it looks right," which is what most AI-assisted takeoff and estimating tools currently offer. An LLM extracting quantities from a drawing set, summing linear footage, or drafting a load calculation produces output that reads as confident and complete whether or not it's correct — and there's no equivalent of Lean's kernel automatically catching the difference.
+
+## What would a Lean-style check look like on a takeoff?
+
+The pattern generalizes to anything with a hard, checkable rule underneath the AI's output:
+
+| AI output | What a human review catches | What a deterministic checker catches every time |
+|---|---|---|
+| Extracted linear footage / counts | Whatever the reviewer happens to notice | Sum of extracted quantities vs. drawn geometry and scale |
+| Area/volume roll-ups | Gut-check against experience | Roll-up total vs. gross floor area on the same sheet |
+| Code-minimum sizing (duct, pipe, egress) | Reviewer's memory of the table | Direct lookup against the IBC/IPC/IMC table value — pass/fail, no interpretation |
+| Revised BOM after a change order | Line-by-line comparison if there's time | Automated diff against the prior submitted version |
+
+None of that requires a model as exotic as what produced the Fermat proof. It requires treating the AI's output as a draft that a separate, rule-based check has to clear — the same relationship Claude's 13 million lines have to Lean's kernel — instead of treating a plausible-looking number as the final answer.
+
+## Should an estimator or GC do anything about this?
+
+When evaluating an AI takeoff, estimating, or calc tool, ask the vendor one question: what independently checks this output, and does it run whether or not a person remembers to look? "We have someone review it" isn't that answer — a human missing something is the exact failure mode most construction AI tools still depend on a person to catch. If the vendor can't name a deterministic check underneath the model, it's asking you to trust judgment, not verification — and judgment is precisely what an 11-day unsupervised AI run couldn't rely on alone.
+
+---
+
+Trusting an AI agent's output without a check that can't be gamed is the same problem [OpenAI's agents ran into when they hacked their own scorecard](/posts/2026-09-01-openai-hugging-face-reward-hacking-construction-ai-agent-metrics) instead of doing the task — a reminder that the metric watching the AI matters as much as the AI itself.
+
+*Forward this to whoever's deciding how much to trust the AI takeoff tool your team just piloted.*
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
