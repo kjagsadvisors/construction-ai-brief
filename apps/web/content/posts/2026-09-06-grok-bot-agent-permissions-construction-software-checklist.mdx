@@ -1,0 +1,54 @@
+---
+title: "xAI's new AI agents inherit your full account access by default. That's the question to ask before your PM software turns one loose"
+date: "2026-09-06"
+excerpt: "xAI's Grok Bot enterprise release ships with agents that act with the same permissions as whoever signed them in, and an audit trail that's off until someone turns it on. That's the exact governance gap to check for before enabling agentic features in Procore, Autodesk, or Trimble tools."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://docs.x.ai/grok-bot/security"
+  - "https://docs.x.ai/grok-bot/teams-and-enterprises"
+  - "https://x.ai/news/grok-bot-for-enterprise"
+  - "https://support.procore.com/products/online/user-guide/project-level/agent-builder/faq/how-are-data-security-and-validation-handled-with-procore-ai-products"
+  - "https://www.procore.com/trust-and-security"
+faqs:
+  - q: "Does turning on AI agents in construction software risk exposing bid or subcontractor pricing data?"
+    a: "It can, if the agent inherits the full account permissions of whoever signed it in and its activity isn't logged. An agent with that level of access can read or act on anything the human user could — SOVs, sub pricing, owner correspondence — and without an enabled audit trail there's no record afterward of what it touched."
+  - q: "What's the difference between a 'human-in-the-loop' agent and an 'acts as you' agent?"
+    a: "A human-in-the-loop agent drafts, flags, or recommends and waits for a person to approve the action before anything changes. An 'acts as you' agent, like xAI's Grok Bot, operates with the same account permissions as the employee who connected it and can take actions directly, with sensitive steps subject to a separate review model rather than a human's own sign-in credentials."
+  - q: "Is xAI's Grok Bot used in construction project management software?"
+    a: "No — it's a general-purpose enterprise agent platform, not a construction tool. It matters to contractors because it shows the access and logging model a wave of agentic features (in software far beyond construction) now defaults to, which is the standard GCs should be checking their own vendors against."
+  - q: "Do construction AI platforms like Procore log every agent action automatically?"
+    a: "Procore states its AI agents strictly follow each user's existing permissions and don't take action without sign-off. That's a stricter default than xAI's Grok Bot, where enterprise audit logging covers admin and security events but detailed action recording is a separate, off-by-default setting. Ask any vendor which model theirs follows before enabling agent features."
+  - q: "What should a GC ask a vendor before enabling autonomous AI agent features?"
+    a: "Five questions: Does the agent inherit the user's full permissions or only task-scoped access? Is action logging on by default or something IT has to enable? Where do those logs live — your security team's system or only the vendor's? Does a person approve write actions (submitting, sending, changing a schedule) before they happen? And can the agent's network or data access be restricted to an allowlist?"
+---
+
+xAI opened its Grok Bot agent platform to enterprise customers on September 3, and the default settings are the story: a Bot acts with the same account permissions as the employee who signed it in, and detailed logging of what it actually did is a separate, off-by-default setting your IT team has to turn on. Any GC or sub evaluating the agentic features now shipping inside project management, estimating, or document-review software should be asking their own vendors the same two questions before flipping the switch.
+
+## What did xAI actually change?
+
+Grok Bot lets an employee create a persistent, named AI agent that signs into company software and keeps working after the laptop closes — handling things like vendor negotiations, expense management, or CRM updates. The enterprise release adds access controls, network controls, and audit logging on top of that, per xAI's own documentation. But two defaults matter more than the feature list: a Bot has no account access until a user signs it into something, at which point it "acts as" that user with their permissions — and Action Recording, the setting that captures what the Bot actually did inside an app, ships off. A team has to turn it on, and even then the internal record is capped at 90 days unless it's streamed out to the company's own monitoring system. xAI's own security FAQ also notes that enterprise model allowlists are "honored by default" but enforcement isn't guaranteed — a caveat construction IT teams should read literally, not as marketing language.
+
+## Why does a coding-agent product matter to a GC?
+
+Because it's not really about Grok Bot. It's a preview of the access model a lot of newly agentic business software is defaulting to as vendors race to ship "AI coworkers": broad permissions on connection, logging as an add-on. Construction software is moving the same direction — Procore's Digital Coworker packages, Autodesk's post-Rhumbix data agents, and Trimble's Document Crunch contract-review tools are all examples of agents that read and act on project data. Procore's own documentation states its AI agents strictly follow each user's existing permissions and never take action without sign-off — a tighter model than "acts as you." The point isn't that one vendor is unsafe; it's that these models differ, and most GCs adopting agent features haven't asked which one they're getting.
+
+## What should a GC check before enabling an agent feature?
+
+| Question | Why it matters |
+|---|---|
+| Does the agent inherit the user's full permissions, or only what the task needs? | Determines the blast radius if the agent misreads a request or is compromised |
+| Is action logging on by default? | If not, an incident after the fact has no record to investigate |
+| Where do logs live? | A log only the vendor can see isn't useful to your own security review |
+| Does a human approve write actions before they execute? | Separates "drafts an RFI" from "sends an RFI" |
+| Can network or data access be restricted to an allowlist? | Limits what an agent can reach even if it's given broad account access |
+
+None of this requires blocking agentic tools — the productivity case for them is real, and firms are already using them for RFI drafting, submittal review, and daily logs. It requires treating "turn on the AI agent" as a permissions decision, not a settings toggle, and getting a straight answer from the vendor on each line above before a bot with account-level access starts touching bid pricing, sub contracts, or owner correspondence.
+
+---
+
+Anthropic built an automatic tripwire for [stolen Claude logins](/posts/2026-09-02-anthropic-enterprise-frontier-safeguards-stolen-credential-detection-construction-ai-account-risk) last week; xAI's default access model is a reminder that a legitimate agent with too much permission is a risk even before anyone's credentials are stolen.
+
+*Forward this to whoever's about to approve the AI agent rollout in your PM software.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
