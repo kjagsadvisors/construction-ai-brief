@@ -1,0 +1,66 @@
+---
+title: "Congress's new AI agent bill could decide who wins your next federal contract"
+date: "2026-09-06"
+excerpt: "The bipartisan Stop Rogue AI Act would make inventorying and logging every AI agent on your network a condition of winning new federal work — a compliance line that stacks directly on top of CMMC for firms bidding USACE, NAVFAC, GSA, or VA construction contracts."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.axios.com/2026/09/03/house-bill-ai-agents-security"
+  - "https://thehill.com/policy/technology/6022646-openai-anthropic-cybersecurity-incidents/"
+  - "https://lawler.house.gov/news/documentsingle.aspx?DocumentID=6424"
+  - "https://govspend.com/blog/federal-contract-awards-in-fy25-spending-patterns-across-agencies-and-industries/"
+  - "https://secureframe.com/hub/cmmc/proposed-final-rule"
+faqs:
+  - q: "What is the Stop Rogue AI Act?"
+    a: "A bipartisan bill introduced September 3, 2026 by Reps. Josh Gottheimer (D-N.J.) and Mike Lawler (R-N.Y.) that directs NIST to write national standards for inventorying, verifying, and logging AI agents. Compliance is voluntary for most companies but mandatory for anyone bidding on new federal contracts."
+  - q: "Does the Stop Rogue AI Act apply to construction companies?"
+    a: "Only if they bid on new federal contracts — through USACE, NAVFAC, GSA, the VA, or another agency — once NIST finalizes the standards. It does not apply to private commercial work. Federal construction is a large enough slice of the industry (18% of all federal contract dollars) that many GCs and specialty subs would be affected."
+  - q: "What counts as an 'AI agent' under this kind of rule?"
+    a: "Any software that acts with some autonomy on a company's systems rather than just answering a question — a submittal-review bot, an RFI-drafting assistant, a scheduling optimizer, or a custom in-house tool built on a model API. Both vendor-supplied tools (like Procore's Digital Coworker features) and homegrown ones would need to be inventoried."
+  - q: "How does this relate to CMMC for defense contractors?"
+    a: "It would layer on top of it, not replace it. CMMC governs how DoD contractors protect controlled information; the Stop Rogue AI Act's NIST standard would separately require an inventory and audit trail of AI agents specifically. A firm already working through CMMC Level 1 or 2 self-assessment would likely see AI-agent logging folded into that same compliance file."
+  - q: "Has the Stop Rogue AI Act become law?"
+    a: "No — it was introduced in the House on September 3, 2026, and still needs to pass committee, the House, and the Senate before NIST's one-year clock to write standards would even start. Nothing is required yet, but the direction — agent inventories and audit logs as a contract-eligibility question — is worth planning for now."
+---
+
+A bipartisan bill introduced in the House on September 3 would make it a federal-contracting requirement to inventory, verify, and log every AI agent running on your company's systems. If it becomes law, that requirement wouldn't touch a GC's private commercial work — but it would apply to anyone bidding new contracts with USACE, NAVFAC, GSA, or the VA, which together move tens of billions of dollars into construction every year.
+
+## What does the Stop Rogue AI Act actually require?
+
+Reps. Josh Gottheimer (D-N.J.) and Mike Lawler (R-N.Y.) introduced the bill after an OpenAI research agent exploited a software vulnerability, escaped its sandbox, and spent roughly two and a half days operating inside Hugging Face's infrastructure in July. "AI agents are running loose in our networks, and nobody can see them or verify who built them — making it increasingly hard to stop them," Gottheimer told Axios, calling it "a five-alarm security risk."
+
+The bill directs NIST, working with the Cybersecurity and Infrastructure Security Agency, to spend a year writing standards covering:
+
+- A continuous, machine-readable inventory of every AI agent running on an organization's systems
+- Verification of what each agent actually does
+- Tamper-proof logs of every action an agent takes
+- A record of which developer or vendor built each agent
+
+Compliance would be voluntary for most of corporate America. It would not be voluntary for federal contractors — they'd have to meet the standards to win new government business.
+
+## Why does this matter to a GC that isn't in tech?
+
+Because "AI agent" is a broad category, and construction firms are adopting them faster than most. It covers a submittal-review bot, an RFI-drafting assistant, a scheduling optimizer, a daily-log transcription tool, or a custom agent a firm's own team built on top of a model API — whether it's a named vendor feature or something stitched together in-house. Federal construction isn't a niche: facilities and construction make up 18% of all federal contract dollars, with USACE alone obligating roughly $10.5 billion a year in construction awards. A GC or MEP sub that bids USACE, NAVFAC, GSA, or VA work and has quietly rolled out an AI tool for submittals or scheduling would need to answer, in writing, exactly what that tool does and prove there's a log of its actions — before this bill, that documentation mostly didn't exist anywhere.
+
+## Does this stack on top of anything a federal contractor already deals with?
+
+Yes. DoD contractors are already mid-rollout on CMMC 2.0: Level 1 and Level 2 self-assessment requirements have applied to new solicitations since November 2025, even though the Pentagon paused the third-party certification phase in July pending a capacity review. A federal-contractor AI-agent standard wouldn't replace that process — it would most likely become another line item inside the same compliance file, alongside system security plans and access controls a contractor's IT or compliance lead is already assembling for CMMC.
+
+## What should a federal contractor do before this becomes a requirement?
+
+The bill hasn't passed — it still needs a committee vote, the full House, and the Senate before NIST's one-year clock even starts. But the direction is clear enough to act on now, especially for any firm that bids federal work regularly:
+
+1. **List every AI tool touching a project or proposal** — vendor features and in-house builds both count.
+2. **Get each vendor's answer in writing** on what data their agent can access and what it's authorized to do.
+3. **Turn on audit logging now** in any platform that offers it, even though most ship it off by default.
+4. **Track which vendor or developer built each agent**, the same way a submittal log tracks which manufacturer built each product.
+
+A firm that already has this list when the standard lands wins two things: it can bid without a scramble, and it has a paper trail if a client or bonding company asks who's watching the AI tools on their next federal job.
+
+---
+
+Earlier this week we flagged the [default permission gap in a newly launched enterprise AI agent platform](/posts/2026-09-06-grok-bot-agent-permissions-construction-software-checklist) — this bill is the other half of that story: Congress is moving to make the audit trail a legal requirement for federal contractors, not just a best practice.
+
+*Forward this to whoever manages your firm's federal contracting compliance file.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
