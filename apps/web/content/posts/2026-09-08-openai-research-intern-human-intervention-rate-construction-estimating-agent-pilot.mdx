@@ -1,0 +1,58 @@
+---
+title: "OpenAI says its own AI agents still need a human to catch their work more than half the time. That's the number missing from your estimating-agent pitch"
+date: "2026-09-08"
+excerpt: "OpenAI reported that even its multi-hour research agents needed human correction on more than half of their 'successful' runs — and its chief scientist says no lab has solved AI oversight well enough to keep scaling at full speed. Here's the review-time budget that data implies for an estimating or RFI agent."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://www.eweek.com/news/openai-ai-research-intern-agent-workdays/"
+  - "https://www.unite.ai/openai-hits-goal-of-building-an-automated-research-intern/"
+  - "https://mlq.ai/news/openai-says-its-researchers-now-use-31-agent-workdays-for-every-human-workday/"
+  - "https://www.unite.ai/in-an-alien-mind-openais-jakub-pachocki-urges-shared-safety-bars/"
+  - "https://forkast.news/openais-chief-scientist-says-no-lab-has-solved-alignment-and-calls-for-voluntary-slowdowns/"
+faqs:
+  - q: "What did OpenAI actually report about its AI research agents?"
+    a: "On September 8, 2026, OpenAI said its researchers now run the equivalent of 3.1 agent-workdays of AI research effort for every one human workday — but that over the prior six months, more than half of the agent tasks estimated to take a human 4 to 8 hours, and counted as 'successful,' still required at least one human intervention before the result was usable."
+  - q: "Does the 3.1 agent-workdays figure mean AI is doing three researchers' worth of work?"
+    a: "No. OpenAI and outside reporting both note it measures aggregate agent runtime, not human-equivalent output — researchers are running several agents in parallel while still setting priorities, reviewing results, and stepping in when a run drifts off track."
+  - q: "What did OpenAI's chief scientist say about AI safety the same week?"
+    a: "In a September 6 essay titled 'An Alien Mind,' chief scientist Jakub Pachocki wrote that 'no lab has solved alignment and monitoring to a sufficient degree to continue responsibly scaling at maximum speed for much longer,' and called for voluntary industry slowdowns and legally enforceable safety thresholds."
+  - q: "What does this mean for an estimating team evaluating an AI takeoff or bid-leveling tool?"
+    a: "Treat any vendor's 'hands-off' or 'fully automated' pitch for a multi-hour task — full spec extraction, a complete bid comparison, an RFI research packet — with the same intervention rate OpenAI is reporting on its own turf: budget a human review pass on the majority of long-horizon runs, not the exception."
+  - q: "Is this a reason to avoid AI estimating tools?"
+    a: "No. Short, bounded tasks — quantity counts on a single drawing sheet, a spec-section keyword search — are a different reliability class than an open-ended multi-hour research task. The caution applies specifically to agents pitched as running long, unsupervised jobs end-to-end."
+---
+
+OpenAI just published its own numbers on how often its AI research agents need a human to fix their work — and even inside the company building the frontier models, that number is high. Over the past six months, more than half of the agent tasks OpenAI counted as "successful," on jobs estimated to take a person 4 to 8 hours, still needed at least one human intervention before the output was usable. If your estimating or precon software vendor is pitching a multi-hour agent task — full spec extraction, a complete bid-leveling pass, an RFI research packet — as something you can hand off and walk away from, this is the data point to hold them to.
+
+## What did OpenAI report, exactly?
+
+In a September 8 write-up on its own research process, OpenAI said its researchers are now running the equivalent of 3.1 "agent-workdays" of AI effort for every one 8-hour human workday — agents doing coding, running evaluations, debugging infrastructure, and monitoring experiments in parallel with their human counterparts. OpenAI itself is careful to frame this as aggregate machine runtime, not three extra researchers: people are still choosing what to prioritize, judging which results are worth pursuing, and correcting the agents when they go off track. The company's own stated goal is a fully automated AI researcher by March 2028 — it says it isn't there yet, and the intervention data is the clearest evidence why.
+
+## Why does an internal OpenAI metric matter to an estimator?
+
+Because it's the most concrete, self-reported reliability number any frontier AI lab has put on its own long-horizon agent work, and estimating and precon tasks sit in exactly the time band OpenAI is describing — a full quantity takeoff on a drawing set, a multi-division bid comparison, a first pass at scope-gap analysis across subcontractor proposals are all multi-hour jobs, not five-minute lookups. If OpenAI's own agents, running on OpenAI's own infrastructure with OpenAI's own oversight tooling, still need a correction on the majority of comparable-length "successful" runs, a construction software vendor's promise that their estimating agent needs "no review" on a task of similar scope deserves the same scrutiny you'd give any unverified spec claim.
+
+## What length of task is actually reliable right now?
+
+| Task type | Typical duration | Reliability signal |
+|---|---|---|
+| Single-sheet quantity count, keyword search in a spec section | Minutes | Bounded, low-variance — closer to the reliability class of a calculator |
+| Multi-sheet takeoff, single-division bid leveling | 1–4 hours | Moderate — spot-check outputs, don't skip review |
+| Full bid package comparison, cross-division scope-gap analysis, RFI research packet | 4–8+ hours | This is the band OpenAI reports a >50% correction rate on internally — plan a human review pass, not a rubber stamp |
+
+## What did OpenAI's chief scientist say about this the same week?
+
+Two days before the research numbers came out, OpenAI chief scientist Jakub Pachocki published an essay called "An Alien Mind" warning that AI capability is approaching the point where models can meaningfully accelerate their own development — and that the industry isn't ready for it. "Currently I believe that no lab has solved alignment and monitoring to a sufficient degree to continue responsibly scaling at maximum speed for much longer," he wrote, calling for voluntary slowdowns and, eventually, legally enforceable safety thresholds set by outside auditors or governments. That's the company that just reported a 50%-plus human-correction rate on its own multi-hour agent work, telling its own industry to slow down. It's a reasonable floor for how much autonomy claim to take at face value from anyone else.
+
+## What should an estimating lead actually do with this?
+
+Before piloting any agent on a multi-hour task, get the vendor to answer the same question OpenAI just answered about itself: on tasks of this length, what share of "successful" runs needed a human correction, and what did the correction look like? If a vendor doesn't track that number, don't assume it's zero — assume it's closer to OpenAI's, and price the review time into the pilot from day one. That number, not the demo, is what decides whether the tool actually saves the hours it's sold on.
+
+---
+
+Last week's [OpenAI wiki-incident piece](/posts/2026-09-07-openai-wiki-incident-read-only-agent-access-construction-vendor-risk) covered whether a vendor's stated access limits are the limits the software actually enforces. This is the companion question: whether a vendor's stated autonomy is the autonomy the agent actually delivers without a human catching the difference.
+
+*Forward this to whoever's building the pilot scorecard for your next estimating-agent trial.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
