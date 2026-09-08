@@ -1,0 +1,65 @@
+---
+title: "ChatGPT can now write your RFI responses in your own voice. Here's what you hand over to get it"
+date: "2026-09-08"
+excerpt: "OpenAI's September 7 ChatGPT Work update learns a user's writing style by reading connected Gmail, Google Drive, Slack, and SharePoint content — a real fit for RFI responses and daily logs that already sound like the PM who wrote them. OpenAI hasn't published how long those reference samples are kept or whether they train on them, which matters before a PM connects a company mailbox full of change-order and pricing correspondence."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://en.bloomingbit.io/feed/news/119893"
+  - "https://www.businesstoday.in/technology/artificial-intelligence/story/openai-says-chatgpt-can-now-mimic-your-writing-style-from-emails-and-messages-heres-how-553866-2026-09-08"
+  - "https://alternativeto.net/news/2026/9/chatgpt-work-learns-writing-style-from-connected-work-apps/"
+  - "https://betanews.com/article/chatgpt-writing-style-feature/"
+  - "https://www.analyticsinsight.net/news/chatgpt-can-now-learn-your-personal-writing-style"
+faqs:
+  - q: "What did OpenAI announce for ChatGPT Work on September 7?"
+    a: "A Writing Style feature that learns how a specific person writes — recurring phrases, sign-offs, capitalization habits — by reading content from apps the user connects: Gmail, Google Drive, Slack, and SharePoint. It then drafts new messages and documents to match that voice. It's available now to paid ChatGPT Work users on the web."
+  - q: "Does it read what I type into ChatGPT itself?"
+    a: "No. OpenAI says the feature does not learn from prompts typed directly into ChatGPT — it draws only from the connected Gmail, Drive, Slack, and SharePoint content a user authorizes."
+  - q: "Does connecting my company email mean OpenAI trains on it?"
+    a: "OpenAI hasn't said. Multiple outlets covering the launch note the company has not detailed how long the referenced writing samples are stored or whether they're used in model training — that's a gap to ask your OpenAI rep or IT admin to close before a team-wide rollout, not something to assume either way."
+  - q: "Which construction role benefits most from this?"
+    a: "PMs and project engineers who draft high volumes of formulaic but voice-sensitive correspondence — RFI responses, owner update emails, daily log narratives — are the clearest fit. Estimators writing bid cover letters and sub-side staff drafting change-order correspondence are close behind."
+  - q: "Should a GC connect its Gmail or SharePoint tenant to this today?"
+    a: "Pilot it on one person's individual mailbox first, not a shared or company-wide connection. Check what access scope the Gmail/Drive/Slack/SharePoint connector actually grants — full mailbox read versus a scoped folder — before extending it past one volunteer's inbox."
+---
+
+OpenAI's ChatGPT Work can now learn how a specific person writes — their phrasing, sign-offs, and formatting habits — by reading their connected Gmail, Google Drive, Slack, and SharePoint content, then draft new messages in that voice. For a PM who writes the same three kinds of documents on repeat — RFI responses, daily logs, owner update emails — that's a real fit. It's also a reason to read the fine print before connecting a company mailbox, because OpenAI hasn't said how long it keeps the samples it reads or whether they train on them.
+
+## What exactly did OpenAI ship?
+
+The feature, called Writing Style, rolled out September 7 to paid ChatGPT Work users on the web. In Settings under Personalization, a user connects Gmail, Google Drive, Slack, and SharePoint, and ChatGPT reads content from those apps to pick up recurring word choices, sign-off habits, and capitalization quirks — the small tics that make a draft sound like a specific person instead of generic AI copy. OpenAI says the feature does not use anything typed directly into a ChatGPT conversation; it draws only from the connected apps a user authorizes.
+
+## What's the actual construction use here?
+
+A GC project engineer writes dozens of RFI responses a month, each one needing the same defensive, precise register — cite the spec section, state the field condition, don't concede scope. A super files a daily log every night in a voice that's terse and specific. An ops director's owner-facing emails read differently than the same person's texts to a foreman. Those are exactly the repetitive, voice-specific writing tasks this feature targets:
+
+| Document type | Who writes it | Why voice matters |
+|---|---|---|
+| RFI response | PM / project engineer | Precise, non-concessive language protects against future claims |
+| Daily log narrative | Superintendent | Terse, factual, consistent format day to day |
+| Owner update email | PM / ops director | Formal register, different from field communication |
+| Bid cover letter | Estimator | Matches the firm's established client-facing tone |
+| Change-order correspondence | Sub-side PM / owner | Needs to read as the same person across a negotiation |
+
+Done well, this cuts the editing pass a PM currently does after an AI-drafted RFI response comes back sounding like nobody in particular. Done carelessly, it means routing a mailbox full of pricing, personnel, and dispute correspondence through a connector nobody on the team has actually reviewed.
+
+## What's the catch?
+
+To get the personalization, ChatGPT needs read access to the apps where that writing already lives — which for most PMs means the same inbox and SharePoint site holding change-order negotiations, subcontractor disputes, and pricing discussions. Coverage of the launch has flagged the same gap: OpenAI hasn't published how long the referenced writing samples are retained or whether they factor into model training. That's not a confirmed problem — it's an open question the company hasn't answered, and it's the wrong thing to guess about with a company's actual correspondence history.
+
+## Should a GC or sub act on this now?
+
+Not by turning it on for the whole PM staff on day one. The sequence that makes sense:
+
+1. **Pilot with one volunteer's individual account** — not a shared PM inbox, not the whole team's SharePoint site.
+2. **Check the actual OAuth scope** the Gmail/Drive/Slack/SharePoint connector requests. "Connect Gmail" can mean read access to an entire mailbox, not just RFI-related threads — know which one you're granting.
+3. **Ask your OpenAI rep in writing** how long Writing Style reference data is retained and whether it's used for training, and get that answer before extending access past the pilot.
+4. **Measure the actual editing time saved** on a real RFI response or daily log against what a PM does today with a generic prompt.
+
+If the drafts genuinely need less cleanup and the access question gets a real answer, it's worth expanding. If either one is unclear, the productivity gain isn't worth connecting a full mailbox on a guess.
+
+---
+
+*If your PMs are already fighting with generic-sounding AI drafts on RFI responses, this is worth a one-person pilot — just not a company-wide toggle flip.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
