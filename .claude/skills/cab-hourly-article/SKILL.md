@@ -17,7 +17,7 @@ The repository is the current working directory. Articles are MDX in `apps/web/c
 
 1. `git pull --rebase --autostash`.
 2. **Daily cap.** Count files in `apps/web/content/posts/` whose name starts with today's date (`YYYY-MM-DD`). If 3+, STOP.
-3. **Research broadly** (WebSearch, then WebFetch to confirm). Look across the WHOLE AI landscape for what's significant in roughly the last 24–36 hours — do **not** restrict to construction:
+3. **Research broadly** (WebSearch, then WebFetch to confirm; if WebFetch is blocked, use the step-7 fallback). Look across the WHOLE AI landscape for what's significant in roughly the last 24–36 hours — do **not** restrict to construction:
    - Frontier model & product launches (Anthropic, OpenAI, Google, Meta, Mistral, xAI, etc.) — new models, capabilities, pricing, agents, coding tools, vision, voice.
    - Major AI features/products from enterprise software vendors.
    - Notable funding rounds, acquisitions, partnerships.
@@ -39,6 +39,7 @@ The repository is the current working directory. Articles are MDX in `apps/web/c
    - Regulation/security/liability → what AEC firms must watch for in contracts, data, and compliance.
    Be concrete about *who* on a project this touches and *what they'd do differently.* Don't overclaim — note limits and what's still hype.
 7. **Verify.** Confirm facts against at least one reputable primary source via WebFetch. Every claim/stat traces to a real URL you fetched. No invented numbers, quotes, or URLs.
+   - **If WebFetch is blocked** (cloud environments may deny general web egress — errors like `EGRESS_BLOCKED` or proxy 403s), do NOT abort and do NOT try to route around the block. Fall back to WebSearch-only verification: run 2+ additional targeted WebSearch queries on the story's key facts, and keep only claims/stats that at least two independent reputable outlets report consistently in the search results. Cite those outlets' URLs (only URLs that actually appeared in search results) as `sources`. Drop any number, quote, or detail you can't corroborate this way; if the core story itself can't be corroborated by two independent outlets, skip it and pick another story or exit.
 8. **Voice.** Read `packages/voice/brand-voice.md` and `packages/voice/banned-phrases.json`. Plain, specific, skeptical, useful to a working contractor. NEVER use a banned phrase. No hype.
 9. **Draft** 500–800 words, structured so Google's AI Overview and LLM answer engines (ChatGPT/Perplexity) can extract and cite you. **Lead with the construction relevance** — the headline and opening make clear why a contractor should care. Then:
    - **Open with a direct, self-contained answer.** The first 1–2 sentences after the headline should stand alone as the answer to the implied question (this is the sentence an AI Overview quotes). No throat-clearing.
