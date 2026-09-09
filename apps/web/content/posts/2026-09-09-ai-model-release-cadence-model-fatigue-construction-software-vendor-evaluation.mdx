@@ -1,0 +1,64 @@
+---
+title: "AI labs are shipping a new model every 11 days. Your construction software RFP can't keep pace with that"
+date: "2026-09-09"
+excerpt: "The median gap between major AI model releases has dropped from 37.5 days in 2023 to 11 days in 2026, and construction software vendors are building marquee features directly on top of those models. Here's what that churn means for how you evaluate and contract for AI-enabled construction software."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.cnbc.com/2026/09/06/meta-google-openai-anthropic-ai-model-fatigue.html"
+  - "https://cryptobriefing.com/ai-labs-model-fatigue-competition/"
+  - "https://officechai.com/ai/frontier-labs-are-releasing-new-models-faster-than-ever-shows-data/"
+  - "https://www.prnewswire.com/news-releases/trimble-links-sketchup-with-anthropics-claude-bringing-new-conversational-ai-powered-capabilities-to-3d-modeling-302756403.html"
+  - "https://www.bloomberg.com/news/articles/2026-07-28/openai-anthropic-staff-share-letter-asking-us-to-help-pace-ai-progress"
+faqs:
+  - q: "How much faster are AI labs releasing new models in 2026 compared to a few years ago?"
+    a: "Industry data reported this month puts the median gap between major model releases at 11 days so far in 2026, down from 37.5 days in 2023. OpenAI's median interval alone went from 170.5 days in 2023 to 49 days in 2026 year-to-date."
+  - q: "Does this affect construction software, or just the AI labs themselves?"
+    a: "It affects any construction platform that builds features on top of a frontier lab's model. Trimble, for example, announced a SketchUp integration built directly on Anthropic's Claude in 2026 — when Claude's underlying model updates, that feature's behavior can change too, whether or not Trimble ships a visible release."
+  - q: "Should a GC hold off on buying AI-enabled construction software until release cycles slow down?"
+    a: "No — the pace isn't slowing, and waiting means falling behind competitors who are already piloting these tools. The fix is contractual and procedural, not a delay: get vendors to disclose which model powers each AI feature and commit to notifying you before a swap affects outputs you rely on."
+  - q: "What should a GC ask a vendor before signing a contract for an AI-enabled feature?"
+    a: "Ask which underlying model or models power the feature, whether the vendor is notified before that model changes, whether they re-test outputs after a model swap, and whether you'll be notified before a change that could alter results on compliance- or safety-relevant workflows like RFI drafting or submittal review."
+  - q: "Who's actually pushing back on the pace of AI releases?"
+    a: "More than 1,100 employees across OpenAI, Anthropic, Meta AI, and Google DeepMind signed the 'Pacing the Frontier' letter in July 2026, asking the U.S. government to build mechanisms that could slow frontier AI development if needed — a sign the churn is straining the labs themselves, not just their customers."
+---
+
+The median gap between major AI model releases has dropped from 37.5 days in 2023 to 11 days so far in 2026, according to industry tracking data reported this month. That's faster than most GCs can run a single software RFP, let alone re-evaluate a vendor's AI feature every time the model underneath it changes — and a growing number of construction platforms are now building marquee features directly on top of these frontier models.
+
+## What's actually happening with model releases?
+
+In the first week of September alone, Anthropic, Meta, Google, and OpenAI each shipped a major new model — Claude Fable 5.1 and Mythos 5.1, Meta's Muse Spark 1.3, Google's Gemini 3.8 Flash, and OpenAI's GPT-6 Astra. That's not an anomaly; it's the new cadence. OpenAI's median interval between model launches fell from 170.5 days in 2023 to 49 days this year. Google's dropped from 210 days in 2023 to 93 days in 2026 year-to-date, after dipping as low as 67.5 days in 2025. Enterprise buyers are calling it "model fatigue" — teams barely finish evaluating one version before the next lands and the old one gets deprecated.
+
+## Why does this matter if you're not buying AI directly from OpenAI or Anthropic?
+
+Because you're buying it indirectly, through the construction software you already use. Trimble announced in 2026 that its SketchUp modeling tool now runs a conversational AI feature built directly on Anthropic's Claude, using a connector that lets Claude read and edit SketchUp files from plain-language prompts. That's one disclosed example — most vendors don't name which model sits behind their "AI-powered" RFI drafting, submittal risk flags, or budget forecasting. When the underlying model changes — and at an 11-day industry cadence, it will — the vendor's feature can behave differently without a corresponding version bump on their end. You'd have no way to know unless you asked.
+
+## What's actually at risk on a live project?
+
+Not every AI feature carries the same exposure if the model behind it shifts. Low-stakes drafting tools are forgiving; anything feeding into a compliance record or a decision with real dollars behind it is not.
+
+| Feature type | Example | Risk if the underlying model changes silently |
+|---|---|---|
+| Draft generation | First-pass RFI or email drafts | Low — a human reviews and edits before it goes out |
+| Extraction / search | Spec-section keyword search, quantity counts | Moderate — output format or completeness can shift between checks |
+| Risk flagging | Submittal compliance flags, budget-forecast alerts | High — a flag that fires (or doesn't) changes what gets a human's attention |
+| Autonomous action | Auto-routing approvals, agent-drafted change orders | Highest — behavior change can propagate before anyone reviews it |
+
+## What should a GC actually do about this?
+
+Don't wait for the pace to slow down — it isn't going to. Instead, change what you ask vendors before you sign:
+
+1. **Ask which model powers each AI feature**, and whether it's a single foundation model or a mix across features.
+2. **Ask how the vendor learns about upstream model changes** — do they get advance notice from the lab, or find out the same way customers do?
+3. **Ask whether they re-test outputs after a model swap**, and on what workflows.
+4. **Get advance-notice language in the contract** for any change that could alter outputs on a compliance- or budget-relevant feature — treat it the same way you'd treat a change to a subcontractor's means and methods.
+
+That last point is the real lesson from this week's "model fatigue" story: the AI labs' release calendar just became part of your supply chain, whether your procurement process accounts for it yet or not.
+
+---
+
+Last week's [vendor read-only access piece](/posts/2026-09-07-openai-wiki-incident-read-only-agent-access-construction-vendor-risk) covered asking a vendor whether their AI agent's access limits actually hold. This is the companion question: whether the model behind the feature you approved is still the model doing the work six weeks later.
+
+*Forward this to whoever owns the AI-software line item in next year's IT budget.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
