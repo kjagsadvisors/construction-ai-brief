@@ -1,0 +1,57 @@
+---
+title: "The FBI just named six Chinese AI firms as security risks. Here's the question that raises for your construction software vendor"
+date: "2026-09-10"
+excerpt: "A joint NSA/CISA/FBI advisory names DeepSeek, Alibaba, Moonshot AI, MiniMax, StepFun, and Z.AI in a federal warning about AI model theft — giving GCs and subs bidding public work a concrete new question to put to any vendor selling an AI feature."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-251a"
+  - "https://www.unite.ai/nsa-cisa-fbi-warn-china-based-ai-firms-distill-us-frontier-models/"
+  - "https://startupfortune.com/fbi-nsa-and-cisa-accuse-six-chinese-ai-firms-of-stealing-us-models/"
+  - "https://www.technology.org/2026/09/09/us-agencies-chinese-ai-distillation-advisory/"
+  - "https://www.digitalapplied.com/blog/nsa-cisa-fbi-distillation-advisory-aa26-251a-what-buyers-do"
+faqs:
+  - q: "What is CISA advisory AA26-251A?"
+    a: "A joint advisory published September 8, 2026 by the NSA, CISA, and the FBI that names six China-based AI companies — DeepSeek, Alibaba, Moonshot AI, MiniMax, StepFun, and Z.AI — and accuses them of running 'aggressive, malicious, and targeted' campaigns since at least late 2024 to copy the capabilities of U.S. frontier AI models."
+  - q: "Which companies did the advisory name?"
+    a: "DeepSeek, Alibaba (Qwen), Moonshot AI (Kimi), MiniMax, StepFun, and Z.AI. The advisory says the six extracted billions of tokens across millions of exchanges from U.S. models including versions of Claude, GPT, Gemini, and Grok, and lists 41 distinct targeted U.S. model versions."
+  - q: "Does this advisory ban construction companies from using AI tools built on these models?"
+    a: "No. It's an attribution advisory describing what the six companies allegedly did to U.S. AI labs — it doesn't prohibit U.S. businesses from using software built on their models. But it adds to a pattern of federal action against China-based AI models, including agency-level bans on DeepSeek on government devices, that makes model provenance a live question for anyone selling into public-sector construction."
+  - q: "Why does this matter to a GC or sub that doesn't build its own AI tools?"
+    a: "Most construction AI features — estimating copilots, RFI drafters, scheduling assistants — are bought, not built, and vendors rarely disclose which model runs underneath the interface. If a firm bids federal, state, or agency-owned work, or works under an owner with data-provenance requirements, knowing whether a vendor's AI feature touches one of the six named companies is now a reasonable pre-award question, not a hypothetical one."
+  - q: "How does this connect to CMMC or other federal cyber compliance requirements?"
+    a: "It doesn't create a new CMMC control on its own — CMMC governs controlled unclassified information handling, and this advisory is about AI model theft between AI companies. But it's part of the same federal push toward scrutinizing AI supply chains that produced the pending Stop Rogue AI Act and agency-level restrictions on Chinese AI apps, and compliance officers assembling a CMMC file are the same people who should be tracking it."
+---
+
+The NSA, CISA, and the FBI published a joint advisory on September 8 naming six China-based AI companies — DeepSeek, Alibaba, Moonshot AI, MiniMax, StepFun, and Z.AI — as running large-scale campaigns to copy U.S. frontier AI models. It doesn't touch construction directly. It does hand federal and public-sector contractors a concrete new question to ask the software vendor selling them an "AI" feature: whose model is actually running under the hood?
+
+## What does the advisory actually say?
+
+Designated AA26-251A, the advisory accuses the six companies of "aggressive, malicious, and targeted" distillation — training their own models on outputs pulled from U.S. systems — since at least late 2024. The agencies say the campaigns extracted billions of tokens across millions of exchanges and requests from U.S. frontier models, including versions of Claude, GPT, Gemini, and Grok, and list 41 distinct targeted U.S. model versions by name. Distillation itself is a standard, published machine-learning technique; the advisory's claim is that these six companies used it at an industrial scale, likely with the Chinese government's awareness, to shortcut years of model development.
+
+This is a national-security and IP story first. It names AI labs, not construction vendors, and it doesn't ban anyone from using open-weight models from these companies. But it lands on top of two years of agencies restricting DeepSeek and similar tools on government devices and networks — and it's the kind of federal signal that shows up later as a procurement requirement.
+
+## Why should a GC or sub care?
+
+Because almost none of the AI features bolted onto construction software over the last two years come with a disclosed model. A PM software vendor advertising an "AI-assisted" RFI drafter or an estimating copilot typically doesn't say whether that feature calls a frontier API from Anthropic or OpenAI, runs a self-hosted open-weight model to cut costs, or does both depending on the customer's plan tier. For a firm working purely private commercial work, that's a non-issue. For anyone bidding USACE, NAVFAC, GSA, VA, state DOT, or other public work — or working for an owner with data-handling requirements in the contract — it's now a fair pre-award question, because "which model" has become a question federal agencies are actively asking about their own vendors.
+
+## What should a contractor actually do with this?
+
+You don't need to rip out any software. Start with a short list:
+
+1. **Ask every AI-feature vendor what model powers it** — in writing, not a sales-call answer. Vendors selling to construction should be able to name the model family.
+2. **Flag any vendor that can't or won't answer.** A vendor that doesn't know what model it's running probably isn't tracking this risk either.
+3. **Check your existing federal contract terms** for data-handling or software-supply-chain language that already covers this, before assuming it doesn't.
+4. **Keep the list current.** Vendors swap underlying models to cut costs more often than they announce it.
+
+## What this doesn't mean
+
+This advisory is not a construction-specific rule, and nothing in it requires a contractor to do anything differently tomorrow. Treat it the way you'd treat a bulletin about a manufacturer's supply-chain problem before it becomes a spec requirement: worth a file note now, worth acting on before an owner or a bonding company asks first.
+
+---
+
+We flagged the compliance direction this is heading in [Congress's pending AI-agent inventory bill for federal contractors](/posts/2026-09-06-stop-rogue-ai-act-federal-construction-contractor-compliance) — this advisory is the same story from the supply-chain side: who built the model matters as much as what the tool does.
+
+*Forward this to whoever tracks your firm's federal contracting compliance file.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
