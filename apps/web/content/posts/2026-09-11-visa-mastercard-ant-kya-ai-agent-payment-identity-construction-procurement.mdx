@@ -1,0 +1,59 @@
+---
+title: "Visa, Mastercard, and Ant just agreed on how to verify an AI agent's identity before it spends money. Procurement software is next"
+date: "2026-09-11"
+excerpt: "The three payment giants unveiled a shared Know-Your-Agent framework on September 9 so an AI agent's identity and spending authority can be verified across card networks. Construction's material-ordering and invoice-payment software is racing toward the same problem."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.pymnts.com/cybersecurity/2026/visa-mastercard-team-with-ant-know-your-agent-framework"
+  - "https://forkast.news/ant-international-visa-and-mastercard-agree-on-agent-identity-standard-now-comes-the-hard-part/"
+  - "https://www.stocktitan.net/news/V/ant-international-mastercard-and-visa-initiate-collaboration-on-know-prf0vv3wtq0c.html"
+  - "https://technode.global/2026/09/10/ant-international-mastercard-visa-develop-kya-framework/"
+  - "https://www.digitalcommerce360.com/2025/10/20/mckinsey-forecast-5-trillion-agentic-commerce-sales-2030/"
+faqs:
+  - q: "What is the Know-Your-Agent (KYA) framework?"
+    a: "Announced September 9, 2026 by Ant International, Mastercard, and Visa, KYA is a shared framework for verifying an AI agent's identity and spending authority across card networks and digital wallets before it completes a purchase. It's meant to make each company's existing protocol — Visa's Trusted Agent Protocol, Mastercard's Verifiable Intent, and Ant's Agentic Mobile Protocol — interoperable rather than three incompatible systems a merchant has to support separately."
+  - q: "Does KYA affect construction procurement or accounts-payable software today?"
+    a: "Not directly yet — it's payment-network infrastructure, not a construction product. But procurement and AP platforms adding 'AI agent' features for material reordering or invoice payment will eventually sit on top of frameworks like this, the same way a POS system sits on top of Visa and Mastercard's existing rails."
+  - q: "Why do payment networks need a standard for AI agent identity at all?"
+    a: "AI agents are moving from making recommendations to completing transactions on their own. McKinsey projects AI agents could orchestrate $3 trillion to $5 trillion of global consumer commerce by 2030. At that scale, a merchant or bank needs a reliable way to confirm which agent is transacting, on whose behalf, and within what spending limit — the same job a signature or PIN does for a human buyer."
+  - q: "What should a GC or subcontractor ask a vendor pitching an AI purchasing or invoice-payment agent?"
+    a: "Ask whether the agent's identity and spend authorization travel with each transaction or whether it's just reusing a saved company card with no per-agent controls; what dollar and category limits are enforced at the agent level; and who is contractually liable for a disputed or duplicate agent-initiated purchase."
+  - q: "Is this the same as the agent-permissions issue with tools like Grok bots?"
+    a: "It's related but narrower. Broad AI agent permissioning (what systems an agent can read or act on) is a software-access question; KYA is specifically about payment transactions — confirming an agent's identity and authority before money moves. A construction software vendor could get one right and not the other."
+---
+
+Visa, Mastercard, and Ant International announced a joint Know-Your-Agent (KYA) framework on September 9 — a shared way to verify an AI agent's identity and spending authority before it completes a purchase, so a bank or merchant doesn't have to trust three incompatible company-specific systems. For anyone evaluating procurement or accounts-payable software that promises an "AI agent" will order materials or pay a subcontractor invoice, this is the trust problem that software is racing toward, and today mostly hasn't solved.
+
+## What did Visa, Mastercard, and Ant actually agree to?
+
+Each company had already built its own way to authenticate an AI agent making a purchase: Visa's Trusted Agent Protocol, Mastercard's Verifiable Intent, and Ant International's Agentic Mobile Protocol, which Ant open-sourced in April. KYA is the effort to make those three interoperable — one shared architecture for establishing requirements, verifying an agent's identity, and confirming it's authorized for a given transaction, so card networks, digital wallets, and agent platforms don't each need a separate integration. The companies say the goal is lower integration cost and a faster path to launching agentic payment services generally.
+
+The scale driving it: McKinsey projects AI agents could orchestrate $3 trillion to $5 trillion of global consumer commerce by 2030 — money moving through agents that shop, reorder, and transact with less and less human click-through.
+
+## Why should a GC or sub care about payment-network plumbing?
+
+Because the same problem KYA is solving for consumer shopping agents already exists in construction procurement and AP, just without a name yet. Material reordering, equipment-rental booking, and subcontractor invoice payment all involve real dollars moving on a schedule — exactly the kind of repetitive, rules-based spending that software vendors are pitching AI agents to automate. Today, if a procurement tool hands an agent a company purchasing card and tells it to keep a job stocked with rebar or approve invoices under a threshold, there's no industry-standard way to prove which agent made a specific purchase, on whose authority, within what limit. That's the gap for consumer commerce that KYA is designed to close — and the commercial procurement version of the same problem is still open.
+
+## What changes for a GC or sub right now?
+
+Nothing operationally today — KYA is bank and card-network infrastructure, not a construction product, and no procurement or AP platform has announced support for it yet. But it's a useful checklist for the next vendor demo that pitches an autonomous purchasing or invoicing agent:
+
+| Old question | Better question now |
+|---|---|
+| "Can the agent place orders automatically?" | "Does the agent have its own verifiable identity and spend limit, or is it just using our saved card with no agent-level controls?" |
+| "How much can it save on procurement admin?" | "What dollar and category caps are enforced per agent, and who set them?" |
+| "Is it secure?" | "If an agent-initiated purchase is disputed or duplicated, who is contractually liable — us or the vendor?" |
+| "Does it integrate with our bank?" | "Does the vendor plan to support emerging agent-identity standards like KYA, or is that not on their roadmap?" |
+
+## The takeaway
+
+The payment industry is building the identity and authorization layer that agentic purchasing needs before it scales — construction procurement software hasn't caught up yet. Before letting any tool make purchases or pay invoices autonomously, get a straight answer on how it identifies and limits that specific agent, not just the company account it's attached to.
+
+---
+
+This is the payments-side version of the access question we raised when [xAI's Grok bots started inheriting full account permissions by default](/posts/2026-09-06-grok-bot-agent-permissions-construction-software-checklist) — one is about what an agent can touch, this one is about what it can spend.
+
+*Forward this to whoever is evaluating "AI agent" claims in your next procurement or AP software pitch.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
