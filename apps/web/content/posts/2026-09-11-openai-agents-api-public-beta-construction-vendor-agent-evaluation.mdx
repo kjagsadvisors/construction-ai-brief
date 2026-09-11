@@ -1,0 +1,61 @@
+---
+title: "OpenAI just started renting out the infrastructure behind its AI agents. Here's why that changes how you should evaluate the next 'AI agent' pitch"
+date: "2026-09-11"
+excerpt: "OpenAI's new Agents API puts the same orchestration engine that runs Codex behind a single API call, for a token fee instead of a subscription. That lowers the bar for building a construction AI agent — which means the vendor's harness matters less than what it's actually connected to."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://openai.com/index/introducing-the-agents-api/"
+  - "https://www.marktechpost.com/2026/09/10/openai-launches-the-agents-api-in-public-beta-putting-the-codex-harness-behind-one-api-call/"
+  - "https://alphasignal.ai/news/openai-s-agents-api-kills-the-orchestration-layer-developers-hate-building"
+  - "https://www.prnewswire.com/news-releases/nash-launches-ai-agents-with-full-context-intelligence-to-scale-delivery-operations-302361965.html"
+  - "https://www.procore.com/press/procore-acquires-datagrid"
+faqs:
+  - q: "What is OpenAI's new Agents API?"
+    a: "Launched in public beta on September 10, 2026, it exposes the same orchestration engine that powers OpenAI's Codex coding agent — session management, tool use, sandboxed environments, and multi-step recovery — as a general-purpose API any developer can build on, for the price of the model tokens and tools used, with no separate platform fee."
+  - q: "Does this mean any construction software company can now build an AI agent?"
+    a: "It lowers the engineering cost of the reliability layer — keeping an agent running for hours or days, retrying failed steps, coordinating sub-tasks — which used to be work every vendor built from scratch. It does not include construction-specific logic: spec-book parsing, CSI division awareness, or a Procore, Sage, or Autodesk connector. A vendor still has to build and validate all of that."
+  - q: "How is this different from open-source agent frameworks that came out earlier this year?"
+    a: "Frameworks like DeepSeek's Harness or Y Combinator's QM are free code a company self-hosts and maintains. OpenAI's Agents API is a managed, paid service — no self-hosting, but you pay per token and per tool call, and you're tied to OpenAI's infrastructure rather than owning it outright."
+  - q: "What should a GC or sub actually ask a vendor pitching an AI agent now?"
+    a: "Ask less about whether the agent 'runs autonomously' — that reliability is increasingly bought infrastructure, not a vendor's own engineering — and more about what systems it's actually wired into, how its output is checked, and what happens when it's wrong. The harness is becoming a commodity; the data connections and domain accuracy are not."
+  - q: "Is this related to Procore's acquisition of Datagrid?"
+    a: "Not directly — Procore bought Datagrid, a construction-specific agentic AI platform, back in January 2026 for $168 million. But the two stories rhyme: as the underlying plumbing for running reliable AI agents gets commoditized and cheaper to buy or rent, the acquisitions and products that matter are the ones adding construction-specific data and workflow logic on top of it, which is exactly what Procore paid for."
+---
+
+OpenAI opened public beta access to its Agents API on September 10, putting the orchestration engine that runs its Codex coding agent behind a single API call — for anyone, for any task, billed by the token instead of by the seat. For a GC or sub trying to evaluate the fast-growing pile of vendors pitching "AI agents" for RFIs, submittals, or dispatch, that's the moment the sales pitch needs a new filter: running an agent reliably just got a lot easier to buy, so it stops being the thing that makes one vendor's tool better than another's.
+
+## What did OpenAI actually launch?
+
+The Agents API packages four pieces that any company building an AI agent used to have to engineer itself: an **Agent** (the model, its instructions, and its tools, including MCP-connected systems), an **Environment** (a sandbox where it can read files, run code, and save work), a **Session** that persists across long tasks, and a stream of events reporting back what happened. OpenAI says it's built for agents that need to keep running reliably for hours or days, not just answer a single prompt — coordinating sub-agents on parallel pieces of a task, recovering from failures automatically, and picking up where they left off. There's no separate platform fee; a developer pays for the model tokens and any tools or sandbox time the agent consumes.
+
+One early customer, the logistics company Nash, is already running thousands of these long-running agents to manage hundreds of millions of deliveries, using the Agents API as the durable session and recovery layer while it builds the logistics-specific logic on top. That's the pattern worth watching: the hard, expensive part of "AI agent that doesn't fall over after 20 minutes" is now something you rent, not something you build.
+
+## Why does this matter if you don't build software?
+
+Because it changes what's actually hard about building a construction AI agent — and therefore what a vendor's pitch should be judged on. Before infrastructure like this existed, a company selling an "autonomous RFI agent" had real engineering work behind the marketing: keeping the agent alive through a multi-hour document review, retrying when a step failed, checkpointing progress. That's now a commodity piece any well-funded startup can buy off the shelf from OpenAI or a comparable provider. What's left as genuinely hard — and genuinely differentiating — is everything construction-specific: reading a real spec book correctly, connecting to your actual Procore or Sage instance, knowing what a submittal package is missing, and catching its own mistakes before they reach a PM's inbox.
+
+Procore's acquisition of the agentic AI platform Datagrid back in January, for $168 million, is the same bet from the buy side: the plumbing for running agents is becoming table stakes, so the money goes toward the construction-specific data layer sitting on top of it. Expect the same logic to keep playing out — more startups pitching construction AI agents, built faster and cheaper on rented infrastructure like this, with the real gap between them showing up in accuracy and integration, not in whether the agent "runs on its own."
+
+## What should you actually ask before buying?
+
+The next time a vendor demos an agent that drafts RFI responses, checks submittal packages, or triages dispatch requests, the reliability-of-the-agent question matters less than it did a year ago. These matter more:
+
+| Old question | Better question now |
+|---|---|
+| "Does it run autonomously?" | "What does it connect to — our actual Procore/Sage instance, or a demo dataset?" |
+| "Can it handle a multi-step task?" | "What's its error rate on our documents, not a sample deck?" |
+| "Is it always-on?" | "What happens when it's wrong, and who's checking?" |
+| "How much does the AI cost?" | "How much of the price is the harness versus the construction-specific work?" |
+
+## The takeaway
+
+Renting a reliable agent harness is no longer a hard problem for a software company to solve, which means it's no longer a reason to pay a premium for one vendor over another. The differentiation construction buyers should be pricing in now is domain accuracy and data integration — the parts OpenAI's new API explicitly does not include.
+
+---
+
+We covered the self-hosted, free version of this shift when [DeepSeek open-sourced its own agent harness](/posts/2026-08-16-deepseek-harness-open-source-agent-construction-buy-vs-build) in August — this is the same commoditization pressure from the paid, managed side.
+
+*Forward this to whoever runs software procurement at your firm before the next "AI agent" demo.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
