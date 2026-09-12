@@ -1,0 +1,62 @@
+---
+title: "DeepSeek gave away a model that reads a full spec book in one pass for pennies. Running it yourself answers the security question the FBI just raised"
+date: "2026-09-12"
+excerpt: "DeepSeek's new V4.1-Flash model reads roughly 750,000 words in a single context window at a fraction of frontier pricing, and its MIT license lets a firm run it entirely on its own servers — sidestepping the exact offshore-data concern the FBI, NSA, and CISA raised about Chinese AI vendors two days earlier."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://www.marktechpost.com/2026/09/10/deepseek-ai-released-deepseek-v4-1-flash-with-1m-context-fp4-kv-cache-and-cross-layer-attention-reuse/"
+  - "https://venturebeat.com/technology/deepseek-v4-1-flash-debuts-with-0-003-1m-off-peak-cached-input-rate-and-benchmarks-eclipsing-gpt-5-6-sol-claude-opus-5"
+  - "https://dataconomy.com/2026/09/11/deepseek-v4-1-flash-ultralow-token-pricing/"
+  - "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash"
+  - "https://www.mintmcp.com/blog/deepseek-v4"
+  - "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-251a"
+faqs:
+  - q: "What is DeepSeek V4.1-Flash?"
+    a: "A mixture-of-experts AI model DeepSeek released on September 10, 2026, with 552 billion total parameters (only 8-16 billion active per token), native image understanding, and a 1-million-token context window. The weights are published on Hugging Face under the MIT license, meaning anyone can download and run the model on their own hardware for commercial use."
+  - q: "How much text does a 1-million-token context window actually hold?"
+    a: "Roughly 750,000 words using the standard token-to-word approximation for English text — enough to hold a full project spec book (Divisions 00 through 49) plus addenda in a single prompt, without splitting it into chunks first."
+  - q: "Was DeepSeek named in a federal security warning?"
+    a: "Yes. On September 9, 2026, the FBI, NSA, and CISA named DeepSeek as one of six Chinese AI firms accused of extracting large volumes of data from US frontier models through offshore APIs. That warning was about calling those companies' hosted services, not about the open-weight files themselves."
+  - q: "Does self-hosting an open-weight model actually solve that security concern?"
+    a: "It solves the specific concern the advisory raised: your prompts and documents never leave a server you or your vendor controls, so there's no offshore API call to worry about. It doesn't verify itself — a construction firm still has to confirm its vendor's hosting, logging, and backups all stay in the required jurisdiction."
+  - q: "What hardware does it take to self-host V4.1-Flash?"
+    a: "Independent deployment guides put it at roughly 170GB of VRAM, which fits on two Nvidia H200 GPUs — a real infrastructure investment, not something that runs on office hardware. This is a decision for a software vendor or an IT-equipped GC, not a solo estimator's laptop."
+---
+
+DeepSeek released an AI model this week that reads roughly 750,000 words in one pass and costs a fraction of what frontier models charge — cheap and large enough to hold a full spec book without chunking it first. It also happens to answer a question the FBI raised two days earlier: because the model's weights are free to download and run on your own servers, a firm can get the same capability without a single byte crossing into a vendor's offshore API.
+
+## What did DeepSeek actually release?
+
+DeepSeek-V4.1-Flash went live on September 10, 2026: a 552-billion-parameter mixture-of-experts model that activates only 8 to 16 billion of those parameters per token, keeping inference cheap despite the model's size. It reads both text and images natively, handles up to 1 million tokens of context in one request, and is priced around $0.15 per million input tokens at standard rates — with off-peak cached reads as low as $0.003 per million. The weights are posted on Hugging Face under the MIT license, the most permissive open license in common use, which allows commercial use, modification, and self-hosting with no royalty or restriction.
+
+## What does a 1-million-token window actually change for an estimator?
+
+Most AI document tools today work by chunking a spec book into pieces, converting each piece into a searchable index, and pulling back the handful of chunks that look relevant to a question. That approach misses cross-references — a bonding requirement buried in Division 00 that a Division 23 spec section quietly depends on, or an allowance defined in an addendum that never gets indexed alongside the section it modifies.
+
+A 1-million-token window sidesteps that problem by holding the whole document set — general conditions, every division, every addendum — in one context at once. A question like "list every place this project requires a performance bond, an allowance, or a unit price" gets answered against the complete document, not a retrieval system's best guess at what's relevant.
+
+## Does self-hosting actually solve a real problem?
+
+Two days before this release, the FBI, NSA, and CISA named DeepSeek as one of six Chinese AI firms accused of running an "industrial-scale" effort to extract data from US AI models through their hosted APIs. The concern in that advisory was specifically about the data path: prompts and outputs traveling to a server the vendor controls, potentially with Chinese government visibility.
+
+An MIT-licensed model doesn't require that path. A construction software vendor — or a GC with its own infrastructure — can download the same weights and run them entirely on hardware in a US data center, with zero calls back to any DeepSeek-operated service. The benchmark performance is identical; the answer to "does our data leave the country" changes.
+
+That's a real difference, not a marketing distinction, but it isn't automatic. Self-hosting takes real infrastructure — deployment guides put V4.1-Flash at roughly 170GB of VRAM, which fits on two Nvidia H200 GPUs. That's a vendor-level or enterprise-IT decision, not something an estimator sets up on a laptop.
+
+## What to ask before you trust the label "self-hosted"
+
+| Question | Why it matters |
+|---|---|
+| Do our documents ever leave the servers you control? | The whole point of self-hosting is no offshore API call — confirm it, don't assume it |
+| Where do logs, backups, and admin access live? | Data sovereignty fails if the model runs onshore but the logs sync to an offshore backup |
+| Is our spec library used to fine-tune anything outside our contract? | Open weights make fine-tuning easy; make sure your documents aren't training someone else's model |
+| Can you show benchmark results on our document types, not just published leaderboards? | Marketing benchmarks are generic; your spec books and drawing sets are not |
+
+None of this requires waiting for a purpose-built construction tool. The pieces — a cheap, huge-context, open-weight model — are sitting on Hugging Face today. What's missing is a vendor willing to answer the four questions above in writing.
+
+---
+
+We covered the federal advisory naming DeepSeek and five other Chinese AI firms in [our September 10 piece on distillation risk](/posts/2026-09-10-nsa-cisa-fbi-distillation-advisory-construction-ai-vendor-risk) — this is the mirror image of that story: the same company's technology, deployed in a way that answers the exact concern the advisory raised.
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
