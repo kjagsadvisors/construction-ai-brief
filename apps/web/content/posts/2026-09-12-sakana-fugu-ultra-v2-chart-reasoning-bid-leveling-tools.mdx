@@ -1,0 +1,61 @@
+---
+title: "A new AI model just posted the best score yet at reading charts and tables — and it costs less than the frontier models it beats"
+date: "2026-09-12"
+excerpt: "Sakana AI's Fugu Ultra v2 tops a visual-data-reasoning benchmark by a wide margin at a fraction of frontier pricing, which matters most for the vendors building the next generation of bid-leveling and spec-extraction tools — not for estimators calling it directly."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://sakana.ai/fugu-max-release/"
+  - "https://www.marktechpost.com/2026/09/10/sakana-ai-launches-fugu-max-and-fugu-ultra-v2-for-cheaper-stronger-multi-agent-orchestration/"
+  - "https://alphasignal.ai/news/sakana-ai-splits-fugu-into-max-and-ultra-v2-to-cut-costs-60"
+  - "https://ai-tldr.dev/models/fugu-ultra-v2/"
+  - "https://openrouter.ai/sakana/fugu-ultra-v2"
+faqs:
+  - q: "What is Sakana AI's Fugu Ultra v2?"
+    a: "An AI model Sakana AI released on September 11, 2026, built as a multi-agent orchestration system rather than a single trained network — it routes a task across a pool of models and can call itself recursively, using assigned Thinker, Worker, and Verifier roles. It ships alongside a cheaper sibling, Fugu Max, aimed at high-volume, lower-stakes tasks."
+  - q: "How is Fugu Ultra v2 priced compared to frontier models?"
+    a: "$5 per million input tokens and $30 per million output tokens at standard context lengths (rising to $10/$45 above 272,000 tokens), with cached input as low as $0.50 per million. On its strongest benchmarks it matches or beats models priced three to five times higher per token."
+  - q: "What is the Chartography benchmark, and why does it matter for construction?"
+    a: "Chartography tests how well a model reads and reasons over charts, tables, and other structured visual data. Fugu Ultra v2 scored 48.3, well ahead of Anthropic's Opus 5 (27.3) and Fable 5 (29.5) on the same test — the same skill needed to read a bid tabulation, a unit-price schedule, or an equipment schedule off a drawing sheet."
+  - q: "Should a construction software vendor switch their document-reading tools to Fugu Ultra v2 today?"
+    a: "Not without testing it on real project documents first. The Chartography score is a general benchmark, not a construction-specific one, and nobody has published results on actual bid tabs, spec tables, or drawing schedules. The orchestration architecture also adds moving parts — multiple model calls per request — that a vendor has to account for in latency and failure handling."
+  - q: "Does this change anything for an individual estimator right now?"
+    a: "Not directly. Estimators don't call model APIs themselves — this is a decision for the software vendors building takeoff, bid-leveling, and spec-extraction tools. The effect reaches an estimator's desk only once a vendor rebuilds a feature on top of it, which is worth asking about at the next contract renewal."
+---
+
+Sakana AI shipped a model this week that posts the best published score yet on reading charts, tables, and other structured visual data — and it does it for less money per token than the frontier models it outperforms on that specific test. That combination matters more to the handful of vendors building your estimating software than it does to anyone opening a chatbot directly, but it's worth understanding now because it will show up in a product roadmap before the year is out.
+
+## What did Sakana actually release?
+
+On September 11, 2026, Sakana AI launched two models: Fugu Max, a cost-first tier aimed at high-volume routine tasks, and Fugu Ultra v2, a capability-first tier aimed at harder reasoning work. Neither is a conventional single trained network. Both are "multi-agent orchestration" systems — a coordinator model that reads an incoming task, builds a scaffold for it on the fly, and assigns pieces of the work to a pool of other models playing Thinker, Worker, or Verifier roles, recursively calling itself where needed. Sakana says Fugu Ultra v2 hits its scores without relying on any single frontier model like Fable 5.1 or GPT-6-Astra in that pool.
+
+Fugu Ultra v2 costs $5 per million input tokens and $30 per million output tokens at standard context lengths. On DeepSWE, a real-world software-engineering benchmark, it scored 74.3 — ahead of models priced three to five times higher per output token, according to independent reviews of the release.
+
+## Why the Chartography score is the one to notice
+
+The benchmark result with the clearest construction read is Chartography, which measures how well a model interprets charts, tables, and other structured visual data. Fugu Ultra v2 scored 48.3 against 27.3 for Anthropic's Opus 5 and 29.5 for Fable 5 — a wide gap on exactly the kind of document most estimating software has to parse: a bid tabulation with dozens of line items across multiple subs, a unit-price schedule buried in the front-end documents, an equipment schedule printed as a table on a mechanical drawing sheet.
+
+That's not a construction benchmark. Nobody has run Fugu Ultra v2 against an actual set of bid tabs or spec tables and published the results. But it's a directly relevant proxy, and it lands at a price point that undercuts the frontier models a vendor would otherwise default to for the same job.
+
+## What this changes for a vendor's model shortlist
+
+Estimating, bid-leveling, and spec-extraction tools live or die on how reliably they extract structured data from documents that were never designed to be machine-readable. Until now, a vendor building that kind of feature mostly picked from the same three or four frontier labs at frontier pricing per document processed. A model scoring well on visual/tabular reasoning at a fraction of that cost is the kind of result that gets an engineering team to run its own bake-off — not to switch overnight, but to test.
+
+There's a real tradeoff to weigh alongside the price. An orchestration model that routes a task across several sub-models per request has more moving parts than a single API call: more places for latency to creep in, more places for a failure to hide. A vendor evaluating this owes their customers the same question they'd ask of any new model — tested against real documents, not just a published leaderboard.
+
+## What to ask your estimating software vendor
+
+| Question | Why it matters |
+|---|---|
+| Have you tested a table/chart-reasoning model like this against our actual bid tabs and unit-price schedules? | Chartography is a general benchmark; your documents are the only real test |
+| What changes for pricing if the underlying model gets cheaper? | Per-document AI costs are usually baked into subscription pricing — ask if savings pass through |
+| What happens when the orchestration fails partway through a request? | Multi-model routing adds failure points a single-model call doesn't have |
+| How fast do you evaluate new models against your existing accuracy baseline? | The gap between "a model exists" and "your tool uses it" is where the real lag time is |
+
+None of this requires action from an estimator this week. It's a data point for the next conversation with a software vendor about why a feature is still slow, still expensive, or still missing — and a reason to ask whether they're watching this kind of release at all.
+
+This is the same churn we flagged in [our piece on the 11-day model release cycle](/posts/2026-09-09-ai-model-release-cadence-model-fatigue-construction-software-vendor-evaluation): a construction software RFP can't specify a model by name and expect it to still be the best option six months later. Fugu Ultra v2 is this week's proof point.
+
+---
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
