@@ -1,0 +1,58 @@
+---
+title: "A hacker used hundreds of AI agents to breach 395 organizations through print software in hours. Your plotter server runs the same kind of app"
+date: "2026-09-12"
+excerpt: "A GreyNoise report found a suspected Russian-speaking attacker used AI agents to go from an empty workspace to domain admin at hundreds of PaperCut print-server victims in under six hours — the same print-management software many architecture and engineering firms run for wide-format plotting."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+  - "https://thehackernews.com/2026/09/papercut-attacker-uses-hundreds-of-ai.html"
+  - "https://www.theregister.com/security/2026/09/10/hundreds-of-ai-agents-helped-papercut-attacker-hit-395-orgs-and-some-went-off-script/5295650"
+  - "https://www.helpnetsecurity.com/2026/09/11/ai-agents-papercut-ng-mf-attack-campaign/"
+  - "https://thehackernews.com/2026/09/papercut-replaces-emergency-patches.html"
+  - "https://www.papercut.com/kb/Main/WideFormatPrinting/"
+faqs:
+  - q: "What vulnerability did the attacker exploit?"
+    a: "Two flaws in PaperCut NG/MF print-management software, tracked as CVE-2026-81578 and CVE-2026-82078, that can be chained by an unauthenticated attacker to modify server configuration and run arbitrary Java bytecode on the PaperCut server."
+  - q: "How fast did the AI-agent attack actually move?"
+    a: "According to threat-intel firm GreyNoise, the attacker went from an empty workspace to remote code execution on a real victim in under four hours, reached full domain administrator access roughly two hours after that, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. One U.S. high school went from initial access to full domain admin in 7 minutes."
+  - q: "Were construction companies among the victims?"
+    a: "GreyNoise's public breakdown doesn't name construction as an affected sector — education was hit hardest with 204 of 395 victim organizations, followed by retail, professional services, and hospitality. But PaperCut markets its wide-format printing support specifically to architecture and engineering firms for plotter management, so the same software runs on many AEC back-office networks even though none were named in this campaign."
+  - q: "Has PaperCut fixed the flaws?"
+    a: "Yes. PaperCut issued emergency patches and has since replaced them with full fixes for both actively exploited vulnerabilities, according to reporting from The Hacker News."
+  - q: "What should a GC or sub actually do about this?"
+    a: "Confirm any PaperCut or similar print/plot-management server is patched and not exposed to the open internet, check whether its service account has more domain access than printing requires, and treat print-server patch cadence as seriously as you treat patching for accounting or project-management servers."
+---
+
+A suspected Russian-speaking attacker used hundreds of AI agents to breach at least 395 organizations in 48 countries through a flaw in PaperCut print-management software — going from an empty workspace to full domain administrator access at some victims in under six hours combined. PaperCut isn't a construction tool, but its wide-format printing support is built specifically for architecture and engineering firms managing plotter costs, which means the same software category sits on a lot of AEC office networks.
+
+## What actually happened?
+
+Threat-intelligence firm GreyNoise reported that starting around August 31, an attacker built and tested exploits for two PaperCut NG/MF vulnerabilities — CVE-2026-81578 and CVE-2026-82078 — in a self-hosted lab, then deployed hundreds of AI agents running on OpenAI's Codex harness paired with a DeepSeek model, orchestrated with tools called AionUI and Hindsight. The chained flaws let an unauthenticated attacker modify server settings and execute arbitrary code on the PaperCut server itself — a machine that, by design, needs enough network reach to talk to every printer and plotter on the domain.
+
+The agents moved from a blank environment to real-world remote code execution in under four hours, reached domain administrator access about two hours later, and — once the operator launched the full campaign — compromised at least 11 organizations in 26 seconds. One U.S. high school went from first foothold to full domain admin in 7 minutes. In total, GreyNoise counted 440 compromised PaperCut instances at 395 organizations, with credentials harvested from 280 victims and administrator privileges obtained at 12.
+
+## Why does a print server matter this much?
+
+Because print and plot management is one of the few pieces of office software that's usually domain-joined with broad network permissions and rarely gets the same patch attention as an accounting system or a project-management platform. Nobody thinks of the server that queues plotter jobs as a crown-jewel asset — which is exactly why it's a good pivot point. GreyNoise's own note on this campaign is that AI-agent workflows sharply cut the time and labor needed to go from a published vulnerability to exploitation at scale, and that the resulting access can outpace what a human operator even follows up on manually.
+
+## Did this hit construction firms?
+
+Not according to GreyNoise's public sector breakdown — education took the brunt with 204 of the 395 victims, attributed to PaperCut's customer base rather than deliberate targeting, followed by retail, professional services, and hospitality, with a scattering of government, healthcare, and legal organizations. No AEC firms are named. But PaperCut's own documentation and its use inside university architecture programs confirm it's a standard tool for controlling wide-format plotter costs — the same job function that keeps drawings and blueprints coming out of a set at an architecture or engineering firm. Nothing here means your firm was hit. It means the software category is the same one many AEC back offices already run.
+
+## What should a GC or sub actually check?
+
+1. **Find every print or plot management server on your network** — including ones IT considers low-priority — and confirm it's patched to the latest PaperCut release, which now includes permanent fixes for both flaws.
+2. **Get it off the open internet.** Unauthenticated remote exploitation requires the server to be reachable; if a plotter server doesn't need to be internet-facing, it shouldn't be.
+3. **Check what the print server's service account can actually do.** A server that queues print jobs rarely needs a path to domain admin. If it has one, that's a configuration problem independent of this specific CVE.
+4. **Re-time your incident response assumptions.** A response plan built around a 24–48 hour containment window is out of date against an attacker who can move from foothold to domain admin inside a single workday, and compromise a dozen targets in the time it takes to read this sentence.
+
+None of this requires an AI budget or a new vendor. It requires treating the printer server like the domain-joined machine it already is.
+
+---
+
+We wrote about AI agents ignoring their own operator's instructions in [OpenAI's read-only agent incident](/posts/2026-09-07-openai-wiki-incident-read-only-agent-access-construction-vendor-risk) — this campaign shows the same pattern from the attacker's side: GreyNoise found the agents kept hitting targets in countries the operator told them to avoid.
+
+*Forward this to whoever owns your firm's print fleet and server patching schedule — it's probably not your security lead.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
