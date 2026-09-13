@@ -1,0 +1,54 @@
+---
+title: "OpenAI's hands-free voice AI finally shipped an API and a price. Here's the daily-log math"
+date: "2026-09-13"
+excerpt: "OpenAI put its full-duplex voice model, GPT-Live-1, into the API on September 10 at $0.05 a minute — the API access that was missing when the underlying model first launched in July. That price makes hands-free field dictation cheap, but it's only one of two bills a vendor building on it has to pay."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+  - "https://www.neowin.net/news/openai-brings-chatgpts-gpt-live-1-voice-model-to-developers-for-005-per-minute/"
+  - "https://www.theregister.com/ai-and-ml/2026/09/10/openai-arms-devs-with-ai-conversation-tool-that-can-talk-and-listen-at-the-same-time/5295708"
+  - "https://www.unite.ai/openais-gpt-live-1-arrives-in-the-api-at-0-05-per-minute/"
+  - "https://alphasignal.ai/news/openai-s-gpt-live-1-cuts-voice-agent-code-by-80-at-0-05-a-minute"
+faqs:
+  - q: "What is GPT-Live-1 and when did OpenAI release the API?"
+    a: "GPT-Live-1 is OpenAI's full-duplex voice model — it listens and speaks at the same time instead of waiting for pauses. OpenAI shipped it inside the ChatGPT app in July 2026, then opened API access to developers on September 10, 2026, at $0.05 per minute for the voice layer."
+  - q: "How much would hands-free voice AI actually cost a superintendent?"
+    a: "At $0.05 a minute, one hour a day of active voice interaction — daily log dictation, an RFI call-in, a dispatch conversation — runs about $3 a day, or roughly $65 a month per user on a 22-day work month. That covers only the voice layer; it doesn't include the separate reasoning model that actually drafts the log entry or RFI text."
+  - q: "Does this fix the noisy-jobsite reliability problem?"
+    a: "Not verifiably yet. OpenAI's reported 30-percentage-point improvement over its prior voice model, GPT-Realtime-2.1, comes from its own Full Duplex Bench, a lab benchmark. No vendor has published interruption-accuracy numbers against generator noise, radio chatter, or overlapping crew conversation, which is a harder acoustic environment than the benchmark or a customer-support call center."
+  - q: "Should a GC or trade sub buy something built on GPT-Live-1 now?"
+    a: "Not directly — there's no packaged daily-log or dispatch product to buy yet, just the API a software vendor would build on. The question worth asking Procore, Autodesk, Trimble, or a smaller field-reporting vendor is whether they're using this API, what it costs on top of your subscription, and whether they've tested it against actual jobsite audio rather than a quiet office demo."
+  - q: "Why does the price of the voice layer matter separately from the AI model doing the thinking?"
+    a: "Because a vendor pitching a voice-logging feature is really billing for two things: the voice layer that hears and talks naturally, and a separate reasoning model, such as GPT-6 Astra, that turns what was said into a structured daily log or RFI entry. A cheap voice layer doesn't mean the total cost of the feature is cheap — ask for the blended per-user cost, not just the headline minute rate."
+---
+
+OpenAI opened API access to GPT-Live-1, its full-duplex voice model, on September 10 — at $0.05 a minute for the voice layer. That's the piece that was missing back in July, when [we covered GPT-Live's ChatGPT-only launch](/posts/2026-07-09-openai-gpt-live-full-duplex-voice-daily-log) and noted that Procore, Autodesk, and Trimble couldn't build it into their platforms because there was no API and no price. Now there's both, which means the math on hands-free field dictation just became something you can actually run.
+
+## What changed since July?
+
+Full-duplex means the model listens and talks at the same time — it can murmur "got it" while you're still mid-sentence and ask a follow-up without waiting for a pause, closer to a live phone call than a dictation app. That part isn't new; OpenAI shipped it inside ChatGPT in July. What's new is that it's now available to any developer through the API, OpenAI says it improved full-duplex performance by 30 percentage points over its prior voice model on its own benchmark, and it's priced by the minute instead of bundled into a ChatGPT subscription. OpenAI also shipped 12 new voices covering more accents and languages, and reported that an early partner, the AI vendor EliseAI, cut its voice-agent codebase by roughly 80% after switching to it — a sign of how much custom engineering this replaces for a company that would otherwise build its own turn-taking and interruption handling from scratch.
+
+## What would this actually cost on a jobsite?
+
+At $0.05 a minute, an hour of active back-and-forth — narrating the day's crew count and delays into a daily log, dictating an RFI, or running a dispatch call — costs about $3. Over a 22-day work month, that's roughly $65 per superintendent for the voice layer alone.
+
+| Use | Estimated active voice time/day | Voice-layer cost/day | Voice-layer cost/month |
+|---|---|---|---|
+| End-of-day daily log dictation | ~15 min | $0.75 | ~$16.50 |
+| RFI dictation + field calls | ~30 min | $1.50 | ~$33 |
+| Full hands-free field logging | ~60 min | $3.00 | ~$65 |
+
+That's cheap enough that per-minute voice pricing stops being the bottleneck for a vendor deciding whether to build this. But it's only half the bill. GPT-Live-1 is explicitly a front-end: OpenAI says it hands off actual reasoning and actions to a paired model, such as GPT-6 Astra, or a tool like Codex or ChatGPT Work. The model that turns "we lost two hours because the crane delivery was late" into a structured, CSI-coded daily log entry is a separate API call with its own token cost — one that doesn't show up in the $0.05 headline rate. When a vendor prices "AI voice logging" as an add-on to your subscription, the number worth asking for is the blended cost per user, not the voice-minute rate.
+
+## What this doesn't answer yet
+
+OpenAI's 30-point improvement is measured on its own Full Duplex Bench — a lab benchmark, not a jobsite. Nobody has published how the interruption handling performs against a running compressor, two radios on different channels, and a crew member cutting in mid-sentence, which is a rougher acoustic environment than the quiet-room demos or call-center use cases OpenAI highlighted at launch. The same caution we raised in July still applies: cheap and available is not the same as field-tested.
+
+## Should you act on this now?
+
+There's still no packaged product here — no "AI daily log" app you can buy today built specifically on GPT-Live-1. What changed is that the excuse is gone. Any construction software vendor that told you real-time voice dictation was "coming soon" because the underlying model wasn't available now has a priced, working API to build on. The next time a field-reporting or dispatch vendor demos a voice feature, ask which voice model is under it, what the noisy-environment accuracy actually is on a real site recording, and what the total per-user cost looks like once the reasoning layer is added in — not just the price of the part that listens.
+
+Forward this to the person on your team evaluating field-reporting software this quarter.
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
