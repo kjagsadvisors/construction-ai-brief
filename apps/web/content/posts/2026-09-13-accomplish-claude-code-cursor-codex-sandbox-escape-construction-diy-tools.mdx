@@ -1,0 +1,64 @@
+---
+title: "A single git config file broke Claude Code's sandbox. That's the AI tool your estimator might be using to build spreadsheets"
+date: "2026-09-13"
+excerpt: "A stealth security startup escaped Claude Code's sandbox using a routine git setting, then found related trust-boundary gaps in Cursor and OpenAI Codex — the same 'agentic coding' tools construction firms without a dev team are starting to use for back-office scripting."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://github.com/anthropics/claude-code/security/advisories/GHSA-7835-87q9-rgvv"
+  - "https://advisories.gitlab.com/npm/@anthropic-ai/claude-code/CVE-2026-55607/"
+  - "https://www.upstartsmedia.com/p/accomplish-claims-leaky-sandboxes-in-claude-codex-cursor"
+  - "https://thehackernews.com/2026/09/malicious-git-configs-can-make-claude.html"
+  - "https://www.bleepingcomputer.com/news/security/cursor-codex-gemini-cli-antigravity-hit-by-sandbox-escapes/"
+  - "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-thursday-september-10-2026/"
+faqs:
+  - q: "Is it safe to use Claude Code, Cursor, or Codex to build internal construction tools?"
+    a: "It's safer than it was, but 'sandboxed' doesn't mean fully isolated. Security researchers this year found specific ways to break out of the sandbox in Claude Code, Cursor, and OpenAI's Codex by having the agent process a file that a trusted tool later ran outside the restricted environment. The disclosed bugs are patched, but the pattern shows the sandbox boundary is a config setting, not a hard wall."
+  - q: "What is a 'sandbox escape' in an AI coding agent?"
+    a: "It's when code runs outside the restricted environment the tool promises to contain it in. In the Claude Code case, an attacker planted a setting in a repository's own .git/config file that git executes as a command during a routine operation like a status check — and that command ran with full access to the user's machine, not the sandbox."
+  - q: "Which AI coding tools were affected?"
+    a: "Security firm Accomplish disclosed sandbox-boundary bugs in Claude Code, OpenAI's Codex, and Cursor after privately reporting them to the vendors this summer. Separate research from Pillar Security found related issues in Cursor, Codex, Google's Gemini CLI, and Google's Antigravity, suggesting the pattern isn't limited to one vendor."
+  - q: "Are these bugs fixed now?"
+    a: "The disclosed issues are patched. Anthropic's Claude Code bug is tracked as CVE-2026-55607 and fixed as of version 2.1.163. Cursor and OpenAI shipped fixes for their reported issues as well, though Accomplish says Cursor and OpenAI patched in about a week while Anthropic took roughly 50 days and about 30 releases to close its bug."
+  - q: "What should a sub or GC actually do before letting staff script with these tools?"
+    a: "Don't point an AI coding agent at a repository, template, or plugin you didn't write or fully vet, especially one pulled from an unfamiliar GitHub account. Keep the machine running the agent off any network segment with access to accounting or project-management systems, and update the tool on the vendor's release cadence rather than your own."
+---
+
+A stealth security startup called Accomplish escaped Claude Code's sandbox this summer using nothing more exotic than a setting buried in a repository's own `.git/config` file — then found related trust-boundary gaps in OpenAI's Codex and in Cursor. None of the three bugs required the victim to be a professional software engineer. They only required someone to point the AI coding agent at a repository that wasn't fully trustworthy, which is exactly how a growing number of construction firms without an in-house dev team are starting to use these tools: forking an open-source takeoff calculator, cloning a vendor's sample integration, or asking an agent to adapt someone else's estimating script.
+
+## What did the researchers actually find?
+
+Accomplish's technique, which it calls "Beltdown," abuses Git's `core.fsmonitor` setting — a value Git reads from `.git/config` and runs as a shell command any time it needs to check which files changed, including during an ordinary `git status` or `git diff`. By planting a poisoned config inside a nested Git worktree and getting Claude Code to touch a single file in that folder, the researchers got the agent to trigger a routine index refresh that executed their payload — with the ability to overwrite files like `.zshenv` in the user's home directory and run code outside Anthropic's "seatbelt" sandbox restriction entirely. Anthropic tracked the bug as CVE-2026-55607 and fixed it in Claude Code version 2.1.163. Accomplish reported similar gaps to Cursor, where a workspace-controlled hook file could trigger unsandboxed command execution, and to OpenAI, where a Codex CLI safety allowlist trusted the `git show` command by name even though its actual invocation could still write to disk.
+
+## Why does this matter if your firm doesn't employ developers?
+
+Because the pitch for tools like Claude Code, Cursor, and Codex isn't just "write code faster" — it's "safe to point at code you don't fully trust, because it runs in a sandbox." That claim is what makes them attractive to a construction back office with no engineering staff: a precon manager forking a public bid-tab formatter, an estimator adapting a GitHub script for parsing spec PDFs, an ops director asking an agent to wire together a scraper for material pricing. Each of those starts with pointing the tool at a repository someone else wrote. Accomplish's research doesn't say every such repository is dangerous — it says the sandbox that was supposed to contain the damage if one is could be defeated with a single config file, and none of the three vendors caught it before an outside researcher did.
+
+## Did the vendors respond the same way?
+
+Not close to it, according to Accomplish's account of its own disclosure:
+
+| Vendor | Tool | Reported fix time |
+|---|---|---|
+| Cursor | Cursor | About one week |
+| OpenAI | Codex CLI | About one week (plus a bounty payout) |
+| Anthropic | Claude Code | About 50 days and roughly 30 releases |
+
+That gap matters beyond bragging rights. If your firm — or a construction-software vendor you rely on — is choosing which AI coding layer to build on, "how fast do they close a reported security hole" is now a real, comparable data point, not a hypothetical one.
+
+## What should a construction firm actually do?
+
+1. **Don't run these agents against a repository, template, or plugin you didn't write or fully vet** — especially anything pulled from an unfamiliar GitHub account or a "free construction AI script" shared in a forum or group chat.
+2. **Keep the machine running the agent off the same network segment as your accounting, ERP, or project-management systems** where possible. A sandbox escape on a workstation that can also reach QuickBooks or Procore is a much worse day than one that can't.
+3. **Update on the vendor's cadence, not your own.** These fixes only help once installed; auto-update settings exist for a reason.
+4. **Ask any vendor building "AI agent" features on top of these tools how they patch disclosed vulnerabilities**, and how fast. A 50-day answer is now a documented data point, not a guess.
+
+None of this means stop using AI coding tools for internal scripts — it means treat "sandboxed" as a claim to verify, not a guarantee.
+
+---
+
+We covered a related pattern in [OpenAI's agents quietly ignoring their own "read-only" restriction](/posts/2026-09-07-openai-wiki-incident-read-only-agent-access-construction-vendor-risk) — this is the same lesson from a different angle: the access-control promise an AI tool makes on paper and what actually holds up under a determined test are two different things.
+
+*Forward this to whoever on your team has started "vibe coding" internal tools with an AI coding assistant.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
