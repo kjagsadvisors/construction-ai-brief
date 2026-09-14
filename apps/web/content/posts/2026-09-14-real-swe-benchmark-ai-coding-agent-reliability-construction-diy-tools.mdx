@@ -1,0 +1,51 @@
+---
+title: "The best AI coding agent fixes real bugs on unfamiliar code 38.8% of the time. Here's the math before your estimator builds anything with it"
+date: "2026-09-14"
+excerpt: "A new benchmark tested AI coding agents on real, private company codebases instead of public test sets. Even the top performer resolved barely a third of tasks — and cost more per actual fix than its resolution rate suggests."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://www.beri.net/article/real-swe-private-codebase-benchmark-cost-per-resolved-task-failure-mode-review-gate"
+  - "https://withspecific.com/benchmarks/real-swe"
+  - "https://news.ycombinator.com/item?id=49676820"
+  - "https://www.ycombinator.com/companies/specific-labs"
+faqs:
+  - q: "What is the Real-SWE benchmark?"
+    a: "Real-SWE is a coding-agent benchmark built by Y Combinator-backed Specific Labs. Instead of public code the models may have memorized, it tests AI agents on real engineering tasks pulled from private, licensed production codebases from actual companies."
+  - q: "What's the best resolution rate any AI coding agent achieved on Real-SWE?"
+    a: "Claude Code running Fable 5.1 resolved 38.8% of tasks on the first pass, the highest of any model tested. GPT-6 Astra came in second at 33.8%, and Gemini 3.8 Flash resolved 31.2%."
+  - q: "Does a cheaper AI model mean a better deal for building internal tools?"
+    a: "Not automatically. Gemini 3.8 Flash costs about $8.01 per resolved task versus roughly $17.94 for Fable 5.1, but it also resolves fewer tasks per attempt, so the real cost of a finished feature depends on how many retries and how much review time each agent needs."
+  - q: "Should a construction company let an AI coding agent build internal tools without review?"
+    a: "No. Even the top-performing agent in this benchmark failed on real, unfamiliar code more than six times out of ten, so any AI-built internal tool needs a human review step before it touches live project data or a production workflow."
+  - q: "Why do different AI coding agents fail in different ways?"
+    a: "Real-SWE grouped failures by category and found each model clusters differently — one model mostly misses stated requirements, another mostly breaks other parts of the code it edits — so a single review checklist won't catch every model's mistakes equally well."
+---
+
+A new benchmark that tests AI coding agents on real, private company codebases — not public test sets the models may have already seen — found that even the best-performing agent resolves less than 40% of real bugs on the first try. That number matters if anyone at your company has asked an AI coding tool to build a bid tracker, a scope-gap checklist, or a takeoff spreadsheet macro, because it's the same kind of code: unfamiliar, specific to your business, and untested by the model beforehand.
+
+## What is the Real-SWE benchmark, and why is it different?
+
+Most AI coding benchmarks run on public GitHub repositories, which frontier models have likely trained on — so a high score can just mean the model has seen the answer before. Real-SWE, built by YC-backed Specific Labs, instead licenses real production codebases from real companies — a consumer app with 200,000-plus users, a fintech platform that processes over 100,000 bank statements, enterprise sales tools — and gives each AI agent the same task and context an engineer on that team would have had. A human grader then checks whether the fix actually works. The median task touches 11 files and the median instruction runs about 1,742 characters — closer to "fix this thing our estimator flagged" than a tidy textbook problem.
+
+That's the honest version of what happens when a GC or a trade sub points an AI coding agent at its own homegrown spreadsheet macro or internal tracker instead of a demo app: the agent has never seen this code before, and it has to work inside the mess that's actually there.
+
+## How well did the top agents actually do?
+
+| Agent (model) | Resolution rate | Cost per rollout | Cost per resolved task |
+|---|---|---|---|
+| Claude Code (Fable 5.1) | 38.8% | $6.96 | ~$17.94 |
+| Codex CLI (GPT-6 Astra) | 33.8% | — | — |
+| Gemini 3.8 Flash | 31.2% | $2.50 | ~$8.01 |
+
+Scores are pass@1, averaged over eight runs per task. The takeaway isn't that Fable 5.1 "wins" — it's that the best agent tested still gets the fix wrong on unfamiliar code more often than it gets it right, and a failed attempt still costs money. Because Fable 5.1 fails on 6 out of 10 tasks, its true cost per completed fix (~$17.94) runs more than double its per-attempt price. Flash is cheaper per try and per completed fix, but it also finishes fewer jobs, so a shop weighing "cheap model, more retries" against "pricier model, fewer retries" needs to actually track completions, not sticker price.
+
+## Why does the failure mode matter more than the headline score?
+
+Real-SWE also grouped failures by type, and the pattern differs by model. Grok 4.6's failures were dominated by missed requirements — 67.2% of its misses came from not doing what was actually asked. Gemini 3.8 Flash's failures were mostly integration errors (49.1%) — code that ran but broke something else it touched. GPT-5.6 Sol's failures leaned toward unverified assumptions about how the existing system worked (43.3%). Fable 5.1 and GPT-6 Astra spread their failures more evenly across categories, with no single failure type above 37%.
+
+That's a practical distinction for anyone reviewing AI-generated code they didn't write: a model that mostly misses requirements is caught by re-reading the original ask against the diff. A model that mostly breaks other parts of the code is caught by actually running the tool against real data before trusting it. One review checklist doesn't cover both failure patterns — the check has to match the tool.
+
+## Should a mid-size GC let an agent build its own tools?
+
+Yes, with a review gate, and no, not unsupervised on anything touching live data. If an estimator or PM is using a coding agent to build a submittal tracker, a bid-leveling sheet, or a scope-gap checker — the kind of DIY tool this Brief has flagged before — treat the first output as a draft, not a deliverable. Budget for the agent to be wrong on the first attempt more often than it's right, run the tool against a copy of real project data before it touches the original, and have someone who understands the underlying spreadsheet or workflow check the diff, not just whether the tool "runs." The benchmark's core finding — best-in-field still under 40% on real code — isn't a reason to avoid these tools. It's a reason to keep a human between the agent's output and anything your team actually relies on.
