@@ -1,0 +1,60 @@
+---
+title: "Anthropic just built the compliance template for AI in a regulated profession. Here's the checklist before you trust one with an RFI"
+date: "2026-09-16"
+excerpt: "Claude for Financial Advisors ships with source-locked data, a built-in audit trail, and a hard human-approval gate for anything client-facing. That's the bar a construction AI vendor should have to clear before you let it touch a change order."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.thinkadvisor.com/2026/09/15/anthropic-releases-claude-for-financial-advisors/"
+  - "https://www.unite.ai/anthropic-launches-claude-for-financial-advisors-with-partner-connectors/"
+  - "https://www.techtimes.com/articles/327525/20260915/claude-financial-advisors-debuts-blackrock-schwab-client-data-stays-custodian-servers.htm"
+  - "https://www.wealthmanagement.com/artificial-intelligence/anthropic-launches-claude-for-financial-advisors"
+  - "https://www.fa-mag.com/news/anthropic-signs-schwab-and-wealth-com-to--claude-for-financial-advisors--launch-88470.html"
+faqs:
+  - q: "What is Claude for Financial Advisors?"
+    a: "It's a plugin Anthropic launched on September 15, 2026 at the Future Proof Festival that connects Claude to custodians and wealth-tech platforms — including BlackRock, Schwab, and Wealth.com — and bundles workflow skills for client onboarding, meeting prep, portfolio reviews, proposals, and compliance review, each with a built-in audit trail."
+  - q: "Does construction have anything like this yet?"
+    a: "Not publicly documented at this depth. No major construction AI vendor has published a comparable spec covering source-locked data connectors, a per-action audit log, and a named compliance skill tied to a specific regulatory rule set the way Anthropic did for SEC-regulated advisors."
+  - q: "What should a GC ask before trusting an AI agent with an RFI, change order, or payment application?"
+    a: "Four questions: Does the data stay inside the system of record (Procore, BIM 360) or get copied to a third-party store? Is every AI-touched action logged against the project record? Is there a hard human-approval step before anything reaches an owner, architect, or sub? And does the tool check its own output against your specific contract requirements, not just generate plausible-looking text?"
+  - q: "Does Claude for Financial Advisors let the AI send communications to clients on its own?"
+    a: "No. Anthropic built it so investment recommendations, client communications, and compliance determinations all require human review and approval before anything goes out — the AI drafts and assembles, the licensed advisor signs off."
+  - q: "Why does a wealth-management product launch belong in a construction newsletter?"
+    a: "Because it's the first publicly detailed blueprint from a frontier AI lab for deploying agents inside a regulated, fiduciary profession. Construction runs on comparable liability — licensed pay applications, certified payroll, stamped submittals — so it's a preview of the architecture a construction-specific agent will need before a GC should trust it with anything that has a signature on it."
+---
+
+Anthropic launched Claude for Financial Advisors on September 15 at the Future Proof Festival in Huntington Beach — a plugin that wires Claude into the custodians and platforms advisors already use, including BlackRock, Schwab, and estate-planning platform Wealth.com. The product itself has nothing to do with construction. What it reveals does: this is the first time a frontier AI lab has publicly shipped a full compliance architecture for deploying agents inside a regulated profession with real liability — the same category construction sits in every time an RFI, a pay application, or a change order goes out under someone's signature.
+
+## What did Anthropic actually build?
+
+The plugin bundles connectors to custodians and wealth-management platforms with workflow "skills" built around an advisor's actual day: client onboarding, meeting prep and follow-up, account opening, portfolio reviews, proposal drafting, and compliance review. Three design choices stand out, because none of them are specific to finance — they're the general shape of what "AI in a regulated job" has to look like:
+
+| Design choice in Claude for Financial Advisors | What it solves |
+|---|---|
+| Data stays on the custodian's own servers instead of being copied into a central store | Sensitive client records never leave the system of record |
+| A named "compliance skill" screens client-facing language against the SEC Marketing Rule | Output gets checked against a specific rule, not just "sounds professional" |
+| Investment recommendations, client communications, and compliance determinations all require human sign-off | The AI drafts; the licensed advisor is still the one accountable |
+| Enterprise plan includes audit logs Anthropic says RIAs need for SEC recordkeeping | Every AI-touched action is traceable after the fact, not just in the moment |
+
+None of that is novel as a concept — it's compliance 101. What's new is a frontier lab building it into the product itself, rather than leaving it to whichever advisory firm bolts on governance after the fact.
+
+## Why does this matter to a GC, not an advisor?
+
+Because construction has its own version of every constraint Anthropic just engineered around. A submittal needs to trace to a spec section. A pay application needs to match the SOV and survive an owner's rep's review. A change order needs a paper trail that holds up if it gets disputed later. A safety log needs to be accurate, not just plausible. Right now, most construction AI pitches lead with speed — "cuts submittal review from four hours to forty minutes" — and say very little about the data-handling and audit architecture underneath. Anthropic's launch is a working example of what that architecture actually looks like when a lab builds it for a profession where a mistake has a licensing board or a regulator attached, and it sets a concrete bar the next construction AI vendor pitch should be measured against.
+
+## What should a GC ops lead or PM actually ask a vendor?
+
+Before letting any "AI agent" touch something that leaves the trailer with your company's name on it:
+
+1. **Does our data stay in Procore, BIM 360, or our own document system — or does it get copied into the vendor's own database?** Source-locked beats centralized every time client or contract data is involved.
+2. **Is there an audit log tied to the project record, not just a chat transcript?** You need to be able to show, six months later, exactly what the AI drafted, what a human changed, and who approved it.
+3. **Is there a hard stop before anything reaches an owner, architect, sub, or inspector?** Drafting is fine. Auto-sending isn't — not on an RFI response, not on a COR, not on a certified payroll submission.
+4. **Does the tool check its output against your actual contract and spec requirements**, the way Anthropic's compliance skill checks advisor language against a named SEC rule — or does it just generate text that reads correctly?
+
+## The takeaway
+
+The construction-specific version of this doesn't exist yet in public detail. Until it does, treat the financial-advisor launch as the reference architecture: source-locked data, a per-action audit trail, a named compliance check, and a human who has to sign off before anything goes out. Score the next AI vendor demo against those four items, not against how fast the animation of the drafted RFI response looks on screen.
+
+Related: [OpenAI's Agents API lowers the cost of building an agent — which means the vendor's underlying connections matter more than its pitch](/posts/2026-09-11-openai-agents-api-public-beta-construction-vendor-agent-evaluation).
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
