@@ -3,28 +3,33 @@ title: "How does AI bid leveling actually work?"
 description: "AI bid leveling reads subcontractor proposals, pulls out scope and pricing, and normalizes them into a side-by-side comparison automatically. Here's the actual mechanics, who's building it, and what still needs an estimator's sign-off."
 target_keyword: "how does AI bid leveling work"
 audience: "estimator"
-updated_at: "2026-07-20"
+updated_at: "2026-09-19"
 sources:
   - "https://www.constructiondive.com/news/ai-construction-bidding-negotiation/756936/"
   - "https://construction.autodesk.com/products/buildingconnected-pro/"
   - "https://aps.autodesk.com/blog/building-connected-api-now-reinforced-tradetapp-api"
   - "https://www.procore.com/bid-management"
   - "https://support.procore.com/product-releases/new-releases/bidding-bid-management-enhanced-experience"
+  - "https://www.procore.com/whats-new/enhance-your-bidding-process-with-bid-leveling-company-notes"
   - "https://aigenture.com/"
   - "https://bridgeline.io/insights/ai-bid-leveling-from-45-minutes-to-five"
   - "https://www.bvp.com/news/optimizing-pre-construction-workflows-and-planning-with-meltplan"
   - "https://buildr.com/blog/ai-bid-leveling/"
+  - "https://bidlevel.ai/"
+  - "https://bidlevel.ai/pricing/"
+  - "https://procurepro.co/bidlevel"
+  - "https://constructionmanagement.co.uk/best-use-of-ai-shortlist-2026/"
 faqs:
   - q: "What is bid leveling in construction?"
     a: "Bid leveling is comparing subcontractor bids on the same scope of work on an apples-to-apples basis — normalizing for the fact that one sub's quote includes permit fees and another's doesn't, or one excludes a scope item buried in a footnote. The goal isn't finding the lowest number, it's finding the most complete one."
   - q: "Does AI bid leveling replace the estimator's decision on who to award?"
-    a: "No. Every tool in this category — from Autodesk's BuildingConnected to point solutions like Bridgeline and Melt Bid — positions itself as extracting and normalizing data, not deciding who wins the work. The estimator still reviews the flagged gaps and makes the award call."
+    a: "No. Every tool in this category — from Autodesk's BuildingConnected to point solutions like Bridgeline, Melt Bid, and BidLevel.ai — positions itself as extracting and normalizing data, not deciding who wins the work. The estimator still reviews the flagged gaps and makes the award call."
   - q: "Does Procore's bid leveling feature use AI?"
-    a: "Not natively. Procore added a Bid Leveling tab to its Bidding tool in September 2025 that lets you compare submitted bids side by side, but it works only on bids submitted through Procore's own portal and doesn't use AI to extract scope or flag exclusions from a PDF on its own. A third-party tool, Aigenture, layers AI bid leveling on top of Procore's data for firms that want that automation without leaving the platform."
+    a: "Not for extraction. Procore's Bid Leveling tab lets you compare submitted bids side by side and, as of 2026, pull in a bidder's Vendor Project History and convert the winning leveled bid straight into a subcontract or purchase order — but it works only on bids submitted through Procore's own portal and doesn't use AI to pull scope or flag exclusions out of a PDF on its own. A third-party tool, Aigenture, layers AI bid leveling on top of Procore's data for firms that want that automation without leaving the platform."
   - q: "What does dedicated AI bid-leveling software cost?"
-    a: "Most of the point solutions in this category — Bridgeline, Melt Bid, BidLevel.ai — don't publish list pricing; you get a quote after a sales call, the same pattern as most B2B construction SaaS at this stage. That's worth noting on its own: this is a young, VC-funded category (MeltPlan raised a $14 million round in 2025) rather than a mature market with published, comparable price sheets yet."
+    a: "It's no longer a uniform 'call sales' category. Bridgeline and Melt Bid still don't publish list pricing — you get a quote after a demo, the pattern for most B2B construction SaaS at this stage (MeltPlan raised a $14 million round in 2025 to build it out). BidLevel.ai, from ProcurePro, is the exception: it's free to run bid packages through during its current beta, with pricing to be locked in later based on early usage."
   - q: "Can AI bid leveling read a handwritten or scanned subcontractor quote?"
-    a: "Inconsistently. The tools are built to parse text-based PDFs and spreadsheets reliably; a scanned fax, a hand-annotated exclusion, or a quote pasted into an email body is exactly where extraction errors show up. Spot-check any bid that didn't arrive as a clean digital document before you trust the normalized comparison."
+    a: "Inconsistently. The tools are built to parse text-based PDFs and spreadsheets reliably; a scanned fax, a hand-annotated exclusion, or a quote pasted into an email body is exactly where extraction errors show up. BidLevel.ai, for instance, cites roughly 80% accuracy on its extraction and expects a human to review and correct the rest — treat that as the realistic bar across this category, not an outlier. Spot-check any bid that didn't arrive as a clean digital document before you trust the normalized comparison."
 ---
 
 AI bid leveling reads each subcontractor's proposal — PDF, spreadsheet, or email — extracts the scope, quantities, and price for every line item, and builds a normalized, side-by-side comparison automatically instead of an estimator copying numbers into a spreadsheet by hand. It flags what one sub included that another excluded, calls out pricing outliers, and hands the estimator a comparison matrix to review. It does not decide who gets the work — that's still the estimator's call, made faster because the data-entry step is gone.
@@ -39,16 +44,17 @@ Three steps, in order:
 2. **Normalization.** The tool maps every sub's line items onto a common scope baseline — the CSI division or your own bid form — so a comparison table lines up the same work across every bidder, even when each sub organized their quote differently.
 3. **Gap and outlier flagging.** The system highlights scope items present in some bids and missing from others, and calls out prices that fall well outside the group's range in either direction. Some tools cross-reference this against subcontractor qualification and risk data — Autodesk's BuildingConnected Pro pairs its side-by-side bid leveling with [TradeTapp's Financial Data Extraction](https://aps.autodesk.com/blog/building-connected-api-now-reinforced-tradetapp-api), which uses AI to turn a subcontractor's PDF financial statements into structured qualification data reviewed alongside the bid itself.
 
-What comes out the other end is a comparison an estimator can scan in minutes instead of a stack of PDFs they have to open one at a time — [Construction Dive's coverage of AI in bidding](https://www.constructiondive.com/news/ai-construction-bidding-negotiation/756936/) frames the same shift: AI's near-term role in preconstruction is surfacing risk and inconsistency early, not replacing the negotiation itself.
+What comes out the other end is a comparison an estimator can scan in minutes instead of a stack of PDFs they have to open one at a time — [Construction Dive's coverage of AI in bidding](https://www.constructiondive.com/news/ai-construction-bidding-negotiation/756936/) frames the same shift: AI's near-term role in preconstruction is surfacing risk and inconsistency early, not replacing the negotiation itself. The underlying skill — reading a table-heavy document and reasoning over it correctly — is also the specific capability the model vendors behind these tools are racing to improve; see our [coverage of Sakana AI's Fugu Ultra v2](/posts/2026-09-12-sakana-fugu-ultra-v2-chart-reasoning-bid-leveling-tools) for why a model's score on reading charts and tables matters more to your bid-leveling software's next release than it does to you directly.
 
 ## Which tools actually do this today?
 
 | Tool | What it does | What it doesn't do | Pricing |
 |---|---|---|---|
 | **Autodesk BuildingConnected Pro** | Side-by-side bid leveling plus TradeTapp AI financial-data extraction for sub qualification | Doesn't auto-extract scope/exclusions from a sub's PDF into the leveling view — that comparison still leans on manual review | Bundled with Autodesk Construction Cloud; custom quote |
-| **Procore Bid Leveling** | Side-by-side comparison of bids submitted through Procore's own portal, added Sept. 2025 | No native AI extraction; only works on bids submitted inside Procore, not emailed PDFs | Included in Procore's Bidding tool; platform priced on Annual Construction Volume |
+| **Procore Bid Leveling** | Side-by-side comparison of bids submitted through Procore's own portal; now pulls in Vendor Project History alongside the bid and converts the winning leveled bid directly into a subcontract or purchase order | No native AI extraction; only works on bids submitted inside Procore, not emailed PDFs | Included in Procore's Bidding tool; platform priced on Annual Construction Volume |
 | **Aigenture (Procore add-on)** | Third-party AI layer that automates bid leveling and sub discovery on top of Procore's data | Requires a Procore instance to plug into | Custom quote |
-| **Bridgeline, Melt Bid, BidLevel.ai (point solutions)** | Purpose-built AI extraction and normalization from any PDF/spreadsheet format; some claim high-volume processing (Bridgeline cites over $1B in bid value reviewed) | Standalone tools — you're managing bid leveling outside your existing bid-management platform | Not publicly listed; sales-quote model |
+| **Bridgeline, Melt Bid (point solutions)** | Purpose-built AI extraction and normalization from any PDF/spreadsheet format; some claim high-volume processing (Bridgeline cites over $1B in bid value reviewed) | Standalone tools — you're managing bid leveling outside your existing bid-management platform | Not publicly listed; sales-quote model |
+| **BidLevel.ai (ProcurePro)** | AI extraction and side-by-side leveling, traceable back to the source PDF, built into ProcurePro's vendor-selection module; shortlisted for Best Use of AI at the 2026 Digital Construction Awards | Cites roughly 80% extraction accuracy — built for a human to review and correct the rest, same as any tool in this category | Free during its current beta; pricing to be set later based on early usage |
 | **Status quo (Excel + manual read-through)** | Full human control over every line item | Nothing — it's the slowest option, and the one every AI tool above is measured against | No new spend |
 
 The pattern across every AI row: extraction and normalization get faster. Nothing on this list claims to replace the estimator reviewing the output before an award decision.
@@ -61,7 +67,7 @@ That this is a real, fundable category — not vapor — is worth noting on its 
 
 ## What still needs a human?
 
-Everything past the comparison table. The AI can tell you sub A excluded electrical rough-in that subs B and C included; it can't tell you whether that exclusion is a dealbreaker on your specific scope of work, whether sub A is worth chasing for a revised number, or whether sub C's low price reflects a real efficiency or a mistake they'll come back asking for more money on later. That judgment call — and the liability that comes with signing off on it — stays with the estimator. For the broader version of that "AI drafts, a person signs" line, see our [guide to AI risk and liability in construction](/seo/construction-ai-risk-liability-security-guide).
+Everything past the comparison table. The AI can tell you sub A excluded electrical rough-in that subs B and C included; it can't tell you whether that exclusion is a dealbreaker on your specific scope of work, whether sub A is worth chasing for a revised number, or whether sub C's low price reflects a real efficiency or a mistake they'll come back asking for more money on later. That judgment call — and the liability that comes with signing off on it — stays with the estimator. It's also worth sizing that review time realistically: OpenAI's own September 2026 numbers show that even its research agents needed a human correction on more than half of "successful" multi-hour runs — [our breakdown of what that implies for a bid-leveling review budget](/posts/2026-09-08-openai-research-intern-human-intervention-rate-construction-estimating-agent-pilot) is the sober version of any vendor's hands-off pitch. For the broader version of that "AI drafts, a person signs" line, see our [guide to AI risk and liability in construction](/seo/construction-ai-risk-liability-security-guide).
 
 ## Where does bid leveling fit next to the rest of AI estimating?
 
