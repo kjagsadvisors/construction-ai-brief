@@ -1,0 +1,61 @@
+---
+title: "A new AI model skips the chatbot entirely and just returns a decision. Here's the RFI and submittal triage it's built for"
+date: "2026-09-22"
+excerpt: "TypeSafe AI came out of stealth with $40M and a model called Jev that doesn't write text at all — it returns a typed decision (a category, a score, a probability) for about 1/238th the per-token price of a frontier chatbot, built for exactly the classify-and-route grunt work that clogs an RFI or submittal log."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://siliconangle.com/2026/09/16/typesafe-ai-exits-stealth-with-40m-to-build-ai-for-use-by-software/"
+  - "https://www.forbes.com/sites/the-prompt/2026/09/15/this-200-million-startup-wants-to-fix-ais-overconfidence-problem/"
+  - "https://techstartups.com/2026/09/16/typesafe-ai-an-ai-startup-founded-by-chatgpt-co-inventor-emerges-from-stealth-with-40m-to-build-ai-thats-100x-faster-and-cheaper/"
+  - "https://www.marktechpost.com/2026/09/19/typesafe-ai-releases-jev/"
+  - "https://ts2.tech/en/typesafe-ai-raises-40-million-for-jev-but-its-445x-cost-claim-is-still-self-tested/"
+faqs:
+  - q: "What is Jev, and how is it different from ChatGPT or Claude?"
+    a: "Jev is a model from the startup TypeSafe AI that doesn't generate text. Instead of predicting a reply word by word like a chatbot, it picks from a fixed set of options you give it — a category, a score, a yes/no probability — and returns that single typed answer. TypeSafe calls it a 'System 1' model, built for fast decisions rather than conversation."
+  - q: "What is TypeSafe AI, and who founded it?"
+    a: "TypeSafe AI is a startup that emerged from stealth on September 16, 2026, with $40 million in seed funding led by DCVC. It was founded by Diogo Almeida, a former OpenAI researcher who worked on RLHF, InstructGPT, ChatGPT, and GPT-4, along with co-founders Erik Gafni and Sasha Sheng."
+  - q: "Could a construction firm use Jev to triage RFIs or submittals?"
+    a: "Not directly — Jev is a developer API, not a product a PM logs into. A construction software vendor (a Procore, an internal tool a GC's IT team builds) could use it to sort incoming RFIs or submittals by trade, discipline, or urgency before a human reads them. It's a routing layer, not a replacement for the person who answers the RFI."
+  - q: "How much cheaper is Jev than a model like ChatGPT or Claude for this kind of task?"
+    a: "TypeSafe prices Jev's input tokens at $0.042 per million, with output free, and says that undercuts Anthropic's Claude Fable 5.1 list price of $10 per million input tokens by roughly 238 times on this narrow task type. That comparison is TypeSafe's own, not an independently run benchmark, and it applies only to short structured-decision tasks — not to open-ended writing or reasoning."
+  - q: "What can't a model like Jev do?"
+    a: "It can't draft the RFI response, write the submittal cover letter, or make a judgment call that isn't reducible to a predefined set of options. TypeSafe's own cost and speed claims are self-reported, not third-party verified. It's built to sort and flag work faster and cheaper than a general chatbot — not to replace the person doing the sorting's job of actually deciding what the project needs."
+---
+
+A startup called TypeSafe AI came out of stealth this week with a model, Jev, that doesn't write anything. Fed a document and a list of options, it returns one typed answer — a category, a score, a confidence number — in under half a second, at roughly 1/238th the per-token price of a frontier chatbot. That's not a better way to draft an RFI response. It's a much cheaper way to sort a thousand of them before anyone reads one.
+
+## What is Jev, and why does "doesn't generate text" matter?
+
+TypeSafe AI, founded by ex-OpenAI researcher Diogo Almeida (a co-inventor of RLHF who worked on InstructGPT, ChatGPT, and GPT-4), raised a $40 million seed round led by DCVC and launched publicly on September 16, 2026, at a reported $200 million valuation. Its first model, Jev, skips the token-by-token text generation that powers ChatGPT or Claude. Instead, given a document plus a fixed set of options, it returns a single structured pick — TypeSafe frames it as five jobs: classify, route, score, extract, branch.
+
+That's a narrow trick. It's also exactly the shape of a huge amount of construction back-office work that never needed a conversation, just a decision.
+
+## Where this maps onto a GC's paperwork
+
+None of these are hypothetical uses TypeSafe named for construction — they're the plain reading of "classify, route, score, extract, branch" applied to the documents that move through a GC's office every day:
+
+| Back-office task | What Jev-style sorting would do |
+|---|---|
+| Incoming RFI | Classify by CSI division/trade, route to the right discipline lead |
+| Submittal package | Score completeness against the log, flag missing cut sheets before a reviewer opens it |
+| Daily field report | Extract a safety-incident flag, branch to escalation if severity crosses a threshold |
+| Subcontractor invoice | Classify against a cost code, route for PM approval vs. finance hold |
+
+The pitch isn't that a model reads and understands the RFI the way a project engineer does. It's that the triage step — which queue does this go in, is anything missing, does this need eyes today — gets done in milliseconds instead of clogging a person's inbox.
+
+## What it actually costs, and the catch
+
+TypeSafe prices Jev's input tokens at $0.042 per million, with output free, and claims responses in 70–500 milliseconds — by its own comparison, about 238 times cheaper per token than Anthropic's Claude Fable 5.1 list price for this narrow task type. The catch: that comparison is TypeSafe's, run on its own benchmark, not verified by a third party — a limitation outside reporting has already flagged. And Jev is a developer API, not a product a PM would ever log into directly. Somebody — a Procore, an Autodesk, or a GC's own IT shop — has to build the routing logic around it first.
+
+## Should a mid-size GC act on this now?
+
+No, not directly — there's no Jev button to click. But it's worth knowing about for two reasons. First, if your project-management software adds a "smart routing" feature to RFIs or submittals in the next year, this is probably the class of model underneath it, and it should be cheap enough that the vendor isn't charging you a premium for the compute. Second, if your firm has an internal tool builder, sorting a submittal log or a safety-report queue by urgency is now a cheap, boring engineering problem — not one that requires a chatbot subscription to solve.
+
+---
+
+We covered the same "new AI pricing, old construction task" pattern when [OpenAI's voice API landed at $0.05 a minute and changed the daily-log math](/posts/2026-09-13-gpt-live-1-api-pricing-construction-daily-log-voice-dispatch) — that piece is about capturing the report; this one is about sorting what comes in after.
+
+*Forward this to whoever manages your RFI or submittal log and is still doing the triage by hand.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
