@@ -1,0 +1,61 @@
+---
+title: "Claude's newest model got a lot better at clicking through old software. That matters if your job-cost system has no API"
+date: "2026-09-23"
+excerpt: "Anthropic's Claude Opus 5.5 jumped from 74.0% to 81.8% on the main benchmark for operating software by screen instead of API, while cutting price 40% — a real move toward AI agents that can work inside the legacy ERP and scheduling systems most GCs are stuck with."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.anthropic.com/claude-opus-5-5"
+  - "https://techcrunch.com/2026/09/22/anthropic-releases-opus-5-5-with-lower-prices-and-fable-level-performance/"
+  - "https://venturebeat.com/technology/anthropic-releases-claude-opus-5-5-beating-fable-5-1-on-key-agentic-benchmarks-at-60-cheaper-api-price"
+  - "https://www.macrumors.com/2026/09/22/anthropic-claude-opus-5-5/"
+faqs:
+  - q: "What is Claude Opus 5.5, and when did it launch?"
+    a: "Claude Opus 5.5 is Anthropic's newest flagship AI model, released September 22, 2026. It costs 40% less to run than its predecessor, Opus 5, on typical workloads, and Anthropic reports over 30% faster output generation."
+  - q: "Can Claude Opus 5.5 operate construction software that doesn't have an API, like Sage 300 CRE?"
+    a: "Not out of the box, and Anthropic did not test it on any specific construction software. What improved is a general 'computer use' capability — operating any application by reading the screen and clicking, the way a person would — which scored 81.8% on the OSWorld 2.0 benchmark, up from 74.0% for Opus 5. Pointing that capability at a specific legacy system would still require a construction firm or vendor to build and test the integration."
+  - q: "Is it safe to let an AI agent click through accounting or payroll software?"
+    a: "Not without a human checking its work first. An 81.8% score on a computer-use benchmark means roughly one in five tasks in that test still weren't completed correctly. Anthropic reports Opus 5.5 attempts to circumvent its own operating boundaries about 85% less often than Opus 5, which is a safety improvement, not a guarantee — start with read-only tasks before letting an agent touch anything that moves money."
+  - q: "How much cheaper is Opus 5.5 than the previous Claude model?"
+    a: "Input tokens dropped from $5 to $4 per million and output tokens from $25 to $20 per million — roughly 20% off list price, and about 40% cheaper on typical workloads once efficiency gains (fewer API calls, fewer tokens per task) are counted."
+  - q: "What construction back-office tasks could a computer-use AI agent realistically help with today?"
+    a: "Low-stakes, read-only tasks are the sane starting point: pulling a nightly job-cost report from a system with no export API, cross-checking a submittal log spreadsheet against an old database, or re-keying data between two systems that don't talk to each other. Anything that authorizes a payment or changes a schedule-of-values entry should still go through a person."
+---
+
+Anthropic released Claude Opus 5.5 on September 22, cutting its flagship model's price roughly 40% on typical workloads while pushing its "computer use" score — how well it can operate ordinary software by reading the screen and clicking, no API required — from 74.0% to 81.8% on the OSWorld 2.0 benchmark. That's not a headline construction story. But it's the first concrete sign that AI agents are getting good enough, and cheap enough, to be pointed at the legacy job-cost, scheduling, and accounting systems most GCs and subs are stuck running because nobody ever built a modern API for them.
+
+## What actually changed in Opus 5.5?
+
+Anthropic's own release notes and independent benchmark trackers put the gains like this:
+
+| Metric | Opus 5 | Opus 5.5 |
+|---|---|---|
+| OSWorld 2.0 (computer use, partial credit) | 74.0% | 81.8% |
+| Input price (per million tokens) | $5.00 | $4.00 |
+| Output price (per million tokens) | $25.00 | $20.00 |
+| Output generation speed | baseline | 30%+ faster |
+| Self-reported boundary-circumvention attempts | baseline | ~85% fewer |
+
+The model also completed a 680,000-line code migration in under a day in early testing, and Anthropic says it needs roughly 40% fewer tool calls and half the tokens of Opus 5 to finish comparable agentic tasks — the kind of efficiency gain that shows up as lower cost per completed job, not just a lower sticker price.
+
+## Why does "operating software by clicking" matter for a contractor?
+
+Most construction technology coverage focuses on the tools built for the industry — Procore, Buildots, OpenSpace. The bigger, older problem sitting underneath those tools rarely gets mentioned: a lot of the software that actually runs the back office — Sage 300 CRE, older Viewpoint Vista installs, in-house Access or Excel-based job-cost trackers — has thin or nonexistent APIs. Getting data in or out means a person logging in, running a report, and exporting a file by hand, or paying a systems integrator to build a one-off bridge.
+
+Computer use is Anthropic's bet on skipping the integration step entirely: instead of connecting to a system's API, the model looks at the screen like a human operator would and clicks, types, and reads its way through the interface. A jump from 74.0% to 81.8% on the benchmark that measures exactly this isn't dramatic in isolation, but combined with a 40% price cut, it changes the math on whether it's worth trying at all for a task that used to be "too expensive and too unreliable to automate."
+
+## What's still not there yet?
+
+An 81.8% partial-credit score means the model still doesn't finish roughly one in five benchmark tasks correctly, and "partial credit" scoring means some of the counted successes weren't clean completions either. None of Opus 5.5's testing was construction-specific — Anthropic evaluated it on general office and web tasks, not against Sage, Viewpoint, or a proprietary scheduling tool. And the safety numbers Anthropic reports (fewer attempts to work around its own operating limits, evaluated by outside groups METR and Frontier Design) describe general behavior, not a certification that it's safe to run against live financial data.
+
+## Should a mid-size GC or sub try this now?
+
+Not on anything that moves money yet. The sane first pilot is read-only: point an agent at a system that has no export API and have it pull a nightly job-cost report, or cross-check a submittal log spreadsheet against an old database, and compare its output to what a person would have produced by hand. Measure the error rate before it touches AP, payroll, or a schedule-of-values entry. If your ops team has been quoting a five-figure price tag for a "simple" integration with an ancient accounting system, this is the first year it's worth testing whether an agent can do the same job for the price of a subscription instead.
+
+---
+
+We covered the same "cheaper, more capable model changes what's worth automating" pattern when [a routing-only model priced at roughly 1/238th a frontier chatbot's rate made RFI and submittal triage a boring engineering problem](/posts/2026-09-22-typesafe-jev-decision-model-construction-rfi-submittal-triage) — that piece was about sorting incoming paperwork; this one is about reaching into the software nobody ever built a proper bridge to.
+
+*Forward this to whoever on your ops team has been quoting a five-figure integration project for a system that still doesn't talk to anything else.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
