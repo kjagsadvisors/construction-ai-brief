@@ -1,0 +1,57 @@
+---
+title: "OpenAI just cut the price of keeping a spec book loaded in an AI's memory by 90%. That's the number estimators should read past the headline"
+date: "2026-09-24"
+excerpt: "GPT-6 Sol and Luna launched with a 50% list-price cut, but the bigger change for construction tools is a 90% discount on cached input tokens — the pricing lever that decides whether an AI tool built to query the same spec book or drawing set hundreds of times actually pencils out."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://www.ghacks.net/2026/09/23/openai-launches-gpt-6-sol-and-luna-with-50-lower-api-pricing-than-gpt-5-6/"
+  - "https://www.techzine.eu/news/analytics/144476/openai-introduces-gpt-6-sol-and-luna-api-prices-cut-in-half/"
+  - "https://www.marktechpost.com/2026/09/22/openai-releases-gpt-6-sol-and-luna-50-cheaper-api-pricing-and-benchmarks/"
+  - "https://www.technology.org/2026/09/23/openai-gpt-6-sol-luna-pricing-benchmarks/"
+faqs:
+  - q: "What are GPT-6 Sol and Luna, and when did OpenAI release them?"
+    a: "GPT-6 Sol and GPT-6 Luna are two new OpenAI models released September 22, 2026, sitting below the flagship GPT-6 Astra in OpenAI's lineup. Both launched at roughly 50% lower list prices than their GPT-5.6 predecessors, and OpenAI has confirmed the pricing is permanent, not a promotional rate."
+  - q: "What is a 'cached input token' discount, and why does it matter more than the list-price cut?"
+    a: "When an AI query reuses the same block of text it already processed in an earlier query — like a spec book an estimator keeps asking questions against — providers can charge less to reread that cached portion instead of processing it fresh. GPT-6 Sol and Luna price cached input tokens at 10% of the standard rate, a 90% discount. For any tool that repeatedly queries the same static document, that recurring cost matters far more than the one-time list price of the model."
+  - q: "Does this make it cheaper to build a tool that answers questions against a spec book or drawing set?"
+    a: "Yes, but only if the tool is built to actually reuse the cache — sending the same document prefix on every query within the provider's cache window, rather than re-uploading or reformatting it each time. Done right, a precon team that loads a spec book once and runs 200 queries against it during a bid cycle pays close to full price for the first query and roughly a tenth of that rate for the document portion of the other 199."
+  - q: "Is the 50% price cut on GPT-6 Sol and Luna a limited-time promotion?"
+    a: "No. An OpenAI spokesperson confirmed to VentureBeat that the new rates are permanent list prices, not an introductory or promotional discount."
+  - q: "What should an estimator still verify before trusting an AI tool built on these models?"
+    a: "The pricing change doesn't improve accuracy — it only changes what's affordable to run. Neither OpenAI nor any independent reviewer has benchmarked GPT-6 Sol or Luna against construction-specific documents like spec books or addenda. Any citation the tool pulls from a spec section still needs a human to confirm it's reading the current version and the right section before it goes into a bid or an RFI."
+---
+
+OpenAI released GPT-6 Sol and Luna on September 22, cutting list prices roughly 50% against their GPT-5.6 predecessors — Sol now runs $2 per million input tokens and $10 per million output tokens, Luna $0.10 and $0.50. That's the number every headline led with. The number that actually matters for a construction firm building or buying an AI tool is buried a paragraph deeper: cached input tokens — the parts of a query that repeat something the model already processed — are now priced at 10% of the standard rate, a 90% discount, and OpenAI says the new models hit that cache more often by default.
+
+## Why does a "cache discount" matter more than the sticker price?
+
+Most estimating and RFI tools don't ask an AI one question. They ask it hundreds, against the same document. A precon lead loads a 400-page spec book once, then queries it repeatedly over a bid cycle: cross-check Division 23 against the mechanical drawings, flag scope gaps against the addenda, confirm which submittals a section actually requires. If every one of those queries has to resend and reprocess most of that spec book from scratch, the running cost scales with the number of questions asked — which kills the case for a tool that's supposed to get used constantly, not once.
+
+Caching changes that math. The first query against a document pays close to the full rate. Every query after it, as long as it reuses the same document prefix within the provider's cache window, pays the cached rate for that repeated portion — now 90% cheaper than before on GPT-6 Sol and Luna. OpenAI also says the new models achieve higher cache-hit rates by default and let a developer adjust reasoning effort or which tools are available mid-task without breaking the cache, which matters because a broken cache means the next query reprocesses the whole document at full price again.
+
+## What GPT-6 Sol and Luna actually cost
+
+| | GPT-5.6 (input / output, per million tokens) | GPT-6 (input / output, per million tokens) |
+|---|---|---|
+| Sol | $4 / $20 | $2 / $10 |
+| Luna | $0.20 / $1.20 | $0.10 / $0.50 |
+| Cached input (either model) | — | 10% of the standard input rate |
+
+OpenAI confirmed to VentureBeat that these are permanent list prices, not an introductory offer.
+
+## What this changes for a bid team or a submittal coordinator
+
+It doesn't change what these tools can do — it changes whether running one all day, every day, on every project is affordable instead of a line item that gets cut after the pilot. A firm evaluating an internal tool that answers questions against a spec book, a contract, or a full drawing set should now be pricing that tool by the cached rate for repeated queries, not the sticker price per token. That's a materially different cost model than most vendors were quoting six months ago, and it's worth re-running the math on anything a vendor priced before this week.
+
+## What's still on the estimator, not the model
+
+Cheaper doesn't mean more accurate. Neither OpenAI nor any outside reviewer has published a benchmark of GPT-6 Sol or Luna against construction documents specifically — spec books, addenda, geotech reports. A model that's 90% cheaper to query 200 times is still capable of citing the wrong spec section or missing an addendum if the tool around it isn't built carefully. The cost drop makes it worth testing whether a spec-query tool pencils out; it doesn't replace someone checking the citation before it goes into a bid.
+
+---
+
+We covered the same "cheaper model changes what's worth automating" shift when [a routing-only model priced at roughly 1/238th a frontier chatbot's rate turned RFI and submittal triage into a boring engineering problem](/posts/2026-09-22-typesafe-jev-decision-model-construction-rfi-submittal-triage) — that piece was about the cost of sorting documents; this one is about the cost of holding one open and asking it questions all day.
+
+*Forward this to whoever on your precon team has been told an AI spec-review tool "doesn't pencil out" — the math changed this week.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
