@@ -1,0 +1,57 @@
+---
+title: "Amazon just let AI agents run seller pricing around the clock. Here's the catch before you trust a marketplace quote"
+date: "2026-09-25"
+excerpt: "Amazon's new Seller Assistant plugin lets AI agents adjust prices and inventory in the background, even when no one's logged in — a preview of the always-on, approval-gated agent access that's coming to construction procurement platforms next."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://www.geekwire.com/2026/amazon-opens-its-seller-tools-to-outside-ai-agents-starting-with-anthropics-claude/"
+  - "https://thenextweb.com/news/amazon-seller-assistant-plugin-claude-quick"
+  - "https://smallbiztrends.com/amazon-seller-assistant-adds-24-7-automation-and-claude-integration/"
+  - "https://www.unite.ai/amazon-brings-seller-assistant-to-claude-and-amazon-quick/"
+  - "https://www.aboutamazon.com/news/innovation-at-amazon/seller-assistant-plugin-amazon-quick-claude"
+faqs:
+  - q: "What did Amazon actually announce?"
+    a: "At its Accelerate conference on September 23, 2026, Amazon launched a plugin that lets outside AI agents — starting with Anthropic's Claude, plus Amazon's own Quick assistant — manage a seller's inventory, pricing, listings, and analytics directly, without the seller opening Seller Central. It runs on Amazon Bedrock, combining Amazon Nova and Claude models, and is in beta for US sellers now, expanding internationally in the coming weeks."
+  - q: "Can the AI agent change prices without a person approving it?"
+    a: "Workflows can run continuously in the background even when the seller isn't logged in, but Amazon says sellers choose per-workflow whether the agent only recommends an action or also executes it, and they approve actions before they happen. The autonomy is real; it's gated by a setting the seller controls, not an on/off switch for the whole account."
+  - q: "Does this affect how contractors buy materials or tools?"
+    a: "Indirectly but concretely. Many of the tool, PPE, fastener, and small-hardware brands and distributors that show up when someone searches Amazon Business sell through the same Seller Central system this plugin connects to. Once a seller turns on an autonomous pricing workflow, the price and listing a buyer sees can be the output of an unattended agent decision made minutes earlier, not a number a person set and left alone."
+  - q: "Will construction-specific software get this same feature?"
+    a: "Nothing has been announced for Procore, Autodesk Construction Cloud, Sage, or trade-specific ERP and procurement tools. But the pattern Amazon just shipped at scale — an agent with standing, approval-gated write access to pricing, inventory, and listings that keeps working while no human is logged in — is the same architecture vendors in every industry are building toward for their own transactional systems, and construction procurement and purchase-order workflows are a plausible next stop."
+  - q: "What should a GC or sub do about this right now?"
+    a: "Stop treating a marketplace price or listing screenshot as fixed evidence for a reorder or change-order backup without a timestamp and a live re-check, and when your own software vendors pitch an autonomous purchasing or pricing agent, ask the same question Amazon just answered for its sellers: does it only recommend, or does it also act — and who set that switch."
+---
+
+Amazon just shipped, at real scale, the exact agent-access pattern construction procurement software is heading toward: an AI agent with standing, approval-gated write access to pricing and inventory that keeps working even when no human is logged in. For anyone who buys tools, PPE, fasteners, or small hardware through Amazon Business — and increasingly, that's most back offices — the numbers on those listings can now be the output of an unattended decision made minutes ago, not a price a person set once and walked away from.
+
+## What did Amazon actually launch?
+
+At its Accelerate seller conference on September 23, Amazon opened its Seller Central APIs to outside AI agents. The headline feature is a plugin that lets a seller manage inventory, prices, listings, and performance analytics directly from Anthropic's Claude or Amazon's own Quick assistant, without ever opening Seller Central. It runs on Amazon Bedrock, combining Amazon Nova and Claude models, connecting takes about 60 seconds with no coding, and Amazon says roughly 90% of its sellers already use some outside AI tool to run part of their operations — this plugin formalizes that into a supported, standing integration instead of a workaround.
+
+## Does the agent act without anyone watching?
+
+The part that matters for buyers: workflows run continuously in the background, even when the seller isn't logged in. Amazon's own example is a price-adjustment workflow that reacts when a competitor opens a pricing gap. But the autonomy has a governor — sellers set, per workflow, whether the agent only recommends a change or is allowed to execute it, and they approve actions before they happen. So this isn't an unsupervised system moving numbers on its own initiative; it's an approval-gated agent that a seller can dial from "watch and tell me" to "watch and act" one workflow at a time.
+
+## Why should a contractor's back office care?
+
+| | Before this plugin | After this plugin |
+|---|---|---|
+| Who sets a marketplace price | A person, updated on their own schedule | Possibly an agent, running continuously, seller-approved per workflow |
+| How fresh is a price you screenshot | Stable until someone changes it | Can shift again minutes later, unattended |
+| Evidence value for a change order | A number a person chose | A number that may need a timestamp and a re-check, not a screenshot |
+| Who's accountable if it's wrong | The seller who set it | Still the seller — but the decision may not have had a human in the loop that hour |
+
+That matters because Amazon Business has become a real channel for construction back offices — punch-list hardware, safety gear, fasteners, consumables — not just a convenience buy. When the listing behind that purchase is being managed by an agent working around the clock, a price pulled last week is weaker backup for a reorder or a change order than it used to be. The fix is simple: re-check the live price at the moment you actually order or bill it, rather than relying on a saved number.
+
+## What's the bigger signal here?
+
+The construction angle isn't really about Amazon — it's about the access model Amazon just proved works at scale: continuous, unattended agent execution, gated by a per-workflow human-approval setting. That's precisely the architecture a procurement or job-cost platform would need to let an AI agent watch supplier pricing, flag reorder points, or draft purchase orders without someone babysitting it all day. No construction software vendor has announced this yet, but when one does, the question to ask isn't whether the agent is smart — it's whether it defaults to "recommend" or "act," and who's allowed to flip that switch.
+
+---
+
+We raised a version of this same access question when [Google's Gemini agent broke into systems during a safety test](/posts/2026-09-20-google-gemini-ai-agent-breakout-hack-construction-system-access) — that was about an agent going further than intended. This is the opposite case: a company shipping exactly that kind of standing access on purpose, with the approval gate built in from day one. Worth noticing which model your own software vendor copies.
+
+*Forward this to whoever in your shop places the Amazon Business orders.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
