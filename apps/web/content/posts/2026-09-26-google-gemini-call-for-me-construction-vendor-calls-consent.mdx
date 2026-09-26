@@ -1,0 +1,67 @@
+---
+title: "Google's Gemini will now call your suppliers for you. Check your state's consent law before you build the same thing"
+date: "2026-09-26"
+excerpt: "Google is testing a Gemini feature that calls businesses on a user's behalf, discloses itself as AI, and records the line. The same disclosure-and-consent question applies the moment a GC or sub points a voice agent at a supplier or sub call."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://techcrunch.com/2026/09/24/google-tests-letting-gemini-make-phone-calls-initially-for-us-pixel-owners/"
+  - "https://9to5google.com/2026/09/24/pixel-11-call-for-me/"
+  - "https://www.techrepublic.com/article/news-google-gemini-call-for-me-pixel-11/"
+  - "https://www.droid-life.com/2026/09/24/pixel-11-gets-call-for-me-feature-gemini/"
+  - "https://thoughtly.com/blog/call-recording-consent-ai-voice-agents-state-guide"
+  - "https://dialzara.com/blog/call-recording-laws-ai-agents-by-state"
+faqs:
+  - q: "What is Google's Gemini 'Call for Me' feature?"
+    a: "It's a Google test, announced September 24, 2026, that lets Gemini place a phone call on a user's behalf — to check a business's hours, get a quote, or book or change a reservation. Gemini identifies itself as an AI assistant at the start of the call, names the person it's calling for, and states that the line is being recorded. A live transcript shows on the user's screen the whole time, and the user can take over the call at any point."
+  - q: "Who can use it right now?"
+    a: "It's restricted to US-based Pixel 11 owners with a paid Gemini subscription who are also enrolled in the Phone by Google public beta. It is not a general release, and Google hasn't said when or whether it will expand beyond that group."
+  - q: "Does call recording consent law affect an AI voice agent making business calls?"
+    a: "Yes. Most US states are one-party consent, meaning the caller alone can legally record. A minority of states — including California, Florida, and Pennsylvania — require all-party consent, meaning everyone on the line has to be told and agree. A voice agent that calls across state lines has to clear the strictest law that could apply, not just the caller's home state."
+  - q: "Does this apply to construction specifically?"
+    a: "Google built Call for Me for consumer errands, not for business dispatch. But a GC office or subcontractor placing routine outbound calls — checking material lead times with a supplier, confirming an inspection slot, chasing a sub for a schedule update — is doing the same kind of call this feature automates. Any company that builds or buys a similar tool for that purpose takes on the same disclosure and consent questions Google had to answer first."
+  - q: "What should a contractor's office do before trying a voice-calling AI agent?"
+    a: "Check whether any state the calls touch requires all-party consent, and if so, script the AI to disclose itself and the recording at the top of every call — the same pattern Google shipped. Confirm with whoever the agent calls (suppliers, subs, inspectors) that a recorded, AI-initiated call is an acceptable way to reach them before rolling it out past a single pilot."
+---
+
+Google is testing an AI agent that calls businesses for you, states out loud that it's an AI, and records the line — and that disclosure script is the part worth copying before a GC or sub points anything similar at a supplier.
+
+## What did Google actually ship?
+
+On September 24, Google began testing "Call for Me," a Gemini feature that places outbound phone calls on a user's behalf. A user can ask Gemini to call a business to check hours, get a price on a part, or book, confirm, or change a reservation. When Gemini dials, it opens by identifying itself as an AI assistant, names the person it's calling for, and states that the call is being recorded. The user sees a live transcript scroll on their screen for the whole call and can jump in and take over speaking at any point.
+
+The test is narrow. It's limited to US-based Pixel 11 owners who pay for a Gemini subscription and have also opted into the separate Phone by Google public beta — not a general rollout, and Google hasn't said when that changes.
+
+## Why does a consumer errand feature matter to a construction office?
+
+Strip out the consumer framing — "check if the hardware store has this in stock," "move my dinner reservation" — and the mechanics are the exact shape of calls a GC's project engineer or a sub's office admin already makes every day: calling a supplier to confirm a lead time, calling the building department to check an inspection slot, calling a sub to chase a schedule update. Those are outbound, repetitive, low-judgment calls — precisely the kind of task the "voice/agent assistant" wave has been aimed at for field-to-office reporting and dispatch all year.
+
+What's new isn't the idea of a voice agent making calls. It's that Google had to ship an answer to the disclosure problem first: say you're an AI, say who you're calling for, say the line is recorded. Any construction company building or buying a similar tool inherits that same problem, and most haven't faced it yet — voice AI in construction has mostly stayed inside the company (daily logs, dictation, internal dispatch), not calling outside vendors who never agreed to talk to a bot.
+
+## Does call recording law actually apply here?
+
+It does, and it's messier than most back offices realize. US call recording law splits by state:
+
+| Consent model | What it requires | Example states |
+|---|---|---|
+| One-party consent | Only the person recording has to agree | Most states, including Texas, New York, Ohio |
+| All-party consent | Everyone on the call has to be told and agree | California, Florida, Pennsylvania, Illinois, Washington |
+
+A GC or a multi-state mechanical sub calling suppliers or subs across state lines isn't calling from a single-state bubble. If any leg touches an all-party-consent state, the safer position is to disclose the recording every time — which is exactly what Google's script does by default, not as an optional setting.
+
+## What should a contractor do with this before building anything?
+
+Nothing here says a GC or sub needs to rush out and deploy an AI calling agent this week. It says: if that's on the roadmap — even informally, even as "let's try an AI to chase suppliers for lead times" — copy the disclosure pattern before the first real call goes out, not after a supplier complains about being recorded without warning. Two concrete steps:
+
+1. **Map which states your outbound calls touch** — supplier HQs, permit offices, sub offices — and check whether any require all-party consent (Thoughtly and Dialzara both publish current state-by-state trackers).
+2. **Script the disclosure at the top of every call**, whether the tool is a Gemini-style consumer feature, a construction-specific voice platform, or something built in-house: state it's an AI, state who it's calling for, state the call is recorded — before asking the first real question.
+
+That's not a workflow win yet. It's the compliance floor under whatever workflow win comes next.
+
+---
+
+We covered the earlier stage of this same voice-AI build-out when [OpenAI priced its full-duplex voice API for hands-free daily logs](/posts/2026-09-13-gpt-live-1-api-pricing-construction-daily-log-voice-dispatch). That story was about an agent listening to your own field crew. This one is about an agent talking to someone outside the company who never signed up for the call.
+
+*Forward this to whoever runs your office's outbound calls to suppliers and subs.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
