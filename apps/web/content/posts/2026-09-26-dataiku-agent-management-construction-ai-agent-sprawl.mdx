@@ -1,0 +1,58 @@
+---
+title: "A new tool hunts down every AI agent a company is secretly running. Procore's Agent Builder shows why construction needs one too"
+date: "2026-09-26"
+excerpt: "Dataiku launched a product that inventories every AI agent an enterprise has running, because fewer than one in five companies know. Procore's no-code Agent Builder means GCs and subs already have the same blind spot."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.dataiku.com/company/news/dataiku-agent-management-general-availability"
+  - "https://www.helpnetsecurity.com/2026/09/25/dataiku-agent-management/"
+  - "https://www.hpcwire.com/bigdatawire/this-just-in/dataiku-unveils-agent-management-to-track-enterprise-ai-agents-across-platforms/"
+  - "https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure"
+  - "https://support.procore.com/products/online/user-guide/project-level/agent-builder/about-agent-builder"
+  - "https://www.procore.com/press/procore-advances-the-future-of-construction-with-new-ai-innovations"
+faqs:
+  - q: "What did Dataiku actually launch?"
+    a: "On September 24, 2026, Dataiku launched Agent Management, a standalone product that scans an enterprise's AI platforms — AWS Bedrock, Databricks, Google Vertex, Microsoft Copilot Studio and Azure Foundry, Salesforce Agentforce, Snowflake Cortex, Dataiku itself, plus custom setups via OpenTelemetry — into one inventory of every agent running, what it can access, and how risky it is. It's in early access now and reaches general availability in October 2026."
+  - q: "Does Dataiku Agent Management connect to Procore, Autodesk, or Trimble?"
+    a: "No. Its published integration list is general enterprise AI platforms, not construction-specific software. That's the limit of this story: it doesn't hand a GC a plug-and-play fix. What it proves is that the governance gap it's built to close — nobody knowing what agents are live or what they can touch — already exists inside construction's own tools."
+  - q: "Why does AI agent sprawl matter for a GC or subcontractor?"
+    a: "Procore's Agent Builder, in open beta since Groundbreak 2025, lets any project team member build a custom AI agent with no code, on top of pre-built Starter Agents like an RFI Creation Agent and a Daily Log Agent. Once several PMs on different jobs have each spun up their own version, there's no single list anywhere in the company of which agents exist, who owns them, what project or payroll data they can read, or whether they only draft output or can send it."
+  - q: "Is this the same risk as sensitive data leaking into a chatbot?"
+    a: "It's related but distinct. A data-leak-prevention tool stops confidential information from being typed into an AI tool in the first place. Agent inventory and governance is the next problem down the line — it assumes agents are already deployed with legitimate access, and asks whether anyone knows which ones exist, what they're authorized to do, and whether that authorization still makes sense."
+  - q: "What can a construction firm do about this before software vendors build a Procore- or Autodesk-specific version?"
+    a: "Build the list by hand: one row per AI agent in use, the platform it runs on, who owns it, what project or financial data it can read, and whether it only drafts content or can also send, submit, or execute. That's the manual version of what Dataiku's product automates, and it costs nothing but an hour and some follow-up questions to the PMs who built the agents."
+---
+
+Fewer than one in five companies know every AI agent they're running, so a startup just built software to find them. Construction already has this problem — Procore's own no-code Agent Builder lets any project manager spin up an agent with project access, and nobody at most firms has a list of how many exist.
+
+## What did Dataiku launch?
+
+On September 24, Dataiku launched Agent Management, a standalone product that scans the platforms enterprises already use to build and run AI agents — AWS Bedrock, Databricks Agents, Google Vertex, Microsoft Copilot Studio and Azure Foundry, Salesforce Agentforce, Snowflake Cortex, Dataiku itself, and custom environments through OpenTelemetry — and pulls them into a single inventory. For each agent it finds, the tool maps the models and tools it depends on, tracks how well it's actually performing, and assigns it a risk tier based on how much autonomy it has, how sensitive the data it touches is, and how much business impact a mistake would cause. Agents with access to customer data, production systems, or financial records get flagged as high risk and routed toward mandatory review before they keep running unsupervised.
+
+Dataiku's own numbers explain why it built this now: fewer than one in five organizations maintain a complete, current inventory of their AI systems. Gartner's research points to why that gap is opening fast — the average Fortune 500 company is on pace to run more than 150,000 AI agents by 2028, task-specific agents are set to appear in 40% of enterprise applications by the end of 2026 (up from under 5% in 2025), and only 13% of organizations believe their governance can keep up.
+
+## Where's the construction version of this problem?
+
+It's already live. Procore's Agent Builder came out of open beta preview at Groundbreak 2025 as a no-code tool: any project team member can build a custom AI agent, or start from a pre-built Starter Agent, without writing anything. Two of the flagship Starter Agents are an RFI Creation Agent, which drafts RFI content and searches project documents for answers, and a Daily Log Agent, which automates jobsite reporting. Autodesk and Trimble are shipping their own AI layers on the same timeline, each with its own agents pulling from project, cost, and schedule data.
+
+None of that runs through Dataiku, Bedrock, or any platform its new product currently watches. That's the honest limit here — a GC can't buy Dataiku's tool and point it at Procore today. But the underlying pattern is the same one Dataiku is selling a fix for: agents get built project by project, PM by PM, with real access to RFI history, daily logs, and — on some builds — labor and cost data, and no one above the individual project owns a list of what exists.
+
+| | Enterprise AI sprawl (Dataiku's target) | Construction's version, today |
+|---|---|---|
+| Who can create an agent | Any team with platform access | Any PM or coordinator with Procore's Agent Builder |
+| Central inventory | Rare — under 1 in 5 have one | Effectively none |
+| Data at risk | Customer records, production systems | RFI/submittal history, daily logs, on some builds payroll or cost data |
+| Governance today | Emerging vendor tools like this one | None built for construction platforms yet |
+
+## What should a GC or sub do this week?
+
+Skip waiting for a construction-specific version of Dataiku's product and build the manual equivalent: a single list, owned by ops or IT, of every AI agent running across the company's software — what platform it's on, who built it, what project or financial data it can read, and whether it only produces a draft or is allowed to submit, send, or execute on its own. An RFI Creation Agent that only drafts is a productivity tool. One that's been toggled to auto-submit can commit the company to a position in a dispute without a person reading it first, and on a certified-payroll job, a Daily Log Agent that's been given labor data is touching information with real compliance exposure if it's mishandled. The distinction between "drafts" and "acts" is exactly the axis Dataiku's risk tiering is built on — a construction firm doesn't need to buy the software to start asking the same question about its own agents.
+
+---
+
+We covered the accountability side of this same shift when [OpenAI's agent accessed a government portal and the vendor waited three months to disclose it](/posts/2026-09-25-openai-medicare-agent-breach-ai-vendor-disclosure-clause-construction). This is the earlier problem: before you can hold an agent accountable for what it did, you have to know it exists.
+
+*Forward this to whoever owns your Procore admin settings.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
