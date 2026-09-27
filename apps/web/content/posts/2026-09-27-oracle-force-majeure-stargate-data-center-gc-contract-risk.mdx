@@ -1,0 +1,62 @@
+---
+title: "Oracle just invoked force majeure on a data center. A gas pipeline permit was the trigger, not the building"
+date: "2026-09-27"
+excerpt: "Oracle sent a force majeure notice on its $165 billion Project Jupiter data center after a gas pipeline permit and an air-quality permit stalled the site's power supply. The building isn't the delay. Any GC or sub bidding a data center campus needs a force majeure clause that says what happens when the power path, not the construction, is what's late."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.cnbc.com/2026/09/24/oracle-data-center-force-majeure.html"
+  - "https://news.bloomberglaw.com/artificial-intelligence/oracle-cites-force-majeure-to-shield-itself-on-big-data-center"
+  - "https://www.abqjournal.com/business/doa-ana-countys-project-jupiter-joins-500-billion-stargate-initiative-led-by-openai-oracle/493927"
+  - "https://www.investing.com/news/stock-market-news/oracle-triggers-force-majeure-on-massive-project-jupiter-data-center-4915383"
+  - "https://theaiinsider.tech/2026/09/25/oracle-issues-force-majeure-notice-on-stargates-project-jupiter-ai-data-center-in-new-mexico/"
+faqs:
+  - q: "What did Oracle actually do?"
+    a: "Oracle sent a force majeure notice to Blue Owl Capital, the investment firm that owns the developer (Stack Infrastructure) building Project Jupiter, a 2.45-gigawatt Stargate data center campus. The notice preserves Oracle's right to delay payments if the facility misses its 2028 target to come online. Oracle says it isn't trying to exit as the campus's anchor tenant, and Blue Owl says its financial commitments haven't changed."
+  - q: "What actually caused the delay that triggered this?"
+    a: "Two permitting problems, not a construction problem. A natural gas pipeline that Energy Transfer is building to feed the site's Bloom Energy fuel cells has slipped roughly six months, to February 2027, after New Mexico's State Land Office repeatedly denied right-of-way permits across state trust land. Separately, the air-quality permit the fuel cell system needs is still pending; the state environment department has until November 23, 2026 to rule on it."
+  - q: "Why does a force majeure notice matter if Oracle says the project is on schedule?"
+    a: "Because the notice is a contractual position, not a status update. It puts Blue Owl on notice that Oracle can invoke a payment-delay right later without renegotiating, and Oracle's stock dropped about 3% the day it became public — a sign the market reads it as real schedule risk regardless of what either company says in a press statement."
+  - q: "Does this affect the GC and subs actually building the site, or just the corporate parties?"
+    a: "Not directly today, but it's the exact structure that determines who eats a delay on any large data center job. If a force majeure trigger at the top of the contract chain (owner to developer) isn't explicitly passed through or blocked in the developer-to-GC and GC-to-sub agreements, a permit delay nobody on the jobsite caused can still land on the trade with the least leverage to fight it."
+  - q: "What should a GC or sub check before signing on to a data center campus contract?"
+    a: "Confirm the force majeure and excusable-delay clause names third-party utility, pipeline, and environmental permitting delays specifically — not just weather and acts of God — and states clearly whether that risk flows down to you or stops at the developer. Also check whether substantial completion is defined as the building being done or the site being energized; on a power-constrained project those can be many months apart."
+---
+
+Oracle sent a force majeure notice this week on Project Jupiter, its $165 billion Stargate data center campus in New Mexico. The thing that triggered it wasn't a construction delay — it was a state land office denying a gas pipeline right-of-way permit, and a separate air-quality permit still sitting on a regulator's desk. If you bid or build on data center campuses, that's the risk to underwrite: the building can finish on time and the project can still stall.
+
+## What Oracle actually did
+
+Oracle's notice went to Blue Owl Capital, the investment firm that owns Stack Infrastructure, the developer building Project Jupiter — a four-building, 2.45-gigawatt campus that's part of OpenAI, Oracle, and SoftBank's broader $500 billion Stargate buildout. A force majeure notice doesn't cancel a contract; it preserves a right. Here, it preserves Oracle's ability to delay payments to Blue Owl if the facility misses its 2028 target to come online, without having to renegotiate the deal later. Oracle says the project remains on its planned schedule and it isn't trying to walk away as the campus's anchor tenant. Blue Owl says its financial commitments are unchanged. Oracle's stock still dropped about 3% the day the notice became public.
+
+## The delay isn't in the building — it's in the power path
+
+Project Jupiter is designed to run on Bloom Energy fuel cells burning natural gas. Two permitting problems are holding that up:
+
+| Bottleneck | Status |
+|---|---|
+| Energy Transfer gas pipeline right-of-way | Denied repeatedly by New Mexico's State Land Office; timeline has slipped from an original August 2026 target to February 2027 |
+| Air-quality permit for the fuel cell system | Still pending; state environment department has until November 23, 2026 to decide |
+
+Neither of those is a construction problem. Concrete can be poured, steel can go up, and the buildings can be substantially complete while the campus still can't take power. That gap — building done, site not energized — is the risk data center construction hasn't fully priced yet.
+
+## Why a GC or sub should care about a notice between two corporations
+
+Nobody on Project Jupiter's jobsite caused the pipeline permit denial. But force majeure and delay risk don't stop where they originate — they flow down the contract chain unless someone wrote language that stops them. A developer holding a force majeure notice from its anchor tenant has every incentive to pass that same relief down to its GC, and a GC facing that has every incentive to pass it further down to its subs. Whoever has the weakest contract language in that chain is the one left holding a delay they didn't cause and can't control.
+
+## What to check before you sign the next one
+
+Two things worth pulling out of any data center contract you're bidding right now:
+
+1. **Does the force majeure clause name utility, pipeline, and environmental permitting delays specifically** — not just weather, strikes, and acts of God — and does it say explicitly whether that risk passes down to you or stops at the tier above you?
+2. **How is substantial completion defined** — the building finished, or the site actually energized and operational? On a power-constrained megaproject those milestones can sit many months apart, and a contract that conflates them can leave a GC or sub carrying retainage, insurance, and warranty exposure for a facility that's built but can't turn on.
+
+Data center demand isn't slowing down, but the constraint has moved off the jobsite and onto the grid and the permit office. Price that risk into the contract now, before your next data center bid assumes the power will be there on the date the building is.
+
+---
+
+We covered the financing side of this same risk last week when [SoftBank borrowed $11 billion at junk-bond rates to fund its OpenAI bet](/posts/2026-09-22-softbank-junk-bond-openai-data-center-capital-stack-risk) — a capital-stack question every GC bidding data center work needs to ask about the money behind the job. This is the permitting-side version of the same warning: know what's actually holding up the project before you commit your schedule to it.
+
+*Forward this to whoever is pricing your firm's next data center bid.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
