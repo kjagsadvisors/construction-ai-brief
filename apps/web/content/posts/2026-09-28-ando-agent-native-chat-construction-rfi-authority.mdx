@@ -1,0 +1,64 @@
+---
+title: "A new chat app lets AI agents join the conversation without being tagged in. That's a problem before it's a feature on an RFI thread"
+date: "2026-09-28"
+excerpt: "Ando, a $20 million-funded startup, launched team chat software where AI agents join channels and pick up work on their own, with no human tagging them in first. Before that model touches an RFI, submittal, or field-directive channel, a GC needs a rule for what an untagged agent is allowed to send."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://techcrunch.com/2026/09/24/ando-eyes-slack-as-it-builds-team-messaging-platform-for-humans-and-agents-to-work-together/"
+  - "https://www.globenewswire.com/news-release/2026/09/24/3368344/0/en/ando-launches-agent-native-messaging-platform-announces-20-million-seed.html"
+  - "https://www.accel.com/news/our-investment-in-ando-modern-messaging-for-teams-and-agents"
+  - "https://dealroom.co/news/156107-ando-raises-seed-round-from-index-and-emergence-for-human-agent-messagin/"
+faqs:
+  - q: "What is Ando?"
+    a: "Ando is a team messaging platform, positioned as a Slack and Teams competitor, built by founder and CEO Sara Du (previously founder of Alloy Automation, a Thiel Fellow). It came out of stealth on September 24, 2026 with $20 million in funding from Accel, Index Ventures, and Emergence Capital. The pitch is a workspace where AI agents are full participants, not bolted-on bots."
+  - q: "Can AI agents really send messages without a person telling them to?"
+    a: "That's the core feature. Ando's agents can join channels, sit in group DMs, and pick up work without being explicitly tagged in first. The platform is agent-agnostic — it's built to work with agents made on systems like Codex, Claude, Devin, and Grokbot, not just one vendor's assistant."
+  - q: "Does a chat-app funding round actually matter for construction?"
+    a: "Yes, because the workflow it's built around already exists on every job: a shared channel where RFIs get discussed, subs get directed, and submittal status gets chased. Ando is a preview of what that channel looks like once an agent can act in it unprompted — before any construction-specific tool ships the same behavior into a channel that also carries contractual weight."
+  - q: "Is Ando actually being used on construction projects today?"
+    a: "Not that's been publicly disclosed. Coverage of the launch says early customers span software, real estate, and financial services teams in about a dozen countries — real estate is adjacent, but no construction firm has been named as a user. The risk described here is about the interaction model Ando popularized, not a claim that it's already running on a jobsite."
+  - q: "What should a GC do before an AI agent gets access to a project communication channel?"
+    a: "Require the agent to identify itself as an agent in every message, and block it from originating or replying in any channel used for RFIs, change orders, or field directives without a named human reviewing and sending that specific message. An audit trail that can't say whether a person or an agent issued a directive is not a trail a contract dispute will accept."
+---
+
+A startup called Ando raised $20 million to build team chat where AI agents join channels and start working without a human tagging them in first. That single design choice — agents that act unprompted instead of only responding when called — is the exact behavior that, once it reaches a channel used for RFIs or field directives, turns a communication tool into a contract-administration problem.
+
+## What Ando actually shipped
+
+Ando came out of stealth on September 24, 2026, founded by Sara Du, who previously built the enterprise API platform Alloy Automation. The company raised a $20 million seed round from Accel, Index Ventures, and Emergence Capital and is pitching itself as a full replacement for Slack or Teams, built for a workplace where people and AI agents share one workspace as teammates. It's agent-agnostic — designed to host agents built on Codex, Claude, Devin, or Grokbot — and works best for teams of 30 or fewer while it clears its waitlist. Early customers reported so far are in software, real estate, and financial services, spread across roughly a dozen countries.
+
+The feature that matters here isn't the chat UI. It's that agents in Ando can join a channel, sit in a group DM, and pick up a task without a person explicitly tagging them in. In most enterprise AI deployments today, an agent still waits to be summoned. Ando's bet is that the summon step is the friction, and that removing it is the product.
+
+## Why a GC should read a chat-app funding round
+
+Project communication on most jobs already lives in channel form: an RFI thread with the architect, a group text or Procore comment string with a sub about submittal status, a coordination channel with the trade partners on a phase. None of that is hypothetical software — it's the daily record a GC's contract administration runs on.
+
+Ando isn't built for construction, and no construction firm has been named as a customer. But it's a live example of the interaction pattern that general-purpose AI vendors are racing to normalize, and the same pattern is coming to whatever tool your project team already uses — whether that's a dedicated AI agent feature inside a platform like Procore, or an AI copilot bolted onto Slack or Teams. The question isn't whether an untagged agent will eventually sit in a channel that also carries RFIs and directives. It's whether anyone decided what that agent is allowed to say in that channel before it started saying it.
+
+## What breaks if nobody sets the rule first
+
+An agent that can "pick up work without being explicitly tagged" is, by definition, an agent that can decide on its own that a message needs a reply. In a channel used only for scheduling logistics, that's a convenience. In a channel where a reply could read as confirming a schedule change, answering an RFI, or directing a sub to proceed with extra work, it's a different thing entirely — because standard subcontract and AIA-style language assumes a directive came from an authorized person, not software that decided to jump in.
+
+Two gaps show up fast if that isn't addressed before an agent gets channel access:
+
+- **No way to tell who spoke.** If an agent's message isn't visibly marked as agent-generated, a dispute over "who told us to proceed" has no clean answer.
+- **No authorization gate.** If the agent can send without a human review step, there's no point where someone with signing authority actually approved what went out.
+
+## What to require before an agent gets a seat at the table
+
+Before turning on any agent-native chat feature — Ando or a construction platform's own version of it — for a channel that touches subs, owners, or the design team:
+
+1. Force every agent message to visibly disclose that it's agent-generated, not styled to look like it came from a person.
+2. Block the agent from originating or replying in any RFI, change-order, or field-directive channel without a named human sending that specific message.
+3. Keep agent access scoped to logistics and status channels first — scheduling reminders, document routing — and expand only after the audit trail question above has an answer.
+
+None of that requires rejecting the tool. It requires deciding, in writing, who's allowed to speak for the company in a channel before the agent that can speak unprompted gets access to it.
+
+---
+
+We covered the other half of this problem last week when [Dataiku launched a tool to hunt down every AI agent a company is secretly running](/posts/2026-09-26-dataiku-agent-management-construction-ai-agent-sprawl) — tracking what agents exist. This is the access-control half: deciding what an agent already inside your project channels is allowed to say before it says it.
+
+*Forward this to whoever manages your firm's Procore or Teams permissions.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
