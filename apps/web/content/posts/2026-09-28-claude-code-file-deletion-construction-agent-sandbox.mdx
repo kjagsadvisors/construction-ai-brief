@@ -1,0 +1,58 @@
+---
+title: "A coding agent reportedly deleted 48,000 files in 103 seconds. Here's the rule before you let one touch a live project folder"
+date: "2026-09-28"
+excerpt: "A widely reported account has an Anthropic Claude Code agent wiping out 48,000 live files and a project's Git history in under two minutes after a routine cleanup task went wrong. Unverified or not, it describes the exact setup a construction back office builds when it lets an AI agent loose on estimating templates and bid archives without a sandbox or a remote backup."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.techradar.com/pro/security/i-broke-something-a-claude-code-ai-agent-deleted-48-000-files-in-just-over-100-seconds-then-apologized-for-doing-so"
+  - "https://cybersecuritynews.com/claude-code-agent-file-deletion/"
+  - "https://tech.yahoo.com/ai/claude/articles/48-000-files-deleted-103-135359723.html"
+  - "https://www.androidheadlines.com/2026/09/claude-code-ai-agent-deletes-48000-files-in-103-seconds.html"
+  - "https://www.progressiverobot.com/2026/09/26/claude-code-file-deletion-48000-files-103-seconds/"
+faqs:
+  - q: "What actually happened in the Claude Code file deletion story?"
+    a: "According to a Reddit post and an attached verifier report — not an independently published forensic audit — a developer using Anthropic's Claude Code tool authorized an agent to rebuild a project mirror. The agent's own script couldn't refresh the mirror in place, so it wrote a cleanup routine targeting an older copy in a temp folder. That folder held 614 Windows directory junctions pointing back into the live project tree. Deleting through those junctions deleted the live files: about 48,218 of them in 103 seconds, plus the project's .git/objects, refs, and logs folders, which erased the commit history."
+  - q: "Did Anthropic confirm this happened?"
+    a: "Not that's been independently reported. The account traces back to one Reddit post and its attached logs, not a company disclosure or third-party forensic review, so treat the specific numbers as unverified. What's well documented, and unrelated to whether this exact account is accurate, is that Claude Code has a manual mode that asks for approval before running Bash commands or modifying files, and a bypass-permissions mode that skips those prompts and is documented for use only inside isolated containers or VMs."
+  - q: "Why does this matter for a construction company that isn't a software shop?"
+    a: "Estimating, precon, and PM teams increasingly use agentic coding tools like Claude Code, Cursor, or Copilot to build internal automation — takeoff scripts, bid-log macros, submittal-tracking spreadsheets, schedule generators — usually maintained by one estimator or PM, not a dev team. That setup often skips the two things that would have limited this incident: a remote backup outside the local folder, and running the agent against a disposable copy instead of the live files."
+  - q: "What's the actual safeguard before letting an AI agent build tools on live project files?"
+    a: "Three things: never run an agent in an auto-approve or bypass-permissions mode against your live folder — only inside an isolated sandbox, container, or throwaway copy. Push commits to a remote repository (GitHub, GitLab, or your firm's server), not just local version control, so history survives a local wipeout. And scope the agent's task to a copy of the data, never the original estimating templates or bid archive."
+---
+
+A developer's account of an AI coding agent destroying 48,000 files in under two minutes — corroborated across multiple tech outlets, though never independently forensically confirmed — describes exactly the setup a construction office creates when an estimator or PM lets an AI agent loose on a live folder of spreadsheets and templates with no backup and no sandbox. If your back office is starting to use tools like Claude Code or Cursor to build internal automation, this is the guardrail to put in place before, not after.
+
+## What happened
+
+The account, first posted to Reddit and picked up by TechRadar, Cybersecurity News, and others, describes a user who tasked Anthropic's Claude Code agent with rebuilding a mirror of a project directory — an internal task tracked as "#873." The agent's own `build_mirror.py` script couldn't refresh the mirror in place, so it wrote a cleanup routine to clear an older mirror copy sitting in a temp folder. That folder held 7,332 ordinary files alongside 614 Windows directory junctions — shortcuts pointing back to another disk location — and those junctions pointed straight into the live project tree.
+
+Deleting "the mirror" meant deleting through those junctions into the real files: about 48,218 of them gone in 103 seconds, between 10:10:31 and 10:12:14 p.m. ET. The agent also emptied the project's `.git/objects`, `refs`, and `logs` folders — the parts of Git that hold commit history — leaving no local way to roll back. Mid-run, the agent posted its own message: "Craig — stop and read this. I broke something." The poster later acknowledged not having pushed recent commits to a remote host like GitHub; had they done so, the work would likely have survived.
+
+## Is this story reliable?
+
+Only partly. It comes from one Reddit post and an attached verifier log, not a company statement or forensic audit, so read the exact file count and timestamps as claimed, not confirmed. What is independently documented: Claude Code ships with a manual-approval mode for file and command changes, and a separate bypass-permissions mode that skips those confirmations — one Anthropic's own documentation says belongs inside an isolated container or VM, not a live working directory. Whatever the accuracy of this specific account, that permission structure, and the failure mode it guards against, is real.
+
+## Why this is a construction back-office problem, not just a software problem
+
+Construction firms don't run engineering departments, but plenty of estimators, precon leads, and ops managers now use the same class of tool — Claude Code, Cursor, GitHub Copilot's agent mode — to build small internal utilities: a script that reformats a bid tab, a macro that pulls quantities from a takeoff spreadsheet, a tool that renames and files submittal PDFs by CSI division. Those builds usually live in one folder on one laptop, maintained by one person who isn't a developer and has no reason to think about sandboxing or remote backups.
+
+That's precisely the combination this story describes: an agent with real file-system access, running against the actual working folder, with no remote copy of the history to fall back on. Swap "project mirror" for "estimating template library" or "bid archive" and the exposure is the same.
+
+## The three-step guardrail before an agent touches your files
+
+| Guardrail | What it prevents |
+|---|---|
+| Never run in auto-approve/bypass mode against a live folder — only inside a sandbox, container, or disposable copy | An agent's mistaken action can't reach real files if it's only ever pointed at a throwaway copy |
+| Push commits to a remote repo (GitHub, GitLab, your own server) on a real schedule, not just local Git | A local Git wipeout — accidental or not — doesn't erase the only copy of your history |
+| Scope every agent task to a specific folder, never "the whole project" or a bare instruction to "clean up" | Narrow, explicit scope limits how much an agent can touch even if something goes wrong |
+
+None of this requires an IT department. It requires treating an agentic coding tool the way you'd treat a new subcontractor with a key to the yard: give it access to exactly what the task needs, keep a copy of what matters somewhere else, and don't hand over the master key because the first few tasks went fine.
+
+---
+
+We covered the access-scoping side of this same risk when [Google's Gemini agent broke into three companies during a security test after a scope mix-up](/posts/2026-09-20-google-gemini-ai-agent-breakout-hack-construction-system-access). That piece was about an agent overstepping its intended task boundary on someone else's systems. This one is closer to home: what an agent does to your own files when nobody drew the boundary in the first place.
+
+*Forward this to whoever on your team has started using an AI coding agent to build spreadsheet or submittal tools.*
+
+*Friday one chart. Every week, one piece of data that should change a decision on your project. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
