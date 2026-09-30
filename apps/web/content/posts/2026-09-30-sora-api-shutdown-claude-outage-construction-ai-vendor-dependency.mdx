@@ -1,0 +1,60 @@
+---
+title: "OpenAI shut off its Sora API and Claude went down a day later. Here's the fallback plan for any AI tool your company built"
+date: "2026-09-30"
+excerpt: "OpenAI's Sora API was discontinued on September 24 with no named replacement, and Claude had a partial outage on September 29. If your estimating or back-office tools sit on one AI vendor, both events are a checklist."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation"
+  - "https://futurumgroup.com/insights/openai-sora-discontinuation-what-the-end-of-a-platform-means-for-enterprise-ai-strategy/"
+  - "https://9to5google.com/2026/09/29/claude-confirmed-outage-sept-29/"
+  - "https://www.digitaltrends.com/computing/anthropics-claude-is-having-a-major-breakdown-today/"
+faqs:
+  - q: "What happened to the OpenAI Sora API?"
+    a: "OpenAI announced on March 24, 2026 that it was removing Sora, and the API was discontinued on September 24, 2026. Coverage reports that OpenAI named no in-house replacement for developers."
+  - q: "Did Claude go down on September 29, 2026?"
+    a: "Yes. Anthropic reported a partial outage starting around 14:00 UTC that affected chats, sign-ins, Claude Code, Cowork and the API. Anthropic reported full service restored later that day, and said some messages sent during the window may not have been saved."
+  - q: "How should a contractor protect workflows built on an AI model?"
+    a: "Keep prompts, reference documents and outputs in your own storage, avoid depending on one vendor's proprietary features, and write down a manual fallback for each AI-assisted task, such as bid leveling or RFI drafting."
+  - q: "Does an AI vendor shutting down affect construction software I already buy?"
+    a: "It can, if that software calls the vendor's model behind the scenes. Ask your software vendor which AI providers it depends on and what happens to your data and features if one is withdrawn."
+---
+
+Two things happened in the past week that any contractor with an AI-assisted workflow should read as a warning: OpenAI switched off its Sora API on September 24, and Anthropic's Claude had a partial outage on September 29. Neither hits most jobsites directly. Both show what happens when a bid, RFI or reporting process depends on a single vendor's service.
+
+## What actually happened?
+
+OpenAI announced on March 24 that it was removing Sora. The app and web experience closed on April 26 and the API on September 24, according to OpenAI's help center and industry coverage. Reporting says OpenAI pointed developers to no successor. It did give six months of notice, which is more than most vendor failures provide.
+
+The Claude outage was shorter and unplanned. Per 9to5Google and Digital Trends, errors began around 14:00 UTC on September 29, hit chats, sign-ins, Claude Code, Cowork and the API, and were cleared later that day. Anthropic said some messages sent during the window may not have been saved.
+
+## Why does this matter to a sub or GC?
+
+Video generation isn't a core construction tool, so the Sora shutdown itself is minor for most firms. The pattern is the point. Plenty of contractors and their software vendors now run pieces of daily work through someone else's model:
+
+- Estimators using an AI to pull quantities or level bids from spec text.
+- PMs drafting RFI responses or meeting minutes with an assistant.
+- Field teams using voice tools for daily logs.
+- Construction software whose "AI features" quietly call an outside model.
+
+If the model disappears for an afternoon, that work stalls on bid day. If it disappears for good, you rebuild.
+
+## What should a firm do this week?
+
+| Check | What to write down |
+|---|---|
+| Which tasks use an AI model? | A one-page list, by role |
+| Which vendor does each one depend on? | Include the ones inside your construction software |
+| What is the manual fallback? | The spreadsheet or checklist your team used before |
+| Where do prompts and outputs live? | Your own storage, not only the vendor's chat history |
+| What did the vendor promise on notice and data? | Read the terms for deprecation and outage language |
+
+The outage note about unsaved messages is a small, concrete reason for the fourth row.
+
+## Should you avoid building on one vendor?
+
+Not necessarily. Using one model is cheaper and simpler, and a mid-size sub doesn't need a multi-vendor architecture. But keep the work portable: your instructions, checklists and reference documents should be plain files you own, so switching models is a weekend job and not a project. Ask software vendors directly which AI providers they rely on and what happens to your data if that provider is withdrawn.
+
+## The takeaway
+
+Before your next bid week, pick the one AI-assisted task you'd hurt most to lose, and write its manual fallback on one page. Then confirm your prompts and source documents are saved outside the AI tool. That is an hour of work, and the Sora shutdown shows the notice period may be shorter than you'd like.
