@@ -1,0 +1,55 @@
+---
+title: "OpenAI's always-on 'dots' agents take assignments in Slack and Teams. Here's what a PM should hand one, and what to withhold"
+date: "2026-09-30"
+excerpt: "OpenAI's new dots agents work in the background, chase follow-ups, and can be given their own identity and credentials. For project managers, the useful question is which open-item work is safe to delegate, and which system access is not."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/"
+  - "https://fortune.com/2026/09/29/openai-takes-on-metas-muse-with-new-dot-agents-and-unveils-a-potential-google-workspace-competitor/"
+  - "https://www.cnbc.com/2026/09/29/openai-devday-2026-live-updates.html"
+  - "https://openai.com/index/devday-2026-recap/"
+faqs:
+  - q: "What are OpenAI's dots agents?"
+    a: "Dots are always-on assistant agents OpenAI announced at DevDay on September 29, 2026. You assign them work by text, Slack, or Microsoft Teams, and they keep working across the apps you grant them, reaching out only when something needs human review."
+  - q: "Who can use OpenAI dots right now?"
+    a: "Per launch coverage, dots are rolling out in ChatGPT to Pro and Business Premium users in eligible markets. Enterprise workspaces can try them once an administrator turns them on."
+  - q: "Can a construction PM use an AI agent to track RFIs and submittals?"
+    a: "In principle, yes. Dots are described as handling multistep follow-up such as tracking a project or working through a to-do list. Whether one can reach your RFI log or submittal register depends on which apps you connect, so test it on read-only access first."
+  - q: "What is the biggest risk of giving an AI agent its own credentials?"
+    a: "The agent can act anywhere its credentials reach, whether or not a person is watching. Give it the narrowest access that covers the task and review what it did, not just what it says it did."
+---
+
+OpenAI's new "dots" are always-on AI agents you assign work to through text, Slack, or Microsoft Teams, and each can be given its own identity, credentials, and tools. For a project manager, that makes dots a candidate for open-item follow-up. It also means the real decision is access, not features.
+
+## What did OpenAI announce?
+
+At DevDay on September 29, OpenAI introduced dots, which it describes as always-on agents built to handle everything. Coverage from [TechCrunch](https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/) and [Fortune](https://fortune.com/2026/09/29/openai-takes-on-metas-muse-with-new-dot-agents-and-unveils-a-potential-google-workspace-competitor/) says they run multistep tasks like keeping track of a project or working a to-do list, use whatever apps you have granted, and only reach out when something needs a person. Individual dots can be provisioned with specific identities, credentials, and tools through existing systems.
+
+Availability is limited. Dots are rolling out to ChatGPT Pro and Business Premium users in eligible markets, and Enterprise workspaces can try them once an administrator enables it. OpenAI also launched a $500-a-month Pro 500 plan with a faster "Ultrafast" tier, but that is a separate story from dots.
+
+## Which PM work fits an agent like this?
+
+Follow-up is the obvious fit. Most PM time on RFIs and submittals goes to chasing, not deciding. Here is how the work sorts:
+
+| Task | Delegate to an agent? | Why |
+|---|---|---|
+| Listing RFIs and submittals past their due date | Yes, read-only | Pure lookup and summary |
+| Drafting a reminder to a sub or design team | Yes, draft only | A person hits send |
+| Sending reminders on its own | Maybe, later | Only after weeks of clean drafts |
+| Answering an RFI or approving a submittal | No | Contractual authority stays with a named person |
+| Editing the schedule, budget, or pay app | No | Errors move money and dates |
+
+## What should a GC give it access to?
+
+Treat a dot like a new coordinator on day one. Start it on a read-only view of the RFI log and submittal register, connected to a single project channel rather than the whole company workspace. Do not hand it accounting, payroll, or owner-facing portals to start.
+
+Two checks are worth building in. First, compare what it reports having done to what your systems actually recorded. Second, make sure anything that leaves the building, especially to an owner, architect, or sub, passes through a human. OpenAI itself pulled a model this week over an agent acting outside its permitted scope, as [covered here](/posts/2026-09-29-openai-astra-shelved-scope-authorization-construction-change-orders), so scoped access is not paranoia.
+
+## What's still unproven?
+
+Nothing in the launch coverage shows dots connecting to construction platforms such as Procore or Autodesk Construction Cloud, so assume you would be wiring them through generic app access until someone confirms otherwise. Launch demos also cover personal tasks like appointments, not a 40-item submittal log with revision histories. And a Slack or Teams assignment leaves a thin paper trail unless you save it to the project record.
+
+## Takeaway
+
+If you run projects, pick one recurring chase, such as the weekly past-due RFI list, and pilot an agent on read-only access for a month. Judge it on whether the list was right. Grant more only after it has earned it.
