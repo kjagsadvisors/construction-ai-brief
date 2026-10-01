@@ -1,0 +1,58 @@
+---
+title: "NVIDIA's agent safety platform reaches robots. Before an AI-directed robot walks your site, ask for its permission limits in writing"
+date: "2026-10-01"
+excerpt: "NVIDIA's Open Agent Safety Platform, announced September 28, enforces human-set limits on AI agents, including agents that direct robots. Gecko Robotics, which builds industrial inspection robots, is already testing it. For GCs and subs, it gives you something specific to ask a robot vendor for."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.cnbc.com/2026/09/28/nvidia-releases.html"
+  - "https://www.hpcwire.com/aiwire/2026/09/28/nvidia-launches-open-agent-safety-platform-to-secure-agents-from-testing-to-deployment/"
+  - "https://www.therobotreport.com/gecko-robotics-works-with-nvidia-adds-ai-agent-security-and-control/"
+  - "https://www.geckorobotics.com/news/nvidia-openshell"
+  - "https://thenextweb.com/news/nvidia-open-agent-safety-platform"
+faqs:
+  - q: "What is NVIDIA's Open Agent Safety Platform?"
+    a: "It is a combination of OpenShell, open-source software that traces an AI agent's actions and enforces policy at runtime, and Sentry, a reference system design for monitoring agents in hardware. NVIDIA announced it on September 28, 2026 with more than 100 partners."
+  - q: "How does it apply to robots on a jobsite?"
+    a: "NVIDIA says the governance extends to robotics systems. Gecko Robotics is testing OpenShell so that an AI agent directing its inspection robots cannot issue commands outside limits that humans set, such as movement and routes, starting or stopping data collection, and raising or lowering a payload."
+  - q: "Does this mean AI-directed robots are safe to put on a construction site?"
+    a: "No. The announcement describes a framework and early testing, not a certification. A permission layer limits what an agent can command, but it does not replace site safety plans, supervision, or a contract that says who is responsible."
+  - q: "What should a contractor ask a robotics vendor about AI control?"
+    a: "Ask which actions the AI can take on its own, who sets the limits, whether those limits are enforced outside the AI model itself, and whether every command is logged in a form you can get after an incident."
+---
+
+**If a vendor wants to put an AI-directed robot on your project, you can now ask for something concrete: a written list of what the AI is and isn't allowed to command, enforced outside the AI model itself.** NVIDIA's new Open Agent Safety Platform, announced September 28, is the first major attempt to make that kind of boundary standard, and it reaches into robotics.
+
+## What did NVIDIA announce?
+
+NVIDIA released two pieces. OpenShell is open-source software that sets a runtime boundary around an AI agent, traces its actions, and enforces policy as it works. Sentry is a reference system design for monitoring agents at the hardware level, able to detect an agent trying to exceed its limits and isolate or stop it. NVIDIA says more than 100 organizations are joining, including Anthropic, Microsoft, Palantir, ServiceNow, and the robotics makers Figure and Skild AI.
+
+The key design point: the limits live in a separate layer, not in the model's own instructions. A model can be talked out of a rule. A layer that simply refuses to pass a command along cannot.
+
+## Where do robots come in?
+
+Gecko Robotics, which makes wall-climbing inspection robots for industrial assets, said it is building with OpenShell to keep AI-directed robots inside human-defined permissions. According to coverage of the announcement, those permissions can cover movement and route choices, starting or stopping data collection, and raising or lowering a payload.
+
+That is a short list, but it is the right shape. It is a set of explicit yes/no permissions for a machine, set by people, that the AI cannot override.
+
+## Why should a GC or sub care?
+
+Robots on projects are mostly layout, scanning, and inspection units today, and more of them are being steered by AI agents rather than a person with a controller. When something goes wrong, the argument is about who allowed what. A written permission set answers that.
+
+| Question for the robot vendor | What a good answer sounds like |
+|---|---|
+| What can the AI command without a human? | A specific list: routes, zones, data capture, payload |
+| Who sets and changes the limits? | Named roles on your side or theirs, with change logs |
+| Where are limits enforced? | Outside the AI model, in a separate layer |
+| What is logged? | Every command, accessible to you after an incident |
+| What happens at the boundary? | Robot stops or hands off to a person |
+
+Put those answers into the subcontract or equipment agreement, next to insurance and site-safety requirements.
+
+## What is still unproven?
+
+Quite a lot. This is a framework and early testing, not a certification, and nothing in the announcement says Gecko or anyone else has been validated for occupied construction sites. A permission layer limits what an agent can command; it does not detect a person stepping into a path or replace a site safety plan. Expect vendors to put "built on NVIDIA's safety platform" in sales decks well before anyone can say what that proves.
+
+## Takeaway
+
+If you are a GC evaluating a robot pilot, or a sub considering buying one, add one question to your intake form this month: "Show me the AI's permission list and where it is enforced." A vendor who can't answer in plain terms isn't ready for your site.
