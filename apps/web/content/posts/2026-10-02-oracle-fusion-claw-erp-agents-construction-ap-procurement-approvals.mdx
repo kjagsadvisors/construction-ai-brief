@@ -1,0 +1,67 @@
+---
+title: "Oracle's new ERP agents can act without asking first. Here's what a GC's back office should set before turning them on"
+date: "2026-10-02"
+excerpt: "Oracle launched Fusion Claw on September 29, a runtime that lets agents carry out finance and supply chain work inside Fusion apps under preset approval limits. For contractors on Oracle ERP, the work is deciding what an agent may approve."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://siliconangle.com/2026/09/29/oracle-expands-ai-agent-functionality-with-fusion-claw/"
+  - "https://www.cio.com/article/4228371/oracle-fusion-claw-pinches-ai-costs-tightens-grip-on-policies.html"
+  - "https://www.forbes.com/sites/victordey/2026/09/29/oracle-fusion-claw-adapts-openclaws-agentic-ai-approach-for-enterprises/"
+  - "https://futurumgroup.com/insights/oracle-fusion-claw-from-ai-assistance-to-governed-autonomous-execution/"
+  - "https://tech.yahoo.com/ai/articles/oracle-unveils-fusion-claw-power-091836726.html"
+faqs:
+  - q: "What is Oracle Fusion Claw?"
+    a: "Fusion Claw is an execution runtime Oracle announced on September 29, 2026 for its Fusion Agentic Applications. It lets AI agents carry out longer, multi-step finance, HR, supply chain, and sales work inside Oracle Fusion apps, within permissions and approval rules the customer sets."
+  - q: "Does Oracle Fusion Claw matter to construction contractors?"
+    a: "Only to contractors whose back office runs on Oracle Fusion applications. For those firms, it affects how accounts payable, procurement, and financial close work might be automated. Firms on other ERPs are not affected directly."
+  - q: "What is an Outcome Receipt in Oracle Fusion Claw?"
+    a: "It is Oracle's name for the audit record produced when an agent finishes a run. Per Oracle's description, it records the authority applied, the evidence used, the decisions made, and the transactions carried out."
+  - q: "Should a contractor let an AI agent approve payments to subcontractors?"
+    a: "Not without limits. Start with agents that prepare and flag items, such as invoice matching, and keep a named person approving anything that releases money, changes a commitment, or touches retainage and lien waivers."
+---
+
+Oracle launched Fusion Claw on September 29, a runtime that lets AI agents carry out multi-step finance, HR, supply chain, and sales work inside Oracle Fusion applications, within approval limits the customer defines. For a GC or large sub whose back office runs on Oracle ERP, the decision to make now is not whether to adopt it. It is what an agent may do on its own and what always goes to a person.
+
+## What did Oracle actually release?
+
+Per SiliconANGLE and Forbes coverage, Claw separates the AI model's reasoning from deterministic execution of calculations, business rules, and transaction processing. It now powers 25 new agentic applications, bringing Oracle's Fusion Agentic Applications portfolio to 75.
+
+Oracle's governance pieces, as described by Futurum and other coverage:
+
+- **Enterprise Operating Envelope:** the customer's policies, permissions, risk thresholds, approval requirements, and escalation rules.
+- **Outcome Trust Harness:** applies those limits to each run, covering identity, data access, and actions.
+- **Outcome Receipt:** a record of the authority applied, evidence used, decisions made, and transactions carried out.
+
+The CIO.com report notes Oracle gave no measured cost savings or production performance data, and that customer teams must encode their own policies and verify outcomes.
+
+## Why would a contractor care about an ERP runtime?
+
+Most mid-size contractors do not run Oracle Fusion. Larger GCs, developers, and subs with Oracle financials do, and their back office is where agents touch money. Oracle's announced areas are finance, supply chain, HR, and sales, so the likely overlap is:
+
+| Back-office task | What an agent could do | What should stay with a person |
+|---|---|---|
+| Accounts payable | Match sub invoices to commitments and flag mismatches | Releasing payment, retainage, lien waiver acceptance |
+| Procurement | Compare quotes, draft purchase orders | Awarding, changing a commitment |
+| Month-end close | Surface exceptions and unreconciled items | Posting adjustments, WIP schedule sign-off |
+| Staffing | Draft crew or headcount plans | Final assignments, certified payroll attestations |
+
+That table is our reading, not an Oracle product list. Oracle's examples in coverage include shipping consolidation for supply chain and close exceptions for finance; we found no construction-specific application.
+
+## What should a PM or controller decide first?
+
+Three settings matter more than the model:
+
+1. **Dollar and type thresholds.** An agent that can clear a $2,000 materials invoice is different from one that can touch a $200,000 pay app.
+2. **Escalation rules.** Anything involving retainage, change orders, disputed backcharges, or compliance documents goes to a named approver.
+3. **Receipt review.** Someone has to read the audit records. A log nobody opens will not help in a payment dispute.
+
+We covered the liability side in [the FTC's view that whoever instructs an agent owns the result](/posts/2026-10-01-ftc-agent-liability-instructed-conduct-construction-ai-audit-trail). A receipt that shows which rule let the agent act is the kind of record that matters there.
+
+## What's still unproven?
+
+Plenty. The governance framework is Oracle's description, not independent testing. Analysts quoted by CIO.com say CIOs should check whether savings are real or just lower AI usage charges. Construction accounting also has quirks, such as pay-when-paid terms, stored materials, and conditional lien waivers, that generic finance agents may not handle.
+
+## The takeaway
+
+If your firm is on Oracle, ask your rep for the Claw policy settings and a sample Outcome Receipt before anyone enables an agent. Pilot on invoice matching only, with a human releasing every payment, and review the receipts weekly for a month. If you are on another ERP, expect the same pattern from your vendor soon and use the same checklist.
