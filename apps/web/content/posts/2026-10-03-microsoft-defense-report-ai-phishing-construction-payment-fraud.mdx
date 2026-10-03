@@ -1,0 +1,60 @@
+---
+title: "Microsoft says AI phishing now starts 23% of the intrusions it investigates. Here's what a contractor's payment and email controls need"
+date: "2026-10-03"
+excerpt: "Microsoft's 2026 Digital Defense Report says attackers are getting AI's benefits first, with phishing up from 7% to 23% of incident-response intrusions. For GCs and subs, the exposure runs through email, vendor payments and shared accounts."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.microsoft.com/en-us/security/blog/2026/10/01/insights-from-the-2026-microsoft-digital-defense-report/"
+  - "https://www.helpnetsecurity.com/2026/10/02/ai-cybersecurity-threats-microsoft-report/"
+  - "https://www.bleepingcomputer.com/news/security/microsoft-says-threat-actors-are-ahead-in-the-early-ai-race/"
+  - "https://dev.to/hamzezn/phishing-that-survives-mfa-what-microsofts-2026-digital-defense-report-means-for-company-email"
+faqs:
+  - q: "What did Microsoft's 2026 Digital Defense Report say about AI and phishing?"
+    a: "Microsoft reported that phishing was the initial access vector in 23% of the intrusions in its incident-response cases, up from 7% the year before. It says AI lets attackers personalize lures at scale, and that attackers are getting AI's benefits before defenders do."
+  - q: "How fast are attackers exploiting new software vulnerabilities now?"
+    a: "The report says the median time from a vulnerability being discovered in the wild to being weaponized is well below 24 hours. That leaves little time to patch internet-facing systems."
+  - q: "Does multi-factor authentication stop modern phishing?"
+    a: "Not always. Reporting on the Microsoft data says adversary-in-the-middle kits are 44.6% of identified phishing techniques, and these steal session tokens in addition to passwords. Phishing-resistant methods such as passkeys or hardware keys hold up better than text-message codes."
+  - q: "Why does this matter for construction companies?"
+    a: "Contractors move large payments through email-driven workflows, such as pay applications, lien waivers and changes to vendor bank details. A single compromised mailbox can be used to redirect those payments."
+---
+
+Microsoft's 2026 Digital Defense Report says phishing started 23% of the intrusions in its incident-response cases, up from 7% a year earlier, and that attackers are getting AI's benefits before defenders. For a contractor, the practical exposure is the email inbox that approves pay apps, vendor bank changes and shared project accounts.
+
+## What did Microsoft actually report?
+
+Per Microsoft's own summary and coverage from Help Net Security and BleepingComputer, the report's main points are:
+
+- **Attackers have the near-term advantage.** Microsoft expects defenders to gain similar AI benefits eventually, but says the gap exists now.
+- **Phishing is up sharply.** It was the initial access vector in 23% of intrusions in Microsoft's incident-response cases, versus 7% the year before.
+- **Patch windows are shrinking.** The median time from a vulnerability being found in the wild to being weaponized is well below 24 hours.
+- **Session theft is common.** Adversary-in-the-middle kits are 44.6% of identified phishing techniques, per a write-up of the report, and 87.7% of phishing intrusions involved credential or session harvesting.
+
+Microsoft's incident-response cases are a sample of organizations that asked for help, not a census of all attacks. Treat the percentages as direction, not a measured industry rate.
+
+## Why does this reach a contractor's accounting desk?
+
+Construction runs on email approvals with money attached. Pay applications, lien waivers, retainage releases, change-order approvals and updated ACH instructions all move by message. AI makes a believable fake easier to produce: it can copy a sub's tone, reference a real project name and arrive in an existing thread.
+
+The report says nothing construction-specific, so the link is an inference. But the pattern it describes, a stolen session leading to follow-on credential theft (52.2% of valid-account intrusions in the report), fits how payment-redirection fraud works.
+
+## What should a GC or sub change this month?
+
+| Control | What it stops | Effort |
+|---|---|---|
+| Call-back rule for any change to bank details, using a number already on file | Redirected vendor and sub payments | Low |
+| Passkeys or hardware keys for accounting, PM and executive accounts | Session and password theft that gets past text-message codes | Medium |
+| Auto-update on laptops, VPN and remote-access tools | The sub-24-hour exploit window | Low |
+| Separate approval for payments over a set dollar amount | One compromised mailbox approving a large payment | Low |
+| Limited, named access for outside parties on shared project sites | A guest account used as the way in | Medium |
+
+## Should a mid-size contractor buy something new?
+
+Probably not first. Most of the table is policy, not software. The one purchase worth pricing is phishing-resistant sign-in for the handful of people who can move money. If an outside IT provider runs your systems, ask them in writing how fast they apply security patches and whether remote access is protected by anything beyond a password and text code.
+
+Limits to keep in mind: the 23% figure comes from vendor incident-response data, and the report's forecasts about autonomous attacks are projections. The fixes above are standard hygiene, and they hold up whether the AI forecasts prove right or not.
+
+## Takeaway
+
+Pick the three or four people in your company who can approve a payment or change bank details. This week, require a call-back for any bank change and move those accounts to a passkey or hardware key. That covers the most direct route from a convincing fake email to money leaving your account.
