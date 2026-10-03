@@ -1,0 +1,70 @@
+---
+title: "AI beat licensed accountants on short tasks but fails most month-end close work. Here's where a contractor's controller should draw the line"
+date: "2026-10-03"
+excerpt: "A new benchmark from Mercor and Ramp found frontier models outscoring CPAs on well-defined accounting tasks, while the full month-end close is still mostly unsolved. For contractors, the split decides what to hand off in job cost and WIP."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.mercor.com/blog/human-baselines-for-benchmarks-ai-now-outperforms-junior-accountants/"
+  - "https://the-decoder.com/ai-beats-licensed-accountants-on-speed-and-accuracy-but-still-cant-close-the-books-without-supervision/"
+  - "https://arxiv.org/abs/2607.27189"
+  - "https://labs.ramp.com/apex-accounting"
+  - "https://www.mercor.com/apex/apex-accounting-leaderboard/"
+faqs:
+  - q: "Can AI replace a construction accountant or controller?"
+    a: "Not on the evidence so far. On short, well-defined tasks frontier models beat licensed CPAs in a new benchmark, but on full month-end close scenarios the best model scored 56.4%. A person still needs to own the books."
+  - q: "What is the APEX-Accounting benchmark?"
+    a: "It is a benchmark from Mercor, built with Ramp, of 160 accounting tasks across 10 synthetic companies frozen at month-end close. Task types are reconciliation, data entry, variance analysis, and schedules and accruals. Over 40 accounting professionals wrote and solved the tasks."
+  - q: "Which accounting tasks can a contractor hand to AI first?"
+    a: "Start with bounded, checkable work such as bank and vendor reconciliations, matching sub invoices to commitments, and building variance tables. Keep WIP schedule sign-off, retainage, and anything with incomplete records with a person."
+  - q: "How much faster was AI than accountants in the Mercor study?"
+    a: "In the 12-CPA comparison, accountants mostly took 30 to 180 minutes per task, while the AI models finished in under 10 minutes. Mercor and reporting on the study also describe the models as roughly 10x cheaper."
+---
+
+Frontier AI models now beat licensed accountants on short, well-defined accounting tasks, but the best model completes only about 56% of the criteria on full month-end close scenarios. For a contractor's controller or PM, that means job cost reconciliation and variance reports are ready to pilot, and WIP sign-off and retainage are not.
+
+## What did the benchmark find?
+
+Mercor and Ramp released APEX-Accounting, a benchmark of 160 tasks across 10 synthetic companies, each frozen at month-end close. Per the Ramp and arXiv listings, the tasks cover reconciliation, data entry, variance analysis, and schedules and accruals, and more than 40 accounting professionals wrote and solved them.
+
+Mercor then ran a smaller human comparison with 12 licensed CPAs on simplified tasks. Per Mercor and reporting from The Decoder:
+
+- Unassisted accountants averaged about 37% of rubric criteria; individual scores ranged from 0% to about 90%.
+- Current frontier models scored at or near 100% and beat the best human on both accuracy and time.
+- Accountants mostly took 30 to 180 minutes per task. The models finished in under 10 minutes.
+- The models were described as roughly 10x cheaper.
+
+## Why doesn't that mean AI can close the books?
+
+The full benchmark is much harder. Per the leaderboard coverage, the top model, Claude Fable 5, scores 56.4%. No model gets more than 2.6% of tasks fully right on all eight attempts, and 93 of 160 tasks were never fully solved by any model in any run. Most failures were reasoning errors, not data-entry slips.
+
+The Mercor human study used simplified tasks. The useful split is task length and how complete the records are, not job title.
+
+## What does this mean for job cost and WIP?
+
+This is our reading of the benchmark, not a construction test. The tasks were generic companies, not contractors with retainage, stored materials, or pay-when-paid terms.
+
+| Contractor task | Fit for an AI first pass | Keep with a person |
+|---|---|---|
+| Bank and vendor reconciliations | Good: bounded and checkable | Resolving unexplained items |
+| Matching sub invoices to commitments | Good: flag mismatches | Releasing payment |
+| Job cost variance tables | Good: build the table, explain the drivers | Deciding what the variance means |
+| Accruals and WIP schedule | Draft only | Overbilling and underbilling judgment, sign-off |
+| Retainage and lien waivers | Not yet | All of it |
+| Close with missing or messy records | Not yet | All of it |
+
+## Who on the team should act?
+
+For the controller or accounting lead at a GC or large sub, pick one reconciliation that eats a day each month. Give a model last month's already-closed data and compare its output with what your team posted. Time both and log every miss.
+
+For the PM, the near-term gain is faster variance explanations on job cost reports. A model can draft the table in minutes. You still have to know why the electrical cost code ran over.
+
+We covered the approval-limit side in [Oracle's ERP agents and who may approve what](/posts/2026-10-02-oracle-fusion-claw-erp-agents-construction-ap-procurement-approvals). Benchmark scores like these are the reason those limits matter: a model that is right on a short task can still be wrong on the full close.
+
+## What's still unproven?
+
+Everything specific to construction. The synthetic companies had no AIA pay apps, conditional lien waivers, or percent-complete accounting. The CPA comparison was only 12 people on simplified tasks, and a benchmark run is not your messy ledger. The vendors that published the benchmark also sell finance tools.
+
+## The takeaway
+
+Run a side-by-side on one closed month of reconciliations, keep every payment and WIP sign-off with a named person, and count the misses before deciding what to hand off.
