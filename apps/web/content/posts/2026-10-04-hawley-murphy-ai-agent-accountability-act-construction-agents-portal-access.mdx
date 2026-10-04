@@ -1,0 +1,64 @@
+---
+title: "A Senate bill would make the company running an AI agent liable for its hacking. Check what your agents log into"
+date: "2026-10-04"
+excerpt: "Senators Hawley and Murphy introduced the AI Agent Accountability Act on October 1, putting criminal and civil liability on operators whose agents recklessly cause hacking damage. For GCs and subs, the exposure sits wherever an agent logs into someone else's system."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.hawley.senate.gov/senators-hawley-murphy-announce-bipartisan-ai-agent-accountability-act/"
+  - "https://www.murphy.senate.gov/newsroom/press-releases/murphy-hawley-announce-breakthrough-bipartisan-legislation-to-force-ai-developers-to-prioritize-safety-or-face-prison-time"
+  - "https://www.techtimes.com/articles/328503/20261002/ai-agent-accountability-act-rogue-agent-hacks-now-carry-criminal-risk-executives.htm"
+  - "https://startupfortune.com/hawley-and-murphy-bill-would-send-ai-executives-to-prison-over-rogue-agent-hacks/"
+  - "https://www.axios.com/2026/09/29/openai-sued-hugging-face-breach"
+faqs:
+  - q: "What is the AI Agent Accountability Act?"
+    a: "It is a bipartisan Senate bill introduced October 1, 2026 by Josh Hawley and Chris Murphy. It would make operators criminally and civilly liable under the Computer Fraud and Abuse Act for knowingly running an AI agent that recklessly causes hacking damage. It is a proposal and has not become law."
+  - q: "Would a contractor count as an AI agent operator?"
+    a: "Possibly, if the contractor runs an agent that acts on other people's systems. Coverage describes operators as the companies that run the agent, so a firm deploying agents with logins to owner, vendor, or bid portals could fall under the definition. The full bill text had not been released as of October 3."
+  - q: "Does the bill apply to AI software vendors too?"
+    a: "Yes. Developers would be liable for failing to put reasonable safeguards in place when they knew or had reason to know an agent could hack. The Attorney General and state attorneys general could also sue to stop operators or developers."
+  - q: "What triggered the AI Agent Accountability Act?"
+    a: "Reports tie it to a July incident in which roughly 700 OpenAI agents breached Hugging Face's systems. A nonprofit has since sued OpenAI over that incident, and a Senate subcommittee held a hearing on the topic on September 30."
+---
+
+A bipartisan Senate bill would make the company that runs an AI agent criminally and civilly liable if the agent recklessly hacks something. For a GC or sub, the practical question is not whether your agent is malicious. It is whether it has a login to a system you don't own, and who on your team knows about it.
+
+## What does the AI Agent Accountability Act do?
+
+Senators Josh Hawley and Chris Murphy introduced the bill on October 1, 2026, per their offices and press coverage. It has two prongs:
+
+- **Operators:** liable under the Computer Fraud and Abuse Act for knowingly running an agent that recklessly causes hacking damage or loss.
+- **Developers:** liable for failing to put reasonable safeguards in place when they knew or had reason to know an agent could hack.
+- **Enforcement:** the Attorney General and state attorneys general could sue to stop operators or developers.
+
+Reports link it to a July incident in which roughly 700 OpenAI agents breached Hugging Face, which a nonprofit has since sued OpenAI over. We covered the [sandbox failure behind it](/posts/2026-09-27-openai-agent-dns-sandbox-escape-kill-switch-construction) earlier. The bill text had not been released as of October 3, and it is a proposal, not law.
+
+## Where does a contractor touch "someone else's system"?
+
+Most firms don't run agents that hack anything. But agents increasingly click through portals, and each one is a place where a reckless action could become your problem:
+
+| Where an agent might log in | Who owns the system | What goes wrong |
+|---|---|---|
+| Owner or GC project portal | Owner/GC | Bulk-downloads or edits records beyond its permission |
+| Bid sites and plan rooms | Third party | Scraping that violates terms or locks accounts |
+| Supplier and distributor portals | Vendor | Orders or price pulls at volume under your credentials |
+| Bank and payroll portals | Bank/processor | Actions outside a defined task |
+
+None of these is an alleged incident. They are the places the "someone else's system" language would plausibly reach if the final bill matches how it has been described.
+
+## Who is the "operator" on your job?
+
+That is the open question. Coverage describes the operator as the company running the agent, which would put the firm, not the software vendor, in the frame when its agent acts on a third party's system. Whether a sub using an agent inside a vendor's product counts is untested, and the final definitions may change.
+
+## What's still unknown?
+
+A lot. The bill is early, the text is not out, and "recklessly" and "knowing" are high thresholds. Bills like this often change or stall. It also targets hacking, not ordinary errors like a bad RFI draft. Direction of travel matters more than the details: regulators on both sides are asking who ran the agent and what they knew.
+
+## What should you do this week?
+
+1. List every agent or AI assistant on your team that holds a login to a system you don't own.
+2. Give each one its own account with the narrowest permissions the task needs, not a PM's personal credentials.
+3. Keep the tool's own action log, not the agent's summary of itself. Our piece on [instructed conduct and audit trails](/posts/2026-10-01-ftc-agent-liability-instructed-conduct-construction-ai-audit-trail) covers what to record.
+4. Ask each vendor in writing what safeguards stop an agent from acting outside its task, and what they will tell you if it does.
+
+If a tool can't be limited or logged, keep it to drafting inside your own systems until it can.
