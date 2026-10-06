@@ -1,0 +1,61 @@
+---
+title: "OpenAI will watermark ChatGPT text. Don't treat it as proof of who wrote a project document"
+date: "2026-10-06"
+excerpt: "OpenAI's new textGrain watermark hides a statistical signal in ChatGPT and Codex text. Detection falls to 66% after light editing, and only approved researchers get the detector. For a PM, the lesson is to keep your own record of AI use, not to rely on a detector."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://openai.com/index/eu-text-provenance/"
+  - "https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/"
+  - "https://www.benzinga.com/markets/private-markets/26/10/62179746/openai-unveils-chatgpt-watermarking-as-european-union-ai-rules-take-effect"
+  - "https://aiweekly.co/alerts/openai-to-watermark-eu-chatgpt-text-opens-api-opt-in-worldwide"
+faqs:
+  - q: "Can a watermark prove a contractor used AI to write an RFI or change order request?"
+    a: "Not reliably. OpenAI's watermark is statistical, detection drops from about 92% to 66% when roughly 10% of words are swapped for synonyms, and only approved researchers and expert organizations get the detector. A missing or present signal is weak evidence either way."
+  - q: "What is OpenAI's textGrain watermark?"
+    a: "It is an invisible, machine-readable signal OpenAI is adding to ChatGPT and Codex text generated in the EU over the coming weeks. API developers anywhere can switch it on from October 5, 2026, but it stays off by default outside the EU rollout."
+  - q: "Does the OpenAI watermark affect US contractors?"
+    a: "Mostly indirectly. The ChatGPT rollout targets EU users, and the API setting is opt-in elsewhere. A US firm could still receive watermarked text through an EU-based partner, a vendor's tool built on the API, or a multinational owner's documents."
+  - q: "Should a GC ban AI-written text in submittals and RFIs?"
+    a: "A ban is hard to enforce because no detector available to contractors can reliably tell. A better control is a written policy that a named person reviews and signs every AI-assisted document, with the tool and date logged."
+---
+
+OpenAI's new text watermark will not tell you whether a subcontractor's RFI, daily log, or change order request was written by AI. It is a statistical signal, easy to weaken with light editing, and the detector is not public. Contractors who want to know how AI touched a project record should log it themselves.
+
+## What did OpenAI announce?
+
+On October 5, OpenAI said it will add an invisible watermark, which it calls textGrain, to eligible ChatGPT and Codex text generated in the EU over the coming weeks, per [OpenAI's announcement](https://openai.com/index/eu-text-provenance/) and [TechCrunch](https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/). API developers anywhere can turn it on from the same day, but it is off by default outside the EU rollout. The move is framed as compliance with the EU AI Act's transparency rules, which [Benzinga](https://www.benzinga.com/markets/private-markets/26/10/62179746/openai-unveils-chatgpt-watermarking-as-european-union-ai-rules-take-effect) also covers.
+
+The watermark works by nudging word choices against a secret key, leaving a pattern a reader cannot see but a detector can test for. OpenAI says the signal survives copy and paste and does not identify the user, per [AI Weekly's summary](https://aiweekly.co/alerts/openai-to-watermark-eu-chatgpt-text-opens-api-opt-in-worldwide).
+
+## Why can't a PM rely on it?
+
+The reported limits matter more than the feature:
+
+| Limit | What was reported | What it means on a project |
+|---|---|---|
+| Light editing | Detection falls from about 92% to 66% once roughly 10% of words are swapped for synonyms | A sub's coordinator who tidies a draft weakens the signal |
+| Short text | Weaker on short passages | A two-line RFI response tells you almost nothing |
+| Translated text | Weaker on translations | Spanish-to-English field reports are a poor fit |
+| Detector access | Only approved researchers and expert organizations | You cannot check a document yourself |
+| Coverage | Other tools and models may carry no watermark | Absence of a signal proves nothing |
+
+Anthropic and Google have already been marking text from some products, so a given document might carry one provider's mark, another's, or none.
+
+## What does this mean for a GC's project records?
+
+Most contractors will not see the watermark directly. It matters in two places:
+
+- **Disputes.** If a claim turns on who wrote a notice or daily log, and when, a watermark result is weak, contestable evidence. Metadata, version history, and your own approval trail are stronger.
+- **Vendor tools.** If your RFI or submittal software calls the OpenAI API, the vendor may switch the watermark on. Ask them whether it is on and what your documents will carry.
+
+We covered the related liability question in [the FTC's view that whoever instructs an AI agent owns what it does](/posts/2026-10-01-ftc-agent-liability-instructed-conduct-construction-ai-audit-trail). The watermark does not change it. A signal in the text does not move responsibility off the person who sent it.
+
+## What should you do now?
+
+1. **Write a one-page AI use policy** for project correspondence: which tools are allowed, and that a named person reviews anything sent under the firm's name.
+2. **Log AI-assisted documents** with tool, date, and reviewer. A spreadsheet column on the RFI or submittal log is enough.
+3. **Ask vendors** whether their tools mark output and whether any detector is available to you.
+4. **Skip commercial "AI detectors"** for vetting subs' paperwork. The false-positive concerns OpenAI itself has raised, including effects on non-English speakers, are reasons to be cautious about accusing anyone.
+
+The takeaway: provenance on a project record comes from your own process, not from a hidden signal in the words.
