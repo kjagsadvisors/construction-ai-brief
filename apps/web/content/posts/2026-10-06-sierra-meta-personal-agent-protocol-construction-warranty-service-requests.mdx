@@ -1,0 +1,56 @@
+---
+title: "Meta and Sierra want AI agents to file requests with businesses. Service and warranty desks are next"
+date: "2026-10-06"
+excerpt: "Sierra and Meta announced an open standard for how a customer's personal AI agent signs in to a business and what it may do. Contractors with warranty and service desks should decide now what an agent is allowed to ask for."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://thenextweb.com/news/personal-agent-protocol-sierra-meta"
+  - "https://www.cnbc.com/2026/10/06/meta-joins-companies-to-tame-chaos-of-doing-business-with-ai-bots.html"
+  - "https://www.cmswire.com/contact-center/genesys-joins-sierra-meta-on-open-standard-for-personal-ai-agents-01/"
+  - "https://fourweekmba.com/ai-meta-and-sierra-announce-personal-agent-protocol-spec-due/"
+faqs:
+  - q: "What is the Personal Agent Protocol?"
+    a: "It is an open standard announced by Sierra and Meta on October 6, 2026 that defines how a person's AI agent signs in to a business, identifies itself, and completes tasks. The person decides what access the agent gets, and the business sets limits on what the agent can do."
+  - q: "Will customers' AI agents contact contractors about warranty and service calls?"
+    a: "Probably, eventually. The protocol's own example is a warranty claim, and the same pattern fits a building owner's agent reporting a leak or asking for a service visit. The spec is not published yet, so timing and adoption in construction are unknown."
+  - q: "When will the Personal Agent Protocol spec be available?"
+    a: "Sierra says a v0.1 specification is due later in October 2026. Early versions of open standards often change before businesses can rely on them."
+  - q: "Should a subcontractor change anything now?"
+    a: "Not buy anything yet. Write down which requests you would accept without a person (a service ticket, a warranty claim intake) and which always need human sign-off (change pricing, scope, schedule commitments)."
+---
+
+A customer's AI agent may soon contact your service or warranty desk on its own, and a new open standard from Sierra and Meta is meant to govern how it identifies itself and what it can ask for. Contractors do not need to build anything yet, but a sub with a service division should decide which requests an agent could ever submit without a person behind them.
+
+## What did Sierra and Meta announce?
+
+On October 6, Sierra and Meta announced the Personal Agent Protocol, an open standard for how consumers' personal AI agents sign in, identify themselves and complete tasks with businesses, according to [The Next Web](https://thenextweb.com/news/personal-agent-protocol-sierra-meta) and [CNBC](https://www.cnbc.com/2026/10/06/meta-joins-companies-to-tame-chaos-of-doing-business-with-ai-bots.html). Sierra co-founders Bret Taylor and Clay Bavor laid out the design in a company post. Genesys, Instinct, Rocket, Shopify, Stripe and Walmart are named as participants, per [CMSWire](https://www.cmswire.com/contact-center/genesys-joins-sierra-meta-on-open-standard-for-personal-ai-agents-01/).
+
+The principle: the person decides what access their agent gets, and the company sets what that agent may do. Sessions run on OAuth and carry across channels. Businesses can expose connections through interfaces built on standards such as MCP and OpenAPI, or handle tasks that need conversation, such as a warranty claim. A v0.1 spec is due this month, per [FourWeekMBA](https://fourweekmba.com/ai-meta-and-sierra-announce-personal-agent-protocol-spec-due/).
+
+## Why does a contractor care about a consumer standard?
+
+The announcement is aimed at consumer retail and customer service, not construction. The connection is narrower. Anyone who takes inbound requests from building owners, homeowners or tenants (warranty claims, service calls, punch-list callbacks, maintenance contracts) is the kind of business this standard describes. Today those requests arrive by phone, email or a portal form. If personal agents become common, some will arrive from software acting for the owner.
+
+That helps and hurts:
+
+| Situation | What changes | Risk |
+|---|---|---|
+| Owner's agent files a warranty claim | Cleaner intake, with photos and dates attached | Claims filed faster and in volume |
+| Agent requests a service visit | Fewer missed voicemails | Duplicate or speculative tickets |
+| Agent asks for a quote or schedule | Instant back-and-forth | Agent treats a ballpark as a commitment |
+| Agent asks "is this covered?" | Faster answers | A wrong automated reply becomes a record |
+
+## What should a trade sub do now?
+
+Nothing that costs money. Three steps are enough:
+
+1. **List what an agent may submit without a human.** Service tickets and warranty intake are reasonable. Pricing, scope and schedule promises are not.
+2. **Decide who reviews agent-originated requests,** and how you would know a request came from an agent at all.
+3. **Ask your field-service or CRM vendor** whether they plan to support the protocol once the spec is out.
+
+## What is still unproven?
+
+Everything construction-specific. The spec is unpublished, the named partners are retail, payments and contact-center companies, and no construction software vendor is listed in the sources reviewed. Open standards also tend to change between early drafts and versions a business can rely on. Treat this as a prompt to set a policy, not a reason to change tools.
+
+**Takeaway:** if you run a service or warranty desk, write the short list of requests an agent could submit and the ones that always need a person. It costs an hour and makes any vendor conversation later much easier.
