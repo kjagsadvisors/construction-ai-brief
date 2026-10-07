@@ -1,0 +1,60 @@
+---
+title: "Claude Haiku 5.5 cuts input prices 90%. Here's which high-volume document chores a GC can now afford to automate"
+date: "2026-10-07"
+excerpt: "Anthropic's small model now costs $0.10 per million input tokens for requests under 100,000 tokens, matching OpenAI's GPT-6 Luna. For a GC with thousands of RFIs, daily logs and submittals, the cheap tier matters more than the benchmark. So does the price cliff."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://venturebeat.com/technology/anthropic-launches-claude-haiku-5-5-with-90-api-price-reduction-matching-gpt-6-luna"
+  - "https://finance.yahoo.com/technology/article/anthropic-reveals-haiku-55-model-as-ai-pricing-war-intensifies-180000423.html"
+  - "https://simonwillison.net/2026/Oct/7/claude-haiku-5-5/"
+  - "https://dev.to/dishant0406/haiku-55-cut-prices-90-then-the-fine-print-showed-up-5apn"
+faqs:
+  - q: "How much does Claude Haiku 5.5 cost?"
+    a: "For requests under 100,000 tokens, reported pricing is $0.10 per million input tokens and $0.50 per million output tokens. Above 100,000 tokens the reported rate rises to $0.50 and $2.50. Haiku 4.5 was $1 and $5."
+  - q: "What construction tasks suit a small, cheap AI model?"
+    a: "High-volume, low-judgment sorting and extraction: tagging incoming RFIs and emails by trade, pulling due dates and spec sections from submittals, and summarizing daily logs. A person should still review anything that touches cost, schedule or liability."
+  - q: "Is Claude Haiku 5.5 as capable as larger Claude models?"
+    a: "No. Reported benchmark results place it below Sonnet 5.5, so it is a fit for routine, checkable tasks and a poor fit for reading a contract or judging a scope gap."
+  - q: "Will my AI bill drop 90% with Haiku 5.5?"
+    a: "Probably not. Anthropic's own estimate is that typical workloads cost about 75% less than on Haiku 4.5, and long documents above the 100,000-token threshold are priced higher. Test on your own files before budgeting."
+---
+
+Anthropic's Claude Haiku 5.5, launched October 7, charges $0.10 per million input tokens for requests under 100,000 tokens, down from $1 on Haiku 4.5, per [VentureBeat](https://venturebeat.com/technology/anthropic-launches-claude-haiku-5-5-with-90-api-price-reduction-matching-gpt-6-luna). For a GC, that makes it cheap enough to run a model over every RFI, daily log and submittal transmittal, not just the ones someone has time to feed it.
+
+## What did Anthropic actually change?
+
+Haiku 5.5 is the small, fast tier of the Claude 5.5 family. [Yahoo Finance](https://finance.yahoo.com/technology/article/anthropic-reveals-haiku-55-model-as-ai-pricing-war-intensifies-180000423.html) and VentureBeat report the same pricing, and that it matches OpenAI's GPT-6 Luna for shorter requests:
+
+| | Haiku 4.5 | Haiku 5.5 (under 100K tokens) | Haiku 5.5 (over 100K tokens) |
+|---|---|---|---|
+| Input, per million tokens | $1.00 | $0.10 | $0.50 |
+| Output, per million tokens | $5.00 | $0.50 | $2.50 |
+
+Anthropic's own estimate, as reported, is that typical workloads cost about 75% less than on Haiku 4.5, not 90%. A developer write-up on [DEV Community](https://dev.to/dishant0406/haiku-55-cut-prices-90-then-the-fine-print-showed-up-5apn) points to the same fine print: the price cliff at 100,000 tokens and a changed tokenizer both affect what a real bill looks like. Simon Willison also [covered the launch](https://simonwillison.net/2026/Oct/7/claude-haiku-5-5/).
+
+## Which jobs does a cheap model make worth automating?
+
+The savings go to volume work where each item is small and the answer is easy to check:
+
+- **Routing incoming email and RFIs** by trade, project and urgency.
+- **Extracting fields** from submittal transmittals: spec section, due date, reviewer, status.
+- **Summarizing daily logs** into a one-line weekly rollup per project.
+- **First-pass tagging** of photos' captions and meeting minutes by topic.
+- **Checking drafts for completeness**, such as whether a pay application package has every required attachment.
+
+At the old price, a project engineer could justify a model for a few dozen documents. At this price, running it on every document a project produces becomes a rounding error on a software bill, though the cost of your own setup time is not.
+
+## What should an estimator or PM not hand to a small model?
+
+Benchmarks reported at launch put Haiku 5.5 behind Sonnet 5.5, so it is the wrong tool for reading a contract, comparing scope across bids or deciding whether a spec conflict is real. Those jobs are low volume and high consequence. Pay for the bigger model there, and keep a person in the loop.
+
+The failure mode with cheap automation is quiet error at scale. A model that mis-tags 2% of 10,000 emails buries 200 of them. Spot-check a sample every week, and keep the original document one click from any summary.
+
+## Should a mid-size GC act now?
+
+Not by switching everything over. Pick one chore, such as sorting inbound project email, and run Haiku 5.5 alongside your current process for two weeks on real files. Record the miss rate, the tokens used per document and whether any file crosses 100,000 tokens, since that is where the price jumps fivefold on input.
+
+If the miss rate is acceptable and the monthly cost is small, keep it. If not, you have lost two weeks, not a budget.
+
+**Takeaway:** the price drop doesn't make the model smarter. It makes bulk document triage cheap enough to try on a single project this month. Start with a task a coordinator can verify in seconds.
