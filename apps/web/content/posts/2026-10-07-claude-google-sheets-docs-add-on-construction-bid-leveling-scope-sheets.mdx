@@ -1,0 +1,58 @@
+---
+title: "Claude now works inside Google Sheets and Docs. Here's what an estimator should test first"
+date: "2026-10-07"
+excerpt: "Anthropic put Claude in a sidebar inside Google Docs, Sheets and Slides on October 6. For estimators who level bids in Sheets and draft scope in Docs, the useful question is what it changes in a file and who can see the change."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://www.unite.ai/claude-ai-assistant-arrives-in-google-workspace-as-public-beta/"
+  - "https://www.investing.com/news/stock-market-news/anthropic-adds-claude-integration-to-google-workspace-apps-93CH-4935063"
+  - "https://www.benzinga.com/markets/private-markets/26/10/62206857/anthropic-expands-claude-into-google-workspace-with-new-ai-tools"
+  - "https://seekingalpha.com/news/4650669-anthropic-says-claude-now-works-with-google-workspace"
+faqs:
+  - q: "Can Claude work inside a Google Sheets bid leveling spreadsheet?"
+    a: "Yes. Per reports of Anthropic's October 6 announcement, Claude in Sheets can read the open sheet and the cells you select, write formulas, build pivot tables and charts, and run Python to process data. It is a public beta on all paid Claude plans."
+  - q: "Does Claude in Google Docs change the file directly?"
+    a: "It can do either. In Docs, Claude can rewrite text in place or submit its edits as suggestion cards, which lets a reviewer accept or reject each change like a human collaborator's edit."
+  - q: "Who gets Claude for Google Workspace?"
+    a: "It is in public beta on all paid Claude plans. For enterprise customers, reports say it follows existing admin controls, including the Compliance API, customer-managed encryption keys and OpenTelemetry audit exports."
+  - q: "Should an estimator let AI edit a live bid spreadsheet?"
+    a: "Not on the master file. Test it on a copy of a closed bid first, compare its totals against the final numbers, and keep a human sign-off on any sheet that feeds a number going to the owner."
+---
+
+Claude can now edit Google Docs, Sheets and Slides from a sidebar next to the open file, which puts it in the tools many estimators already use for bid leveling and scope write-ups. The honest read: it removes a copy-and-paste step, but it also puts an AI hand inside files that carry your numbers, so test it on a closed bid before you trust it on a live one.
+
+## What did Anthropic launch?
+
+On October 6, Anthropic announced that Claude for Google Workspace is in public beta on all paid Claude plans, per [Unite.AI](https://www.unite.ai/claude-ai-assistant-arrives-in-google-workspace-as-public-beta/) and [Investing.com](https://www.investing.com/news/stock-market-news/anthropic-adds-claude-integration-to-google-workspace-apps-93CH-4935063). Claude appears in a sidebar, can read the open file, sees which text, cells or slides you have selected, and can change them directly.
+
+[Benzinga's report](https://www.benzinga.com/markets/private-markets/26/10/62206857/anthropic-expands-claude-into-google-workspace-with-new-ai-tools) lists what that means by app:
+
+| App | What Claude can do | Construction use |
+|---|---|---|
+| Docs | Rewrite text in place or submit changes as suggestion cards | Scope of work, bid clarifications, qualifications and exclusions |
+| Sheets | Write formulas, generate pivot tables and charts, call Python to process data | Bid leveling, quote comparisons, quantity rollups |
+| Slides | Create slides that follow existing layouts | Owner interview decks, precon presentations |
+
+Anthropic also released Docs, Sheets and Slides connectors, also in beta, so Claude can create and edit those files from the main chat.
+
+## What does this mean for estimators?
+
+Many subs and small GCs level bids in a shared Google Sheet because every vendor can open it. That is where the sidebar earns its keep. Three jobs worth trying:
+
+1. **Normalizing quotes.** Paste three supplier quotes into tabs and ask Claude to build a side-by-side with unit prices, lead times and listed exclusions.
+2. **Formula and pivot work.** Roll quantities up by CSI division or by area without hand-building the pivot.
+3. **Scope drafting in Docs.** Turn a scope checklist into a clean scope sheet, with edits arriving as suggestion cards you accept line by line.
+
+The suggestion-card behavior matters most. Edits you can see and reject are reviewable. Silent in-place rewrites of a scope sheet are not something to allow on a document that becomes part of a subcontract. We covered the cost side of this kind of work in [our look at Sonnet 5.5 and bid-leveling spreadsheets](/posts/2026-09-29-claude-sonnet-5-5-cost-per-task-estimating-bid-leveling-spreadsheets).
+
+## What are the limits and risks?
+
+- **It is a beta.** The reports describe features, not accuracy. Nothing we found measures how often it gets a leveling sheet wrong.
+- **Formulas can look right and be wrong.** A pivot that drops a row or a lump-sum line that gets read as a unit price will still produce a clean total.
+- **Who sees what.** For enterprise customers, [Seeking Alpha's summary](https://seekingalpha.com/news/4650669-anthropic-says-claude-now-works-with-google-workspace) and other coverage say existing admin controls apply, including the Compliance API, customer-managed encryption keys and OpenTelemetry audit exports. A small sub on a standard paid plan should not assume it gets the same audit trail. Ask before you put owner pricing in a shared sheet.
+- **Bid confidentiality.** A sheet holding a supplier's quote is often covered by what the supplier expects you to do with it. Check your terms before pasting in other firms' numbers.
+
+## What should a mid-size contractor do this week?
+
+Pick one closed bid with a known final number. Copy its leveling sheet. Ask Claude to rebuild the comparison from the raw quotes, then check every total and every excluded item against what you actually awarded. If it matches and the suggestion cards are easy to review, try it on one live scope sheet with a named reviewer. If it misses an exclusion even once, keep it to drafting text and leave the numbers to your team.
