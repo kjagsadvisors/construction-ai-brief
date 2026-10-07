@@ -1,0 +1,56 @@
+---
+title: "Mistral's 1-trillion-parameter model ships open weights Oct. 27. Here's what that means for a sub's bid data"
+date: "2026-10-07"
+excerpt: "Mistral Large 4 is in preview now, with downloadable weights promised for October 27. For a trade sub that won't paste pricing history into someone else's cloud, a model you can run on your own or a host's hardware is worth understanding, with caveats."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://siliconangle.com/2026/10/06/mistral-launches-open-source-mistral-large-4-details-ai-roadmap/"
+  - "https://thenextweb.com/news/mistral-releases-large-4-a-1-trillion-parameter-open-weight-ai-model"
+  - "https://www.marktechpost.com/2026/10/06/mistral-ai-releases-mistral-large-4-le-chonk-a-1-05t-parameter-open-weight-multimodal-moe/"
+  - "https://www.beri.net/article/mistral-large-4-le-chonk-1t-open-weight-preview-pricing-licence-weights-vs-kimi-k3-beam-glm"
+faqs:
+  - q: "What is Mistral Large 4?"
+    a: "It is a 1-trillion-parameter mixture-of-experts AI model from the French company Mistral that uses about 49 billion parameters per request. A public preview launched October 6, 2026, and the weights are promised for October 27."
+  - q: "Can a contractor run Mistral Large 4 on its own servers?"
+    a: "In principle, once the weights are released. In practice a model this size needs a multi-GPU server, so most subs would use a managed host that runs it in a private environment rather than buy hardware."
+  - q: "Is Mistral Large 4 free for commercial use?"
+    a: "Not confirmed. Reports say it will use a custom Mistral license rather than Apache 2.0, and the terms can't be checked until the weights are published. Read the license before building a business process on it."
+  - q: "Why would a subcontractor care about an open-weight model?"
+    a: "Bid history, labor rates, markups and supplier quotes are competitive data. An open-weight model lets that data stay inside an environment you or your IT provider controls, instead of being sent to a vendor's API."
+---
+
+Mistral Large 4 is the first trillion-parameter model whose weights are promised for download, and for a trade sub the point is control: a model you can host privately is one you can point at bid history and labor rates without sending them to a third party's API. It isn't a tool you install next week, and the license terms aren't known yet.
+
+## What did Mistral actually release?
+
+Mistral launched a public preview of Large 4 on October 6 through its own cloud platform, per [SiliconANGLE](https://siliconangle.com/2026/10/06/mistral-launches-open-source-mistral-large-4-details-ai-roadmap/). It is a mixture-of-experts model with about 1 trillion total parameters that activates roughly 49 billion for each request, according to [MarkTechPost](https://www.marktechpost.com/2026/10/06/mistral-ai-releases-mistral-large-4-le-chonk-a-1-05t-parameter-open-weight-multimodal-moe/). Reports say it was trained over about two months on roughly 4,000 Nvidia Grace Blackwell GPUs in Mistral's European data centers.
+
+The weights are promised for October 27. On coding, Mistral's reported DeepSWE score is 62%, narrowly ahead of Zhipu's GLM-5.3 at 61% and DeepSeek-V4-Pro at 57%, per [The Next Web](https://thenextweb.com/news/mistral-releases-large-4-a-1-trillion-parameter-open-weight-ai-model). Those are vendor-reported benchmark numbers; treat them as a starting point, not proof it handles your documents.
+
+## Why would a subcontractor care about open weights?
+
+Your most sensitive files are not drawings. They are old bids, labor burden rates, markup, supplier quotes and the numbers behind your win rate. Many owners and primes also restrict where project documents can go. A hosted model means that data crosses to a vendor. An open-weight model can run somewhere you control.
+
+| Option | Where your data goes | Setup effort | Fits when |
+|---|---|---|---|
+| Closed model via vendor app | Vendor's cloud, under their terms | Minutes | General drafting, nothing sensitive |
+| Closed model via enterprise plan | Vendor's cloud, with contract limits on retention and training | Days | You can accept the vendor contract |
+| Open-weight model, managed private host | A host's environment under your contract | Weeks | Sensitive bid data, one IT partner |
+| Open-weight model, your own hardware | Your building or your cloud account | Months plus hardware | You already run servers and have IT staff |
+
+## What are the limits?
+
+1. **The license is unconfirmed.** Reports say Large 4 will use a custom Mistral license rather than Apache 2.0, per [Beri](https://www.beri.net/article/mistral-large-4-le-chonk-1t-open-weight-preview-pricing-licence-weights-vs-kimi-k3-beam-glm). Commercial-use terms can't be checked until the weights are out.
+2. **It is big.** A trillion-parameter model needs a multi-GPU server even though only a slice runs per request. For a 50-person sub, that points to a managed host, not a rack in the shop.
+3. **Open weights are not a security program.** Running privately removes one exposure. You still need access controls and a rule on what staff may paste where.
+4. **Benchmarks aren't your work.** Nothing here tests it on spec extraction, takeoff notes or bid leveling.
+
+## What should a sub do before October 27?
+
+- Write down which of your files you would never send to an outside API. That list decides whether a private model is worth pursuing.
+- Ask your IT provider whether they host models for clients, and what it would cost per month.
+- Check your prime contracts for clauses on where project documents can be processed. See our earlier piece on [who builds AI in-house](/posts/2026-10-05-anthropic-frontier-academy-construction-who-builds-ai-in-house).
+- When the weights and license publish, run a closed bid through it and compare against the number you submitted. If it can't reproduce your scope list, the privacy gain doesn't matter.
+
+Most subs should do nothing but the first step this month. The point of open weights is that the choice to keep data private now has a real option behind it.
