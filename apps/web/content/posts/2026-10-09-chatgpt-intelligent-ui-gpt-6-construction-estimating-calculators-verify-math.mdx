@@ -1,0 +1,73 @@
+---
+title: "ChatGPT can now build a working calculator inside the chat. Here's how estimators should check one before trusting it"
+date: "2026-10-09"
+excerpt: "OpenAI's new Intelligent UI lets ChatGPT answer with interactive charts, forms and task-specific calculators. For estimators and PMs that means quick one-off tools, and a new place for unchecked math to hide."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://techcrunch.com/2026/10/07/chatgpt-is-getting-a-lot-more-visual-with-the-launch-of-a-new-interface/"
+  - "https://letsdatascience.com/news/openai-brings-gpt-6-and-intelligent-ui-to-chatgpt-4f0d797c"
+  - "https://androidauthority.com/chatgpt-gpt-6-intelligent-ui-3720464"
+  - "https://www.testingcatalog.com/openai-rolls-out-gpt-6-with-intelligent-ui-in-chatgpt/"
+faqs:
+  - q: "What is ChatGPT's Intelligent UI?"
+    a: "It is a feature OpenAI launched on October 7, 2026 alongside GPT-6. Instead of only returning text, ChatGPT can answer with interactive elements such as buttons, charts, editable graphs, forms and a calculator built for the specific question."
+  - q: "Can an estimator use ChatGPT to build a quick takeoff or cost calculator?"
+    a: "In principle, yes. The feature can generate a calculator tailored to a task. The math is produced by the model, so it should be tested against a known estimate before anyone relies on it for a bid."
+  - q: "Is a ChatGPT-generated calculator safe for bid numbers?"
+    a: "Not without checking. Run it against a past job with a known answer, confirm every formula and unit, and keep your estimating system as the record. Treat the generated tool as a scratch aid."
+  - q: "Who gets Intelligent UI?"
+    a: "Reports say it rolls out with GPT-6 to Plus, Pro, Business and Enterprise users, with Free and Go users following. Enterprise availability can depend on an administrator's settings."
+---
+
+ChatGPT can now answer with a working calculator, editable chart or form instead of a paragraph, and that is useful for estimators and PMs who need a quick one-off tool. It is also a new way for a wrong formula to look trustworthy, so test any generated tool before a number from it goes into a bid.
+
+## What did OpenAI launch?
+
+On October 7, 2026, OpenAI introduced "Intelligent UI" with GPT-6 in ChatGPT. According to [TechCrunch](https://techcrunch.com/2026/10/07/chatgpt-is-getting-a-lot-more-visual-with-the-launch-of-a-new-interface/), responses can include tappable buttons, a customized calculator for a specific task, interactive charts and editable graphs. [Let's Data Science](https://letsdatascience.com/news/openai-brings-gpt-6-and-intelligent-ui-to-chatgpt-4f0d797c) and [Android Authority](https://androidauthority.com/chatgpt-gpt-6-intelligent-ui-3720464) report the same feature set.
+
+Some specifics from the coverage:
+
+- The model chooses the format. It can still answer in plain text when an interface adds little.
+- Users can turn the amount of visual material down.
+- It rolls out to Plus, Pro, Business and Enterprise users first, with Free and Go tiers following. Enterprise availability can depend on an administrator's settings.
+- OpenAI's own examples are consumer ones: a trip map, a savings calculator, a bill splitter.
+
+Nothing in the launch coverage is aimed at construction. The angle is ours.
+
+## What does this mean for estimators?
+
+Estimators and PMs constantly need small tools that no software vendor will build: a quick markup-and-contingency comparison, a bid-day alternates spread, a look at how a labor-rate change moves a unit price. Today that is a spreadsheet someone builds at 9 p.m.
+
+Intelligent UI points toward describing the tool in plain English and getting a working interface back, with sliders and editable fields. Useful candidates:
+
+| Task | Why a generated calculator fits | What to check |
+|---|---|---|
+| Alternate and add/deduct spread | Few inputs, simple arithmetic | Sign conventions, rounding |
+| Labor-rate sensitivity | Lets you change one input and see the total | Burden and overtime treatment |
+| Bid-leveling comparison | Side-by-side with editable scope adjustments | That every line is carried over |
+| Material waste and unit conversion | Pure math | Units (LF vs. SF vs. CY) |
+
+## What are the risks?
+
+The tool looks finished whether or not it is correct. A calculator with a clean interface and a wrong formula is harder to catch than a wrong sentence, because people trust a number in a box.
+
+Three specific problems:
+
+1. **Silent formula errors.** The model writes the logic. A misapplied waste factor or a double-counted markup will not announce itself.
+2. **No record.** A calculator inside a chat is not your estimating system. If a number from it ends up in a bid, you need to be able to show where it came from.
+3. **Data exposure.** Pasting a full bid, subcontractor pricing or an owner's budget into a chat is a policy question. On Business and Enterprise plans an administrator controls the settings, so ask yours before staff start.
+
+OpenAI has not published accuracy figures for the generated tools, so assume none.
+
+## How should a mid-size sub or GC test one?
+
+1. **Pick a closed job** with a known final number.
+2. **Build the same calculator** and feed it that job's inputs.
+3. **Compare to the answer.** If it is off by any amount you cannot explain, do not use it.
+4. **Inspect the formulas.** Ask the model to state each calculation in words and check every one.
+5. **Keep the real estimate in your estimating system.** Use the generated tool for scratch work and sanity checks only.
+
+## The takeaway
+
+Treat Intelligent UI as a fast way to draft a throwaway tool, not as a source of numbers. Before anything from it touches a bid, run it against a job you already closed, and write down who is allowed to use it and what data may go in.
