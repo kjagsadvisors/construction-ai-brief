@@ -1,0 +1,67 @@
+---
+title: "Anthropic's new usage policy puts a stop-authority rule on Claude-controlled machines. Here's what equipment and robotics vendors will owe you"
+date: "2026-10-11"
+excerpt: "Starting Nov. 12, Anthropic wants a qualified person able to observe and stop any Claude-connected hardware that acts on its own. Contractors buying autonomous equipment should ask vendors how they meet it."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://anthropic.com/news/2026-usage-policy-update"
+  - "https://fourweekmba.com/ai-anthropic-rewrites-usage-policy-adds-physical-action-rules/"
+  - "https://aiweekly.co/alerts/anthropics-2026-policy-update-targets-agentic-hardware"
+  - "https://groundy.com/articles/anthropics-2026-usage-policy-who-can-stop-claude-driven-physical-systems/"
+  - "https://inc42.com/buzz/anthropic-bans-cruel-behaviour-towards-ai-models-tightens-rules-on-ai-misuse/"
+faqs:
+  - q: "What does Anthropic's 2026 usage policy say about AI controlling physical equipment?"
+    a: "Anthropic's high-risk section adds requirements for Claude connected to hardware that takes autonomous physical actions and could cause injury. Coverage says a qualified person must be able to observe the equipment and stop it at any time. The update takes effect Nov. 12, 2026."
+  - q: "Does this apply to autonomous construction equipment?"
+    a: "Only if the machine's software uses Claude. The policy binds Anthropic's customers, not machines in general. A robot or excavator running another vendor's model is not covered by this rule, so ask your equipment vendor which models it uses."
+  - q: "What should a contractor ask an autonomous equipment vendor after this policy change?"
+    a: "Ask who the named stop-authority is on your site, what the machine does if its network connection drops, and whether speed and force limits are enforced by the machine's own controller rather than by the AI model."
+  - q: "Does a human approving every command exempt a system from the rule?"
+    a: "Per one report, equipment commands reviewed before execution are an exception. Another analysis notes the trigger is the connection itself, so a setup where Claude only recommends and a person actuates may still be debated. Check the policy text with the vendor."
+---
+
+Anthropic's updated usage policy, published Oct. 8 and effective Nov. 12, says that when Claude is connected to hardware that acts on its own and could injure someone, a qualified person must be able to watch it and stop it. For contractors, that is a new question to put to any robotics or autonomous-equipment vendor building on Claude.
+
+## What did Anthropic actually change?
+
+Anthropic says most of the update clarifies existing rules, with new examples as Claude takes on longer, more independent work. The hardware language is one of the additions. According to secondary coverage, where hardware acts without human approval in a high-risk setting, a qualified individual must be able to observe it and stop it at any time. The equipment must stop or hold a safe state when that person steps in, or when its connection to Anthropic's services is lost.
+
+One report adds that limits such as speed, force, temperature or dose must be enforced by the equipment or a controller independent of the model's output. The same report lists six categories that draw scrutiny:
+
+- Movement in shared spaces
+- Force capable of causing injury
+- Control of energy or hazardous materials
+- Action on the human body
+- Control of safety systems
+- Operation of industrial processes
+
+Several of those describe a jobsite. We have not read the policy text itself, only Anthropic's announcement and outside summaries, so check exact wording before relying on any of it.
+
+## Does this apply to the machines on my site?
+
+Only some of them. The policy governs people and companies using Claude. A layout robot, a demolition machine or an autonomous haul truck running a different vendor's model is untouched by it. One analysis points out the policy says nothing about other providers' models on the same equipment, or about machinery with no model connection at all.
+
+So the policy is not a safety standard for the industry. It is a condition one model provider places on its customers. Its practical value to you is as a template for what to ask.
+
+## What should a GC or sub ask equipment vendors?
+
+| Question | Why it matters on a project |
+|---|---|
+| Which AI model controls or advises the machine? | Tells you whether this policy, or a different vendor's terms, applies |
+| Who is the named person who can stop it on my site? | Maps to your site safety plan and daily huddle |
+| What happens if the network drops? | Rural and below-grade sites lose connectivity often |
+| Are speed and force limits enforced by the machine's own controller? | A model's output should not be the only thing holding a limit |
+| Is a person reviewing commands before they run? | Reported as an exception to the rule, so it changes the vendor's obligations |
+
+## Who on a project does this touch?
+
+Safety managers and superintendents, mostly. If a sub brings an autonomous or semi-autonomous machine onto your site, the stop authority has to be someone who is actually there, trained on that machine, and written into the site-specific safety plan. Subcontract language should say who that person is, and that the sub will not change the controlling model mid-project without notice.
+
+Risk managers should also note the advisory-versus-control gray area. One analysis says a setup where Claude recommends and a human actuates may still fall under the rule because the trigger is the connection. That is an open interpretation, not settled.
+
+## What is still unclear?
+
+Anthropic has not said how it will enforce this, and the rule applies only from Nov. 12. Most contractors are not running Claude-controlled heavy equipment today; this matters first for robotics startups and integrators who are. Treat it as a checklist to bring to your next autonomous-equipment demo, not a reason to change current operations.
+
+**Takeaway:** Before you sign for any machine that moves on its own, get the stop-authority, connection-loss behavior and model in writing, and put the named stop person in your safety plan.
