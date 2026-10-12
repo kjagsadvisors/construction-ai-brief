@@ -1,0 +1,62 @@
+---
+title: "Salesforce is switching Agentforce on by default and adding voice scheduling. Here's what a service-heavy trade sub should check first"
+date: "2026-10-12"
+excerpt: "Salesforce's Winter '27 release auto-enables Agentforce in eligible orgs and adds a voice agent that books service calls. For mechanical and electrical subs running service work in Salesforce, the job is permissions and scheduling rules, not a purchase."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://www.salesforceben.com/salesforce-to-auto-enable-agentforce-in-winter-27-what-that-means-for-you/"
+  - "https://futurumgroup.com/insights/salesforce-winter-27-agents-now-run-the-workflow/"
+  - "https://trailhead.salesforce.com/content/learn/modules/winter-27-release-highlights/see-whats-new-service-field-service-it-hr-service-and-contact-center"
+  - "https://360degreecloud.com/?p=75484"
+faqs:
+  - q: "Does Salesforce Winter '27 turn on AI agents in my org automatically?"
+    a: "It turns on Agentforce, the agent infrastructure, in orgs that already have Agentforce access through their edition or licenses, and the Setup toggle for it is being removed. Reporting says agents still need deliberate configuration, and non-admin users need explicit permission before they can use them."
+  - q: "Will Salesforce charge extra for the Agentforce auto-enable?"
+    a: "Salesforce says the auto-enable comes at no additional cost and with no billing changes. Confirm that against your own contract and the release notes before relying on it."
+  - q: "Can an AI voice agent book HVAC or electrical service calls?"
+    a: "Salesforce describes an Agentforce Voice feature that checks real-time availability and finds a technician in the right territory when a customer calls, booking around the clock. Whether it is generally available for your org, and how well it handles your service territories, should be tested before customers reach it."
+  - q: "Does this matter if my company uses Procore or another construction platform instead of Salesforce?"
+    a: "Mostly no. This change affects firms running Salesforce, which is more common in service and specialty contractors with a CRM and dispatch side than in project-only GCs. It is still a useful preview of what voice scheduling agents will be expected to do."
+---
+
+Salesforce's Winter '27 release is scheduled to reach general availability on October 12, and it does two things a service-oriented trade sub should know about: it switches on Agentforce by default in eligible orgs, and it adds a voice agent that books service appointments. If your mechanical or electrical shop runs service and dispatch in Salesforce, the work this week is checking who can do what, not buying anything.
+
+## What is actually changing?
+
+Based on Salesforce Ben's coverage and partner analyses, Salesforce is auto-enabling Agentforce in orgs that already have Agentforce access through their edition or licenses. The Setup toggle that controlled it is being removed. Salesforce says there is no added cost and no billing change.
+
+Two limits matter. Enabling the infrastructure does not deploy any agent; agents still need deliberate configuration. And non-admin users still need explicit permission assignment before they can use agent features. One partner blog also notes Einstein generative AI must be enabled for Agentforce Builder. That detail comes from a single source, so check it in the release notes.
+
+## What does the voice scheduling piece do?
+
+Salesforce's Winter '27 Trailhead highlights describe autonomous scheduling with Agentforce Voice: a voice agent that checks real-time availability and finds a technician in the right territory when a customer calls, booking appointments 24/7. Futurum's write-up says the release covers 15 innovations and credits the feature with turning long booking calls into seconds. That is Futurum's characterization, not a measured result from a contractor.
+
+What the sources don't settle is availability. The coverage we found doesn't say whether the voice scheduling feature is generally available or still in pilot for every edition. Treat it as announced, not proven.
+
+## Who on a trade sub does this touch?
+
+| Role | What to check |
+|---|---|
+| Service manager / dispatcher | Which service territories, skills and time windows an agent would be allowed to book |
+| Office manager / IT admin | Who holds agent-related permissions after the upgrade |
+| Owner | Whether the "no extra cost" statement matches your contract |
+| Estimator / PM | Likely nothing yet, unless quotes or change orders live in the same org |
+
+## Where should a sub be skeptical?
+
+A scheduling agent is only as good as the data behind it. Technician skills, truck stock, union or prevailing-wage rules, and after-hours emergency pricing often live in a dispatcher's head, not in the system. An agent booking a boiler call into the wrong territory or a window you can't staff costs more than the missed call. Treat early bookings as drafts a dispatcher reviews.
+
+Customer-facing voice also raises a record question: if an agent promises a Tuesday arrival, that is a commitment made on your behalf. Know where the call transcript is stored.
+
+## What should a trade sub do this week?
+
+1. Find out whether your org is Salesforce-based and which edition you hold; if you don't use Salesforce, you can skip this.
+2. After the upgrade, have your admin list everyone with agent-related permissions and remove any you didn't intend.
+3. Test in a sandbox before enabling any agent in production.
+4. If you want voice booking, write down your territory, skill and emergency-call rules first. Those become the agent's instructions.
+5. Keep a person on anything that quotes a price, promises a date, or commits a crew.
+
+The takeaway: default-on does not mean doing anything on its own, but it removes a gate, so make sure the permissions and scheduling rules are written down before an agent is allowed to touch your customers.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to the person who runs your dispatch board.*
