@@ -1,0 +1,66 @@
+---
+title: "Nous Research raised $90M to sell a self-hosted, open-source AI agent to businesses. Here's what a trade sub should ask before running one"
+date: "2026-10-12"
+excerpt: "Nous Research is turning its open-source Hermes agent into an enterprise product with audit logs, single sign-on and on-premises deployment. For a sub holding bid data and payroll records, the pitch is control. The catch is who runs it."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://thenextweb.com/news/nous-research-90m-1-5bn-hermes-agent-wsj"
+  - "https://runtimewire.com/article/nous-research-90m-series-b-hermes-agent"
+  - "https://dealroom.co/news/160592-nous-research-raises-90m-at-1-5b-valuation-for-open-source-ai/"
+  - "https://www.digitaltoday.co.kr/en/view/112594/open-source-ai-agent-hermes-raises-series-b-at-1-5-billion-valuation-targets-enterprises"
+faqs:
+  - q: "What is Hermes for Businesses?"
+    a: "It is the planned commercial version of Nous Research's open-source Hermes Agent. Reporting says it will add single sign-on, detailed audit logs and workspace controls, let customers choose their own models, and run on a company's own cloud or on-premises."
+  - q: "Can a small contractor run an open-source AI agent on its own servers?"
+    a: "Technically yes, but someone has to install, secure and update it. A sub without IT staff should price that labor, or pick a hosted option with a contract, before assuming self-hosting is cheaper or safer."
+  - q: "Does an AI agent need audit logs in construction?"
+    a: "If it touches pay apps, change orders, certified payroll or bid data, yes. A log that shows what the agent read, what it changed and who approved it is what you will want in a payment dispute or a records request."
+  - q: "How much funding did Nous Research raise?"
+    a: "Reports put the Series B at $90 million. The $1.5 billion valuation comes from Wall Street Journal reporting, and the company's own note reportedly does not state one."
+---
+
+Nous Research, the company behind the open-source Hermes Agent, raised a reported $90 million to build Hermes for Businesses, a commercial version meant to run on a company's own cloud or servers. For a trade sub, the pitch is control over bid data, pricing and payroll records. The tradeoff is that "self-hosted" moves the security and upkeep work onto you.
+
+## What did Nous Research announce?
+
+Based on coverage of the Series B, Robot Ventures led the round. Reported investors include Nvidia, Microsoft's M12, Samsung, Union Square Ventures, Y Combinator and Menlo Ventures. The $1.5 billion valuation comes from Wall Street Journal reporting; reporting says the company's own note does not state it. Outlets also disagree on small details such as download counts, so treat the adoption numbers as the company's and the WSJ's, not independent measurements.
+
+What matters for contractors is the product plan:
+
+- **Single sign-on, audit logs and workspace controls**, the features IT departments ask for before approving a tool.
+- **Your choice of model**, so a firm can pick by price or by task.
+- **Deployment on your own cloud or on-premises.**
+- **Revenue claims:** the WSJ reportedly put annualized revenue near $36 million in mid-September, with a goal of passing $100 million by year end. That is a projection, not a result.
+
+## Why would a trade sub care?
+
+Most subs we hear about are wary of pasting bid sheets, labor rates and certified payroll into a public chatbot. A self-hosted agent addresses that worry directly: the data stays in an environment you control. We covered the same impulse when [Mistral shipped open weights for private bid-data models](/posts/2026-10-07-mistral-large-4-open-weights-construction-bid-data-private-model).
+
+The audit log is the underrated part. An agent that drafts pay apps, sorts submittals or pulls prices from vendor quotes should leave a record of what it read, what it changed and who approved it. In a payment dispute, that record is worth more than the time saved.
+
+## What are the limits?
+
+Hermes for Businesses is a funded plan, not a shipped product with references in construction. The features above are described in reporting on the round, and we have not seen an independent test of them.
+
+Self-hosting also has a cost that press coverage skips:
+
+| Option | You get | You take on |
+|---|---|---|
+| Hosted agent with a contract | Vendor handles patches and uptime | Your data sits with the vendor |
+| Self-hosted open-source agent | Data stays in your environment | Installing, securing and updating it |
+| Do nothing | No new risk | Manual back-office work stays manual |
+
+A 30-person mechanical or sitework sub rarely has anyone to patch a server. Agents also carry their own security exposure, since they hold credentials and act on them. If nobody owns that, "private" can end up less safe than a vendor with a security team.
+
+## What should an estimator or owner do now?
+
+Run a short checklist before any agent, open-source or not, touches company data:
+
+1. **Name the data.** List what it would read: bid sheets, vendor quotes, payroll, bonding documents.
+2. **Name the owner.** One person is responsible for access, updates and shutting it off.
+3. **Ask for logs.** Can you see every action and export it?
+4. **Start read-only.** Let it sort and summarize before it writes or sends anything.
+5. **Keep approval human** for anything that moves money, schedule or a signature.
+
+Watch whether Nous ships a real enterprise release with a security review customers can read. Until then, this is a signal that private, controllable agents are getting funded, not a tool to put on your servers.
