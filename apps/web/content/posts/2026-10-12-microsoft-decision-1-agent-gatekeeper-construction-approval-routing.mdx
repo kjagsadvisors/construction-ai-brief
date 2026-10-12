@@ -1,0 +1,71 @@
+---
+title: "Microsoft's Decision-1 is a cheap model that scores yes/no calls for AI agents. Here's where a GC's approval routing could use it, and where it shouldn't"
+date: "2026-10-12"
+excerpt: "Microsoft released a 9B model that doesn't write text. It scores fixed choices, such as proceed, retry or escalate, for agents. For construction back offices, that makes routing cheap and approval authority the real question."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.testingcatalog.com/microsoft-launches-decision-1-model-in-foundry/"
+  - "https://runtimewire.com/article/microsoft-decision-1-achint-srivastava-agent-workflows"
+  - "https://windowsreport.com/?p=1511983"
+  - "https://cryptobriefing.com/microsoft-launches-decision-1-ai-model/"
+  - "https://www.digitaltoday.co.kr/en/view/112711/microsoft-joins-decision-focused-ai-model-race-unveils-microsoft-decision-1"
+faqs:
+  - q: "What is Microsoft Decision-1?"
+    a: "Decision-1 is a roughly 9-billion-parameter model Microsoft released in Foundry on October 9, 2026. Instead of writing text, it takes a fixed list of options and scores each one, so software can route a request or decide whether an agent should proceed, retry or escalate."
+  - q: "Can a contractor use a decision model to route RFIs and submittals?"
+    a: "Yes, in principle. Sorting incoming items into a fixed set of buckets, such as RFI, submittal, change request or pay application, is the kind of task these models target. Start with sorting and flagging, and keep a person on anything that commits money or schedule."
+  - q: "Should an AI model decide whether an agent's action needs human review?"
+    a: "Only as a first filter. Microsoft's accuracy and speed claims are its own and unverified, and reporting notes it is unclear whether the scores are calibrated well enough to set escalation thresholds safely. Test against your own past items before trusting any cutoff."
+  - q: "How much does Decision-1 cost?"
+    a: "Coverage of the launch lists $0.042 per million input tokens with free output tokens in Microsoft Foundry. Treat that as reported pricing and confirm it in Microsoft's own pricing page before budgeting."
+---
+
+Microsoft's new Decision-1 model does one narrow job: given a fixed list of choices, it scores each one so software can pick. For a GC, that points at the cheap, boring layer of an AI back office, the step that decides where an incoming RFI, submittal or pay app goes and whether an agent's next move needs a person. Cheap routing is useful. Letting a model decide what needs review is where a contractor should slow down.
+
+## What did Microsoft release?
+
+Per coverage of the October 9 launch, Decision-1 is a 9-billion-parameter model, reportedly post-trained from Alibaba's open-weight Qwen3.5-9B, now available in Microsoft Foundry with OpenRouter access said to be coming. It does not generate paragraphs. It takes a set of fixed answer options and returns a score for each.
+
+Microsoft's stated uses are routing a ticket, checking an agent's proposed action, and deciding whether an agent should proceed, retry, escalate or ask for review. Reported details:
+
+- **Price:** $0.042 per million input tokens, output tokens free.
+- **Speed:** Microsoft says it is about 35 times faster than GPT-6 Sol at median latency.
+- **Accuracy:** Microsoft says it ranked first across a 36-benchmark evaluation.
+- **Stability:** Microsoft reports the decision changed 1.3% of the time on average when requests were perturbed, with no flips when options were reordered or reworded.
+
+All of those performance numbers are Microsoft's. Reporting notes the announcement doesn't include the datasets or latency test conditions needed to reproduce them.
+
+## What does this mean for a GC's back office?
+
+The match is sorting work. A project inbox gets a stream of items that each belong in one of a handful of buckets, and today a project engineer or admin sorts them by hand.
+
+| Task | Fixed options | Fit |
+|---|---|---|
+| Triage inbound email | RFI, submittal, change request, pay app, other | Good first test |
+| Route a vendor document | Insurance cert, lien waiver, W-9, lead-time notice | Good first test |
+| Check an agent's draft action | Send, hold, escalate | Use as a filter only |
+| Approve a change order or pay app | Approve, reject | Do not delegate |
+
+At a fraction of a cent per thousand items, the cost objection to running every email through a classifier mostly goes away. The question becomes accuracy on your documents, which no benchmark answers for you.
+
+## What are the limits?
+
+Reporting on the launch flags the main one: it is unclear whether the scores are calibrated well enough to set escalation thresholds safely. A model that says 92% on "proceed" is only useful if 92% means roughly nine in ten. If an agent's draft lien waiver gets a confident "send," the gatekeeper has just moved the risk, not removed it.
+
+Two further cautions. A model scoring an agent's work is another model, with its own blind spots. And a fixed option list is only as good as the person who wrote it: if "escalate to the PM" isn't an option, nothing gets escalated.
+
+## Should a mid-size GC act now?
+
+Not by buying anything. Run a cheap, low-risk test:
+
+1. Pull 200 past items from a project inbox that a person already sorted.
+2. Run them through any classifier, Decision-1 included, against your bucket list.
+3. Count misses, and note which buckets fail. Missed lien waivers matter more than missed newsletters.
+4. Set the rule that anything touching money, schedule or a signature goes to a named person regardless of score.
+
+For related thinking on who signs off on agent work, see [our piece on shared project records and agents](/posts/2026-10-02-chatgpt-space-pages-shared-project-record-construction-agents).
+
+The takeaway: cheap scoring models will make routing and first-pass checks nearly free, and approval authority stays a human, written-down decision.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to the person who owns your project inbox.*
