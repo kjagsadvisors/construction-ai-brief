@@ -1,0 +1,59 @@
+---
+title: "Nvidia is open-sourcing its Vera Rubin racks. Here's what the draft data center spec means for MEP scopes"
+date: "2026-10-13"
+excerpt: "At the OCP Global Summit, Nvidia said it will contribute its Vera Rubin rack designs as open standards, alongside a draft data center spec from AMD, Google, Meta and Nvidia. For electrical, mechanical and structural scopes, the rack is becoming the thing you build around."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://blogs.nvidia.com/blog/ocp-global-summit-vera-rubin-scale-ai-factories/"
+  - "https://www.eweek.com/artificial-intelligence/news-nvidia-at-ocp/"
+  - "https://www.opencompute.org/wp-content/uploads/2026/10/Open-Data-center-Spec-Revision-0.7.0-4.pdf"
+  - "https://www.opencompute.org/wp-content/uploads/2026/10/MGX-Accelerated-Computing-Rack-and-Trays-Specification-1.2.0-Final.pdf"
+  - "https://www.vertiv.com/en-us/insights/articles/educational-articles/powering-the-future-of-ai-factories-vertivs-role-in-the-800-vdc-ecosystem/"
+  - "https://itbrief.news/story/vertiv-nvidia-advance-800-vdc-power-for-future-ai-factories"
+faqs:
+  - q: "What did Nvidia announce at the OCP Global Summit in October 2026?"
+    a: "Nvidia said it is contributing its Vera Rubin rack and compute tray designs to the Open Compute Project as open standards, with a fully liquid-cooled design. Separately, AMD, Google, Meta and Nvidia are listed as authors of a draft Open Data Center specification, version 0.7."
+  - q: "How big and heavy are the racks in the draft Open Data Center spec?"
+    a: "The draft v0.7 lists a rack height of 100 inches and a maximum rack weight of 8,000 pounds, with unified power and cooling limits. It is a draft aimed at 2027 to 2028 guidance, so dimensions could change."
+  - q: "What is 800 VDC power in a data center?"
+    a: "It is a higher-voltage direct-current distribution approach Nvidia introduced for AI racks. Vertiv says higher-voltage DC reduces copper and conversion losses compared with 415 or 480 VAC distribution, and that its 800 VDC portfolio is due in the second half of 2026."
+  - q: "Do these specs change what electrical and mechanical subs bid on data center jobs?"
+    a: "Potentially. Liquid cooling piping, heavier racks and DC power distribution move scope between trades and change structural and clearance requirements. Ask the owner which spec the design follows before pricing."
+---
+
+Nvidia said at the OCP Global Summit that it is contributing its Vera Rubin rack designs to the Open Compute Project as open standards, and AMD, Google, Meta and Nvidia are listed as authors of a draft Open Data Center specification. For electrical, mechanical and structural subs, that means the rack's size, weight, power and cooling requirements are starting to be written down in a form owners can copy into their design criteria.
+
+## What was actually announced?
+
+Per Nvidia's summit post and eWeek's coverage, Nvidia is contributing rack and compute tray designs, built around full liquid cooling, as open standards. The Open Compute Project also posted two documents this month that are worth a sub's time:
+
+| Document | What it says (as listed by OCP) | Status |
+|---|---|---|
+| Open Data Center Spec v0.7 | Authors AMD, Google, Meta, Nvidia. Rack height 100 inches, max weight 8,000 lb, unified power and cooling limits. Guidance for 2027 to 2028. | Draft, dated Aug. 27, 2026 |
+| MGX Rack and Trays Spec 1.2.0 | Includes busbar sections on thermal and liquid-cooling requirements, leak containment and detection, and testing. | Final, dated Oct. 6, 2026 |
+
+I could only confirm the tables of contents and summary figures, not the full requirements. Read the PDFs before you quote any number to an owner.
+
+## What does it mean for electrical and mechanical subs?
+
+Three things to watch in the documents:
+
+- **Liquid cooling is in the rack spec, not an add-on.** Leak containment and detection show up as spec sections. That pulls piping, leak detection, commissioning tests and controls integration into scope discussions earlier.
+- **Power distribution may change.** Vertiv says higher-voltage DC cuts copper and conversion losses versus 415 or 480 VAC, and that its 800 VDC portfolio is slated for the second half of 2026. IT Brief reports Vertiv and Nvidia advancing it for future AI factories. Gear, busway and protection details are still being finalized, so expect addenda.
+- **Weight and height drive structure.** An 8,000 lb rack at 100 inches tall is a floor-loading, door-height and ceiling-clearance question for the GC and structural engineer, not just the IT vendor.
+
+## Should a sub act now?
+
+Not by changing prices. The Open Data Center spec is a v0.7 draft aimed at 2027 to 2028, and the Vera Rubin generation is still ahead of most projects now in design. What a sub can do this week:
+
+1. Ask on any live data center bid which rack spec and cooling approach the design assumes.
+2. Flag clarifications on who owns liquid-cooling piping, leak detection and AC-to-DC conversion gear.
+3. Have an estimator read the two OCP documents and note where the numbers differ from your current typical rack assumptions.
+4. Hold off on committing to a DC-power install approach until gear lead times and listings are clear.
+
+## What is still unproven?
+
+Open standards reduce vendor lock-in on paper. Owners and hyperscalers still write their own requirements, and plenty of facilities will not match a shared spec. Treat OCP documents as a preview of where design criteria are heading, and confirm each project's actual basis of design.
+
+**Takeaway:** Pull the draft spec's rack weight, height and cooling figures into your next data center bid review, and ask the GC which of them the design actually uses.
