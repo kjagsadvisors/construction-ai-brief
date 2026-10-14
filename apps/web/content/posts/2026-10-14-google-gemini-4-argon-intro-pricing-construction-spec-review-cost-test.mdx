@@ -1,0 +1,58 @@
+---
+title: "Gemini 4 Argon is cheap for now. Estimators should price their spec-review test before the promo ends"
+date: "2026-10-14"
+excerpt: "Google made Gemini 4 Argon broadly available on October 13 at an introductory $2 and $10 per million tokens, reportedly doubling later. For estimating and precon teams, that is a window to test spec and bid-document review at low cost, and a reason not to build a budget on the promo rate."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://venturebeat.com/technology/google-makes-gemini-4-argon-broadly-available-with-limited-time-low-api-pricing-of-2-10-per-1m-token"
+  - "https://www.engadget.com/2285023/google-gemini-4-argon-is-now-available-in-the-gemini-app-and-ai-mode-in-search/"
+  - "https://cloud.google.com/blog/products/ai-machine-learning/gemini-4-argon-available-on-google-cloud"
+  - "https://www.eesel.ai/blog/gemini-4-argon-pricing"
+faqs:
+  - q: "How much does Gemini 4 Argon cost?"
+    a: "Launch coverage lists an introductory API price of $2 per million input tokens and $10 per million output tokens. Secondary reports say the rate rises to $4 and $20 after the promotion, with one giving a November 30 date that Google has not clearly confirmed."
+  - q: "Can a construction estimator use Gemini 4 Argon for spec review?"
+    a: "It can be tested for that, since it is available through Google's API, AI Studio and Google Cloud. Run it on a closed bid with a known answer first and have an estimator check every flagged item before relying on it."
+  - q: "Is Gemini 4 Argon free?"
+    a: "Not through the API. Google's pricing page reportedly lists it as a paid-tier model with no free tier, though paid Gemini app subscribers can use it in the app and in AI Mode in Search."
+  - q: "Should a contractor build a budget around the Gemini 4 Argon promo price?"
+    a: "No. Budget at the higher post-promo rates, because introductory pricing can change and the reported rates are double the launch figures."
+---
+
+Google made Gemini 4 Argon broadly available on October 13 at an introductory API price of $2 per million input tokens and $10 per million output tokens. For an estimating team, the useful part is the timing: the low price makes this a cheap month to test AI on spec and bid-document review, and reported post-promo rates are double.
+
+## What did Google actually release?
+
+Reported details from launch coverage, with the caveat that several come from secondary outlets:
+
+| Item | What was reported |
+|---|---|
+| Availability | Broadly available October 13 through the Gemini API, Google AI Studio and Google Cloud, plus the Gemini app and AI Mode in Search for paid subscribers |
+| Introductory API price | $2 per million input tokens, $10 per million output tokens |
+| Reported later price | $4 and $20, with one source citing November 30 (not clearly confirmed by Google) |
+| Free tier | Reportedly none for the API |
+
+Some pricing aggregators also describe a very large output ceiling. Sources disagree on that point, so we are not relying on it.
+
+## What does this mean for estimators and precon teams?
+
+Estimating work is input-heavy: you feed a model a spec section, an addendum or a stack of sub quotes, and you get back a short list. Input is the cheaper side of the bill. Output, the part that climbs when a model writes long scope narratives, costs five times as much per token at the promo rate.
+
+Three jobs worth testing while the price is low:
+
+1. **Spec-to-scope extraction.** Pull the submittal, testing and warranty requirements out of a Division 23 or 26 section and compare them to your scope sheet.
+2. **Addendum diffing.** Ask what changed between addendum 2 and addendum 3 that touches your trade.
+3. **Bid leveling.** Have the model flag exclusions and unit-price gaps across three sub quotes.
+
+## How should a shop run the test?
+
+Use a closed bid where you already know the answer. Load the same documents into Argon and into whatever you use now. Count the real misses and false flags. Record the tokens used per job, so you can multiply by $4 and $20 and see whether the workflow still pencils out at the higher rate.
+
+## Should a mid-size GC or sub switch models now?
+
+No. A launch-week promo is a reason to run a test, and it says nothing about accuracy on your documents. Google's benchmark claims are Google's, and construction drawings and scanned specs are exactly where general benchmarks tell you least. Keep a human estimator checking every flagged item. Also read the data terms for the specific access route you use before loading owner documents or pricing.
+
+## The takeaway
+
+Spend an afternoon this month on one closed bid. Measure cost per job at both price levels and accuracy against your own answer key. If it only works at $2 and $10, treat it as a pilot, not a process.
