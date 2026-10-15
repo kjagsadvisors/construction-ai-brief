@@ -1,0 +1,56 @@
+---
+title: "Workday opened its HR and finance data to outside AI agents. Here's what a contractor on Workday should lock down first"
+date: "2026-10-15"
+excerpt: "Workday made Agent Harness and its MCP tools generally available, so third-party agents can read and act on HR and finance data under Workday's permissions. For larger contractors running payroll and AP in Workday, the question is which agent gets which access."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://newsroom.workday.com/2026-10-13-Workdays-Trusted-Agent-Platform-Now-Delivers-Headless-Access-to-HR-and-Finance,-Letting-Customers-Build-and-Run-Lawful-AI-Agents"
+  - "https://constellationr.com/insights/news/workday-makes-sana-its-interface-launches-agent-harness-decision-and-work"
+  - "https://thenewstack.io/workday-headless-mcp-agents/"
+  - "https://www.cio.com/article/4057792/workday-unveils-new-agents-a-new-cloud-and-a-developer-platform.html"
+faqs:
+  - q: "What did Workday announce for AI agents in October 2026?"
+    a: "At Workday Rising on October 13, Workday said Agent Harness, Agent-Ready Tools, Workday Data Cloud, Developer Agent and Custom Agents are generally available. Together they let Workday, customer-built and partner agents work with HR and finance data under one set of permissions and audit trails."
+  - q: "Does this matter to a contractor that doesn't use Workday?"
+    a: "Mostly not directly. Many contractors run payroll and job cost in construction-specific systems. The useful takeaway is the pattern: ask any vendor how an outside agent is permissioned, logged and billed before connecting it to payroll or payables."
+  - q: "What is MCP and why does it matter for payroll data?"
+    a: "MCP, the Model Context Protocol, is a standard way for an AI agent to call a system's tools. In Workday's case, Agent-Ready Tools are its MCP tools, so any MCP-capable agent can read and act on Workday data if you grant it access."
+  - q: "How is Workday charging for agent use?"
+    a: "Coverage describes Flex Credits, a consumption model with an annual allotment included in the subscription. CIO's reporting rests on one analyst's comments, so confirm the terms with your account rep."
+---
+
+Workday has made its agent platform generally available, which means AI agents from Workday, from your own developers, or from partners can read and act on HR and finance data inside Workday under one permission model. A contractor that runs payroll or payables in Workday now has a concrete decision to make: which agents get access, to what, and who approves what they change.
+
+## What did Workday actually release?
+
+At Workday Rising on October 13, Workday said these pieces are generally available: Agent Harness (runtime with built-in context, memory and guardrails), Agent-Ready Tools (Workday's MCP tools), Workday Data Cloud, Developer Agent and Custom Agents. Workday's release says agents from Workday, customers or partners run under the same permissions, approvals and audit trails.
+
+The New Stack reports that Workday's MCP server and SQL access to live data are now generally available, and that customers can run agents on models from several providers. Workday's product president told the outlet that building directly on the raw tools only suits a small set of use cases without HR or finance domain logic; for most, requests should route through Workday's own orchestrator, Sana.
+
+## Does this apply to a contractor that isn't on Workday?
+
+Only some. Larger GCs and specialty contractors use Workday for HR and finance. Most mid-size subs run construction accounting and payroll elsewhere. For those firms, this is a pattern to copy, not a product to buy.
+
+## Where could a Workday-using contractor use it?
+
+| Workflow | What an agent could do | What to check first |
+|---|---|---|
+| Craft onboarding | Pull new-hire data and flag missing paperwork | Which fields it can see (IDs, bank details) |
+| Certified payroll prep | Assemble hours and classifications by project for review | Whether it can edit records or only read |
+| Vendor and sub invoices | Match invoices to commitments, route exceptions | Who approves what it routes |
+| Headcount and labor forecasts | Compare staffing to backlog | Data freshness and who owns the forecast |
+
+These are plausible uses, not documented customer results. Nothing in the announcement is construction-specific, and certified payroll rules and prevailing-wage classifications still need a person's sign-off.
+
+## What should a PM or controller lock down?
+
+1. **Start read-only.** Give a new agent query access before write access.
+2. **Name an owner per agent.** Someone in payroll or accounting should answer for what it does.
+3. **Review the audit trail.** If you can't see what an agent read and changed, don't connect it to pay data.
+4. **Price the usage.** CIO describes Flex Credits as a consumption model with an annual allotment; the report rests on one analyst's comments, so get the terms in writing.
+5. **Keep sub and worker data out of general chat tools.** Route access through the governed path, not a personal assistant someone wired up.
+
+## The takeaway
+
+If your firm is on Workday, ask your account rep this week which agents can reach worker and payables data today, and set a rule that new ones start read-only. If you're not, use the same five questions on whichever vendor holds your payroll.
