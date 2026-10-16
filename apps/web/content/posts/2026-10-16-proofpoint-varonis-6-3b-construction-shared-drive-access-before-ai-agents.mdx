@@ -1,0 +1,60 @@
+---
+title: "Proofpoint is paying $6.3B for a data-access company. Clean up who can open your bid files before you connect an AI agent"
+date: "2026-10-16"
+excerpt: "Proofpoint agreed to buy Varonis for about $6.3 billion, pitching it as a way to control what people and AI can access. For contractors, the lesson is cheaper: audit who can open bid, payroll and sub-pricing folders before any agent does."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.sec.gov/Archives/edgar/data/0001361113/000121390026109901/ea030861001ex99-1.htm"
+  - "https://www.verdict.co.uk/proofpoint-acquisition-varonis/"
+  - "https://www.bankinfosecurity.com/blogs/proofpoint-eyeing-buy-data-security-firm-varonis-p-4185"
+faqs:
+  - q: "What did Proofpoint announce about Varonis?"
+    a: "On October 15, 2026, Proofpoint, owned by Thoma Bravo, agreed to acquire Varonis in an all-cash deal valued at about $6.3 billion, or $49.75 per share. The deal is expected to close in the first half of 2027, subject to shareholder and regulatory approvals."
+  - q: "Why would an AI agent be a data-access risk for a contractor?"
+    a: "An agent generally works with whatever files its user or service account can reach. If a shared drive is open to everyone in the company, an agent connected to it can surface bid numbers, payroll records or sub pricing to people who shouldn't see them."
+  - q: "Does a small contractor need a data security platform?"
+    a: "Not necessarily. A first pass is manual: list who can open your estimating, payroll and subcontract folders, remove stale and company-wide access, and only then connect an AI tool."
+  - q: "What sensitive files do contractors usually keep in shared drives?"
+    a: "Common examples are bid tabs and sub quotes, certified payroll, worker ID and banking details, insurance certificates, owner contracts and claim correspondence."
+---
+
+Proofpoint has agreed to buy Varonis for about $6.3 billion, and both companies say the point is controlling what people and AI can access. A contractor doesn't need to buy anything to act on that: before you connect an AI assistant to your shared drive, find out who can already open your bid, payroll and sub-pricing folders.
+
+## What did Proofpoint announce?
+
+On October 15, Proofpoint, a Thoma Bravo portfolio company, agreed to acquire Varonis in an all-cash deal at $49.75 per share, about $6.3 billion, according to a Varonis filing with the SEC. The filing says the board approved it unanimously and that the deal is expected to close in the first half of 2027, pending shareholder and regulatory approvals.
+
+The companies describe a combined platform covering sensitive data discovery, controls over what people and AI can access, and data-loss prevention. Verdict's coverage frames the deal as AI security. Earlier trade reporting notes Varonis brings data access intelligence and Proofpoint has moved into AI-agent governance. This is a vendor-consolidation story; no contractor product changes today.
+
+## Why does it matter to a contractor?
+
+Most AI assistants and agents work with the files their user, or a service account, can already reach. Many firms have shared drives that grew over a decade: an estimating folder open to the whole office, a payroll export someone saved in the wrong place, a "Subs" folder with every quote.
+
+Today a person has to go looking for those files. An agent that can search everything will find them in seconds and may quote them in an answer.
+
+## Which folders should you check first?
+
+| Folder | Who should see it | What goes wrong if it's open |
+|---|---|---|
+| Estimating and bid tabs | Estimators, precon, owners | Field staff or other PMs see your margin and markup |
+| Sub quotes and bid-leveling sheets | Estimators, the assigned PM | One sub's pricing shows up in another sub's conversation |
+| Certified payroll and HR | Payroll, HR, controller | Worker IDs and bank details exposed to general chat tools |
+| Owner contracts and claims | PM, ops director, counsel | Dispute strategy surfaces in routine searches |
+| Insurance and bonding | Risk, accounting | Limits and loss history shared widely |
+
+## What should you do this month?
+
+1. **List the four or five folders above** and write down who can open each.
+2. **Remove company-wide and "anyone with the link" access** to anything in that table.
+3. **Check departed employees and old subs** still on a project folder.
+4. **Connect AI tools to a scoped folder first**, such as one project's submittals, not the whole drive.
+5. **Ask your IT provider or software vendor** whether they can report on who accessed sensitive files, and whether agent activity is logged separately.
+
+## What's still unclear?
+
+Neither source tells us how or when agent-governance features will reach midsize contractors, and Varonis-class tools are sold to enterprises. Whether the deal closes on schedule is also open. A $6.3 billion price signals that data-access control is becoming a budget line, not that you need the product.
+
+## The takeaway
+
+The cheapest AI security work is the unglamorous kind: tighten folder permissions in the next two weeks, then connect the assistant. An agent is only as discreet as the access you hand it. Related: [how to think about agent permissions on payroll data](/posts/2026-10-15-workday-agent-harness-ga-headless-hr-finance-construction-certified-payroll-agent-permissions).
