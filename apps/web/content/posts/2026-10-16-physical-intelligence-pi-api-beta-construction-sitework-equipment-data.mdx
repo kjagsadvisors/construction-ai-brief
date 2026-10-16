@@ -1,0 +1,61 @@
+---
+title: "Physical Intelligence opened its robot models to outside teams. Here's what sitework and equipment contractors should do with their machine data"
+date: "2026-10-16"
+excerpt: "Physical Intelligence's Pi API beta lets outside developers fine-tune its robot models on their own data. For sitework and equipment-heavy subs, the first practical step is not buying a robot. It is knowing what operating data you hold."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://theaiinsider.tech/2026/10/14/physical-intelligence-opens-pi-api-beta-for-robot-model-training-and-deployment/"
+  - "https://aiweekly.co/alerts/physical-intelligence-opens-pi-api-beta-for-0-05-fine-tuning"
+  - "https://www.unite.ai/?p=485262"
+faqs:
+  - q: "What is the Physical Intelligence Pi API?"
+    a: "It is a beta service, announced October 13, 2026, that lets outside developers upload robot data, fine-tune Physical Intelligence's π0 and π0.5 robot foundation models on the company's managed compute, and run the result through a hosted inference service. Access is through a waitlist."
+  - q: "Can a contractor use the Pi API to automate an excavator or loader?"
+    a: "Not directly. The API is aimed at robotics developers who bring robot data and hardware. Coverage describes a heavy-machinery developer, Actor, as an early partner, but pricing, availability, and any construction-specific safety certification have not been disclosed."
+  - q: "What data would a contractor need to fine-tune a robot model?"
+    a: "Fine-tuning needs recorded examples of the task: sensor or camera feeds paired with the operator's control inputs. Most contractors have machine telematics and GPS grade data, but few have synchronized video and control logs."
+  - q: "Is the Pi API available to the public?"
+    a: "Not yet. It is a waitlist beta, and applicants are asked to describe what they want to build. Reporting found no public pricing or acceptance criteria."
+---
+
+**Physical Intelligence, a robotics AI company, has opened a beta that lets outside developers fine-tune its robot models on their own data and run them in the cloud. For sitework and equipment-heavy subs, nothing here is a product you can buy this quarter. What it changes is the value of the operating data your machines and crews already generate.**
+
+## What did Physical Intelligence announce?
+
+The company announced the Pi API beta on October 13, 2026. Per [The AI Insider](https://theaiinsider.tech/2026/10/14/physical-intelligence-opens-pi-api-beta-for-robot-model-training-and-deployment/) and [Unite.AI](https://www.unite.ai/?p=485262), developers upload robot data, Physical Intelligence fine-tunes one of its models on compute it manages, and the result runs through a hosted inference gateway. The models covered are π0 and π0.5. Access is through a waitlist, and applicants are asked what they want to build.
+
+Early partners include Actor, which [AI Weekly](https://aiweekly.co/alerts/physical-intelligence-opens-pi-api-beta-for-0-05-fine-tuning) describes as a heavy-machinery developer whose autonomous wheel loader loads material into a dump truck, and Almond, whose dual-arm robot is deburring spacers. Pricing, hardware requirements, and the full partner list were not disclosed in the coverage we found.
+
+## Why does a robot-model API matter to a sitework sub?
+
+Until now, a company wanting a general-purpose robot "brain" had to build one. A hosted fine-tuning service lowers that barrier for equipment makers and integrators. Whoever builds the next autonomous loader, compactor, or layout robot can start from a pretrained model and teach it with examples of the real task.
+
+Those examples have to come from somewhere, and the best ones come from skilled operators working real dirt. That is the part a contractor owns.
+
+## What data do you actually hold?
+
+| Data | Typical state at a sitework sub | Usefulness for training |
+|---|---|---|
+| Telematics (hours, fuel, location) | Good, in the OEM portal | Low on its own |
+| GPS machine-control grade logs | Often kept per job, rarely archived | Moderate |
+| Camera video from the cab or site | Spotty | High, but only if paired with controls |
+| Operator control inputs | Usually not recorded | The piece fine-tuning needs most |
+| Daily reports and production quantities | Paper or PDF | Useful for validating results |
+
+The gap is clear: most firms have machine location and hours, and almost none have synchronized video plus control inputs. We are inferring that from how fine-tuning generally works, not from Physical Intelligence's documentation, so confirm requirements with any vendor that asks for your data.
+
+## What should you do now?
+
+1. **Inventory it.** Which machines have machine control, which have cameras, and where the logs live.
+2. **Read your equipment and software contracts.** Who owns operating data your machines produce, and can the OEM or a telematics vendor train models on it? This is the same question we raised for [stop authority on autonomous equipment](/posts/2026-10-11-anthropic-usage-policy-physical-hardware-construction-autonomous-equipment-stop-authority).
+3. **Ask your operators.** Recording a veteran operator's work is a labor and consent issue. Settle it with your crews and any union agreement before a vendor asks.
+4. **Do not sign a data-for-pilot swap without terms.** Free pilot machines in exchange for training rights can be a fair trade, but only if the contract limits use, deletion, and resale.
+
+## What is still hype?
+
+A waitlist beta and two partner demos are not an autonomous jobsite. Nothing in the coverage speaks to safety certification, performance in mud, weather, or mixed traffic, or who is liable when a machine misjudges a trench edge. A wheel loader repeating a loading cycle is far from mass excavation to a tolerance. Treat the announcement as a signal about where equipment vendors are heading and a prompt to protect your data, not as a reason to change a bid.
+
+**Takeaway:** This week, ask your equipment dealer and telematics provider one question in writing: what do you do with the operating data from our machines, and can we opt out?
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) or forward this to the equipment manager at your next sitework sub.*
