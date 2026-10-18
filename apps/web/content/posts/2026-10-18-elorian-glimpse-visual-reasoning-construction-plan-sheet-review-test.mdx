@@ -1,0 +1,64 @@
+---
+title: "Elorian's Glimpse model re-reads images as it reasons. Here's the plan-sheet test an estimator should run"
+date: "2026-10-18"
+excerpt: "A new visual reasoning model crops, measures and returns to the source image while it works. That is the exact weakness of general chatbots on dense drawings, so it deserves a controlled test on your own plan sheets before anyone trusts it."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://techcrunch.com/2026/10/16/elorians-first-ai-model-wants-to-reason-with-images-not-just-about-them/"
+  - "https://en.wowtale.net/2026/10/18/235564/"
+  - "https://runtimewire.com/article/elorian-glimpse-visual-reasoning-model-launch"
+  - "https://app.dealroom.co/news/note/elorian-s-glimpse-takes-on-frontier-labs-in-visual-reasoning-at-a-fraction-of-the-price"
+faqs:
+  - q: "What is Elorian's Glimpse model?"
+    a: "Glimpse is a visual reasoning model from the startup Elorian, released as a research preview with API access around October 16, 2026. Instead of reading an image once, it can go back to the source mid-answer to crop regions, pull video frames or run code to measure what it sees."
+  - q: "Can AI read construction drawings accurately?"
+    a: "Not reliably yet. General models often miss small text, symbols and scale on dense sheets. A model that re-examines the image may do better, but Elorian's benchmark results are company-reported, so test it on your own sheets before relying on any quantity."
+  - q: "How much does Glimpse cost?"
+    a: "Reported pricing is $0.60 per million input tokens and $3 per million output tokens. Reports differ on whether the chat interface is open or waitlist-only, so API access is the reliable route today."
+  - q: "Should an estimator use Glimpse for takeoff?"
+    a: "Not for bid quantities yet. It is a research preview with unverified benchmarks. A small side-by-side test against a known takeoff is a reasonable first step; a live bid is not."
+---
+
+Elorian released Glimpse, a visual reasoning model that goes back to the source image while it answers, and an estimator's job is full of the dense, small-print images that general chatbots handle worst. Treat it as a candidate for a plan-sheet test, not a takeoff tool.
+
+## What did Elorian actually release?
+
+Elorian, a startup that came out of stealth in April with a reported $55 million seed round at a $300 million valuation, launched Glimpse around October 16, 2026. It is a research preview with API access. Coverage disagrees on whether the chat interface is open or waitlist-only.
+
+The pitch is what Elorian calls a "visual scratch space." Mid-answer, the model can crop into a region, pull specific frames from a video, or run code to measure or compare what it is looking at. Most chatbots look at an image once and reason from that first pass. Reported pricing is $0.60 per million input tokens and $3 per million output tokens.
+
+Elorian says Glimpse matches or beats OpenAI's GPT-6 Astra on some visual benchmarks, including scientific chart reasoning and short video captioning. Those numbers are the company's own, and one outlet notes Elorian's table also shows losses. Nobody independent has checked them.
+
+## Why does this matter to an estimator?
+
+Because a plan sheet is a bad fit for look-once reading. A mechanical or electrical sheet has a legend in one corner, a schedule in another, tag numbers the size of a fingernail and a scale that changes by viewport. A model that can zoom back into a keynote, then compare it with a schedule, is attempting the same motion an estimator makes.
+
+That is a plausible fit for:
+
+- Checking a symbol count against the legend on one sheet
+- Reading equipment tags against the schedule
+- Spotting a revision cloud and what changed inside it
+- Pulling frames from a site walk video to document existing conditions
+
+Plausible is not proven. Elorian has not published results on construction drawings, and a benchmark on scientific charts says little about a Div 23 sheet scanned at an angle.
+
+## What should a mid-size sub or GC actually do?
+
+Run a small, controlled test rather than a rollout. Our [spec-review cost test for Gemini 4 Argon](/posts/2026-10-14-google-gemini-4-argon-intro-pricing-construction-spec-review-cost-test) uses the same discipline.
+
+1. Pick one finished job with a takeoff you already trust.
+2. Choose five sheets: one clean, one dense, one scanned, one with a revision cloud, one with a schedule.
+3. Ask the same ten questions of Glimpse and of the model you already use, such as "how many of symbol X on this sheet?"
+4. Score against your takeoff. Record wrong answers and confident wrong answers separately; the second kind is the dangerous one.
+5. Note cost per sheet from the token counts.
+
+If a model cannot beat your current tool on the dense and scanned sheets, the marketing does not apply to your work.
+
+## What are the limits?
+
+This is a first model from a young company, in preview. Benchmarks are self-reported. Counting symbols is exactly where vision models fail quietly, and a wrong count in a bid is a margin problem, not a typo. Any quantity that reaches a proposal still needs an estimator's sign-off.
+
+The takeaway: ask your estimating lead to run the five-sheet test on a closed job this week. If visual re-checking helps on dense sheets, you will have numbers to show for it. If it does not, you will have saved a trial subscription.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to your estimating lead.*
