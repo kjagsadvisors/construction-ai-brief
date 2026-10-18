@@ -1,0 +1,55 @@
+---
+title: "Meta's open-weight Muse Spark Open could keep bid data in-house, but the hardware bill decides if that's realistic"
+date: "2026-10-18"
+excerpt: "Meta released the weights of Muse Spark Open on October 15, an 816B-parameter model with a 1M-token context. For a contractor worried about sending bid and owner documents to a vendor, it is a real option on paper and a heavy one in practice."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://thenewstack.io/meta-muse-spark-open/"
+  - "https://www.noze.it/en/insights/muse-spark-open-meta-open-weights/"
+  - "https://www.trendingtopics.eu/muse-spark-open-meta-open-weight-license/"
+  - "https://pasqualepillitteri.it/en/news/24330/meta-muse-spark-open-816b-open-weights"
+faqs:
+  - q: "What is Meta Muse Spark Open?"
+    a: "It is a model Meta released on October 15, 2026 with downloadable weights. Coverage describes a mixture-of-experts design with 816 billion total parameters, 42 billion active per token, and a one-million-token context window."
+  - q: "Can a construction company run Muse Spark Open on its own servers?"
+    a: "Technically yes, but it is demanding. Reports say the compressed version needs roughly 700 GB of memory, and Meta showed it on high-end Mac Studio machines. Most contractors would use a hosted provider or an IT partner instead."
+  - q: "Is Muse Spark Open free for commercial use?"
+    a: "Reports describe a custom license with conditions, including a 'Built with Muse Spark Open' attribution and a separate agreement for large service providers. Sources disagree on the exact license, so read the file on the download page before relying on it."
+  - q: "Does an open-weight model mean my bid data stays private?"
+    a: "Only if you run it on hardware you control. If you use it through a third-party API host, your files go to that host, so its retention and logging terms apply."
+---
+
+Meta released the weights of Muse Spark Open on October 15, which means a contractor can, in principle, run a large AI model without sending bid files to an outside vendor. In practice, it takes serious hardware, and most estimating shops will end up renting it from a host, which puts the privacy question right back on the table.
+
+## What did Meta release?
+
+Launch coverage reports a mixture-of-experts model with 816 billion total parameters, 42 billion active for each token, and a one-million-token context window. It accepts text, images, video and audio and outputs text. Weights are downloadable from Hugging Face, and several third-party hosts, including Together AI, Fireworks AI, Groq and OpenRouter, offer it through APIs. Meta calls it the most capable US open-weight model to date; that is Meta's claim, and the benchmarks at launch were largely vendor-reported. Coding is reported as its weakest area.
+
+## Why would an estimator or GC care?
+
+Many firms hold back from AI because bid pricing, sub quotes and owner documents are sensitive. An open-weight model is the one route where the files never have to leave your network. A one-million-token window is also long enough to hold a large spec book plus addenda in a single pass, which is the use case most estimators ask about.
+
+## What does running it actually take?
+
+| Route | Where your files go | Catch |
+|---|---|---|
+| Run it yourself | Stays on your hardware | Reported ~700 GB needed for the compressed version; Meta showed it on two high-end Mac Studio machines |
+| Third-party API host | The host's servers | Same exposure as any vendor; check retention and logging |
+| Closed model from a major lab | The lab's servers | Easier, but you accept the vendor's data terms |
+
+For a 50-person contractor, the first row means buying specialized machines or hiring someone to manage them. The second row is cheaper, but it is not private just because the weights are open.
+
+## What about the license?
+
+Reports describe a custom Muse license with limited commercial terms: a "Built with Muse Spark Open" attribution in products, and a separate agreement with Meta for service providers above a revenue threshold. One review claims a different license entirely, so have whoever signs your software contracts read the actual license file before you build anything on it.
+
+## Should a mid-size contractor act now?
+
+Probably not by buying hardware. A sensible step this month:
+
+1. Write down which files your team would never paste into an outside tool (bid pricing, sub quotes, owner financials).
+2. Ask your IT provider or a vendor what a private deployment of a model this size would cost, in writing.
+3. If you test a hosted version, use old, non-sensitive project documents and compare the output against what your estimators already know to be right.
+
+The takeaway: open weights give you the option of keeping data in-house. They do not remove the cost or the checking work, and the model's weak coding score matters if your plan is internal tool-building.
