@@ -1,0 +1,61 @@
+---
+title: "Nvidia's Bolt model fits in 24GB, which puts private document review within reach of an estimator's workstation"
+date: "2026-10-19"
+excerpt: "Nvidia released Nemotron 3.5 Bolt, an open model compressed to run in 24GB of memory, plus a 120B Super VL model for documents and charts. For contractors who won't upload bid files to a vendor, it is the first local option that matches the hardware they might already own."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://blogs.nvidia.com/?p=98620"
+  - "https://www.hpcwire.com/aiwire/2026/10/15/nvidia-expands-nemotron-family-with-highest-efficiency-super-vl-and-bolt-models/"
+  - "https://www.techzine.eu/news/analytics/145037/nvidia-launches-nemotron-3-5-super-vl-and-bolt-for-ai-agents/"
+  - "https://windowsreport.com/nvidia-brings-powerful-ai-agents-to-rtx-pcs-with-nemotron-3-5-vl-bolt-models/"
+  - "https://letsdatascience.com/news/nvidia-expands-nemotron-35-with-super-vl-and-bolt-ff81d36b"
+faqs:
+  - q: "What is Nvidia Nemotron 3.5 Bolt?"
+    a: "It is an open model family Nvidia compressed for local use. The larger version, 74B-A9B, has 74 billion total parameters with about 9 billion active per token, and its 24GB build uses 2-bit quantization to fit in 24GB of memory."
+  - q: "Can an estimating PC run an AI model without sending bid files to the cloud?"
+    a: "Nvidia says Bolt is built for RTX PCs and DGX Spark systems so agent tasks run locally. A 24GB build fits a high-end workstation graphics card, though speed and accuracy on your own documents still need testing."
+  - q: "Is Nemotron 3.5 free for commercial use?"
+    a: "Secondary listings say it carries a permissive license that allows commercial use, but that came from an aggregator, not Nvidia's license file. Read the license on the official model page before building on it."
+  - q: "When is the smaller Bolt model available?"
+    a: "Nvidia's announcement says the Bolt E4B model, aimed at 4GB devices, arrives October 23. The Super VL and Bolt 74B-A9B models are available now."
+---
+
+Nvidia has released an open model, Nemotron 3.5 Bolt, compressed to run in 24GB of memory, so a contractor can now test AI document review on a single high-end workstation without sending bid files to an outside server. Whether it reads plan sets and specs well enough to trust is still untested, and the claims so far come from Nvidia.
+
+## What did Nvidia release?
+
+Coverage of the October 15 announcement describes three models in the Nemotron 3.5 family:
+
+| Model | Size | Aimed at | Availability |
+|---|---|---|---|
+| Super VL | 120B parameters | Servers; reads webpages, PDFs, charts and tables | Now (Hugging Face, OpenRouter, NVIDIA NIM) |
+| Bolt 74B-A9B | 74B total, ~9B active | RTX PCs and DGX Spark; 2-bit build fits in 24GB | Now |
+| Bolt E4B | Small | Devices with about 4GB | October 23 |
+
+Nvidia says Super VL matches its largest reasoning model on multimodal agent tasks at roughly one-fifth the parameter count, and that Bolt was compressed down from Super VL. Bolt reportedly supports a 256K-token context window and common local tools: llama.cpp, Ollama, LM Studio and vLLM. Those performance claims are Nvidia's own. One outlet also misreported Bolt's size as 64B; Nvidia's announcement says 74B-A9B.
+
+## Why does this matter to an estimator?
+
+Last week's open-weight story, Meta's Muse Spark Open, needed roughly 700 GB of memory, which is not a contractor purchase. Bolt is the other end of the scale. A 24GB build is the memory of a single high-end consumer graphics card, so a firm with an estimating workstation of that class could try it. Bid pricing, sub quotes and owner financials would stay on a machine you control.
+
+## What could it do on a project?
+
+Nvidia built Super VL for documents with tables and charts, which maps to real tasks:
+
+- Pulling scope items and exclusions out of a spec section and comparing them to a sub's proposal.
+- Reading a schedule of values or an addenda log and flagging changes.
+- Drafting RFI language from a conflict you point it to.
+
+What it does not show is how it handles a congested mechanical plan sheet or a scanned, marked-up drawing. Independent benchmarks on Nvidia's own figures are thin, and a model compressed to 2-bit precision gives up some accuracy to fit in 24GB.
+
+## Should a mid-size contractor act now?
+
+Not by buying hardware on this announcement. A low-cost test:
+
+1. Check whether an estimator's workstation already has a 24GB-class graphics card, or ask IT what one costs.
+2. Pull three closed-out projects where you know the right answers, such as the final scope gaps from buyout.
+3. Run the same spec sections and sub proposals through Bolt locally and through a hosted model, and compare the misses.
+4. Read the license file on Nvidia's model page, since commercial-use terms in coverage came from secondary sources.
+
+The takeaway: running AI locally is moving from server-room project to workstation experiment. That makes the privacy question easier, but the accuracy question is yours to answer with your own documents.
