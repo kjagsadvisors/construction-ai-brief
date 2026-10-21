@@ -1,0 +1,61 @@
+---
+title: "DHS banned DeepSeek from federal systems, including tools built on it. Contractors on federal jobs should ask their software vendors now"
+date: "2026-10-21"
+excerpt: "A DHS order removes DeepSeek and DeepSeek-derived third-party products from civilian federal IT. If you bid or build federal work, the practical question is which of your vendors' AI features run on DeepSeek models."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.cyberscoop.com/dhs-bans-deepseek-federal-agencies/"
+  - "https://officechai.com/ai/us-government-orders-deepseek-removed-from-all-federal-civilian-it-systems/"
+  - "https://www.ibtimes.co.uk/us-agencies-remove-deepseek-products-government-systems-1826567"
+  - "https://aiweekly.co/alerts/dhs-orders-deepseek-stripped-from-us-civilian-federal-it-systems"
+  - "https://public-inspection.federalregister.gov/2026-21447.pdf"
+faqs:
+  - q: "Does the DHS DeepSeek ban apply to construction contractors?"
+    a: "The order directs civilian federal agencies to remove DeepSeek products and bars new purchases, including third-party products built on DeepSeek models. It does not by itself regulate private projects, but contractors selling to or working for civilian agencies should check how it reaches them through their contracts."
+  - q: "What law did DHS use to ban DeepSeek?"
+    a: "Reports say DHS relied on the Federal Acquisition Supply Chain Security Act of 2018, which lets agency heads issue exclusion and removal orders against vendors judged a supply-chain security risk."
+  - q: "How do I know if my estimating or project software uses DeepSeek?"
+    a: "Ask the vendor in writing which underlying AI models power each AI feature and whether any are DeepSeek models or derived from them. Vendors often resell or fine-tune third-party models without naming them in marketing."
+  - q: "Do federal contractors have to monitor FASCSA orders?"
+    a: "Per reporting on the order, FAR 52.204-30 requires contractors to check the FASCSA orders website for new orders at least every three months. Confirm the exact clause language in your own contract."
+---
+
+**The Department of Homeland Security has ordered DeepSeek products out of civilian federal IT systems, and the order reaches third-party tools built on DeepSeek models.** For a contractor on federal work, the question is not whether you use DeepSeek directly. It is whether any software you use or deliver has a DeepSeek model buried inside it.
+
+## What did DHS actually order?
+
+According to CyberScoop, OfficeChai, and IBTimes, DHS told civilian federal agencies to strip DeepSeek products from their IT systems and barred future purchases. Reporting says the order covers products and services from Hangzhou DeepSeek Artificial Intelligence and affiliated entities, and extends to third-party offerings developed using DeepSeek's models. The notice was made public October 19 with Federal Register publication set for October 20.
+
+DHS cited the Federal Acquisition Supply Chain Security Act of 2018, and its stated concern was that use could transfer sensitive data to China. Outlets disagree on when the decision was first signed, so check the Federal Register notice for exact dates and definitions.
+
+Two limits matter. The order is specific to civilian agency systems, not a general ban on private businesses. And it is not yet clear from the reporting how it flows down to subcontracts; that language needs to be checked in each contract.
+
+## Why does this matter on a jobsite?
+
+Construction firms rarely buy "a DeepSeek product." They buy estimating, takeoff, scheduling, and document software that now ships AI features, and many vendors build those on whichever model is cheapest. DeepSeek's models are open and inexpensive, which makes them an easy choice for a vendor's back end. The "third-party products" language is aimed at exactly that pattern.
+
+Who it touches:
+
+- **GC ops and PMs** on federal civilian projects (courthouses, VA and GSA work, labs) who submit documents or use agency-hosted portals and tools.
+- **Trade subs** who get flow-down clauses and may be asked to certify what software touches project data.
+- **Estimators** who paste drawings or bid files into AI features without knowing which model reads them.
+
+## What should a federal-work contractor do this week?
+
+1. **Inventory every tool with an AI feature** that touches project or bid data: estimating, takeoff, document control, meeting notes, chat assistants.
+2. **Ask each vendor in writing** which underlying models power each feature and whether any are DeepSeek models or derivatives. Get a yes or no, not a link to a security page.
+3. **Read your contracts** for supply chain or FASCSA-related clauses. Reporting says FAR 52.204-30 requires contractors to monitor the FASCSA orders list at least every three months. Confirm that against your own contract.
+4. **Put a trigger in your calendar** to re-check the list. Orders like this one can be disclosed well after they are signed.
+
+| Question for the vendor | Acceptable answer | Red flag |
+|---|---|---|
+| Which models power the AI features? | Named models and providers | "Proprietary" with no detail |
+| Any DeepSeek models or derivatives? | A direct "no," in writing | Hedging, or "we're checking" |
+| Can you switch models if a ban lands? | Yes, with a timeline | No switching plan |
+
+## What's still unknown?
+
+Reporting does not say whether private-sector owners or state agencies will follow, and the flow-down mechanics for subs are unclear. Treat this as a vendor-diligence prompt, not a reason to panic. Most contractors will find nothing. The ones who find something want to learn it before an agency asks.
+
+**Takeaway:** If you do federal work, send one email to your software vendors this week asking which models sit behind their AI features. It costs nothing and gives you a documented answer before a contracting officer asks.
