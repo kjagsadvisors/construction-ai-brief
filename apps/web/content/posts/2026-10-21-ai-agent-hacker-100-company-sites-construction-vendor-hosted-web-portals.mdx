@@ -1,0 +1,64 @@
+---
+title: "One hacker used AI agents to break into sites at 100+ companies. Contractors should list every vendor-hosted portal they run"
+date: "2026-10-21"
+excerpt: "Reuters reports a Chinese-speaking hacker pointed off-the-shelf AI agents at 1,200 mostly e-commerce sites and got into more than 100. The cheap, forgotten, vendor-run sites were the soft spot, and contractors have plenty of them."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://ca.finance.yahoo.com/news/exclusive-one-hacker-used-ai-100625294.html"
+  - "https://www.tradingview.com/news/reuters.com,2026:newsml_L6N46118G:0-how-one-hacker-used-ai-agents-and-a-few-thousand-dollars-to-break-into-scores-of-sites/"
+  - "https://superpowerdaily.com/posts/hacker-used-ai-to-breach-sites-at-more-than-100-companies-reuters-finds"
+  - "https://winbuzzer.com/2026/10/20/hacker-used-ai-agents-to-breach-100-plus-companies-websites-xcxwbn/"
+faqs:
+  - q: "What did the Reuters report say about AI agents and hacking?"
+    a: "Reuters reported on October 19, 2026 that a Chinese-speaking hacker used off-the-shelf AI agents to break into websites tied to more than 100 companies, including Deere, SharkNinja and Cummins. The attacker tried more than 1,200 sites, mostly e-commerce, starting September 25."
+  - q: "How much did the AI-agent attack cost?"
+    a: "The researcher who tracked it, Snorre Fagerland of NorForge, estimated AI usage at about $5,000, or roughly $50 per successful intrusion. That is a rough estimate, not a verified budget."
+  - q: "Were the companies' main systems breached?"
+    a: "Not as far as has been reported. Deere said it saw no sign of sensitive data exposure, SharkNinja said a standalone support site was affected, and Cummins said it is investigating a vendor-operated website. How much data was taken is unknown."
+  - q: "What should a small contractor do after this report?"
+    a: "Make a list of every website, web form and portal the company runs or pays someone else to run, including old microsites, vendor-hosted customer or bid portals, and plan-room pages. Confirm who maintains each one, then retire the ones nobody uses."
+---
+
+A hacker used ordinary AI agents to get into websites tied to more than 100 companies, including Deere and Cummins, for an estimated $50 per break-in. For a contractor, the practical lesson is to list every website and portal you run or pay a vendor to run, because the forgotten ones are the cheap targets.
+
+## What did Reuters report?
+
+In an October 19 exclusive, Reuters reported that a Chinese-speaking hacker pointed off-the-shelf AI agents at more than 1,200 sites, mostly e-commerce, in the US, Canada, Australia and Japan, beginning September 25. More than 100 companies' sites were compromised, including Deere, SharkNinja and Cummins.
+
+Researcher Snorre Fagerland of NorForge found the campaign through exposed deployments of Cairn, an open-source platform for running AI agents. Per the coverage, the attacker's instructions totaled fewer than 100 Chinese characters, and the agents spent about 23 hours on average per successful intrusion. Fagerland put the AI bill at about $5,000, roughly $50 per intrusion. That figure is his estimate.
+
+## What was actually hit?
+
+The damage so far looks limited to peripheral sites. Deere said it saw no sign of sensitive data exposure. SharkNinja said a standalone support site was affected. Cummins said it is investigating a vendor-operated website. How much data was taken is unknown.
+
+That pattern is the point. The agents didn't need to crack a core ERP system. They worked through a long list of smaller, loosely maintained sites until some gave way.
+
+## Why does this matter to a contractor?
+
+Construction firms accumulate the same kind of sites without noticing:
+
+| Type of site | Who usually runs it | Typical exposure |
+|---|---|---|
+| Company marketing site with contact and bid-invite forms | Web agency or former employee | Outdated plugins, shared admin logins |
+| Vendor-hosted customer or sub portal | Software vendor | You can't patch it, but your customers' data sits there |
+| Old project microsites and plan-room pages | Whoever set them up for that job | Forgotten, never updated, still online |
+| Equipment-rental, parts or dealer ordering portals | Dealer or manufacturer | Your account and billing details |
+
+A cheap, patient agent doesn't care that your site is small. At $50 a try, a 20-person sub is as economical a target as a manufacturer.
+
+## What should a trade sub do this week?
+
+1. **List every site and portal.** Include anything with a login or a form. Ask your office manager and your last web vendor what's still live.
+2. **Name an owner for each.** If nobody can say who patches it, that's the finding.
+3. **Retire dead sites.** An old project page with no traffic carries risk and no value.
+4. **Ask vendors in writing** how they patch, who has admin access, and how they'd notify you of a breach. Cummins's situation, a vendor-operated site under investigation, shows why.
+5. **Check your own AI tooling.** The campaign was found because someone left agent deployments exposed. If you or an IT contractor run self-hosted agents, confirm they aren't reachable from the open internet. We covered the audit-log side of that in [our piece on self-hosted agents](/posts/2026-10-12-nous-research-90m-hermes-for-businesses-construction-self-hosted-agent-audit-logs).
+
+## What's still unknown?
+
+Several things. The data-theft scope is unclear, the $5,000 cost is an estimate, and the victim list is largely e-commerce rather than industrial or construction firms. No contractor has been named in the reporting we found. This is a signal about attacker economics, not evidence that construction is being targeted. We were unable to fetch Reuters directly, so the details above rest on syndicated Reuters copy and independent follow-up coverage.
+
+## Takeaway
+
+Block out an hour with your office manager and build the list. The attacker needed under 100 characters of instruction; your defense needs a spreadsheet with a site, an owner and a patch date on each row.
