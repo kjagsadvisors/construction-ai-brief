@@ -1,0 +1,63 @@
+---
+title: "Anthropic's Claude Duet watches your inboxes and texts you what matters. Here's the approval rules a PM should set first"
+date: "2026-10-22"
+excerpt: "Anthropic opened a research preview of Claude Duet on October 21, an always-on agent that sends a morning brief and flags items across connected apps. For PMs and project engineers, the question is what it should be allowed to touch."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.unite.ai/anthropic-opens-claude-duet-research-preview-to-us-pro-and-max-users/"
+  - "https://www.testingcatalog.com/claude-duet/"
+  - "https://www.digitalapplied.com/blog/claude-duet-always-on-agent-pro-max-preview"
+  - "https://www.trendingtopics.eu/claude-duet-anthropic-ai-agent/"
+faqs:
+  - q: "What is Claude Duet?"
+    a: "Claude Duet is a proactive agent app from Anthropic, opened as a research preview on October 21, 2026 and built on Claude Opus 5.5. It sends a short morning brief on the most important items across connected apps and messages again only when something needs attention."
+  - q: "Who can use Claude Duet right now?"
+    a: "Access is by waitlist, starting with Pro and Max subscribers in the US. Reports say there is no extra charge, but its background work draws on the subscriber's plan usage allowance."
+  - q: "Can Claude Duet send emails or sign documents on its own?"
+    a: "Reports say it asks for approval before it sends a message, pays, signs a document or deletes anything. Anthropic also says the preview can misread a thread or misjudge urgency."
+  - q: "Is Claude Duet useful for construction project managers?"
+    a: "Possibly for triage, such as surfacing an RFI response, an overdue submittal or a change-order email buried in a thread. No construction testing has been published, so a PM should trial it on low-stakes accounts first."
+---
+
+Anthropic opened a research preview of Claude Duet on October 21, 2026, an always-on agent that sends a morning brief and then pings you only when something needs attention. For a PM or project engineer drowning in RFI replies and submittal emails, that is a triage tool, and the useful move now is to decide what it may read and what it may never do on its own.
+
+## What did Anthropic actually release?
+
+Per coverage of the launch, Duet is a standalone app for iOS and Android and in the browser, built on Claude Opus 5.5. The reported behavior:
+
+- A short brief each morning on the most important items across connected apps.
+- Periodic checks of those accounts during the day, every few hours, with a message only when something needs you.
+- Approval requests before it sends a message, pays, signs a document or deletes anything.
+
+Access is a waitlist for US Pro and Max subscribers. Reports say there is no extra charge, but background work counts against the plan's usage allowance. Anthropic itself acknowledges the preview can misread a thread, miscalibrate urgency, and miss something that arrives between check-ins.
+
+## Where could this help a PM or project engineer?
+
+The pattern fits work where the problem is noticing, not deciding:
+
+| Item buried in the inbox | What a flag would save |
+|---|---|
+| RFI response from the architect with a changed detail | Catching it before the sub installs to the old answer |
+| Submittal returned "revise and resubmit" | Resetting the log and the lead-time clock the same day |
+| Change-order request from a sub with a deadline | Meeting notice requirements in the contract |
+| Owner email asking for a schedule update | Answering before it becomes a phone call |
+
+None of this has been tested on construction threads. Our read is that the value is a faster morning triage, not fewer decisions.
+
+## What should a PM lock down before trying it?
+
+1. **Start on a low-stakes account.** Connect one project mailbox, not the one with pay applications and lien waivers.
+2. **Keep every outbound action on approval.** Notices under the contract, RFIs and change-order responses carry legal weight. A human sends them.
+3. **Check who else is in the thread.** Owner and architect emails may carry confidentiality terms. Confirm your contract and company policy allow an AI tool to read them.
+4. **Spot-check the misses.** For two weeks, compare the brief against what you found yourself. Count the items it missed, since a missed notice deadline costs more than a noisy inbox.
+
+## What still needs human judgment?
+
+Urgency. A tool that checks every few hours can miss a same-hour field issue, and Anthropic says as much. Duet also does not replace the submittal log, RFI log or daily report as the record. Treat it as a reader beside your logs, not a replacement for them.
+
+Related: our earlier piece on [giving AI agents access to shared drives and accounts](/posts/2026-10-16-proofpoint-varonis-6-3b-construction-shared-drive-access-before-ai-agents) covers the access cleanup worth doing before any agent connects.
+
+**Two-week trial:** connect one low-stakes project inbox, require approval on every outbound action, and log each item Duet flagged and each one it missed. If it catches things you would have found late and misses nothing with a deadline, widen it. If not, drop it.
+
+*Construction AI Brief publishes three times a week for GC PMs, subs and estimators. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) or forward this to the PM who lives in their inbox.*
