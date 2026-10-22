@@ -1,0 +1,70 @@
+---
+title: "Cloudflare's Clairic pulls typed fields out of documents for $0.10 per million tokens. Here's the submittal and invoice test worth running"
+date: "2026-10-22"
+excerpt: "Cloudflare released Clairic, a small model that extracts named fields from documents and returns a confidence score for each. For a sub or GC drowning in submittals, invoices, and lien waivers, it is a cheap thing to test, with one big caveat."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://www.unite.ai/cloudflare-releases-clairic-its-first-system-one-extraction-model/"
+  - "https://ppc.land/cloudflares-clairic-model-cuts-ai-pipeline-cost-49-in-its-own-test/"
+  - "https://runtimewire.com/article/cloudflare-clairic-extraction-model-alex-reneau"
+faqs:
+  - q: "What is Cloudflare Clairic?"
+    a: "Clairic is a model Cloudflare released in preview on October 19, 2026, on its Workers AI platform. You name the fields you want from a document, and it returns each one in the requested format with a confidence score, instead of writing free text."
+  - q: "Can Clairic read construction documents like invoices or lien waivers?"
+    a: "It accepts text and up to four images per request, and is built to pull fields such as dates, amounts, and names. Cloudflare has not published construction-specific results, so test it on your own documents before relying on it."
+  - q: "How much does Clairic cost?"
+    a: "Cloudflare lists preview pricing of $0.10 per million input tokens. Because the model generates no output text, billing applies to input only."
+  - q: "Is Clairic accurate enough to trust without review?"
+    a: "Not yet on the evidence available. Cloudflare reported a 49% cost cut and roughly 3.2 times faster speed in its own claims pipeline test, but coverage notes the company did not back accuracy with a general benchmark."
+---
+
+**Cloudflare's new Clairic model reads a document and returns only the fields you ask for, each with a confidence score, for $0.10 per million input tokens.** For a trade sub or GC, that is the shape of a cheap tool for pulling dates, amounts, and names off invoices, pay apps, lien waivers, and certificates of insurance. The accuracy on messy construction paperwork is unproven, so the right move is a small test, not a rollout.
+
+## What did Cloudflare release?
+
+On October 19, 2026, Cloudflare put Clairic into preview on its Workers AI platform. It is built for extraction rather than chat: you list the values you want, and it answers every field in a single pass without generating text. Per coverage of the launch, a value it cannot find comes back empty instead of guessed, and each answer carries a confidence score.
+
+Reported specs:
+
+| Item | Reported detail |
+|---|---|
+| Status | Preview on Workers AI |
+| Input | Text plus up to four PNG, JPEG, or WebP images (4 MiB each) |
+| Context window | 65,536 tokens |
+| Price | $0.10 per million input tokens, no output billing |
+| Speed | Typically under a second, per Cloudflare |
+| Open weights | Planned, no date given |
+
+Cloudflare's own test of a three-step customer-claims pipeline reported 49% lower cost and about 3.2 times faster results than running the same pipeline on a large language model. That is a vendor test on a non-construction workload, and coverage notes there is no general accuracy benchmark yet.
+
+## Why does an extraction model matter to a sub?
+
+Much of the back-office paperwork in a sub's week is the same task: find a few values on a page and type them somewhere else. A small, fast, cheap extractor fits that task better than a general chatbot.
+
+- **Pay apps and invoices:** invoice number, amount, retainage, period, and billing contact into your accounting system.
+- **Lien waivers and COIs:** signer, through-date, amount, policy expiration, and additional-insured wording flagged for review.
+- **Submittal logs:** manufacturer, model number, and spec section pulled from cut sheets to populate a log row.
+- **Certified payroll backup:** classification and hours from timesheets, with low-confidence rows routed to a person.
+
+The confidence score and the empty-instead-of-guess behavior are the useful design choice. A tool that says "I'm not sure" lets you build a rule: auto-accept high-confidence fields, send the rest to your coordinator.
+
+## What is still hype or unknown?
+
+Three things to keep in view. First, it is a preview, and most contractors will meet this model inside a vendor's product, not by writing code against Cloudflare's API. Second, scanned, rotated, handwritten, or stamped pages are where extraction tools usually fail, and those are most of a real submittal or sub pay app. Third, a confidence score is only useful if it is calibrated. A model that is confidently wrong on an amount is worse than no tool.
+
+Anything that touches money, insurance, or compliance still needs a person checking the number against the source document.
+
+## How should you test it?
+
+A one-week pilot is enough:
+
+1. Pull 50 real documents from one category, such as last quarter's sub invoices, including the ugly scans.
+2. Define five fields you key in by hand today.
+3. Run them through whichever tool or vendor offers Clairic, or a comparable extractor, and record accuracy per field.
+4. Check whether low-confidence flags actually line up with the errors.
+5. Compare the minutes saved against the time spent correcting.
+
+If it hits a high accuracy bar on amounts and dates with sensible flags, expand to the next document type. If not, you spent a week and a few cents. For more on getting your files in order before any agent touches them, see [our piece on shared-drive access](/posts/2026-10-16-proofpoint-varonis-6-3b-construction-shared-drive-access-before-ai-agents).
+
+*Construction AI Brief publishes three times a week. Forward this to the person who keys in your invoices, or [subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
