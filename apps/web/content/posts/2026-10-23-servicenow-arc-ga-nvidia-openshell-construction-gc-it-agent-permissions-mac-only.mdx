@@ -1,0 +1,57 @@
+---
+title: "ServiceNow's Arc agent is now available, with IT-set limits on what it can touch. What a GC's IT lead should ask first"
+date: "2026-10-23"
+excerpt: "ServiceNow made its Arc desktop agent generally available on October 21, with NVIDIA software enforcing which systems, APIs and data the agent can reach. For GCs that already run ServiceNow, the useful question is who sets those limits."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-delivers-industry-first-personal-enterprise-agent-and-policy-enforcement-with-NVIDIA-extending-AI-governance-across-software-and-silicon/default.aspx"
+  - "https://www.pymnts.com/?p=4328875"
+  - "https://letsdatascience.com/news/servicenow-and-nvidia-make-arc-enterprise-ai-agent-generally-64c4e9d1"
+faqs:
+  - q: "What is ServiceNow Arc?"
+    a: "Arc is a personal, long-running AI agent from ServiceNow that handles daily work in tools such as email and Microsoft Teams. ServiceNow and NVIDIA announced it as generally available on October 21, 2026."
+  - q: "How is Arc different from a consumer AI agent?"
+    a: "Per ServiceNow, IT defines policies in its Control Tower and NVIDIA's OpenShell runtime enforces them, so administrators control which systems the agent can access, which APIs it can call and what data it can read."
+  - q: "Does Arc run on Windows?"
+    a: "Coverage says Arc is available on Mac now, with Windows support still in development. Many construction offices run Windows, so that limits near-term use."
+  - q: "Should a construction company buy ServiceNow for Arc?"
+    a: "Probably not for that reason alone. Arc is aimed at enterprises already on the ServiceNow platform; a small contractor can borrow the policy checklist without the product."
+---
+
+ServiceNow made its Arc agent generally available on October 21, 2026, and the notable part is who controls it: IT sets the limits, not the person at the keyboard. For a large GC that already runs ServiceNow, the question is which project systems an agent on a PM's laptop should be allowed to reach.
+
+## What did ServiceNow and NVIDIA release?
+
+Per ServiceNow's announcement and secondary coverage, Arc is a personal, long-running agent that works through everyday tools such as email and Microsoft Teams. The reported pieces:
+
+- **Policy layer:** ServiceNow's Super Intelligence Control Tower is where IT defines what the agent may do.
+- **Enforcement:** NVIDIA's OpenShell runs the agent's actions in a sandbox and enforces those policies, including which systems it can access, which APIs it can call and what data it can read.
+- **Identity:** ServiceNow's AI Passport is being integrated so NVIDIA's enforcement layers can check what each agent is permitted to do.
+- **Data handling:** Reports say it keeps data local where possible and passes harder tasks to frontier models only when needed.
+- **Platform:** Mac now, Windows still in development.
+
+## How is this different from the consumer agents?
+
+Anthropic's Claude Duet, covered here earlier, asks the individual user for approval before risky actions. Arc moves that decision to the company. That matters on a jobsite team because the PM who is happy to let an agent read every email is not the person who should decide whether it can touch pay applications or bank details.
+
+## What would a GC actually set?
+
+The vendor has not published construction-specific policies, so treat this as a starting list for your IT lead:
+
+| Project data | Suggested default for an agent |
+|---|---|
+| RFI and submittal email threads | Read and draft; human sends |
+| Schedule and daily-log files | Read only |
+| Pay applications, lien waivers | No access |
+| Bank and payables systems | No access |
+| Bid files with subcontractor pricing | No access unless the firm decides otherwise |
+| Owner contract documents | Read only, named projects |
+
+## Should a mid-size GC or sub act now?
+
+Probably not by buying anything. Arc is built for enterprises already on ServiceNow, and the Mac-only release leaves out most Windows-based project offices. The released product also has no published construction results.
+
+The transferable part is the policy table above. If anyone at your firm is already running a personal agent, write down what it can read, what it can send and what it can never touch before the vendor's defaults decide for you.
+
+**Takeaway:** ask your IT provider this week which agents are installed on PM and estimator machines, and who sets their permissions.
