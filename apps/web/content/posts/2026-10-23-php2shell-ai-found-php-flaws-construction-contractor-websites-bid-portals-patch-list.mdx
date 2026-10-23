@@ -1,0 +1,66 @@
+---
+title: "AI-found PHP flaws forced sites offline worldwide. Contractors should find out what their websites and portals run on"
+date: "2026-10-23"
+excerpt: "Two critical PHP flaws, found with help from an OpenAI model, are being exploited in the wild. Most contractor websites, WordPress sites and vendor portals run PHP, and many nobody on staff maintains."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.wiz.io/blog/php2shell-php-rce"
+  - "https://www.recordedfuture.com/blog/php2shell-vulnerability-exploitation"
+  - "https://www.axios.com/2026/10/22/php-vulnerability-security-update-websites"
+  - "https://www.nbcnews.com/tech/security/critical-vulnerabilities-php-update-systems-rcna604751"
+  - "https://abc7chicago.com/story/php-vulnerability-2026-websites-shut-down-globally-operators-address-ai-detected-flaw-web-programming-language/19968288/"
+faqs:
+  - q: "What is the PHP2Shell vulnerability?"
+    a: "PHP2Shell is the name given to two critical flaws in the PHP programming language that allow remote code execution. Recorded Future rates both 9.2 on the CVSS v4.0 scale, and the fixes are tracked as CVE-2026-109618 and CVE-2026-109619."
+  - q: "Does the PHP vulnerability affect contractor websites?"
+    a: "It can. Wiz says every PHP version released in the last decade is affected by at least one of the flaws, and PHP runs a large share of the web, including WordPress sites. A contractor's site is exposed if its host or a vendor has not applied the PHP patch."
+  - q: "Was the PHP vulnerability found by AI?"
+    a: "AI helped. OpenAI said its technology assisted in finding the flaws, and security firms Wiz and Calif are also credited. Accounts differ on exact dates and who found what."
+  - q: "What should a small contractor do about the PHP flaws?"
+    a: "List every website, bid portal, plan-room page and customer portal the company runs or pays someone to run, ask each host or vendor in writing whether PHP has been patched, and take unpatched or unused sites offline until they are fixed."
+---
+
+Two critical PHP flaws, found with help from an OpenAI model, are being exploited in the wild, and most contractors can't say which of their websites and portals run on PHP. If your company site, your bid-invitation form or a vendor-hosted portal uses it, ask whoever hosts it for a written patch status today.
+
+## What happened with PHP2Shell?
+
+Governments and companies took websites offline on October 21 after two critical PHP vulnerabilities, nicknamed PHP2Shell, were disclosed. [ABC7 Chicago](https://abc7chicago.com/story/php-vulnerability-2026-websites-shut-down-globally-operators-address-ai-detected-flaw-web-programming-language/19968288/) reported that Pinboard and parts of Wikipedia went down, with the Wikimedia Foundation calling it a precaution. Regulators in Europe, Australia, Japan and Britain urged PHP users to update immediately or take sites offline until patched.
+
+The facts that matter:
+
+- Wiz says [every PHP version released in the last decade](https://www.wiz.io/blog/php2shell-php-rce) is affected by at least one of the flaws, going back to 5.4.
+- [Recorded Future](https://www.recordedfuture.com/blog/php2shell-vulnerability-exploitation) rates both 9.2 on the CVSS v4.0 scale. The fixes are CVE-2026-109618 and CVE-2026-109619.
+- Amazon Web Services reported on October 21 that the flaw was being broadly exploited in the wild.
+- OpenAI says its technology helped find the bugs; Wiz and a firm called Calif are also credited, and accounts differ on dates.
+- [NBC News](https://www.nbcnews.com/tech/security/critical-vulnerabilities-php-update-systems-rcna604751) reports PHP said a vendor's early post of patch details made the fix easier to reverse-engineer.
+
+## Why should a contractor care?
+
+PHP quietly runs a lot of small-business web infrastructure, WordPress above all. A typical 50-person contractor has more of it than anyone has counted:
+
+1. The company marketing site, usually built years ago by an agency.
+2. Bid-invitation and prequalification forms that feed an estimator's inbox.
+3. Vendor-hosted customer, warranty or service-request portals.
+4. Old microsites for past projects or a safety program.
+5. Plan-room or document pages set up by one PM and forgotten.
+
+The risk isn't a defaced homepage. A compromised bid form can expose subcontractor pricing, and a compromised portal can expose customer contacts or a hosting login that leads somewhere worse. We covered the same pattern [days ago with the AI-agent attack on vendor-hosted sites](/posts/2026-10-21-ai-agent-hacker-100-company-sites-construction-vendor-hosted-web-portals): the forgotten sites are the soft ones.
+
+## What does the AI part change?
+
+The speed. A model helped find flaws that sat in a decade of releases, and attackers can use the same tools to find vulnerable sites quickly. The window between a patch and mass exploitation is shrinking, so "our web guy handles it" is no longer a plan unless the web guy answers within a day.
+
+Be careful about scale. Headline claims that this affects most of the internet describe how widely PHP is used, not how many sites are actually unpatched. Plenty of managed hosts patch automatically. You don't know which camp you're in until you ask.
+
+## What should an estimator or PM do this week?
+
+- **Inventory.** Write down every site, form and portal, who hosts it, and who pays for it.
+- **Ask in writing.** Send each host or vendor one question: "Has PHP been updated against CVE-2026-109618 and CVE-2026-109619, and when?"
+- **Pull the dead weight.** If nobody uses a microsite or old plan-room page, take it down.
+- **Check what the forms collect.** If a bid form stores sub pricing on the web server, move that data into your normal bid system.
+- **Reset credentials** for any site that stays unpatched after a few days.
+
+What still needs a human: a vendor's "we're on it" isn't a patch, and only an IT person or host can confirm versions. If you have neither, treat the site as exposed and take it offline until you hear back.
+
+*Construction AI Brief publishes three times a week for GC PMs, subs and estimators. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) or forward this to whoever manages your website.*
