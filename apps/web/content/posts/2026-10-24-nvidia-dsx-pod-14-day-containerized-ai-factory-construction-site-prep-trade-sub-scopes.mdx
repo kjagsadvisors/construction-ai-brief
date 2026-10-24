@@ -1,0 +1,60 @@
+---
+title: "Nvidia's DSX POD promises a 14-day install. Site-prep scopes are where the schedule risk lands"
+date: "2026-10-24"
+excerpt: "Nvidia says its containerized Vera Rubin AI factory can go live in as little as 14 days at a prepared site, down from six months. The catch for contractors: everything that makes a site 'prepared' is still yours to build, and the clock now starts earlier."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Introduces-DSX-POD-AI-Factories-to-Accelerate-Europes-Infrastructure-Deployment/default.aspx"
+  - "https://datacenterknowledge.com/ai-data-centers/nvidia-unveils-dsx-pod-for-faster-ai-data-center-builds"
+  - "https://www.digitaltoday.co.kr/en/view/117798/nvidia-packs-vera-rubin-ai-factory-into-single-container-cuts-data-centre-build-time-from-6-months-to-2-weeks"
+  - "https://capacityglobal.com/news/nvidia-cuts-ai-factory-deployment/"
+  - "https://www.storagereview.com/news/nvidia-gtc-berlin-2026-dsx-pod-14-day-ai-factory-substrate-openshell-ai-ran"
+faqs:
+  - q: "What is Nvidia's DSX POD?"
+    a: "It is a reference design, announced at GTC Berlin on October 21, 2026, for complete Vera Rubin AI factories that partners build inside modular containers. Units are integrated and validated at the factory before they ship."
+  - q: "Does a 14-day AI factory deployment mean data centers get built in two weeks?"
+    a: "No. Nvidia's 14-day figure applies to a prepared site and excludes the time to build the supporting facility, such as utility power, cooling infrastructure and the pad or building. It is also a target, with partner systems due in early 2027."
+  - q: "How does a containerized data center change work for electrical and mechanical subs?"
+    a: "More of the integration (compute, networking, cabling, rack-level power and liquid cooling) happens in a factory, so field scope shifts toward site utilities, foundations, power and cooling interconnects, and commissioning. Those tasks have to be finished before the container arrives."
+  - q: "Which companies are building DSX POD systems?"
+    a: "Schneider Electric and Vertiv are named in coverage, along with Dell Technologies, HPE, Eaton, Lenovo and others. Partners plan to deliver in early 2027, and outlets differ on the exact partner count."
+---
+
+Nvidia says a factory-built, containerized Vera Rubin AI system can be deployed in as little as 14 days at a prepared site, down from about six months. For electrical, mechanical and sitework subs, the claim matters less than the phrase "prepared site": the schedule pressure moves onto whoever has to get the ground, power and cooling ready before the container shows up.
+
+Nvidia announced the DSX POD at GTC Berlin on October 21. It is a reference design that partners build inside modular containers, integrated and validated before delivery. Compute, networking, cabling, rack-level power and liquid cooling are installed at the factory instead of on site. Coverage reports one container holds seven Vera Rubin NVL72 racks, or 504 GPUs. Partner delivery is targeted for early 2027.
+
+## What does the 14-day number actually leave out?
+
+Per the reporting, the 14 days assumes a prepared site and excludes the time to build the supporting facility. That is the construction scope. The container is a delivered product; what it plugs into is a project.
+
+| Task | Shifts to the factory | Stays in the field |
+|---|---|---|
+| Rack, network and cabling integration | Yes | |
+| Rack-level power and liquid cooling assembly | Yes | |
+| Utility service, switchgear, feeders | | Yes |
+| Chilled water or heat-rejection plant and piping | | Yes |
+| Pad, foundations, site civil, access | | Yes |
+| Commissioning and acceptance testing | Partly | Yes |
+
+Nvidia has not published capacity or pricing, and the 14-day figure is a target, not a delivered result.
+
+## What does this mean for electrical and mechanical subs?
+
+Work likely front-loads. If the compute arrives pre-integrated, the long pole becomes utility interconnection, switchgear lead times and cooling plant. Those are the items a sub can be held to on a date-certain schedule, with a container delivery date driving it.
+
+Two practical effects to price for:
+
+- **Tighter, owner-driven milestones.** An owner who has heard "14 days" may expect site readiness on a compressed timeline. Get the readiness definition (power energized, water available, pad cured and accepted) written into the contract before you accept a date.
+- **Interface risk at the container boundary.** When a vendor ships a sealed unit, your tie-in points, connection standards and test responsibilities must be spelled out. Ask who owns a failed pressure test or an energization problem at the connection.
+
+## What should a sitework or concrete sub watch?
+
+Pads and access routes for heavy modular units are a sitework and structural question. The prior draft Open Data Center spec we covered listed racks up to 8,000 pounds, so loading assumptions deserve a close read. Ask for the manufacturer's weight, footprint and crane or rigging requirements early, since DSX POD site requirements have not been published in the coverage we found.
+
+## Is this hype?
+
+Partly. The six-month baseline is Nvidia's own comparison, delivery is a year or so away, and the systems come from many partners with different designs. It does confirm a direction already visible in prefab: more of the building is being made somewhere else, and the field work that remains is the part that cannot be shipped.
+
+**Takeaway:** If you bid data center or industrial power and cooling work, ask each owner what "site ready" means in writing, what date it is tied to, and who owns the connection to the container. Then check your switchgear and chiller lead times against a schedule that may start before your drawings do.
