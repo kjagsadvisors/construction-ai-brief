@@ -1,0 +1,72 @@
+---
+title: "Cohere's Rerank 5 can return the exact paragraph, not the whole document. Here's the spec-book search test estimators should run"
+date: "2026-10-25"
+excerpt: "Cohere released Rerank 5, a search-ranking model whose Context Focus option returns scored passages inside each document. For estimators and PMs digging through spec books and addenda, that is the piece of AI search worth testing, with caveats."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://cohere.com/blog/rerank-5"
+  - "https://www.marktechpost.com/2026/10/22/cohere-rerank-5-context-focus/"
+  - "https://alphasignal.ai/news/cohere-s-rerank-5-cuts-ai-search-token-use-by-41-while-boosting-accuracy"
+  - "https://superpowerdaily.com/posts/cohere-releases-rerank-5-to-select-the-passages-ai-systems-read"
+faqs:
+  - q: "What is Cohere Rerank 5?"
+    a: "Rerank 5 is a model Cohere released on October 21, 2026, in Pro and Fast tiers. It re-orders search results by relevance to a question, and an optional feature called Context Focus also returns the scored passages inside each document."
+  - q: "Can Rerank 5 search construction spec books and drawings?"
+    a: "It works on text and supports long documents (a 32K-token window per query and document), so spec sections and addenda are a natural fit. Cohere has not published construction-specific results, and scanned or drawing-only pages would need text extracted first."
+  - q: "Will an AI search tool replace an estimator reading the specs?"
+    a: "No. A reranker surfaces likely passages faster, but it can miss a clause, and Cohere's own numbers show some accuracy tradeoff when text is trimmed. A person still has to confirm scope-governing language."
+  - q: "How would a contractor actually use Rerank 5?"
+    a: "Most contractors would get it inside a vendor's document-search or AI assistant product rather than calling the API directly. The practical step is to ask vendors whether they use passage-level retrieval and to test it on your own spec books."
+---
+
+**Cohere's Rerank 5, released October 21, can return the specific passages inside a document that answer a question, each with a relevance score, instead of just ranking whole files.** For an estimator hunting one clause in a 1,500-page spec book or a stack of addenda, that is the difference between "the answer is somewhere in Section 23 05 00" and the actual paragraph. It is a component, not a product, but it is the part that decides whether AI search over your project documents finds the right sentence.
+
+## What did Cohere release?
+
+Rerank 5 comes in two tiers, Pro and Fast. A reranker sits behind a search or an AI assistant: the system pulls a pile of candidate documents, and the reranker orders them by how well they match the question.
+
+The new piece is Context Focus. It is off by default. When enabled, one call returns document scores plus the scored passages within each document, with a threshold and a cap on how many passages to return. Per Cohere's launch post and coverage, the point is to hand the language model less text, which cuts token use by up to 41% in Cohere's testing. Those figures are the company's own and vary by setting.
+
+| Item | Reported detail |
+|---|---|
+| Released | October 21, 2026 |
+| Tiers | Pro (quality) and Fast (speed) |
+| Key feature | Context Focus: scored passages inside each document |
+| Token savings | Up to 41%, company-reported |
+| Context window | 32K tokens for query plus document |
+| Languages | 100+ |
+
+## Why does passage-level search matter to estimators?
+
+Most spec and bid-package questions are needle-in-haystack questions, and they have real money attached:
+
+- **Scope gaps:** "Which sections mention seismic bracing, and who provides it?"
+- **Addendum conflicts:** "Did Addendum 3 change the pipe insulation thickness from Section 22 07 19?"
+- **Submittal requirements:** "What does this section require in the submittal package?"
+- **Alternates and allowances:** "Where does the spec tie an allowance to a specific unit price?"
+
+An assistant that retrieves whole documents makes the model read pages of noise, which is slower, costlier, and more likely to bury the clause. One that returns the three relevant paragraphs, with scores, also lets a person see exactly what the answer rests on and click straight to it.
+
+## What are the limits?
+
+Three, in order of importance.
+
+First, trimming text trades accuracy for cost. Cohere's own coverage describes accuracy holding in its tests, but those were general datasets, not specs full of cross-references like "except as modified in Division 01." A clause that only makes sense next to another clause can get cut.
+
+Second, this is text retrieval. Scanned pages, drawings, and tables inside images need text extraction first, and plan sheets are largely out of scope.
+
+Third, you will likely never call this API yourself. It reaches contractors inside a vendor's document search or assistant, so the real question is what your vendor does.
+
+## How should you test it?
+
+You do not need Rerank 5 specifically to run the test. You need to know whether your tool finds the right paragraph.
+
+1. Pick one finished bid and 15 questions you already know the answers to, including a few that depend on an addendum.
+2. Ask your tool (or a vendor demo) each one and record whether it cites the correct passage, not just a plausible answer.
+3. Mark misses where a modifying clause was dropped.
+4. Ask the vendor whether it returns passage-level citations and how it ranks results.
+
+If the tool cites the right paragraph on 13 or more of the 15 and shows its source every time, it can speed up first-pass review. If it paraphrases without pointing to the page, treat its answers as leads, and keep a person on anything that sets scope or price. For related guidance on keeping bid files safe before pointing any tool at them, see [our piece on shared-drive access](/posts/2026-10-16-proofpoint-varonis-6-3b-construction-shared-drive-access-before-ai-agents).
+
+*Construction AI Brief publishes three times a week. Forward this to the estimator who lives in your spec books, or [subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
