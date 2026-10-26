@@ -1,0 +1,65 @@
+---
+title: "NetSuite added a construction agent aimed at job profitability. Controllers should test it on closed jobs first"
+date: "2026-10-26"
+excerpt: "At SuiteWorld, Oracle NetSuite announced industry agents, including one for construction that it says is designed to protect job profitability. Here is what is confirmed, what is not, and how a contractor's controller can test it safely."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.prnewswire.com/news-releases/netsuite-advances-vision-for-an-autonomous-suite-302919139.html"
+faqs:
+  - q: "Does NetSuite have an AI agent for construction contractors?"
+    a: "Oracle NetSuite said on October 26, 2026 that it is adding industry-specific SuiteAgents, including one for construction that is designed to protect job profitability. Select industry agents are available now where NetSuite Next is offered; others are planned for a future release."
+  - q: "How much do NetSuite's new AI agents cost?"
+    a: "The announcement did not state pricing. Ask your NetSuite rep whether the agents, SuiteSkills and AI workspaces are included in your license or priced separately."
+  - q: "Can NetSuite's AI agents act without approval?"
+    a: "NetSuite says SuiteAgent Studio lets users build and configure agents before activation, and a management workspace centralizes agent access, permissions and monitoring. The release says users review SuiteFlow Agent configurations before they are created."
+  - q: "What should a contractor test first with an ERP AI agent?"
+    a: "Run it against a closed job where you already know the final margin and the cost surprises, and see whether it flags the same problems. Keep it read-only until it proves accurate."
+---
+
+Oracle NetSuite announced on October 26, 2026 that it is adding industry-specific AI agents, including one for construction that it says is designed to protect job profitability. If your firm runs NetSuite, your controller should ask for a trial on closed jobs. If you do not, this is a preview of what every contractor ERP vendor will be pitching you.
+
+## What did NetSuite actually announce?
+
+At SuiteWorld in Las Vegas, NetSuite described what it calls an "autonomous suite," according to its [press release](https://www.prnewswire.com/news-releases/netsuite-advances-vision-for-an-autonomous-suite-302919139.html). The pieces that matter to a contractor:
+
+| Feature | What NetSuite says it does | Status |
+|---|---|---|
+| Industry SuiteAgents | Agents for software, product, healthcare, construction and nonprofit organizations | Select agents available now where NetSuite Next is offered |
+| SuiteSkills | 45+ skills combining financial and operational data, such as flagging potential revenue leakage | Available now |
+| SuiteFlow Agent | Builds workflows from plain-language requests; users review before creation | Described in the release |
+| SuiteAgent Studio | Build and configure agents before activation; run on a schedule or on business events | Described in the release |
+| Management workspace | Central place for agent access, permissions and monitoring | Described in the release |
+| Ask Oracle Connectors | Uses MCP to connect NetSuite to other business apps | Described in the release |
+
+Pricing was not mentioned. The release also says other autonomous-suite capabilities are planned for a future release, and carries the usual caveat that timing and pricing may change.
+
+## What do we not know about the construction agent?
+
+Quite a lot. The release says only that the construction agent is designed to protect job profitability. It does not say that the agent handles job cost reports, WIP schedules, AIA billing, retainage, change orders or certified payroll. It does not name a single contractor customer. Treat the announcement as a vendor's direction, not a tested product.
+
+## What could it change for a controller or PM?
+
+Job profitability usually erodes in boring places: a committed cost that never hit the job, a change order priced but not billed, a PO without a cost code. The features NetSuite listed point at those places:
+
+- **Revenue leakage flags** could catch unbilled work or change orders that were approved but never invoiced.
+- **Required PO numbers** in generated workflows could tighten purchasing, since the release mentions SuiteFlow Agent enforcing them.
+- **Event-triggered agents** could notify a PM when a cost code runs over, instead of waiting for month-end review.
+
+Those are our inferences from the feature list, not claims NetSuite made about construction.
+
+## How should a contractor test it?
+
+1. **Pick two closed jobs.** One that made its margin, one that did not. You already know the answers.
+2. **Run the agent on the data as it stood at 50% complete.** Did it flag the problems you learned about late?
+3. **Count false alarms.** An agent that flags everything trains your PMs to ignore it.
+4. **Keep it read-only.** No agent should post entries, release payments or change budgets until you trust the output.
+5. **Check permissions.** Use the management workspace to see exactly which records the agent can read. Our earlier piece on [agent permissions in HR and finance data](/posts/2026-10-15-workday-agent-harness-ga-headless-hr-finance-construction-certified-payroll-agent-permissions) covers what to look for.
+
+## What still needs a human?
+
+Percent-complete judgment, the decision to bill ahead of a cost, change order negotiation and any pay application sign-off. An agent can surface a number that looks wrong. It cannot know the owner verbally approved the extra work.
+
+**Takeaway:** If you are a NetSuite shop, ask your rep three questions this week: is the construction agent in your edition, what does it cost, and what can it write to. Then run the closed-job test before it touches a live job.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to your controller.*
