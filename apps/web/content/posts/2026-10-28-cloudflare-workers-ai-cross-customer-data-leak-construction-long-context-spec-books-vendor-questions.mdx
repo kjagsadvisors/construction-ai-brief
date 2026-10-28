@@ -1,0 +1,61 @@
+---
+title: "Cloudflare's AI service returned other customers' prompts on very long requests. Contractors feeding whole spec books to AI tools should ask vendors one question"
+date: "2026-10-28"
+excerpt: "A bug on Cloudflare's Workers AI let some long-context requests receive pieces of other customers' prompts. It only hit prompts over 681,280 tokens, which is roughly where a full spec book or plan set lands."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://blog.cloudflare.com/kv-cache-exposure-remediation/"
+  - "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-october-28-2026/"
+faqs:
+  - q: "What went wrong with Cloudflare's Workers AI?"
+    a: "Cloudflare says a misconfiguration combined with a bug in the open-source SGLang serving software let some requests with prompts over 681,280 tokens receive data from other customers' recent requests. It affected one model, GLM 5.3, and Cloudflare counted 155 affected responses."
+  - q: "Could a construction software vendor's AI feature be affected by a bug like this?"
+    a: "Possibly, if the vendor runs an open-weight model on shared infrastructure and sends very long documents to it. Cloudflare says only GLM 5.3 on its service was affected, so ask your vendor which model and host they use rather than assuming."
+  - q: "Should contractors stop putting spec books into AI tools?"
+    a: "Not on the strength of this incident alone. Cloudflare found no evidence of deliberate exploitation and fixed the problem. The better step is to ask vendors how they isolate one customer's documents from another's, and to keep the most sensitive bid files out of shared tools."
+  - q: "How long is 681,280 tokens in construction documents?"
+    a: "A token is roughly three-quarters of a word, so that is on the order of 500,000 words of text. A large project's combined specifications and addenda can approach that size, though most single requests are far smaller."
+---
+
+Cloudflare disclosed that a bug on its Workers AI service let some very long requests receive pieces of other customers' prompts. If a vendor you use sends whole spec books or bid packages to a shared AI model, ask one question: how is my document kept separate from other customers' documents when the request is huge?
+
+## What did Cloudflare actually find?
+
+Cloudflare published its write-up on October 26, according to its [incident post](https://blog.cloudflare.com/kv-cache-exposure-remediation/). A security researcher, Gadi Evron of Knostic, reported the problem through HackerOne on September 8. Cloudflare declared an incident the next day and took the model offline for about six hours.
+
+The details that matter:
+
+- **One model.** Only `glm-5.3` was affected. Cloudflare says no other Workers AI model was.
+- **Only huge prompts.** The model accepted a context of 1,048,576 tokens, but the cache behind it held just 681,280. Prompts above that size triggered the bug.
+- **Other customers' data.** Responses to those requests contained prompts and partial outputs from other customers' requests made shortly before.
+- **Small count.** Cloudflare identified 155 affected responses between August 27 and September 9. It says they look like ordinary long-context use and found no evidence anyone exploited it on purpose.
+
+Cloudflare's post gives Workers AI customers no direct steps such as rotating credentials. Its advice is aimed at operators of the SGLang software.
+
+## Why should a GC or its software vendors care?
+
+Long context is what makes AI useful for construction paperwork. Feeding an entire Division 23 spec section, plus addenda, into one request is exactly the workflow we've been recommending for submittal and spec-review checks. Those are also the requests that hit this bug.
+
+You probably don't use Workers AI directly. The exposure is indirect: many construction software vendors build their AI features on someone else's hosted models, and neither you nor they may know the details of the serving layer. Cloudflare's incident shows that isolation between customers is something the host has to get right, and that it can fail quietly. The request returned a normal success code, not an error.
+
+## What should you ask vendors?
+
+| Question | What a good answer sounds like |
+|---|---|
+| Which model and which host run my documents? | A named provider, not "our AI partners" |
+| Is my data processed on shared infrastructure with other customers? | A plain yes or no, plus how requests are isolated |
+| Do you cap or test very large requests? | Yes, with a stated limit |
+| How would I find out about an incident like this? | A written notification commitment in the contract |
+
+## What are the limits of this story?
+
+It's a self-reported incident on one model at one provider, with 155 affected responses over about two weeks. We don't know what those responses contained, and Cloudflare doesn't say. It also doesn't show that OpenAI, Anthropic, Google or any construction vendor has the same flaw. Treat it as a reason to ask questions, not as proof any particular tool leaked your bids.
+
+## What should you do this week?
+
+1. List every AI feature your team uses that accepts whole documents, including ones inside your project management and estimating software.
+2. Send each vendor the four questions above and file the answers with your IT records.
+3. Keep your most sensitive material, such as live pricing and sub quotes, out of tools whose answers are vague. For local options, see [our look at running open-weight models on bid files](/posts/2026-10-28-cohere-qwen-beijing-upload-attempt-construction-local-ai-bid-files-network-lockdown).
+
+The takeaway: bigger context windows are useful only if the host keeps customers apart. Make your vendors say how, in writing, before the next spec book goes in.
