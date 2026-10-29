@@ -1,0 +1,66 @@
+---
+title: "Anthropic's new AI spend reports give a GC a way to price a pilot per task"
+date: "2026-10-29"
+excerpt: "Anthropic launched reports that show what a team's token spend produced, and pooled budgets that cap it. For a GC running an AI pilot, that is the missing cost-per-task number."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying"
+  - "https://support.claude.com/en/articles/14782391"
+faqs:
+  - q: "How can a contractor measure the ROI of an AI pilot?"
+    a: "Pick one repeatable task, such as an RFI response or a submittal package, record the hours it takes today, then compare that to the AI cost and the review time per item during the pilot. Usage reports that tie spend to output make the cost side easier to see."
+  - q: "What are pooled budgets in Claude Enterprise?"
+    a: "A pooled budget is one shared monthly amount that every member of a group draws from, which suits a team with a fixed budget but uneven usage. Anthropic's help center says billing admins get email alerts as the pool fills, and describes the feature as beta."
+  - q: "Do AI usage reports train the vendor's models on my project data?"
+    a: "Anthropic says it won't use the report data for model training by default, according to TechCrunch. A contractor should still confirm that in the contract, since defaults can be changed."
+  - q: "Should a small GC buy an enterprise AI plan just for spend tracking?"
+    a: "Not on this news alone. A spreadsheet logging hours saved and review time per task answers the same question for a pilot of one or two people."
+---
+
+Anthropic launched reporting tools on Oct. 28 that show enterprise customers what a team's AI spending produced, what it cost, and where the workflow broke down. For a general contractor running an AI pilot, that matters because it makes a cost-per-task number possible, and without that number most pilots end in an argument instead of a decision.
+
+## What did Anthropic actually launch?
+
+According to [TechCrunch's report](https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying):
+
+- Managers can review a team's work over a date range: what it produced, what it cost, and where workflows broke down.
+- The reports draw on internal analytics and employee surveys, and include recommendations.
+- Anthropic also introduced pooled group budgets so teams can manage token spend together.
+- Anthropic says it won't use this data for model training by default.
+
+TechCrunch did not report pricing or availability. Anthropic's [help center](https://support.claude.com/en/articles/14782391) describes pooled budgets as a single shared monthly amount for a group, with email alerts to billing admins as the pool fills, and labels the feature beta.
+
+The context is a spending problem. Jellyfish, which surveyed 276,000 of its customers, found spending on Anthropic-model coding tools grew 10x since the start of the year. Its chief scientist called that growth something "most CFOs didn't plan for."
+
+## Why should a GC care about a software vendor's billing tools?
+
+Most contractor AI pilots have the same flaw: nobody measures the cost side. Someone in precon tries a chatbot on bid packages, it feels faster, and a year later no one can say whether it paid for itself. We covered the same gap in [the BRG survey on construction executives and unclear AI ROI](/posts/2026-10-19-brg-construction-ai-survey-68-percent-250k-roi-unclear-measure-pilot-first).
+
+Reports that tie spend to output address half of that. The other half, hours saved, is still yours to measure.
+
+## What would a pilot look like with this?
+
+| Pilot question | What to record | Where it comes from |
+|---|---|---|
+| What does one RFI response cost in AI usage? | Spend divided by RFIs drafted | Vendor usage report |
+| How long does a person take to review it? | Minutes per item, sampled | Your own timing |
+| How often is the draft wrong? | Share of drafts needing rework | Reviewer tally |
+| What is the baseline? | Hours per RFI before the pilot | Last quarter's logs |
+
+The review-time row is the one vendors will not hand you. A draft that costs pennies in tokens but takes a PM 20 minutes to verify is not cheap.
+
+## What should a PM or ops director do now?
+
+1. Pick one repeatable task, such as RFI drafts or daily-log summaries, and one small group.
+2. Set a fixed monthly cap for that group before the pilot starts. A pooled budget is built for exactly this.
+3. Log baseline hours first. Without it, the usage report has nothing to be compared against.
+4. Ask your vendor, in writing, whether usage data is used for training and who in your company can see individual-level reports.
+
+## What are the limits?
+
+These are enterprise-plan features, and a 50-person contractor with three AI users does not need a dashboard to answer this question. A spreadsheet works. The reports also lean on employee surveys, which measure how people feel about the tool, not whether the work product held up. And the vendor is grading its own product's return on investment, so treat the recommendations as suggestions to test.
+
+**The takeaway:** before you expand any AI pilot, write down the cost per task and the review time per task. If your vendor can now produce the first number, you only have to collect the second.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta), or forward this to the person running your pilot.*
