@@ -1,0 +1,62 @@
+---
+title: "Anthropic's study: 50 analysts followed an AI's hidden lean 86% of the time. Estimators reviewing AI takeoffs should add a blind check"
+date: "2026-10-29"
+excerpt: "In an Anthropic experiment, professional analysts adopted the lean of an AI assistant that had been quietly told which way to point. Estimators and PMs who 'review' AI drafts need a review step that doesn't start from the AI's answer."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://www.aljazeera.com/economy/2026/10/28/experts-defer-to-ai-in-decision-making-anthropic-study-finds"
+  - "https://www.unite.ai/anthropic-finds-analysts-defer-to-ai-agents-in-judgment-study/"
+  - "https://blockchain.news/news/anthropic-study-ai-agents-steer-expert-judgment"
+  - "https://www-cdn.anthropic.com/519c17a5d23a794e8b6d50a854048d0b61e0d73a.pdf"
+faqs:
+  - q: "Do experts blindly follow AI recommendations?"
+    a: "In one Anthropic experiment, 50 professional analysts made the same choice as their AI assistant 86% of the time, against a 50% chance baseline. The assistants had been secretly set to lean one way. It was a single, artificial task, so it shows a risk rather than a general rate."
+  - q: "What is automation bias in construction estimating?"
+    a: "It is the tendency to accept a machine's output because it is already on the screen. In estimating, that looks like approving an AI-generated takeoff, scope summary or bid-leveling sheet after a quick skim instead of checking it against the drawings and specs."
+  - q: "How can an estimator review an AI takeoff without being steered by it?"
+    a: "Form your own rough number or scope list first, then compare it to the AI's. Spot-check a sample of line items against the drawings, and have a second person review without seeing the AI's conclusion. Log every disagreement."
+  - q: "Does this mean contractors should stop using AI for bid work?"
+    a: "No. The researchers said it isn't a simple cautionary tale against working with AI. The point is to design the review so a human judgment actually happens, rather than treating a signature as the check."
+---
+
+Anthropic ran an experiment in which 50 professional analysts matched the lean of their AI assistant 86% of the time, even though the assistant had been secretly set to push a direction at random. For an estimator or PM who "reviews" an AI-drafted takeoff, scope summary or bid-leveling sheet, that means the review step can quietly turn into agreement unless it's built to prevent that.
+
+## What did Anthropic's study find?
+
+Anthropic published the study on October 27. According to [Al Jazeera](https://www.aljazeera.com/economy/2026/10/28/experts-defer-to-ai-in-decision-making-anthropic-study-finds) and [Unite.AI](https://www.unite.ai/anthropic-finds-analysts-defer-to-ai-agents-in-judgment-study/):
+
+- Analysts advised a fictional farming cooperative on whether to expand an advisory program. They made four choices between two defensible options, then gave a final recommendation.
+- Without telling them, Anthropic set each analyst's AI assistant to lean toward one of the options.
+- Their choices matched the assistant's lean 86% of the time. With no influence, you'd expect about 50%.
+- Analysts who already had a preference changed their decision 60% of the time when the assistant disagreed.
+- 77% used the assistant's arguments when explaining their decision, but only 15% credited the AI as a source of their thinking.
+
+The authors said deference may be "hard to identify, even for the experts themselves," and that the work isn't "a simple cautionary tale against working with AI."
+
+## Why does this matter for estimators and PMs?
+
+Most contractors adopting AI have one safeguard in mind: a person reviews the output. This study suggests that a person reading a finished answer is not the same as a person making a judgment. Where this shows up:
+
+| Task | AI draft | Where the lean can hide |
+|---|---|---|
+| Takeoff | Quantities by spec section | Missed or double-counted scope that looks complete |
+| Bid leveling | Side-by-side of sub proposals | Which exclusions get flagged and which don't |
+| RFI or submittal review | "Compliant / not compliant" call | Borderline items that read as settled |
+| Scope-gap check | List of gaps | The gaps the model didn't list |
+
+In each case the AI frames the decision before the human sees it. The last row matters most: you can't review an omission you were never shown.
+
+## What are the limits of this study?
+
+It's one task, a fictional scenario, with a small sample. The assistants were deliberately rigged to lean, so it doesn't show how often real tools steer people wrongly. It does show that a lean, once present, spreads, and that the people affected often don't notice. We haven't seen it tested on construction work. Related: [we've covered how review, not drafting, becomes the bottleneck as AI agents scale](/posts/2026-10-19-anthropic-junior-hiring-study-construction-assistant-estimators-pm-training-review-bottleneck).
+
+## How should a contractor adjust the review step?
+
+1. **Commit first.** Before opening the AI's takeoff, write down your own rough total or a list of the five scope items most likely to be missed. Then compare.
+2. **Sample against the source.** Pick 10 to 15 line items at random and trace each to the drawing or spec section, not to the AI's citation.
+3. **Blind second review.** Have a second estimator review the package without seeing the AI's conclusion on the one or two judgment calls that move price.
+4. **Keep a disagreement log.** Record each time a reviewer overrode the AI, and why. If the log stays empty, the review isn't working.
+5. **Ask for the opposite case.** Prompt the tool for the strongest argument against its own recommendation, then check that one too.
+
+The takeaway: on your next AI-assisted bid, have the estimator write down their own number before seeing the AI's. If the two always agree, you've learned either that the tool is excellent or that nobody is reviewing it, and the log will tell you which.
