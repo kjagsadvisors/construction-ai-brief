@@ -1,0 +1,69 @@
+---
+title: "Nvidia's free Nemotron 3.5 Transcribe can turn a one-hour OAC meeting recording into minutes on your own hardware. Here's what to test first"
+date: "2026-10-30"
+excerpt: "Nvidia released an open-weight transcription model that handles up to an hour of recorded audio and tags multiple speakers. For PMs and project engineers buried in OAC minutes and daily logs, it is worth a bench test, with real limits."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://techcrunch.com/2026/10/28/voice-ai-in-vogue-nvidia-releases-new-open-transcription-model"
+  - "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B"
+faqs:
+  - q: "What is Nvidia Nemotron 3.5 Transcribe?"
+    a: "It is a free, open-weight speech-to-text model Nvidia released on October 28, 2026. It transcribes up to 40 languages, handles recordings up to one hour, and labels multiple speakers, but it works on recorded audio only, not live streams."
+  - q: "Can a contractor run Nemotron 3.5 Transcribe on its own computers?"
+    a: "Yes, in principle. The weights are published under the OpenMDW-1.1 license, which the model card says allows commercial use. Nvidia lists a single H100 80 GB GPU for deployment, so most firms would need a workstation-class GPU or an IT partner."
+  - q: "Can AI transcribe an OAC meeting and tag who said what?"
+    a: "The model card says it supports multi-speaker transcription with speaker tags. Nvidia has not published construction-specific accuracy, so a PM should test it on a real meeting recording with crosstalk and site noise before trusting the output."
+  - q: "Does AI transcription replace meeting minutes for a GC?"
+    a: "No. A transcript is raw text. Someone still has to extract decisions, action items and owners, and confirm anything with cost, schedule or contract impact before it goes out as minutes."
+---
+
+**Nvidia's Nemotron 3.5 Transcribe, released October 28, is a free, open-weight model that converts recordings of up to one hour into text and labels multiple speakers.** For a GC project manager who spends Friday afternoon turning an owner-architect-contractor (OAC) meeting recording into minutes, it is a model worth a bench test. It is not a finished product, and it does not do live captioning.
+
+## What did Nvidia release?
+
+Per [TechCrunch's report](https://techcrunch.com/2026/10/28/voice-ai-in-vogue-nvidia-releases-new-open-transcription-model) and the [model card on Hugging Face](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B):
+
+- Transcribes 40 languages and translates between English and each of them.
+- Accepts recordings up to one hour.
+- Supports multi-speaker transcription with speaker tags.
+- Offline only. The model card states live streaming is not supported.
+- Published under the OpenMDW-1.1 license, which the card says allows commercial use.
+- Listed for deployment on a single H100 80 GB GPU, with other data center and workstation GPUs supported.
+
+Nvidia claims the model beats rivals on a public speech leaderboard. TechCrunch notes no error-rate figures were given, so treat that as a claim until you test it.
+
+## Why should a GC or sub care?
+
+Three jobs in a project office are mostly typing up what people said:
+
+| Task | Who does it | What a transcript changes |
+|---|---|---|
+| OAC and coordination meeting minutes | PM or project engineer | First draft of who said what, ready to edit |
+| Daily logs from a super's voice memo | Superintendent | Memo becomes text without retyping |
+| Bilingual crew toolbox talks or site notes | Foreman, safety lead | English and Spanish text from one recording (check the model's language list for yours) |
+
+The "own hardware" part matters more than the price. Meeting recordings often include pricing discussions, claims positioning and owner details. An open-weight model that runs on a machine you control, or one your IT partner hosts, avoids sending that audio to a third party. That is a real option, but only if you have the hardware and someone to set it up.
+
+## What are the limits?
+
+- **Recorded audio only.** No live captions in the trailer, and nothing that listens during the meeting.
+- **Hardware.** An H100-class GPU is not a laptop. A mid-size firm will most likely get this model inside a vendor's note-taking or field-reporting product, or via a hosted service, not by installing it.
+- **Site audio is hard.** Compressors, saws and wind are not a conference room. Nvidia has not published results on jobsite recordings.
+- **Names and jargon.** "Div 23," "RFI 114," "ASI" and subcontractor names are exactly where transcription errors hide. Nvidia says developers can adapt the model to industry vocabulary with its NeMo tools, which means tuning work, not a toggle.
+- **Speaker labels are not names.** The model tags voices as speakers; a person still has to match them to the architect and the mechanical foreman.
+
+## Should a GC act now?
+
+Not by buying hardware. Run a cheap test instead:
+
+1. Pick three recordings you already have permission to use: a clean office OAC meeting, a noisy field walk, and a super's voice memo.
+2. Run them through the vendor tool or hosted version of whichever transcription you use today, and through this model if your IT partner can stand it up.
+3. Count errors on the items that matter: dollar figures, dates, RFI and submittal numbers, spec section references, names.
+4. Time the editing, not the transcription. If cleanup takes longer than typing from notes, the tool fails the test.
+
+If you are comparing document tools at the same time, our [spec-book search test for estimators](/posts/2026-10-25-cohere-rerank-5-context-focus-construction-spec-book-search-passage-level-estimators) uses the same scoring approach: pick the items that carry cost or risk and count the misses.
+
+**The takeaway:** a free, commercially licensed transcription model raises the floor for every meeting-minutes and daily-log tool you will be pitched next year. Ask each vendor which model runs the transcription, where the audio is processed, and how it handles your trade's vocabulary. Then test it on your own recordings before it touches an official record.
+
+*Construction AI Brief covers the week's AI news for GCs, subs and estimators three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) or forward this to the PM who types the minutes.*
