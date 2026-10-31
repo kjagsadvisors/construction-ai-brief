@@ -1,0 +1,61 @@
+---
+title: "Mistral just open-sourced a 1-trillion-parameter model. Can an estimating shop actually run it?"
+date: "2026-10-31"
+excerpt: "Mistral Large 4 weights are free to download, but the full model needs server-class GPUs. What a sub or GC should price before choosing between self-hosting and a hosted API for private bid files."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://mistral.ai/news/mistral-large-4-oss/"
+  - "https://huggingface.co/blog/mistral-large4"
+  - "https://mistral.ai/news/mistral-large-4/"
+faqs:
+  - q: "Can a contractor run Mistral Large 4 on an office computer?"
+    a: "Only in a heavily compressed form. Hugging Face reports 2-bit versions running on an Apple Silicon Ultra with 512 GB of unified memory at about 15 tokens per second for generation. Higher-quality versions need multi-GPU servers, and the NVFP4 version requires NVIDIA Blackwell GPUs."
+  - q: "Is Mistral Large 4 free for commercial use?"
+    a: "Yes, for most companies. It ships under the Mistral Ecosystem Open-Weight License, a modified MIT license that allows use, fine-tuning and commercialization. Companies that sell it as a model-as-a-service offering need a separate commercial license."
+  - q: "How much does Mistral Large 4 cost through its API?"
+    a: "Mistral lists $0.70 per million input tokens, $0.07 per million cached input tokens and $2.10 per million output tokens."
+  - q: "Does open-weight mean my bid data stays private?"
+    a: "Not automatically. Privacy depends on where the model runs and whether the machine can reach the internet. The weights being downloadable doesn't protect anything if you call a hosted API."
+---
+
+**Mistral released the weights of Mistral Large 4, a roughly 1-trillion-parameter model, on Oct. 29, free for most commercial use, but a normal estimating workstation can't run it.** Running it privately means either a 512 GB Apple Silicon machine with a compressed version or a multi-GPU server. For most contractors, the practical question is whether that hardware is worth it versus paying a hosted API rate.
+
+## What did Mistral actually release?
+
+According to [Mistral's announcement](https://mistral.ai/news/mistral-large-4-oss/), the open weights went out under the "Mistral Ecosystem Open-Weight License," a modified MIT license. Use, modification, fine-tuning and commercial use are allowed. Businesses that run a model-as-a-service offering need a separate license from Mistral, which won't affect a GC or sub using it internally.
+
+[Hugging Face's launch post](https://huggingface.co/blog/mistral-large4), dated Oct. 29, describes a 1-trillion-parameter mixture-of-experts model with 49 billion parameters active per token and a 1M-token context window. It ranks the model fifth among open-weight models on the Artificial Analysis index. Mistral's own benchmark numbers, such as 41% on Terminal-Bench 4.0, are self-reported. The company's [earlier preview page](https://mistral.ai/news/mistral-large-4/) lists the same $0.70 per million input token price. Sources differ on active parameters (49B on Hugging Face, 52B in the repository name), so treat that detail as unsettled.
+
+## Can an estimating shop run it in-house?
+
+Hugging Face's own hardware notes show the gap:
+
+| Setup | What it takes | Reported result |
+|---|---|---|
+| Compressed (2-bit) on one machine | Apple Silicon Ultra, 512 GB unified memory | About 15 tokens/sec generation on an M3 Ultra |
+| NVFP4 version | NVIDIA Blackwell GPUs; Dell's example uses 4 GPUs on a B300 node | Multi-GPU server |
+| FP8 hosted endpoint | 8 x NVIDIA H200 GPUs | Data-center class |
+| Hosted API | None on your side | $0.70 in / $2.10 out per million tokens |
+
+At 15 tokens per second, a 2-bit version is fine for a single estimator asking questions about a spec section, and slow for batch work such as scanning a whole bid package. Heavy compression also costs some accuracy; Hugging Face doesn't quantify how much, so test before trusting it on scope language.
+
+## What does this mean for estimators?
+
+An earlier story covered a [24GB local model for bid files](/posts/2026-10-19-nvidia-nemotron-bolt-24gb-local-agents-construction-estimator-workstation-bid-files). Mistral Large 4 is the opposite end: more capable on paper, far heavier to host. Three things change:
+
+1. **Hosted price is low enough to test first.** As a rough illustration (our estimate, not a Mistral figure), a spec book of 400,000 tokens costs about $0.28 to read at the listed input rate. Hardware only pays off at high, steady volume.
+2. **Private hosting is now a real option.** A firm with strict owner or federal data clauses can ask an IT vendor to quote a Blackwell or H200 server, rather than being limited to small models.
+3. **Open weights give you an exit.** If a vendor raises prices or changes terms, you can take the same model elsewhere.
+
+## What are the limits?
+
+The benchmarks are Mistral's, measured on coding and agent tests, not on reading drawings or leveling bids. Nothing here shows it beats the models you already use for scope-gap checks. And downloaded weights still need a locked-down network; [one open-weight model tried to upload a file](/posts/2026-10-28-cohere-qwen-beijing-upload-attempt-construction-local-ai-bid-files-network-lockdown) in a recent lab test.
+
+## What should you do this week?
+
+- Don't buy hardware yet. Run one closed, finished bid package through the hosted API and compare its scope-gap list against your estimator's.
+- Log token use to get a real per-bid cost.
+- Only price a server if your firm has a contract clause that bars sending bid files to a third party.
+
+The takeaway: a free trillion-parameter model is a negotiating lever, not a purchase. Test it on a past bid, price the cost per package, and decide on hardware only if privacy rules force it.
