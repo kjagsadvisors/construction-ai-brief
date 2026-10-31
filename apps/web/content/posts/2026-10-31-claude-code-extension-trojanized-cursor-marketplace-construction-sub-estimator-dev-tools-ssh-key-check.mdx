@@ -1,0 +1,55 @@
+---
+title: "A trojanized Claude Code extension hit Cursor users. Subs and estimators building their own AI tools should check for one SSH key"
+date: "2026-10-31"
+excerpt: "A malicious update to Anthropic's Claude Code extension sat in the Cursor marketplace for about 11 hours on Oct. 29. A contractor whose estimator or IT contact codes with AI tools can check for it in minutes."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://thehackernews.com/2026/10/official-claude-code-vs-code-extension.html"
+faqs:
+  - q: "Was the Claude Code VS Code extension hacked?"
+    a: "A trojanized version, 2.1.313, was published under the real extension ID in the Cursor Marketplace on October 29, 2026. The Hacker News reports no evidence it reached the Microsoft VS Code Marketplace or Open VSX, and Anthropic has published a clean version, 2.1.314."
+  - q: "How do I know if I installed the malicious Claude Code extension?"
+    a: "Check which extension version you ran on October 29 and look in ~/.ssh/authorized_keys for an entry labeled \"svc-telemetry.\" Also look for new scheduled tasks, crontab entries or LaunchAgents you did not create. Cursor says it will contact affected users directly."
+  - q: "What should I do if I installed the compromised extension?"
+    a: "Isolate the machine, remove the unauthorized SSH key and the persistence entries, and rotate credentials that machine could reach. The malware recorded the names of environment variables containing words like KEY, TOKEN and SECRET, which can point to cloud or CI credentials."
+  - q: "Does this affect construction estimating or project management software?"
+    a: "Not directly. It affects people who write code in Cursor, such as an estimator scripting takeoff cleanup, a sub's IT contractor or a consultant building internal tools. The risk is the laptop that holds bid files and accounting logins."
+---
+
+If anyone at your company writes scripts or internal tools in the Cursor code editor, check their machine for a single SSH key this week. A trojanized update to Anthropic's Claude Code extension was live in the Cursor marketplace for about 11 hours on October 29, and it left a backdoor behind.
+
+## What happened with the Claude Code extension?
+
+[The Hacker News](https://thehackernews.com/2026/10/official-claude-code-vs-code-extension.html) reports that version 2.1.313 of the Claude Code extension was distributed through the Cursor Marketplace as a normal update, under the real extension ID. It was available from about 2:27 a.m. to 1:35 p.m. Pacific on October 29. Cursor says at most 5,000 users installed it. How the attackers got the update published is unclear.
+
+Once it ran, the malware:
+
+- Added an attacker's SSH key, labeled "svc-telemetry," to the user's `~/.ssh/authorized_keys` file.
+- Opened a reverse tunnel to an outside server, which gives the operator a path to run commands or move files.
+- Installed itself to restart: a scheduled task on Windows, a crontab entry on Linux, a LaunchAgent on macOS.
+- Sent the machine's public IP, hostname, username and Git email, plus the names (not values) of up to 40 environment variables containing words like KEY, TOKEN or SECRET.
+
+No follow-on payloads have been seen. Anthropic published a clean version, 2.1.314, and the report says there is no evidence the bad build reached Microsoft's VS Code Marketplace or Open VSX.
+
+## Why does a contractor care about a coding-tool breach?
+
+Because AI coding tools have moved into the back office. A trade sub's estimator may now script takeoff cleanup in Cursor. A GC's project engineer may be building an RFI log exporter. An outside IT contractor may be wiring a pay-app workflow together. Those people work on laptops that also hold bid files, subcontractor pricing, and logins to accounting and cloud storage.
+
+The attack shows the weak point is the add-on, not the AI model. An editor extension runs with the user's permissions, and auto-update installed this one without anyone choosing to.
+
+## What should an estimator or ops lead check?
+
+1. **Ask who codes.** List everyone, including outside consultants, who uses Cursor or VS Code with AI extensions on a machine that touches company data.
+2. **Check the version and the key.** Did that person run Claude Code 2.1.313 on October 29? Does `~/.ssh/authorized_keys` contain a "svc-telemetry" entry?
+3. **Look for persistence.** Unfamiliar scheduled tasks, crontab lines or LaunchAgents are the other signs.
+4. **If anything matches,** isolate the machine, remove the key and persistence, and rotate credentials the machine could reach: cloud storage, accounting, bid platforms.
+5. **Turn off extension auto-update** on machines that hold sensitive files, and update on purpose.
+
+## What are the limits of this story?
+
+This is one incident, reported by one outlet we could fetch, and the cause is still unknown. The exposure is narrow: Cursor users who updated during an 11-hour window. If nobody at your company codes, this does not touch you. It does show what a tool-building project needs before it starts: a named owner, a list of installed extensions, and a rule that bid files and accounting logins stay off the machine used for experiments.
+
+An earlier piece covered [what AI-found web flaws mean for contractor sites and portals](/posts/2026-10-23-php2shell-ai-found-php-flaws-construction-contractor-websites-bid-portals-patch-list). The common thread is that the tools around AI get attacked as often as the models do.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this one to whoever manages your IT.*
