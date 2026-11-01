@@ -1,0 +1,61 @@
+---
+title: "Google's Gemini 4 Carbon is limited to cyber defenders first. Contractors should expect more vendor patches and ask about them"
+date: "2026-11-01"
+excerpt: "Google's new model scored 71% on a patching benchmark and is rolling out to security teams before anyone else. For a GC or sub, the practical effect is likely more software fixes from the vendors that hold your project data."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+  - "https://9to5google.com/2026/10/28/gemini-4-carbon-announcement/"
+  - "https://winbuzzer.com/2026/10/28/gemini-4-carbon-ai-leads-test-for-fixing-vulnerable-code-xcxwbn/"
+  - "https://www.khaleejtimes.com/business/google-launches-gemini-4-carbon-ai-model-with-cybersecurity-focus-2"
+faqs:
+  - q: "What is Gemini 4 Carbon?"
+    a: "Gemini 4 Carbon is Google's new frontier model, announced October 28, 2026, with a focus on coding, agentic tasks and cybersecurity defense. Access starts with a subset of cyber defenders and widens to trusted partners over time."
+  - q: "Can a contractor use Gemini 4 Carbon today?"
+    a: "Not directly. Google says it is initially available to a subset of cyber defenders and will phase in more trusted partners through its Fairwind Program. Reports give no date for wider developer or business access."
+  - q: "Does Gemini 4 Carbon affect construction software security?"
+    a: "Possibly, indirectly. Security teams at software vendors and IT providers may use it to find and fix flaws faster, which could mean more patch notices for the tools a contractor depends on. That is an expectation, not something Google has confirmed for any construction vendor."
+  - q: "What should a small contractor ask software vendors about AI and security?"
+    a: "Ask whether the vendor uses AI to find and fix vulnerabilities, how quickly it ships critical patches, and how it will notify you. Get the answers in writing, especially for vendors that hold bid, payroll or owner data."
+---
+
+Google's Gemini 4 Carbon, announced October 28, is not something a contractor can use yet, because access is limited to a subset of cyber defenders. The effect to plan for is indirect: the software vendors and IT providers you rely on may find and patch flaws faster, so expect more update notices and ask each vendor what its process is.
+
+## What did Google actually release?
+
+Google describes Carbon as a frontier model with gains in coding, agentic tasks and cybersecurity defense. It is rolling out first to a subset of cyber defenders, with more trusted partners added gradually through Google's Fairwind Program. Reports say wider access for developers and businesses will follow, with no date given.
+
+Reported benchmark results, which come from Google's announcement as relayed by news outlets and which we have not tested independently:
+
+| Task | Benchmark | Reported score |
+|---|---|---|
+| Finding vulnerabilities | SEC-bench Pro | 88.2% |
+| Exploiting vulnerabilities | ExploitGym | 54.8% |
+| Patching vulnerabilities | CWE-bench | 71.0% |
+
+Introductory API pricing is reported at $2 per million input tokens and $10 per million output tokens, rising to $4 and $20 afterward.
+
+## Why should a GC or sub care about a security model?
+
+You will not run this model. Your vendors might. Think of the tools that hold your bids, pay applications, payroll, drawings and owner contacts: project management platforms, accounting and ERP systems, plan rooms, subcontractor portals, and the web host behind your company site. Those vendors have security teams, and those teams are the first audience for a model like this.
+
+If it works as advertised, the likely result is more flaws found and fixed in software you depend on. A 71% patching score also means roughly three in ten fixes in that test did not succeed, so a human still has to check the work.
+
+The same capability cuts both ways. A model that scores 54.8% at exploitation is a reminder that attackers get better tools too, and that unpatched systems are the easiest targets. Google's rollout restriction is meant to put defenders ahead, but it is not a guarantee.
+
+## What should a contractor do this month?
+
+1. **List the vendors that hold sensitive data.** Bid files, payroll, banking details and owner information come first.
+2. **Ask each one two questions in writing.** How fast do you ship critical security patches, and how will you tell us?
+3. **Assign one person to read update notices.** Patches that pile up unread are the same exposure as patches that never shipped.
+4. **Turn on automatic updates** for anything your own staff or IT contractor manages, and confirm it happened.
+5. **Do not expect the model itself to help you yet.** If an IT provider claims to use it, ask what that means in practice.
+
+## What is still unproven?
+
+Most coverage is secondary, and the benchmark numbers are Google's. No source we found shows a construction software vendor using Carbon, so any claim of a direct effect on your tools is a guess. The value of this story is a better set of vendor questions, not a new product to buy.
+
+## The takeaway
+
+This week, send the vendors that hold your bid and payroll data a two-line email asking about patch speed and notification. Their answers will tell you more about your exposure than any model benchmark.
