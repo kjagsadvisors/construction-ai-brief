@@ -3,13 +3,13 @@ title: "AI construction estimating and bid leveling: what actually works in 2026
 description: "AI takeoff tools now claim 95-98% accuracy on clean drawings and cut takeoff time by roughly half. Bid leveling is less mature. Here's the honest line for estimators and precon teams in 2026."
 target_keyword: "AI construction estimating and bid leveling"
 audience: "estimator"
-updated_at: "2026-09-02"
+updated_at: "2026-11-02"
 sources:
   - "https://www.bls.gov/ooh/business-and-financial/cost-estimators.htm"
   - "https://www.abc.org/News-Media/News-Releases/abc-construction-industry-must-attract-349000-workers-in-2026-despite-macroeconomic-headwinds"
   - "https://www.nasdaq.com/press-release/new-bluebeam-report-shows-early-ai-adopters-aec-seeing-significant-roi-despite-uneven"
   - "https://www.autodesk.com/design-make/research/state-of-design-and-make-2025"
-  - "https://construction.autodesk.com/products/autodesk-takeoff/"
+  - "https://www.autodesk.com/products/forma-takeoff/overview"
   - "https://www.togal.ai/news/togal-ai-raises-5-million"
   - "https://www.togal.ai/pricing"
   - "https://www.togal.ai/case-study/ku-study-togal-vs-ost"
@@ -25,7 +25,7 @@ faqs:
   - q: "Is AI bid leveling as reliable as AI takeoff?"
     a: "No. Takeoff AI has years of training data (drawings follow standard conventions) and clear accuracy benchmarks. Bid-leveling AI has to parse subcontractor quotes that arrive as PDFs, emails, and spreadsheets in wildly inconsistent formats with no shared schema, so the tools are newer and less proven. Expect takeoff automation to save you real hours today and bid-leveling automation to save you a first pass that still needs a full manual review."
   - q: "What does AI estimating software cost for a small GC or sub?"
-    a: "Kreo's Lite plan is $35 per user per month, but that tier is manual takeoff tools — its Auto Measure, Auto Count, and Caddie AI features only unlock on the $175-per-user-per-month Pro tier, so check what you're actually buying before you budget off the headline number. Togal.AI now lists Growth-plan pricing directly at $299 per user per month, STACK's Takeoff & Estimate plans run roughly $2,199-$2,999 per year depending on user count, and Autodesk Takeoff lists at around $1,250 per user per year. Free tiers exist (STACK's free plan, for instance) but cap project count and strip out assemblies and cost databases, so budget for a paid tier once you're bidding real work."
+    a: "Kreo's Essential plan is $100 per user per month, but it is takeoff without AI — the AI features (auto symbol counting, AI takeoff, Caddie AI) start on the Pro plan at $175 per user per month (1-4 users), so check what you're buying before you budget off the headline number. Togal.AI lists its Growth plan at $299 per user per month billed yearly, and STACK's Premium plan, which carries its AI takeoff features, lists at $299 per user per month billed annually (Pro is $349). STACK also has a free tier, but it lists no AI features, so budget for a paid tier once you're bidding real work."
   - q: "Who's liable if AI miscounts a takeoff or misses an exclusion in a bid comparison?"
     a: "The estimator who signs the bid, not the software vendor. Every AI takeoff and bid-leveling tool on the market positions itself as a first-pass assistant, not an authority — the contract and the bid still carry the name of the person who submitted them. See our [guide to AI liability and risk in construction](/seo/construction-ai-risk-liability-security-guide) for how that plays out when something goes wrong."
 ---
@@ -38,7 +38,7 @@ This matters because estimating is the one part of preconstruction that's both h
 
 Three distinct jobs, at three different levels of maturity:
 
-1. **Quantity takeoff.** The AI reads a drawing sheet, detects walls, doors, fixtures, and repeated symbols, and outputs a quantity — length, area, or count — with a reference back to where it found each item. This is the most mature use case; [Autodesk's Forma Takeoff](https://construction.autodesk.com/products/autodesk-takeoff/) and Togal.AI both run automated symbol detection across full sheet sets in minutes instead of hours.
+1. **Quantity takeoff.** The AI reads a drawing sheet, detects walls, doors, fixtures, and repeated symbols, and outputs a quantity — length, area, or count — with a reference back to where it found each item. This is the most mature use case; [Autodesk's Forma Takeoff](https://www.autodesk.com/products/forma-takeoff/overview) and Togal.AI both run automated symbol detection across full sheet sets in minutes instead of hours.
 2. **Cost buildup.** Once quantities exist, the software applies unit costs from an internal database or historical job data to produce a rough order of magnitude or a full detailed estimate. This step is only as good as the cost data behind it — a tool with a thin or outdated cost database will produce a confident-looking number that's wrong.
 3. **Bid leveling.** The AI reads incoming subcontractor quotes — usually PDFs or spreadsheets with no common format — and tries to normalize them into a side-by-side comparison: same scope, same line items, exclusions flagged. This is the least mature of the three, because sub quotes don't follow a standard the way architectural drawings do.
 
@@ -72,11 +72,11 @@ There's also a widening gap between firms that have adopted this workflow and fi
 
 Pricing spans a wide range depending on how much of the stack you're buying:
 
-- **Entry-level takeoff, but check the AI is actually included:** Kreo's Lite plan starts at $35 per user per month, scaling to $70 (Plus) and $175 (Pro). The AI features — Auto Measure, Auto Count, and the "Caddie AI" assistant — are gated to the $175 Pro tier, not the entry price ([Kreo pricing](https://www.kreo.net/pricing); [Kreo, Auto Measure documentation](https://help-takeoff.kreo.net/en/articles/5481199-auto-measure)).
+- **Entry-level takeoff, but check the AI is actually included:** Kreo's Essential plan is $100 per user per month and has no AI. The AI features — one-click measurements, auto symbol counting, AI takeoff, and the Caddie AI assistant — start on the Pro plan at $175 per user per month for 1-4 users; Business is $250 per user per month for 5-20 users, with API access ([Kreo pricing](https://www.kreo.net/pricing); [Kreo, Auto Measure documentation](https://help-takeoff.kreo.net/en/articles/5481199-auto-measure)).
 - **Vision-based AI takeoff, now list-priced:** Togal.AI moved from contact-sales-only to published pricing — $299 per user per month (about $3,588/year) for its Growth plan, with a custom Business plan for teams of four or more ([Togal.AI pricing](https://www.togal.ai/pricing)).
-- **Mid-market takeoff and estimating:** STACK's Takeoff & Estimate plans run roughly $2,199 to $2,999 per year depending on user count, with automated takeoff features concentrated in the higher tiers ([STACK pricing](https://www.stackct.com/takeoff-and-estimate-pricing/)).
-- **Enterprise / ACC-integrated:** Autodesk Takeoff lists at approximately $1,250 per user per year standalone, or as part of a broader Autodesk Construction Cloud precon bundle with custom pricing ([Autodesk Takeoff](https://construction.autodesk.com/products/autodesk-takeoff/)).
-- **Free tiers exist but are limited.** STACK's free plan supports basic digital takeoff and a capped number of projects, but strips out custom assemblies and cost databases — useful for testing the workflow, not for running a real bid. See our [breakdown of what's actually free across the category](/seo/free-ai-estimating-software-small-contractors) before you pick a trial to run.
+- **Mid-market takeoff and estimating:** STACK now lists Premium at $299 per user per month and Pro at $349, both billed annually. AI Takeoffs, STACK IQ, and symbol recognition sit in Premium; Pro adds no new AI features ([STACK pricing](https://www.stackct.com/takeoff-and-estimate-pricing/)).
+- **Enterprise / ACC-integrated:** Autodesk's takeoff product is now branded Forma Takeoff (the old Autodesk Takeoff page redirects there). We couldn't re-verify its current list price, so get a quote rather than budgeting off older figures ([Autodesk Forma Takeoff](https://www.autodesk.com/products/forma-takeoff/overview)).
+- **Free tiers exist but are limited.** STACK's free plan lists no AI features and, per our earlier review, caps projects and strips out custom assemblies and cost databases — useful for testing the workflow, not for running a real bid. See our [breakdown of what's actually free across the category](/seo/free-ai-estimating-software-small-contractors) before you pick a trial to run.
 
 None of these prices include the cost database or the historical job data that makes a cost buildup trustworthy — budget separately for that, and expect the AI licensing cost to be the smaller line item next to what you're already paying for estimating software broadly.
 
@@ -85,9 +85,9 @@ None of these prices include the cost database or the historical job data that m
 | Tool | What it's actually good at | What still needs a human | Starting price |
 |---|---|---|---|
 | **Togal.AI** | Fast, vision-based quantity takeoff from drawings; claims up to 98% detection accuracy, backed by an independent University of Kansas case study | Verifying non-standard symbols and hand-marked revisions | $299/user/month (Growth); custom for 4+ users (Business) |
-| **Autodesk Forma Takeoff** | 2D/3D takeoff inside the Autodesk Construction Cloud ecosystem; automated symbol detection | Cost database accuracy; best fit if you're already on ACC | ~$1,250/user/year |
-| **STACK Takeoff & Estimate** | Digital takeoff plus assemblies and cost estimating in one platform | Bid leveling is not the core feature; use alongside a bid-management tool | Free tier (limited); ~$2,199-$2,999/year depending on user count |
-| **Kreo (Caddie AI)** | Lowest-cost entry to AI-assisted takeoff for a small team | AI features (Auto Measure, Auto Count, Caddie) require the $175 Pro tier, not the $35 entry tier | $35/user/month (Lite, no AI); $175/user/month for AI (Pro) |
+| **Autodesk Forma Takeoff** | 2D/3D takeoff inside the Autodesk Construction Cloud ecosystem; automated symbol detection | Cost database accuracy; best fit if you're already on ACC | Get a quote (list price not re-verified) |
+| **STACK Takeoff & Estimate** | Digital takeoff plus assemblies and cost estimating in one platform | Bid leveling is not the core feature; use alongside a bid-management tool | Free tier (no AI listed); $299/user/month (Premium, AI takeoff), $349 (Pro), billed annually |
+| **Kreo (Caddie AI)** | Lowest-cost entry to AI-assisted takeoff for a small team | AI features (auto counting, AI takeoff, Caddie) require the Pro tier, not the no-AI Essential tier | $100/user/month (Essential, no AI); $175/user/month for AI (Pro) |
 | **Autodesk BuildingConnected Pro** | Bid invites, subcontractor prequalification, and bid leveling at scale | Normalizing genuinely inconsistent sub quote formats | Custom (contact sales) |
 | **Status quo (manual takeoff + spreadsheet leveling)** | Full human judgment on every quantity and every quote | Nothing — it's all human, and it's the slowest option here | No new spend |
 
@@ -101,6 +101,6 @@ Practically, that means your buyout file should show the same kind of audit trai
 
 ## What should a small GC or sub actually pilot first?
 
-Start with takeoff, not bid leveling — it's the more mature technology and the faster payback. Run one recent job's drawing set through a genuinely AI-enabled low-cost tier — STACK's free plan or a single seat of Kreo's $175/month Pro tier, since Kreo's cheaper $35 tier is manual takeoff without the AI features — side by side with how your estimator would normally take it off. Compare the quantities line by line, not just the total, and time both processes. If the AI catches what your estimator caught — plus maybe a count your estimator missed on a repetitive floor plan — and does it in a fraction of the time, that's your signal to move to a paid tier and put it in front of a real bid.
+Start with takeoff, not bid leveling — it's the more mature technology and the faster payback. Run one recent job's drawing set through a genuinely AI-enabled low-cost tier — STACK's free plan or a single seat of Kreo's $175/month Pro tier, since Kreo's $100 Essential tier is takeoff without the AI features — side by side with how your estimator would normally take it off. Compare the quantities line by line, not just the total, and time both processes. If the AI catches what your estimator caught — plus maybe a count your estimator missed on a repetitive floor plan — and does it in a fraction of the time, that's your signal to move to a paid tier and put it in front of a real bid.
 
 Hold off on a bid-leveling tool until the takeoff pilot is running cleanly. The bid-leveling category is younger, the accuracy claims are thinner, and the workflow only pays off once your incoming sub quotes are already reasonably standardized — which is worth fixing with a quote template before you add AI on top of messy inputs. [Pricing on the underlying model layer keeps moving in your favor too](/posts/2026-07-01-claude-sonnet-5-pricing-construction-estimating-agents): if you're weighing a custom-built internal tool instead of an off-the-shelf product, the cost of the AI model itself is no longer the expensive part of that build.
