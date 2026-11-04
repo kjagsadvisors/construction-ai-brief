@@ -3,7 +3,7 @@ title: "The real cost of AI in your construction software: what's driving your b
 description: "AI add-ons are pushing software renewals up 20-37% industry-wide, and construction vendors are shifting from flat per-seat pricing to metered credit billing. Real 2026 numbers from Bluebeam, Procore, GitHub, and Microsoft."
 target_keyword: "real cost of AI in construction software"
 audience: "gc_ops"
-updated_at: "2026-09-04"
+updated_at: "2026-11-04"
 sources:
   - "https://platform.claude.com/docs/en/about-claude/pricing"
   - "https://www.anthropic.com/news/claude-sonnet-5"
@@ -17,6 +17,8 @@ sources:
   - "https://www.businesswire.com/news/home/20260723618361/en/Procore-Introduces-Digital-Coworker-Packages-Expands-AI-Agent-Library-and-Previews-Skills-to-Help-Construction-Teams-Put-AI-to-Work"
   - "https://openai.com/index/openai-broadcom-jalapeno-inference-chip/"
   - "https://aps.autodesk.com/pricing-cloud-credits"
+  - "https://v2.support.procore.com/faq-what-are-the-differences-between-the-digital-coworker-packages"
+  - "https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises"
   - "https://autodesksaudits.com/blog/autodesk-subscription-pricing-2026/"
   - "https://www.tropicapp.io/reports/software-spending-trends-2025"
   - "https://www.bvp.com/atlas/the-ai-pricing-and-monetization-playbook"
@@ -52,17 +54,17 @@ Put together: your renewal conversation this year isn't just "how much did the s
 
 ## How much are contractors actually paying for AI right now? Four real examples
 
-The pricing models vary enough vendor to vendor that a straight dollar comparison isn't fair, but the four cases below cover the range you'll run into on a typical construction software stack as of September 2026.
+The pricing models vary enough vendor to vendor that a straight dollar comparison isn't fair, but the four cases below cover the range you'll run into on a typical construction software stack as of November 2026.
 
 **Bluebeam Max — flat annual add-on.** Trimble's Bluebeam launched Bluebeam Max in Q1 2026 as a premium tier layered on top of existing Revu and Studio plans, built on Anthropic's Claude models. It includes Smart Review, which scans construction documents for design issues, scope gaps, and discrepancies, and Smart Overlay, which detects design changes across disciplines and drawing scales. Introductory pricing is $590 per user per year, and buyers who lock in at that rate keep it through their 2027 renewal — after that, standard list pricing takes over at a rate Bluebeam hasn't announced yet.
 
-**Procore's AI agents — now a paid, tiered product, still no list price.** Following its Datagrid acquisition, Procore built AI agents into its platform — Deep Search, Submittal Review, RFI, Daily Log, and Contract Review agents among them — and ran them in private beta through mid-2026. [That changed on July 23, 2026](/posts/2026-07-25-procore-skills-digital-coworker-packages-institutional-knowledge), when Procore moved the agents to general availability as three paid Digital Coworker packages: Starter Pack (5 agents), Pro (the full 20-agent library), and Enterprise (adds Agent Studio for building custom agents). None of the three carries a published price — Procore still folds AI access into your Annual Construction Volume-based quote, so the number you get depends entirely on what your rep puts in front of you. [The agents still don't sign off on anything themselves](/posts/2026-06-21-procore-ai-agents-what-they-do); they flag and draft, and a person approves.
+**Procore's AI agents — now a paid, tiered product, still no list price.** Following its Datagrid acquisition, Procore built AI agents into its platform — Deep Search, Submittal Review, RFI, Daily Log, and Contract Review agents among them — and ran them in private beta through mid-2026. [That changed on July 23, 2026](/posts/2026-07-25-procore-skills-digital-coworker-packages-institutional-knowledge), when Procore moved the agents to general availability as three paid Digital Coworker packages: Starter Pack (5 agents; flat-rate on a 6-month term, up to three projects), Pro (the full 20-agent library on a 12-month term with a shared monthly credit pool), and Enterprise (adds Agent Studio for building custom agents, also credit-based on a 12-month term). None of the three carries a published dollar price, so the number you get depends on what your rep puts in front of you; all three include a Control Tower dashboard for tracking credit consumption. [The agents still don't sign off on anything themselves](/posts/2026-06-21-procore-ai-agents-what-they-do); they flag and draft, and a person approves.
 
 **GitHub Copilot — metered credits, a rough first bill, and a second billing change already landing.** GitHub's shift off flat-rate pricing landed hardest here because it happened mid-year to an existing customer base. Inline code completion stayed unlimited, but Copilot Chat, agent mode, code review, and the CLI now draw from a monthly pool of AI Credits billed at each model's published API rate, one credit per cent, with no rollover. [The first full billing cycle closed June 30, and the numbers were rough](/posts/2026-07-01-github-copilot-usage-billing-construction-internal-tools): one developer's single agent-mode request burned 822 credits, more than half a month's Pro allotment, and outside reporting on the cycle described accounts projecting jumps from around $29 to $750 a month, and from $50 to $3,000, once real usage hit metered rates. GitHub responded by tripling the monthly credit pool for Business and Enterprise customers ($30 and $70) as a temporary buffer through August 2026 — that buffer has since expired, standard pools ($19 and $39) are back, and GitHub has layered on a second change: starting October 1, 2026, every assigned Business or Enterprise seat is billed upfront at the start of the cycle, with no prorated refund for a seat cut mid-month. Copilot's coding audience is thin in construction, but its agent-mode audience isn't — a lot of the small internal tools GC and sub back offices run (an RFI-log watcher, a submittal tracker, a vendor cut-sheet scraper) got built by whoever had a Copilot seat, and those are exactly the workflows that burn the metered pool fastest.
 
 **Microsoft 365 Copilot Cowork — metered, pay-as-you-go, on top of a mandatory base license.** Cowork, Microsoft's autonomous multi-step workflow agent, went generally available June 16 and requires an existing Microsoft 365 Copilot User Subscription License ($30/user/month) before you can turn it on. Usage on top of that license runs at $0.01 per Copilot Credit on the Pay-Go tier (a prepaid tier offers a discount), and Microsoft hasn't published a standard credit cost by task type — complex multi-step work (comparing thousands of files, reconciling a schedule) draws down faster than a simple request, and the only way to know your actual cost is to watch the first billing cycle. An August 2026 update added an effort-level control so admins can trade task quality for lower credit burn, which is the closest thing to a cost lever Microsoft has given users so far.
 
-## Comparison: construction software AI pricing at a glance (September 2026)
+## Comparison: construction software AI pricing at a glance (November 2026)
 
 | Vendor / tool | AI feature | Pricing model | What it costs | Status |
 |---|---|---|---|---|
