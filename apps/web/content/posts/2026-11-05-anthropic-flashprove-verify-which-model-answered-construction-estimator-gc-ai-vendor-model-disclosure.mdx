@@ -1,0 +1,71 @@
+---
+title: "Anthropic's FlashProve tries to prove which AI model answered. Estimators and GCs can ask vendors that question today"
+date: "2026-11-05"
+excerpt: "Anthropic published an open-source prototype for proving an AI response came from the model a vendor claims. It's not usable yet, but the problem it targets, silent model swaps, is one a contractor can address in a contract."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://www.anthropic.com/research/provable-inference"
+  - "https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/"
+  - "https://theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-november-4-2026"
+faqs:
+  - q: "Can a contractor verify which AI model an estimating tool is really using?"
+    a: "Not technically, not yet. Anthropic's FlashProve is a research prototype for exactly that, with no deployment planned. Today the practical check is contractual: require the vendor to name the model, notify you of changes, and let you re-run a test set."
+  - q: "What is FlashProve?"
+    a: "FlashProve is an open-source research prototype from Anthropic that uses a zero-knowledge proof to show a response came from a specific committed model, without revealing the model's weights. Anthropic describes it as a research prototype, and its limits include 1,024-token contexts."
+  - q: "Why would an AI vendor swap in a different model?"
+    a: "Cost is the obvious reason. TechCrunch's coverage notes that verification could expose labs that quietly substitute a cheaper model. A construction software vendor reselling model access has the same incentive, which is why model-change notice belongs in the contract."
+  - q: "What should a GC ask an AI vendor about model changes?"
+    a: "Ask which model and version runs your workflows, how much notice you get before it changes, whether you can pin a version, and whether the vendor will re-run your acceptance test set after a change."
+---
+
+A contractor has no way to prove which AI model produced a takeoff summary or a bid-leveling sheet. Anthropic published a prototype this week that aims to fix that, but it's years from a jobsite tool. The useful move now is contractual: ask your AI vendors to name the model, pin the version, and give notice before it changes.
+
+## What did Anthropic release?
+
+On Nov. 2, Anthropic published [FlashProve](https://www.anthropic.com/research/provable-inference), an open-source research prototype for "provable inference." It uses a zero-knowledge proof so a provider can show that a response came from a specific committed model, without revealing the model's weights. The stated goal is to let users and auditors check that an answer came from the claimed model "rather than a cheaper substitute."
+
+[TechCrunch](https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/) reports the researchers describe the post as intermediate progress, and there are no plans to deploy it at Anthropic or any other lab yet.
+
+## How far is it from being usable?
+
+Far. Per Anthropic's own write-up:
+
+| Property | Reported figure |
+|---|---|
+| Proof generation speed | About 110 tokens per second on one H100 |
+| Proof size | About 19 MB per 1,024-token request |
+| GPU cost vs. normal serving | Roughly 70–95 times the GPU time |
+| Context limit | 1,024 tokens |
+| Output type | Greedy decoding only, not sampled output |
+
+A 1,024-token limit is a few pages of text. A spec section or a bid package is many times that. So this is a proof of concept, not something a sub can switch on.
+
+## Why should an estimator or GC care?
+
+The problem it targets is real for anyone buying AI software. If a vendor's estimating, takeoff-assist or RFI tool sits on top of a hosted model, the vendor can change which model runs underneath. Cheaper models can be fine. They can also quietly change how the tool reads a scope exclusion or an alternate.
+
+Here's what that looks like on a job:
+
+- An estimator builds trust in a bid-leveling assistant over three projects, then the vendor changes the underlying model and the output style shifts without notice.
+- A GC's PM relies on AI-drafted RFI responses, and nobody can say which model version produced the one that went to the architect.
+- A sub's accuracy check from the pilot no longer describes the product it's paying for.
+
+None of these needs cryptography to manage. It needs paper.
+
+## What should you ask vendors now?
+
+1. **Which model and version runs our workflows?** Get it in writing, not on a marketing page.
+2. **Can we pin a version?** Or at least get advance notice before it changes. Set the notice window in the agreement.
+3. **Will you re-run our acceptance set after a change?** Keep 10 to 20 past bids or RFIs with known right answers and ask for the results.
+4. **What happens if quality drops?** Termination or credit rights, stated plainly.
+
+## What's still unknown?
+
+Whether labs and vendors will ever publish the model "fingerprints" a system like this needs. TechCrunch notes that it only works if they cooperate. Even then, a proof says which model answered, not whether the answer was right. An estimator still has to check the quantities.
+
+## Takeaway
+
+Build a small test set from past work this week, and add model-name and change-notice language to your next AI vendor renewal. That gets you most of the protection FlashProve is chasing, with none of the 70x GPU bill.
+
+*Forward this to the person who signs your software renewals. Construction AI Brief publishes three times a week at constructionaibrief.com.*
