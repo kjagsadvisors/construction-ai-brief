@@ -1,0 +1,59 @@
+---
+title: "Supermicro and SambaNova are selling 20 kW air-cooled AI racks. MEP subs should price the retrofit work, not just the liquid-cooled megaprojects"
+date: "2026-11-06"
+excerpt: "SambaNova and Supermicro plan inference systems built around 10,000 chips that run at about 20 kW per rack without liquid cooling. If they sell, some AI capacity lands in existing rooms, which means electrical and mechanical upgrade scopes instead of new campuses."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://cryptobriefing.com/sambanova-super-micro-10000-sn50-chips/"
+  - "https://www.fierce-network.com/cloud/sambanova-targets-ai-inference-boom-chips-built-existing-data-centers"
+  - "https://siliconangle.com/2026/07/08/inference-chip-startup-sambanova-valued-11b-1b-funding-round/"
+faqs:
+  - q: "What did SambaNova and Supermicro announce?"
+    a: "On Nov. 3, 2026, SambaNova and Supermicro said they plan to build AI inference systems around 10,000 SambaNova SN50 chips, paired with NVIDIA GPUs. No deployment timeline has been disclosed."
+  - q: "How much power does a SambaNova SN50 rack use?"
+    a: "SambaNova designs the SambaRack SN50 for an average draw of about 20 kW per rack and says it does not require liquid cooling. Those are vendor design figures, not field measurements."
+  - q: "Does this mean AI data centers will stop needing new construction?"
+    a: "No. A lower-power rack fits more existing rooms, but demand for training and high-density systems is still driving new campuses. The likely effect is more retrofit and fit-out work alongside new builds."
+  - q: "What should an electrical or mechanical sub check before bidding an AI retrofit?"
+    a: "Confirm available feeder and panel capacity, the room's existing cooling capacity at the rack level, floor loading, and whether the owner's 20 kW figure is average or peak. Ask who supplies and sets the racks."
+---
+
+SambaNova and Supermicro plan to sell AI inference systems that draw about 20 kW per rack and run on air cooling. If that holds up in the field, some AI capacity will go into existing data center rooms, and the work for electrical and mechanical subs becomes retrofit and upgrade scopes rather than ground-up campuses.
+
+## What was announced?
+
+On Nov. 3, SambaNova and Supermicro said they plan to build inference systems around [10,000 SambaNova SN50 chips](https://cryptobriefing.com/sambanova-super-micro-10000-sn50-chips/), paired with NVIDIA GPUs. The GPUs handle the prompt-processing step and the SN50 chips handle token generation. The design target is roughly 20 kW per rack, and the systems are described as fitting existing data center infrastructure without liquid cooling. Supermicro and SambaNova have not disclosed a deployment timeline, and SambaNova has said SN50 systems ship in the second half of 2026.
+
+Two cautions. The power and cooling numbers are vendor design targets. And the cost and speed comparisons against NVIDIA's B200 that SambaNova cites are also the company's own claims, which [had not been independently verified](https://www.fierce-network.com/cloud/sambanova-targets-ai-inference-boom-chips-built-existing-data-centers) at the time of the announcement.
+
+## Why does 20 kW per rack matter to a sub?
+
+Most of the AI construction news this year has been about very large campuses with high-density, liquid-cooled halls. A 20 kW air-cooled rack is a different job. Many existing enterprise and colocation rooms were built for far lower densities, so 20 kW is still a step up, but it is a step that can often be handled with upgrades instead of a rebuild.
+
+| | New high-density AI hall | Retrofit for 20 kW air-cooled racks |
+|---|---|---|
+| Typical owner | Hyperscaler or developer | Enterprise, colo operator, cloud provider |
+| Electrical scope | New utility service, switchgear, busway | Feeder and panel upgrades, new PDUs, branch circuits |
+| Mechanical scope | Liquid loops, CDUs, heat rejection | Added CRAH/CRAC capacity, containment, airflow changes |
+| Schedule driver | Equipment lead times, utility power | Outage windows in a live room |
+| Risk | Scale, financing | Working next to energized equipment |
+
+## What should an electrical sub ask before pricing?
+
+- What is the actual available capacity at the room's distribution, and what is the per-rack load the owner is designing for?
+- Is 20 kW an average or a peak? The announcement says average, and breakers and conductors are sized for the peak.
+- Who provides and sets the racks, and who owns commissioning and load testing?
+- Can the work be phased so the room stays live?
+
+## What should a mechanical sub ask?
+
+Air cooling at 20 kW per rack still has to move a lot of air. Ask whether the room's existing cooling units have the capacity at the rack level, not just in total, and whether hot-aisle or cold-aisle containment is in scope. Check floor loading and raised-floor airflow before assuming the room is ready.
+
+## What is still hype?
+
+A chip startup valued at [$11 billion in July](https://siliconangle.com/2026/07/08/inference-chip-startup-sambanova-valued-11b-1b-funding-round/) has every reason to say its racks fit anywhere. No customer deployments have been named in the announcement, and "fits existing infrastructure" will depend on each room. Treat it as a reason to watch for retrofit bids, not as a forecast.
+
+## Takeaway
+
+If you already serve enterprise or colocation data rooms, call your facility contacts and ask whether anyone is planning AI inference racks next year. Have a one-page checklist ready covering feeder capacity, cooling at the rack, containment, and outage windows. That is where a 20 kW rack becomes a bid.
