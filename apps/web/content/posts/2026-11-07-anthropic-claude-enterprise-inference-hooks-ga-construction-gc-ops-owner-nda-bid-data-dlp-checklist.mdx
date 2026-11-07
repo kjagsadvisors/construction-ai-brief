@@ -1,0 +1,56 @@
+---
+title: "Anthropic's Claude Enterprise hooks let a GC block owner-confidential files before the AI sees them"
+date: "2026-11-07"
+excerpt: "Anthropic made inference hooks generally available on Nov. 5, so a company's own data-loss rules can check prompts and tool calls in Claude Enterprise. For GCs holding owner NDAs and bid data, here is what that does and what it doesn't."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://claude.com/blog/claude-enterprise-security-updates"
+  - "https://thenextweb.com/news/anthropic-inference-hooks-dlp-claude-enterprise"
+faqs:
+  - q: "Can a general contractor stop employees from pasting owner-confidential documents into an AI tool?"
+    a: "In Claude Enterprise, yes in principle. Anthropic's inference hooks send prompts and tool calls to a company's own security tool, which can apply its existing data-loss rules before the request proceeds. It requires that security tool to exist and be configured; Claude does not supply the rules."
+  - q: "What are Claude Enterprise inference hooks?"
+    a: "They are a generally available feature, announced Nov. 5, 2026, that sends prompts (prompt hooks) and tool calls (pre-tool-call hooks) from supported Claude products to a company's security tooling for a check. Anthropic says teams keep their existing security policies and apply them to Claude through vendor integrations."
+  - q: "Does Claude's security center prove a contractor is compliant with an owner's data requirements?"
+    a: "No. Anthropic calls the beta security center guidance based on its recommendations, not a certification or a guarantee of compliance. It compares your settings to Anthropic's recommended configuration and can export a report."
+  - q: "What happens if a laid-off project engineer still has Claude access?"
+    a: "A new beta Admin API call can sign a member out of all browsers and devices in one step while leaving them in the organization. Anthropic says it does not end API keys, cloud sessions already running, or scheduled routines, so those need separate cleanup."
+---
+
+A GC can now put its own data-loss rules in front of Claude Enterprise, so a prompt containing an owner's confidential drawings or a competitor's bid number can be stopped before it reaches the model. Anthropic made that feature, called inference hooks, generally available on Nov. 5. It only works if a company already has security tooling to enforce those rules.
+
+## What did Anthropic ship?
+
+According to [Anthropic's announcement](https://claude.com/blog/claude-enterprise-security-updates), two kinds of hooks are now generally available for Claude Enterprise:
+
+- **Prompt hooks** send prompts from supported products to your security tool for a check.
+- **Pre-tool-call hooks** check tool calls before they run.
+
+Anthropic says teams keep their existing security policies and apply them to Claude through vendor integrations. When the feature launched in beta in August, [The Next Web reported](https://thenextweb.com/news/anthropic-inference-hooks-dlp-claude-enterprise) that the check is a webhook to a customer's own data-loss-prevention (DLP) server, with an allow or deny verdict, and a shadow mode that logs without blocking so a company can test rules first. Anthropic's Nov. 5 post doesn't repeat those details, so confirm them with your vendor.
+
+Several other pieces shipped in beta: a security center that compares your Claude settings to Anthropic's recommendations, centralized management across organizations, and a one-call member sign-out through the Admin API.
+
+## Why should a GC's operations team care?
+
+Owner contracts increasingly restrict where project information can go. Drawings under NDA, security-sensitive facility layouts, and pricing from subcontractor bids are the files a well-meaning project engineer might paste into an AI chat to summarize. Until now, "don't do that" was a policy memo. Hooks make it enforceable, if your IT provider can write the rule.
+
+## What does it not do?
+
+- **It isn't included.** Claude doesn't ship with rules. You need a security product or provider that supports the hooks, and someone to define what "owner-confidential" looks like in a file name, project code, or document marking.
+- **It only covers Claude Enterprise.** Staff using a personal ChatGPT login or a free chat tool are outside it.
+- **The security center isn't a certification.** Anthropic describes it as guidance, "not a certification or a guarantee of compliance." Don't hand its report to an owner as proof of compliance.
+- **Sign-out has gaps.** The new call doesn't end API keys, cloud sessions already running, or scheduled routines.
+- **Endpoint monitoring is detection-only.** Anthropic says the sensors "run in detection mode," so they report activity but don't block it.
+
+## Should a mid-size GC act now?
+
+Most 50-person contractors don't run a DLP server, so this is a question for your IT provider, not a switch to flip. A practical order of operations:
+
+1. List the project data an owner contract or NDA restricts from third-party tools.
+2. Ask your IT provider whether your current security product supports Claude's inference hooks.
+3. If you're not on Claude Enterprise, ask how the same rules would apply to the AI tools staff actually use.
+4. Run any rule in monitor-only mode first, so you see what would have been blocked before it interrupts a PM on a deadline.
+5. Write an offboarding step that covers API keys and scheduled automations, not just the login.
+
+The takeaway: the next time an owner's counsel asks how you keep project data out of AI tools, "we have a policy" is a weaker answer than "we have a rule that checks it." The feature now exists; having the rule behind it is the work.
