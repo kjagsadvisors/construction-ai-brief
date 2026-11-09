@@ -1,0 +1,56 @@
+---
+title: "Microsoft now shows how to run a coding agent on one workstation GPU. An estimator can build bid-file tools without uploading the bid"
+date: "2026-11-09"
+excerpt: "Microsoft published a walkthrough for running Qwen3.8-27B as a local coding agent in GitHub Copilot on a 24 GB Nvidia GPU. For an estimating shop, it's a way to build spreadsheet and takeoff helpers while bid files stay on the machine."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://devblogs.microsoft.com/foundry/foundry-local-agentic-coding-qwen3-8-27b/"
+  - "https://aiweekly.co/alerts/microsoft-foundry-local-runs-qwen38-27b-on-device-for-copilot"
+  - "https://visualstudiomagazine.com/articles/2026/11/05/microsoft-shows-how-to-run-qwen-coding-agents-locally-with-github-copilot.aspx"
+faqs:
+  - q: "Can an estimator run an AI coding assistant without sending bid files to the cloud?"
+    a: "Yes, with the right hardware. Microsoft's Nov. 5 walkthrough runs Qwen3.8-27B locally through Foundry Local and connects it to GitHub Copilot, so prompts go to a model on your own machine. It needs an Nvidia GPU with at least 24 GB of VRAM."
+  - q: "What hardware does Microsoft's local Qwen3.8-27B setup need?"
+    a: "An Nvidia GPU with at least 24 GB of VRAM for the roughly 18 GB 4-bit model at up to 64K tokens of context, and 32 GB or more for the full 262K context. Microsoft's example is Windows, and Mac and AMD GPU support is planned but not available yet."
+  - q: "Is a local coding model as good as a cloud model for building estimating tools?"
+    a: "No. Microsoft itself recommends cloud models for complex, high-reasoning work and local models for everyday coding and subtasks. Its benchmark scores are self-reported, not independently verified."
+  - q: "What construction tasks suit a local coding model?"
+    a: "Small, checkable scripts: cleaning a bid-tab export, reformatting a vendor quote into a leveling sheet, or writing a macro for a takeoff spreadsheet. Avoid anything where an unnoticed error would change a bid number without review."
+---
+
+An estimating shop with one 24 GB Nvidia workstation can now run an AI coding assistant entirely on that machine, and Microsoft has published the steps. That means a precon team can build small bid-file tools without pasting quotes or drawings into a cloud service. It does not mean the local model matches the best hosted ones.
+
+## What did Microsoft actually publish?
+
+In a [Nov. 5 Foundry blog post](https://devblogs.microsoft.com/foundry/foundry-local-agentic-coding-qwen3-8-27b/), Microsoft walks through running Alibaba's Qwen3.8-27B through Foundry Local and wiring it into GitHub Copilot using the Bring Your Own Key setting. The 4-bit version is about 18 GB. Microsoft says it needs an Nvidia GPU with at least 24 GB of VRAM for up to 64K tokens of context, and 32 GB or more for the full 262K. The example is Windows, and Mac and AMD GPU support is listed as planned. [Visual Studio Magazine](https://visualstudiomagazine.com/articles/2026/11/05/microsoft-shows-how-to-run-qwen-coding-agents-locally-with-github-copilot.aspx) and [AI Weekly](https://aiweekly.co/alerts/microsoft-foundry-local-runs-qwen38-27b-on-device-for-copilot) report the same setup and figures.
+
+Microsoft reports scores of 73.0 on Terminal Bench 2.1 and 61.7 on SWE-bench Pro. Those are Microsoft's published numbers, not independent tests.
+
+## What does this mean for estimators?
+
+Estimators already build their own tools: leveling sheets, unit-price lookups, Excel macros. Most of that code is small and checkable. The blocker has been privacy. Pasting a sub's quote or a GC's bid package into a hosted assistant can conflict with NDA and bid-confidentiality terms. A model running on your own workstation removes the upload step.
+
+Where a local coding model fits, and where it doesn't:
+
+| Task | Local model fit | Why |
+|---|---|---|
+| Clean up a bid-tab CSV export | Good | Small, and you can compare output to the source |
+| Reformat vendor quotes into a leveling sheet | Good | Repeatable, easy to spot-check |
+| Write a macro for a takeoff spreadsheet | Good | Low stakes if you test on a copy |
+| Build a multi-system estimating app | Poor | Needs the stronger reasoning of hosted models |
+| Anything that silently changes a bid total | Avoid | An unnoticed error costs real money |
+
+## Should a mid-size contractor buy hardware for this?
+
+Probably not yet. A 24 GB workstation GPU is a real purchase, the setup needs you to install CUDA and cuDNN yourself, and Microsoft's own advice is to use cloud models for complex, high-reasoning work and local models for everyday coding and subtasks. If your firm already has a workstation with a qualifying GPU, a one-week trial is cheap. If not, the more useful move is to tell your vendors you want written terms on how bid data is handled. We covered the hosted-versus-self-host tradeoff in [Mistral's open model and what it means for private bid files](/posts/2026-10-31-mistral-large-4-open-weights-construction-estimator-private-ai-bid-files-hosted-vs-self-host).
+
+## What still needs a human?
+
+Everything that touches a number. A coding assistant, local or hosted, can write a formula that looks right and isn't. Every script should be tested against a past bid with a known answer before it touches a live one. Someone also has to own the tool when the estimator who built it leaves.
+
+## The takeaway
+
+Pick one annoying, repeatable task, such as turning sub quotes into a leveling sheet. Have the assistant build the script on a copy of a closed bid, then compare its output to your manual result line by line. If it matches and saves an hour a bid, keep it. If it doesn't, you've learned that at no cost to a live proposal.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) for the AI news that changes an estimator's workflow.*
