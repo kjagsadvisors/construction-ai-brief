@@ -1,0 +1,67 @@
+---
+title: "The best coding agent fully finished only 26% of real change requests. Estimators building internal tools should plan for the other 74%"
+date: "2026-11-10"
+excerpt: "A new benchmark built from real user coding sessions found the top agent met about 70% of requirements per task but fully solved just over a quarter. For an estimator asking AI to tweak a bid tool, that gap is the review workload."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://the-decoder.com/ai-coding-agents-still-need-human-cleanup-on-nearly-three-out-of-four-tasks-in-a-real-world-test/"
+  - "https://aiweekly.co/alerts/co-design-bench-top-coding-agent-completes-just-264-of-real-user-tasks"
+  - "https://arxiv.org/html/2603.03823v1"
+faqs:
+  - q: "Can an AI coding agent reliably update an estimating spreadsheet tool or web app on its own?"
+    a: "Not yet, based on Co-Design Bench. The best of ten agents fully completed only 26.4% of real user change requests, though it met about 70% of the requirements per task. Plan on a human finishing and checking the rest."
+  - q: "What is Co-Design Bench?"
+    a: "It is a benchmark of tasks drawn from real coding sessions, mostly requests users had to rephrase or roll back. Agents rework an existing web app, and AI judges test the result in a browser."
+  - q: "Does adding more compute fix incomplete AI code changes?"
+    a: "Not according to the benchmark coverage. One model used nearly six times as many tokens as the top model on small changes and still scored significantly worse."
+  - q: "How should a contractor pilot an AI coding agent for internal tools?"
+    a: "Start with one small, single-type change on a copy of the tool, such as adding a column or a report. Check every requirement against a written list, and keep the original file as a rollback."
+---
+
+An AI coding agent can get a change request about 70% right and still leave you with a tool you can't trust. In Co-Design Bench, a new test built from real user coding sessions, the best of ten agents fully completed only 26.4% of tasks, according to [The Decoder](https://the-decoder.com/ai-coding-agents-still-need-human-cleanup-on-nearly-three-out-of-four-tasks-in-a-real-world-test/). For an estimator who wants AI to adjust a bid-comparison tool or takeoff dashboard, that gap is your review workload.
+
+## What did the benchmark actually test?
+
+Co-Design Bench gives agents an existing web app and a change request taken from real sessions, many of which users had to rephrase or roll back. Some requests include images, audio, video or documents. Two AI judges grade the result by running the app in a browser. The tasks range from small tweaks to full overhauls, per the same report, and the paper's task set was curated from tens of thousands of real queries ([AI Weekly](https://aiweekly.co/alerts/co-design-bench-top-coding-agent-completes-just-264-of-real-user-tasks)).
+
+The top agent met 69.9% of acceptance criteria per task on average but was fully correct on 26.4% of tasks. Older benchmarks show scores above 99%, so they no longer tell you much about messy requests.
+
+## Why should estimators care?
+
+Many estimating shops now ask a chatbot or coding agent to build small internal tools: a bid-leveling sheet, a scope-gap checklist generator, a quantity roll-up page. The first version often works. The trouble starts with change requests like "add alternates, show unit costs by CSI division, and flag any line over budget."
+
+That is exactly what the benchmark punishes. Per the coverage, every model dropped when a task combined three or four kinds of change, such as layout, interaction and content. Most failures were not total. The agent did most of the work and left one detail unfinished. In an estimate, that is the worst kind of error: one unfinished detail looks like a finished tool.
+
+## What does that look like on a bid tool?
+
+| Request type | Risk | What to check |
+|---|---|---|
+| Single change (add a column) | Lower | Totals still foot to the old version |
+| Combined change (alternates + division rollup + flags) | Higher | Each requirement tested separately |
+| Request with attachments (a spec PDF, a photo of a markup) | Higher | Agent's reading of the document, line by line |
+
+The article reports the top model fully solved 41% of multimodal tasks and under 18% of repository tasks. We would not read those as sizing guidance for your tools, because the benchmark used web apps, not spreadsheets.
+
+## Does more compute or a better setup help?
+
+Not by brute force. GLM-5.2 used nearly six times the tokens of GPT-6 Astra on small changes and still scored significantly worse. The environment around the agent also mattered: one model scored 75% or 56% on larger overhauls depending on the harness, and two models' rankings could flip. So a vendor demo on its own setup tells you little about your results.
+
+## What are the limits?
+
+- Each task used one fixed request. Real use includes follow-ups and corrections, which the test did not measure.
+- AI judges grade the output and can be wrong.
+- Co-Design Bench is a web-app benchmark. It says nothing direct about Excel macros or your estimating software.
+- The headline "nearly three in four" is the share of tasks left incomplete, not a share of useless output.
+
+## What should an estimating lead do this week?
+
+1. Keep a copy of any AI-built tool before every change. Version names beat memory.
+2. Write the change as a numbered requirement list and test each item, not just the screen that changed.
+3. Make one kind of change per request. Split combined asks.
+4. Re-run a past bid through the tool and compare totals to the number you submitted.
+5. Assign one person as the sign-off. If nobody owns the check, don't use the tool on a live bid.
+
+For earlier context on setting expectations, see [our read on the 12% agent benchmark](/posts/2026-11-02-semianalysis-gdpx-12-percent-agent-benchmark-construction-estimator-pm-back-office-pilot-expectations).
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) for the AI news that changes an estimator's workflow.*
