@@ -1,0 +1,58 @@
+---
+title: "Fireworks AI's breach reached stored datasets and keys, not live AI requests. GCs should ask where their AI vendors keep training files"
+date: "2026-11-10"
+excerpt: "AI hosting company Fireworks AI says attackers reached billing data and, for some customers, stored secrets, datasets and partial model weights, while its zero-retention inference service showed no impact. For a GC, the lesson is about what your AI vendors keep at rest, and which keys you have handed them."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://fireworks.ai/security/bulletins/october-2026-security-incident-update"
+  - "https://www.unite.ai/fireworks-ai-expands-breach-disclosure-to-datasets-and-model-weights/"
+faqs:
+  - q: "What was exposed in the Fireworks AI security incident?"
+    a: "Fireworks says attackers accessed resource metadata and billing information such as addresses and invoice history, and for a limited set of accounts, stored secrets, datasets and incomplete model weights. It reported no detected impact to its Inference, Training SDK and Nexus services, which are zero data retention by default."
+  - q: "Does an AI vendor breach put a contractor's project documents at risk?"
+    a: "It can if the vendor, or the platform it rents, stores your files at rest, for example as a training dataset for a custom model. In the Fireworks case, the stored datasets were affected while the zero-retention inference service showed no detected impact."
+  - q: "If an AI tool held our Procore or other API key, is deleting it enough after a breach?"
+    a: "No. Fireworks' guidance notes that removing a stored secret does not invalidate the underlying credential. Rotate or revoke the key at the system that issued it, then check that system's logs."
+  - q: "What should a GC ask AI vendors about training data?"
+    a: "Ask whether your documents are used to train or tune a model, which hosting company stores them, how long they are kept, whether that service is zero data retention, and how fast the vendor will notify you of a subprocessor breach."
+---
+
+The Fireworks AI breach shows where contractor data is actually exposed in an AI tool: in the files and keys a vendor stores, not in the questions you send it. Fireworks, a company that hosts and tunes AI models for other businesses, said on November 9 that attackers reached billing data and, for a limited set of customers, stored secrets, datasets and incomplete model weights. Its zero-retention inference service showed no detected impact ([Fireworks](https://fireworks.ai/security/bulletins/october-2026-security-incident-update)).
+
+Most contractors have never heard of Fireworks. That's the point. Many AI apps sold to businesses run on hosting platforms like it, and you usually find out which one only after something goes wrong.
+
+## What happened at Fireworks?
+
+Per the company's updated bulletin and [Unite.AI's](https://www.unite.ai/fireworks-ai-expands-breach-disclosure-to-datasets-and-model-weights/) timeline:
+
+- **Oct. 6:** Fireworks found unauthorized use of internal credentials. Secrets stored for evaluation jobs in some customer accounts had been accessed.
+- **Oct. 23–24:** A third-party cloud provider hosting Fireworks research machines had its own incident. The attacker used it to reach Fireworks development machines and run an unauthorized workload that touched more customer data.
+- **Nov. 9:** Fireworks expanded the disclosure to datasets and partial model weights for certain customers. Self-serve dataset uploads and downloads are disabled while the investigation continues.
+
+Fireworks ties the activity to a financially motivated group that sells stolen access to AI models, a practice called LLMJacking. It brought in Palo Alto Networks' Unit 42 and notified law enforcement.
+
+## Why does this matter to a GC?
+
+Construction AI tools increasingly offer to "learn your company": tune a model on your past submittals, spec sections, RFI logs or estimates so it answers in your format. That tuning needs a stored dataset. A stored dataset can be stolen. The Fireworks split is the clearest example yet: the service that processed requests and kept nothing showed no detected impact, while the stored training data was hit.
+
+The second exposure is keys. If someone in your office gave an AI tool a Procore, Autodesk, accounting or email API key so it could pull documents, that key lives on someone's server. Fireworks' guidance is blunt that removing a stored secret does not invalidate the underlying credential. You have to rotate it at the system that issued it.
+
+## What should ops and IT ask AI vendors this week?
+
+| Question | Answer you want |
+|---|---|
+| Do you train or tune a model on our documents? | No, or yes with written opt-in per project |
+| Which hosting company stores our files or tuned model? | A named subprocessor, not "our cloud partners" |
+| Is inference zero data retention? | Yes, in the contract, not only the FAQ |
+| How long do you keep uploaded datasets? | A set number of days, with deletion on request |
+| Which of our API keys do you hold? | A list, scoped read-only where possible |
+| How fast will you tell us about a subprocessor breach? | A fixed window, such as 72 hours |
+
+Owner NDAs and many public-agency contracts restrict where bid documents and drawings can go. If a vendor can't name where a tuned model or dataset sits, you can't show an owner you complied.
+
+## What are the limits here?
+
+Fireworks hasn't published a list of affected customers and says the investigation is ongoing. Nothing in its disclosure ties the incident to any construction software company, and it says it has not confirmed theft of complete production models. Treat this as a reason to ask questions, not a reason to pull tools.
+
+**The takeaway:** Before Friday, have your ops lead list every AI tool that holds a company API key or an uploaded training set. Rotate any key you can't account for at the issuing system, and send the six questions above to each vendor that stores your documents.
