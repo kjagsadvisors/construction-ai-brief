@@ -1,0 +1,58 @@
+---
+title: "Claude Fable 5.2 can run a team of cheaper agents, which changes what a bid-review pilot costs"
+date: "2026-11-10"
+excerpt: "Anthropic's Fable 5.2 launched November 9 at $8/$40 per million tokens, with a built-in orchestrator mode. For estimators and PMs, the question is whether one expensive model supervising cheaper ones is worth piloting."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+  - "https://www.anthropic.com/news"
+faqs:
+  - q: "How much does Claude Fable 5.2 cost?"
+    a: "Anthropic lists standard pricing at $8 per million input tokens and $40 per million output tokens. Fast mode, which generates up to 2.5x faster, costs $16 and $80."
+  - q: "What is orchestrator mode in an AI model?"
+    a: "Anthropic says Fable 5.2 can act as an orchestrator that delegates simpler tasks to smaller models, or as an advisor to them. In practice, one stronger model plans and checks the work while cheaper models do the repetitive steps."
+  - q: "Should an estimating team switch to Claude Fable 5.2?"
+    a: "Not as a blanket switch. Anthropic itself recommends Opus 5.5 for most daily work and Fable or Mythos for the most open-ended technical tasks. Test it on one bid-review task and compare cost and errors against your current model."
+  - q: "Are Anthropic's Fable 5.2 benchmark scores reliable for construction work?"
+    a: "They are vendor-reported, and the announcement notes that external organizations did not review it. None of the benchmarks test takeoff, spec review, or bid leveling, so treat them as a rough signal and run your own test."
+---
+
+Claude Fable 5.2, released November 9, costs $8 per million input tokens and $40 per million output tokens, and Anthropic says it can supervise cheaper models on a task. For an estimating team, that makes the interesting question less "is it smarter" and more "what does a multi-step bid-review job cost to run."
+
+## What did Anthropic actually release?
+
+Anthropic announced Claude Fable 5.2 and Claude Mythos 5.2 on November 9. They are the same underlying model. Fable is open to all users; Mythos goes to vetted organizations through cybersecurity and life-sciences programs. Anthropic reports gains in coding, reasoning and vision, and output up to 30% faster than Fable 5.1.
+
+The detail that matters for contractors is the orchestrator role. Anthropic says Fable 5.2 can delegate simpler tasks to smaller models, or advise them. The company also says it recommends its Opus 5.5 model for most daily work and keeps Fable for the hardest, open-ended technical tasks. That is an honest signal: this is not the default choice for routine work.
+
+## What does it cost, and how does that compare?
+
+| Mode | Input (per million tokens) | Output (per million tokens) |
+|---|---|---|
+| Fable 5.2 standard | $8 | $40 |
+| Fable 5.2 fast mode | $16 | $80 |
+
+Output tokens cost five times what input tokens do, so a job that reads a 400-page spec book and writes a short scope-gap list is mostly an input bill. A job that drafts a long response for every spec section is mostly an output bill. Before you pilot anything, ask the tool builder which one your workflow is.
+
+We previously covered how [cache pricing changed the cost of a submittal agent](/posts/2026-09-03-anthropic-claude-fable-5-1-cache-price-cut-submittal-agent-cost). The same logic applies: repeated reads of the same spec book are where costs add up or fall.
+
+## What does this mean for estimators and PMs?
+
+The orchestrator pattern maps to a task you already split between people:
+
+- **Cheap, repetitive pass:** a smaller model reads each spec section and each subcontractor quote and pulls out inclusions, exclusions and alternates.
+- **Supervising pass:** the stronger model reconciles the extractions, flags quotes that disagree with the spec, and lists scope gaps.
+- **Human pass:** the estimator decides which flags are real and what goes in the bid.
+
+Anthropic's launch page includes one example in this neighborhood: reconciling figures across files, where Box reported the model caught a salary-deposit mismatch in a loan application. That is a finance example, not a construction one, but the shape is the same as comparing a sub's number against the spec.
+
+## What should you not believe yet?
+
+Every benchmark in the announcement is vendor-reported, and the page notes that external organizations did not review it. Anthropic cites a 83.5 score on a hardware-engineering test and 51.4% on a business-workflow test, against 65.3 and 42.5 for Opus 5.5. None of those measure takeoff, spec reading or bid leveling. Anthropic also reports the model voiced suspicion of being evaluated more often than earlier models, which makes test scores a weaker predictor of field performance.
+
+Multi-agent runs also multiply cost. Anthropic describes jobs using around 170 reviewer agents over 10 to 12 hours. A bid review is nowhere near that size, but the lesson is that a loop of agents can run up a bill that you did not see coming unless someone sets a cap.
+
+## The takeaway
+
+Pick one past bid package where you already know the answer, with the scope gaps documented. Have your tool builder run it two ways: once with a single mid-tier model, once with Fable 5.2 supervising a cheaper one. Record the cost, the time and how many known gaps each run caught. If the supervised run does not catch noticeably more for the added cost, stay on the cheaper setup and revisit when pricing moves again.
