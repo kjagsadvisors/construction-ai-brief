@@ -1,0 +1,66 @@
+---
+title: "The best AI agents pass 57% of the hard checks on drawing-heavy work. Estimators should test whether their tool looks at the sheet"
+date: "2026-11-11"
+excerpt: "Google DeepMind and Artificial Analysis released a 200-task benchmark of professional work that depends on reading drawings, photos and schematics, with construction as one of 10 sectors. The top model met 57% of the harder grading criteria, and an agent that could not view images missed every unlogged defect in a set of site photos."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/"
+  - "https://storage.googleapis.com/deepmind-media/papers/mka_tech_paper.pdf"
+  - "https://artificialanalysis.ai/evaluations/mka"
+  - "https://huggingface.co/datasets/google/multimodal-knowledge-agent"
+faqs:
+  - q: "Can AI agents read construction drawings accurately?"
+    a: "Partly. On Google DeepMind's Multimodal Knowledge Agent benchmark, released November 10, 2026, the top model satisfied 56.6% of the harder grading criteria and 73.3% of all criteria on tasks built around drawings, schematics, photos and maps. That is enough to draft a review, not enough to rely on one without a person checking it."
+  - q: "What is the Multimodal Knowledge Agent (MKA) benchmark?"
+    a: "MKA is a 200-task test from Google DeepMind, run independently by Artificial Analysis, that measures how well AI agents finish multi-file professional work that depends on visual files. It covers 10 sectors with 20 tasks each, including construction, and each task took an experienced professional three to eight hours to build and solve."
+  - q: "Which AI model scored highest on drawing and visual document work?"
+    a: "Claude Fable 5.2 scored highest at 56.6% on the harder criteria, followed by Gemini 4 Carbon at 54.3% and Claude Opus 5.5 at 53.0%. DeepMind's report says those three are statistically indistinguishable, while GPT-6 Astra at 50.2% was measurably lower."
+  - q: "How much does it cost to run an AI agent on a drawing review task?"
+    a: "In DeepMind's test, the average list-price API cost per task ranged from $5.63 for Gemini 4 Carbon to $35.28 for Claude Fable 5.2, for work an expert needs three to eight hours to do. Those are raw model costs in a test harness, not the price of a finished construction software product."
+  - q: "Does it matter whether an AI tool reads the drawing image or only the extracted text?"
+    a: "Yes. When DeepMind removed the image-viewing tool from Gemini 4 Carbon, its score on the harder criteria fell by 5.94 points and it used 1.85 times the input tokens. On one construction task built on site photos, the score dropped from 86.7% to 14.3% because the agent missed every defect that was not in the written log."
+---
+
+The best AI agents now satisfy about 57% of the harder grading checks on professional work that depends on reading drawings, photos and schematics, according to a benchmark Google DeepMind and Artificial Analysis released on November 10. For an estimator or precon manager, that means an agent can draft a drawing review or a quantity check today, and a person still has to verify it against the sheets.
+
+## What did DeepMind test?
+
+The [Multimodal Knowledge Agent benchmark](https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/) (MKA) has 200 tasks split evenly across 10 sectors. Construction is one of them, with 20 tasks written by licensed architects, construction estimators, quantity surveyors, real estate appraisers and civil or fire protection engineers, per the [technical report](https://storage.googleapis.com/deepmind-media/papers/mka_tech_paper.pdf). Each task took an expert three to eight hours to build and solve, and comes with 2 to 45 input files. PDFs such as floor plans, elevations and piping schematics make up 43% of those files.
+
+The one construction task made public is a drawing coordination audit. Per [Artificial Analysis](https://artificialanalysis.ai/evaluations/mka), the agent gets 12 files covering five floor plans, two sections and four elevations, and has to produce a slide deck of no more than 10 slides listing only the exceptions: each mismatch, and each item it cannot determine, with a crop of the drawing as evidence.
+
+## How did the models score?
+
+An AI grader checks each deliverable against an expert rubric. DeepMind reports the grader agreed with human experts on 96.2% of criteria in a 50-task study. Scores are the share of rubric weight satisfied. "Harder criteria" are the ones earlier models did not already pass.
+
+| Model | Harder criteria | All criteria | Avg. time per task | Avg. API cost per task |
+|---|---|---|---|---|
+| Claude Fable 5.2 | 56.6% | 73.3% | 83.2 min | $35.28 |
+| Gemini 4 Carbon | 54.3% | 71.9% | 29.2 min | $5.63 |
+| Claude Opus 5.5 | 53.0% | 71.0% | 33.8 min | $10.29 |
+| GPT-6 Astra | 50.2% | 69.3% | 18.5 min | $6.03 |
+
+The report says the top three are statistically indistinguishable on the harder criteria. All four passed more than 95% of the routine checks. The misses are concentrated in the hard part of the work.
+
+Keep in mind who ran this. DeepMind built the benchmark and its own model comes out as the cost leader. Artificial Analysis holds the 200 tasks privately and runs the leaderboard independently, which helps. The report does not break out a construction-only score, each model ran once per task, and costs are list-price API costs in a test harness, not product pricing.
+
+## Why does it matter whether the tool looks at the sheet?
+
+This is the finding we would act on. DeepMind reran Gemini 4 Carbon with its image viewer turned off, so it could only use text extraction, OCR and code. Across the benchmark, the score on harder criteria fell 5.94 points and input tokens rose 1.85 times.
+
+On clean CAD drawings the agent partly recovered, though the report says it missed "fine clearance hazards." On a construction task it failed outright. The agent had to audit field photos in a road-inspection PDF against a distress manual and contractor rate schedules, then build a cost-estimate workbook that included defects left out of the written log. With vision, it found the unlogged potholes in every run and scored 86.7% on the harder criteria. Without vision, it concluded there were none and scored 14.3%.
+
+The report also notes that agents "instinctively convert documents to plain text" when handed a folder of files. A tool that reads only the text layer of a PDF will handle a spec section and miss what is drawn but not written: a dimension string, a hatch pattern, a detail callout on a scanned sheet, a site photo.
+
+## What should an estimator do with this?
+
+1. **Ask the vendor how the tool reads a sheet.** Does the model view the page image, or only extracted text and OCR? Get the answer in writing.
+2. **Run a three-file test.** Give it a vector PDF sheet, a scanned sheet with no text layer and a site photo. Ask one question per file that can only be answered by looking.
+3. **Require "cannot determine."** The public task makes the agent list what it could not verify. Put that in your prompt, and treat a review with no open items as suspect.
+4. **Require the crop.** Every finding should come with the sheet number and a crop of the drawing, so a person can check it in seconds.
+5. **Price it per task.** At $6 to $35 of model cost against three to eight expert hours, a drafted first pass is cheap. Budget the review time, because about a quarter of the rubric weight still went unmet for the best model.
+
+**Takeaway:** Use an agent for the first pass on drawing coordination and scope-gap review, and keep your sign-off. Before the next bid, run the three-file test on whatever tool you already pay for. We made the same point about [agent pilots when the best model scored 12% on long tasks](/posts/2026-11-02-semianalysis-gdpx-12-percent-agent-benchmark-construction-estimator-pm-back-office-pilot-expectations), and about [checking formulas in an AI-built bid tab](/posts/2026-11-11-anthropic-claude-sheets-beta-construction-estimator-bid-tab-leveling-sheet-formula-check-xlsx-export).
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever runs your precon team.*
