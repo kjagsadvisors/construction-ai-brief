@@ -1,0 +1,67 @@
+---
+title: "Claude Sheets can build a bid tab from a prompt. Estimators should check the formulas before trusting the total"
+date: "2026-11-11"
+excerpt: "Anthropic launched Claude Sheets in beta on November 10: shared spreadsheets Claude builds and edits with tabs, formulas and dropdowns. For estimators it is a fast way to set up a leveling sheet, but Anthropic itself calls the functionality simple, so the real estimate still lives in Excel."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://claude.com/resources/articles/sheets-whiteboards-data"
+  - "https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors"
+  - "https://support.claude.com/en/articles/16994751-artifacts-admin-guide-for-team-and-enterprise-plans"
+  - "https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/"
+  - "https://www.iclarified.com/103419/anthropic-launches-claude-sheets-and-whiteboards-previews-meetings"
+faqs:
+  - q: "What is Claude Sheets?"
+    a: "Claude Sheets is a shared spreadsheet inside Anthropic's Claude that launched in beta on November 10, 2026. Claude can generate a sheet with tabs, formulas, formatting and dropdowns from a prompt, then edit cells alongside your team while outlining each change it makes."
+  - q: "Can Claude Sheets replace Excel for construction estimating?"
+    a: "Not today. Anthropic says sheets have simple spreadsheet functionality for now and points users who need full Excel features to export as .xlsx or CSV, or to use its separate Claude for Excel product. Treat it as a way to set up or draft a workbook, not as the estimate of record."
+  - q: "Which Claude plans include Claude Sheets?"
+    a: "Anthropic says Sheets is available in beta on all paid plans. It is on by default for Team plans and off by default for Enterprise plans until an owner turns it on under Organization settings > Artifacts."
+  - q: "Can Claude join an OAC meeting and take notes?"
+    a: "Not reliably yet. Anthropic's own posts list Claude Meetings as coming soon. TechCrunch reports it works with Google Meet and that Claude will not stay on calls with external guests unless an admin authorizes it, which would cover most owner and subcontractor meetings."
+  - q: "Can I export a Claude Sheets spreadsheet to Excel?"
+    a: "Yes. Anthropic says sheets can be exported as .xlsx or CSV. Anthropic's launch post does not describe importing an existing Excel workbook into Sheets."
+---
+
+Anthropic launched Claude Sheets in beta on November 10: a shared spreadsheet that Claude builds and edits with tabs, formulas, formatting and dropdowns, on all paid plans. For an estimator, it is a quick way to stand up a bid tab or leveling sheet from a description. It is not a replacement for the Excel workbook your estimate lives in, and Anthropic says as much.
+
+## What did Anthropic actually release?
+
+Three things shipped together, according to [Anthropic's launch post](https://claude.com/resources/articles/sheets-whiteboards-data):
+
+| Product | Status | What it does |
+|---|---|---|
+| Claude Sheets | Beta, all paid plans | Generates spreadsheets with tabs, formulas, formatting and dropdowns; Claude edits cells and outlines each edit |
+| Claude Whiteboards | Beta, all paid plans | Shared board; Claude turns a discussion into a timeline with owners and dates |
+| Claude Data | Generally available | Dashboards from a connected data warehouse or CRM (formerly Claude Dashboards) |
+
+A fourth product, Claude Meetings, got most of the headlines. Anthropic's own posts list it as "coming soon." More on that below.
+
+The honest line in the announcement is this one: "For now, sheets have simple spreadsheet functionality, but we are working on adding more." For full Excel features, Anthropic tells users to export to .xlsx or CSV, or to use its separate Claude for Excel add-in. The post does not describe importing an existing workbook.
+
+## What does this change for an estimator?
+
+The useful part is setup, not math. Every estimator has rebuilt the same sheets dozens of times: a bid tab with one column per sub, a scope-inclusion matrix with yes/no/clarify dropdowns, an alternates log, a bid-day call sheet. Describing that in two sentences and getting a formatted, multi-tab starting point is a real time saver on a small job or a new trade package.
+
+Two features matter more than the generation itself:
+
+1. **Edits are outlined.** Anthropic says Claude outlines each new edit so you can track what it changed. On a leveling sheet, an unmarked change to one cell is how a bad number reaches bid day. Visible edits are the minimum you should accept from any tool that touches your numbers.
+2. **It is shared.** The sheet is a live document that your team and Claude work in together, so a junior estimator can fill in sub quotes while a senior one reviews the same file.
+
+What it does not do: read your drawings, verify a sub's inclusions against the spec, or know your labor rates. It builds the container. You still fill it and check it.
+
+## Where could it go wrong?
+
+- **Formulas.** A generated SUM range that stops one row short looks identical to a correct one. Before any number leaves the sheet, click through every total and every cross-tab reference.
+- **Simple functionality.** Anthropic does not list which formulas are supported or any size limits. If your master estimate uses lookups against a cost database, macros, or linked workbooks, assume it stays in Excel.
+- **Admin settings.** On Team plans, Sheets is on by default. On Enterprise plans it is off until an owner turns it on under Organization settings > Artifacts, per Anthropic's [admin guide](https://support.claude.com/en/articles/16994751-artifacts-admin-guide-for-team-and-enterprise-plans). Decide who can share a sheet full of sub pricing before people start building them.
+
+## Can Claude sit in on an OAC meeting yet?
+
+Probably not, and the reporting conflicts. [TechCrunch](https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/) describes Claude Meetings as a beta for Team and Enterprise plans that works with Google Meet, joins as a visible participant, and leaves if an external guest joins unless an admin has authorized it. Anthropic's own posts say only that it is coming soon.
+
+If TechCrunch's description holds, the external-guest rule is the detail a PM should notice. An OAC meeting, a sub coordination call and a pre-bid conference all include people outside your company. By default the tool would cover internal meetings only, such as an estimate review or a weekly ops call, and anything else needs an admin decision and, in our view, a heads-up to the other parties.
+
+## The takeaway
+
+If your company already pays for Claude, try Sheets on one low-stakes task this week: have it build a scope-inclusion matrix for a single trade package on a bid you have already closed. Time the setup against doing it by hand, then audit every formula. Export to .xlsx and confirm the formulas survive in Excel. If the structure is sound and the formulas hold, use it to draft sheets and keep the estimate of record where it is. For the cost side of running Claude on bid review, see our piece on [what a multi-agent bid-review pilot costs](/posts/2026-11-10-claude-fable-5-2-orchestrator-pricing-construction-estimator-gc-ops-multi-agent-bid-review-cost).
