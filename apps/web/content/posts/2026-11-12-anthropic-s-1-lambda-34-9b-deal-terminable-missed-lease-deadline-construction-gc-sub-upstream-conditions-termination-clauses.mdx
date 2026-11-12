@@ -1,0 +1,67 @@
+---
+title: "Anthropic's $34.9B Lambda deal became cancellable over a missed lease deadline. GCs and subs should ask what their job is conditioned on"
+date: "2026-11-12"
+excerpt: "Anthropic's amended IPO filing says its $34.9 billion compute agreement with Lambda can now be terminated by either side because Lambda did not secure a facility lease on time. Neither side has cancelled. For a GC or sub on AI data center work, it shows that the contract funding the job can hinge on a date that appears nowhere in the construction schedule."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://mlq.ai/news/anthropics-amended-s-1-says-its-35-billion-lambda-compute-deal-can-now-be-cancelled-and-raises-its-microsoft-commitment/"
+  - "https://cryptobriefing.com/anthropic-lambda-compute-deal-terminable-lease/"
+  - "https://cryptobriefing.com/anthropic-keeps-lambda-deal-despite-lease-delay/"
+faqs:
+  - q: "Did Anthropic cancel its Lambda compute deal?"
+    a: "No. Anthropic's amended S-1, filed November 10, 2026, says the August 2026 Lambda agreement is terminable by either party because Lambda did not secure the facility lease by the contract deadline. The filing says neither party had given notice and that Anthropic does not currently intend to terminate."
+  - q: "How much of Anthropic's compute spending can still be cancelled?"
+    a: "Per MLQ's reading of the amended filing, $186.2 billion of Anthropic's $900.9 billion in compute and infrastructure commitments is subject to exercisable termination rights or unmet conditions. That is about a fifth of the total."
+  - q: "Which data center is the Lambda agreement tied to?"
+    a: "The filing does not name the facility or the date that was missed. Press reports link the August agreement to roughly 350 MW at Hut 8's Beacon Point campus in Texas, but that link comes from earlier reporting, not from the filing."
+  - q: "What does a cancellable AI compute contract mean for a data center contractor?"
+    a: "The compute contract is usually what supports the developer's financing. If it can be cancelled over a missed condition, a GC or sub should confirm what they are owed on termination or suspension, who pays cancellation charges on long-lead equipment, and what evidence of funding they can request."
+  - q: "When does Lambda get paid under its Anthropic agreements?"
+    a: "The filing says fees accrue only as capacity is delivered to and accepted by Anthropic. Until a phase is built, commissioned and accepted, the provider earns nothing from it, which puts pressure on turnover dates and acceptance testing."
+---
+
+Anthropic's amended IPO filing says its $34.9 billion compute agreement with Lambda is now "currently terminable by either party" because Lambda did not secure a facility lease by a contract deadline. Nobody has cancelled, and Anthropic says it does not currently intend to. The point for a GC or sub on AI data center work is narrower: the agreement that pays for a job can hinge on a date that is not in your schedule or your contract.
+
+## What does the filing say?
+
+The details come from Amendment No. 2 to Anthropic's S-1, filed November 10, as reported by [MLQ](https://mlq.ai/news/anthropics-amended-s-1-says-its-35-billion-lambda-compute-deal-can-now-be-cancelled-and-raises-its-microsoft-commitment/) and [Crypto Briefing](https://cryptobriefing.com/anthropic-lambda-compute-deal-terminable-lease/):
+
+| Item | What the filing says |
+|---|---|
+| Agreement | August 2026 deal, about $34.9B of roughly $41.3B total with Lambda, terms into 2034 |
+| What changed | Lambda did not secure the facility lease by the contract date; the November 2 version listed that only as a possibility |
+| Status | No termination notice from either side; Anthropic "does not currently intend to terminate" |
+| Payment | Fees accrue only as capacity is delivered and accepted |
+| Other Lambda deals | Some can be cancelled per tranche if Lambda misses delivery milestones |
+| Bigger picture | $186.2B of $900.9B in total commitments is subject to exercisable termination rights or unmet conditions |
+
+The filing does not name the facility, the missed date, or the reason. Press reports tie the August agreement to about 350 MW at Hut 8's Beacon Point campus in Texas, the site we wrote about when [Nvidia turned up as the tenant of record](/posts/2026-09-02-nvidia-data-center-landlord-lambda-anthropic-gc-contract-counterparty-risk). That link is from earlier reporting, not the filing, so we are not assuming which project or which contractors are affected.
+
+## Why does a compute contract matter to a contractor?
+
+On these jobs the money runs in a chain. The AI company signs a compute agreement with a provider. The provider or a partner leases a building from a developer. The developer borrows against that lease and hires the GC. Subs sit below that.
+
+Each link can carry conditions and deadlines. This filing shows two kinds:
+
+- **A condition to get started.** Secure the lease by a set date or either side can walk. That date was missed.
+- **Delivery milestones.** On some Lambda agreements, a missed milestone lets Anthropic cancel that tranche.
+
+Neither is a construction term, and a GC would not normally see either one. But the first can remove the reason the building is being financed, and the second can turn a late phase turnover into a lost tenant for that phase. The pay-on-acceptance term adds to it: the provider earns nothing on a phase until it is built, commissioned and accepted, so expect hard pressure on turnover dates and arguments over what "accepted" means.
+
+## What should a GC or sub check in their own contract?
+
+1. **Termination for convenience.** Read what you are paid if the owner ends the job: work in place, demobilization, and whether overhead and profit on unperformed work are excluded. Subs should check that the GC's clause flows down on the same terms.
+2. **Suspension.** A stalled upstream deal is more likely to show up as a pause than a termination. Confirm how many days the owner can suspend before you can claim cost and time, or walk.
+3. **Long-lead cancellation charges.** Switchgear, generators and chillers bought on your paper carry vendor cancellation fees. Make sure the contract says the owner covers them.
+4. **Evidence of financing.** Many standard forms let the contractor request reasonable evidence of the owner's financial arrangements. Use it before mobilizing, and ask whether funding depends on a tenant or offtake agreement that has open conditions.
+5. **Turnover and acceptance.** Ask which of your milestone dates the owner has promised to someone else, and get the acceptance criteria for commissioning in writing. Ask whether your liquidated damages are tied to those upstream promises.
+6. **Lien and notice deadlines.** Know them before you need them. They are the fallback if the first four fail.
+
+## What is still unknown?
+
+Whether the lease was late by days or is in real trouble, whether Anthropic has formally waived the right, and whether any construction work was affected. Anthropic's stated intent is to keep the deal. About a fifth of its disclosed commitments still carry some exit right or unmet condition.
+
+**Takeaway:** Do not read this as a cancelled job. Read it as a prompt to pull your current data center contract and find three clauses: termination for convenience, suspension, and owner financing evidence. If you are pricing new work, add one pre-bid question: is the tenant or offtake agreement behind this project unconditional, and if not, what dates does it depend on?
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever reviews your contracts before you sign.*
