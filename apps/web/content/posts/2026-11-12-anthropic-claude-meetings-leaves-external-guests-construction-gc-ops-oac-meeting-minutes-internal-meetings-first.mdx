@@ -1,0 +1,77 @@
+---
+title: "Claude Meetings leaves the call when an outside guest joins. For a GC, that rules out OAC minutes until an admin says otherwise"
+date: "2026-11-12"
+excerpt: "Anthropic's new meeting agent joins Google Meet calls and writes notes and action items, but by default it exits when someone outside the company joins. A GC's project team should start with internal meetings and decide on purpose whether it ever sits in an OAC meeting."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/"
+  - "https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors"
+  - "https://tbreak.com/claude-sheets-whiteboards-meetings-launch/"
+faqs:
+  - q: "Can Claude Meetings take minutes for an OAC meeting?"
+    a: "Not by default. Reporting on the launch says Claude will not join a call with external guests unless an admin authorizes it, and it leaves automatically if an external guest joins. An OAC meeting includes the owner and architect, so a GC's admin would have to turn that on deliberately."
+  - q: "Does Claude Meetings work with Microsoft Teams or Zoom?"
+    a: "Not at launch. TechCrunch reports it supports Google Meet only, with more platforms expected later. A contractor that runs its calls on Teams or Zoom cannot use it yet."
+  - q: "Which Claude plans include Claude Meetings?"
+    a: "TechCrunch reports Claude Meetings is in beta on Team and Enterprise plans. Anthropic's own announcement describes it as coming soon, so it may not be switched on for every eligible account yet."
+  - q: "Should AI-written meeting notes be sent out as official project minutes?"
+    a: "Not without a named person reviewing them first. Meeting minutes on a construction project record who committed to what and by when, so a project engineer or PM should check them against what was actually said before they are distributed."
+  - q: "What is a good first use of an AI meeting agent at a general contractor?"
+    a: "Internal meetings with no outside parties: estimate-to-operations handoffs, weekly project reviews, and internal submittal or RFI status meetings. Compare the AI's action items to your own notes for a few weeks before relying on them."
+---
+
+Anthropic's new Claude Meetings joins a video call as a visible participant and produces notes and action items, but it will not sit in a call with people outside your company unless an admin authorizes it, and it leaves if an outside guest joins. For a GC, that means it is an internal-meeting tool first. The owner-architect-contractor (OAC) meeting, where minutes matter most, is off the table by default.
+
+## What did Anthropic release?
+
+[TechCrunch reported on November 10](https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/) that Claude Meetings adds Claude to video calls, where it can draft the plan under discussion, lay out a timeline on a whiteboard, answer questions in the meeting chat and pull information from connected work apps. After the call, the notes, action items and anything else it made are available in claude.ai.
+
+The reported limits matter more than the features:
+
+- **Google Meet only** at launch. More platforms are expected later.
+- **Team and Enterprise plans only**, in beta.
+- **It announces itself.** Claude shows up as a participant and posts a notice in the meeting chat.
+- **External guests are blocked by default.** It won't join a call with outside guests without admin authorization, and it exits if one joins.
+
+One caution on timing. [Anthropic's own post](https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors) says only that Claude Meetings "is coming soon" and will let you add Claude to a call to take notes. The plan and platform details come from press coverage ([TechCrunch](https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/), [tbreak](https://tbreak.com/claude-sheets-whiteboards-meetings-launch/)), so your account may not have it yet. None of the sources we read says whether calls are recorded, whether a transcript is kept, or for how long.
+
+## Which construction meetings can it sit in?
+
+Sort your standing meetings by who is on the call.
+
+| Meeting | Outside parties? | Default behavior | Our read |
+|---|---|---|---|
+| Estimate-to-ops handoff | No | Can join | Good first test |
+| Weekly internal project review | No | Can join | Good first test |
+| Internal submittal and RFI status | No | Can join | Good first test |
+| Subcontractor coordination | Yes (subs) | Leaves | Needs admin decision |
+| OAC meeting | Yes (owner, architect) | Leaves | Needs admin decision and the other parties' agreement |
+| Pre-bid or scope review with subs | Yes | Leaves | Skip for now |
+
+If your company runs on Teams or Zoom, none of this applies yet.
+
+## Should a GC turn it on for OAC meetings?
+
+We would wait. OAC minutes are a project record. They capture who agreed to what, and they get pulled out later when a schedule or change order is disputed. Many contracts and Division 01 specs say who records and distributes minutes and how long attendees have to object. Check yours before changing how minutes get made.
+
+Three specific problems with an AI note-taker in that room:
+
+1. **Consent.** The owner and architect may have their own rules on AI tools in meetings. A chat notice is not the same as agreement.
+2. **Accuracy on commitments.** "We'll look at it" and "we'll have it Friday" are different promises. A general model does not know which RFI number or submittal a comment refers to unless someone says it out loud.
+3. **Unknown retention.** Until Anthropic publishes how meeting content is stored, you can't tell an owner where their conversation goes.
+
+The default block on outside guests is a reasonable design choice. It forces a company to decide on this instead of drifting into it.
+
+## What should a PM team do this month?
+
+- Pick two recurring internal meetings on one project.
+- Have the project engineer keep notes the usual way for three weeks and compare them to Claude's action items: missed items, wrong owners, wrong dates.
+- Keep a named person responsible for anything distributed. AI notes are a draft.
+- Ask your admin now who is allowed to authorize external-guest calls, so the answer exists before a PM asks.
+
+We made a similar point about [always-on agents reading a PM's Slack and Gmail](/posts/2026-11-08-perplexity-teammates-always-on-agents-construction-gc-ops-pm-slack-gmail-permissions-pilot-rules): decide the access rules first, then test.
+
+## The takeaway
+
+Use Claude Meetings, when your account gets it, on internal meetings where a wrong action item costs you a five-minute correction. Keep it out of OAC and sub coordination meetings until you know how the content is stored, the other parties have agreed, and a person on your team still signs the minutes.
