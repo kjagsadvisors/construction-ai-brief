@@ -1,0 +1,73 @@
+---
+title: "Google's new API answers 1,000 yes/no questions about one PDF. A sub's submittal check is the obvious test, with one catch"
+date: "2026-11-13"
+excerpt: "Google's Gemini Decisions API scores up to 1,000 yes/no, multiple-choice or rubric questions against a single PDF, photo or video for $0.10 per million input tokens. That fits a spec compliance checklist run against a submittal package, but the model returns scores, not page references or reasons."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+  - "https://the-decoder.com/google-joins-the-decision-model-wave-with-gemini-decision-1-scoring-1000-questions-in-a-single-pass/"
+faqs:
+  - q: "What is the Gemini Decisions API?"
+    a: "It is a Google developer API, announced November 11, 2026 and built on a model called Gemini Decision 1, that scores closed-ended questions instead of writing text. One request can carry a single input of text, images, audio, video or PDFs plus up to 1,000 yes/no, multiple-choice or rubric questions, and each answer comes back with a confidence score from 0 to 1."
+  - q: "Can the Gemini Decisions API check a submittal against the spec?"
+    a: "It can score a list of yes/no spec requirements against a submittal PDF in one request, which makes it a plausible first-pass screen. It does not write explanations or cite pages, the input is capped at 256,000 tokens, and Google has published no accuracy figures for construction documents, so a person still has to verify every flagged and unflagged item that matters."
+  - q: "How much does the Gemini Decisions API cost?"
+    a: "Google lists it at $0.10 per million input tokens with no charge for output tokens. The shared document is billed once per request and each question adds only its own tokens, so a maximum-size 256,000-token input costs under 3 cents at list price before the questions are counted."
+  - q: "Is the Gemini Decisions API a product a contractor can buy?"
+    a: "No. It is a building block for developers, available through the Gemini API and Google AI Studio, with Google Cloud support listed as coming soon. A contractor would need someone in-house or a software vendor to build the checklist tool around it."
+  - q: "Does the Gemini Decisions API explain its answers?"
+    a: "No. Google says the model scores the options rather than generating answer text, so you get a probability or score per question and nothing about why or where in the document it found the answer."
+---
+
+Google released an API on November 11 that takes one document and up to 1,000 closed-ended questions and returns a scored answer to each. For a mechanical or electrical sub, the obvious use is a spec compliance checklist run against a submittal package before it goes to the GC. The catch: it tells you yes or no with a confidence number, and never tells you where it looked.
+
+## What did Google release?
+
+The [Gemini Decisions API](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/) runs on a new model, Gemini Decision 1, that does not write text. Per Google's post:
+
+- **Input:** one shared input of text, images, audio, video or PDFs, up to 256,000 tokens.
+- **Questions:** up to 1,000 independent questions per request. Each is a yes/no check, a multiple-choice pick from 2 to 255 options, or an ordered rubric score.
+- **Output:** a confidence score from 0 to 1 on every answer.
+- **Price:** $0.10 per million input tokens and nothing for output. The document is billed once, and each question adds only its own tokens.
+- **Access:** the Gemini API and Google AI Studio, with a no-cost tier for prototyping. Google Cloud support is "coming soon."
+
+At that price, a maximum-size input costs under 3 cents before the questions are counted. Google is not first here. [The Decoder](https://the-decoder.com/google-joins-the-decision-model-wave-with-gemini-decision-1-scoring-1000-questions-in-a-single-pass/) notes that a startup called Jev, then OpenAI, Cloudflare and Microsoft shipped similar models in recent weeks. We covered [Microsoft's version and approval routing](/posts/2026-10-12-microsoft-decision-1-agent-gatekeeper-construction-approval-routing) last month.
+
+## Why does this fit a submittal check?
+
+A spec section is already a list of closed questions. Is the unit UL listed? Is the motor premium efficiency? Is the warranty five years on the compressor? Is the finish one of the three listed options? A submittal coordinator answers those by flipping between the spec and the cut sheets.
+
+When we looked at Microsoft's model, the use was routing: one message, one pick. Google's pitch adds a different shape, with many questions against one document in one request. That is the shape of a submittal review, a closeout document check or a punch-list photo.
+
+| Task | Input | Question type |
+|---|---|---|
+| Product data vs. spec section | Submittal PDF | Yes/no per requirement |
+| Which spec section does this cut sheet belong to? | Cut sheet PDF | Multiple choice |
+| Is the O&M manual complete? | Closeout PDF | Yes/no per required item |
+| Is this firestop install acceptable? | Site photo | Rubric score |
+
+The last row is the one to be most careful with. The Decoder's example is a photo of a kitchen counter scored for a stain, a cleaning action and a severity level. That is a long way from judging a rated penetration.
+
+## What is the catch?
+
+1. **No reasons and no page numbers.** Google says the model scores options "rather than generating answer text." A "no" on the warranty question does not point to the page. Someone still has to find it.
+2. **The accuracy claims are Google's.** The post says Gemini Decision 1 has "the lowest calibration error" on its benchmark suite and gives no numbers. Nothing published covers construction documents.
+3. **The speed figures come from small inputs.** Google quotes 150 to 250 milliseconds, tested with contexts up to 16,000 tokens. A full submittal package is far larger.
+4. **256,000 tokens is a ceiling.** A single product data submittal will often fit and a full project manual may not. Either way, the requirements have to be written as questions first. That is the real work.
+5. **It is an API.** Nobody sells this as a submittal tool yet. A developer or your software vendor has to build it.
+
+## Should a sub act now?
+
+Only if you have someone who can write a short script. If so, the test is cheap:
+
+1. Take one closed-out submittal that came back "revise and resubmit," and the reviewer's comments.
+2. Write the spec section's requirements as 30 to 50 yes/no questions.
+3. Run the original package through and see whether the low-confidence and "no" answers land on what the reviewer caught.
+4. Check the data terms of the tier you use before uploading anything an owner marked confidential.
+
+If you do not have that person, ask your submittal software vendor whether they are testing decision models, and what they show the user when the answer is "no."
+
+**Takeaway:** A cheap screen that sorts a submittal's requirements into "probably fine" and "look here" is worth testing, as a way to aim a coordinator's attention. It does not replace the coordinator or the engineer's review.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever assembles your submittals.*
