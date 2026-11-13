@@ -1,0 +1,74 @@
+---
+title: "Google's robot AI kitted parts at 96% on a Mercedes line. A mech or electrical prefab shop should ask what the other 4% costs"
+date: "2026-11-13"
+excerpt: "Google DeepMind says its Gemini Robotics 2.5 model let a humanoid robot sort car parts into sequenced trays with a 96% success rate on live Mercedes-Benz lines. Kitting is the same job a mechanical or electrical prefab shop does all day, but the model is partner-only and DeepMind has not said how the 96% was counted."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/"
+  - "https://letsdatascience.com/news/deepmind-releases-gemini-robotics-25-and-open-asimov-jailbre-ca67d149"
+faqs:
+  - q: "What is Gemini Robotics 2.5?"
+    a: "Gemini Robotics 2.5 is a robot-control AI model that Google DeepMind announced on November 10, 2026. DeepMind says it was evaluated on 200 tasks and had a 30% to 100% higher success rate than earlier baselines, depending on the task, while finishing 20% to 30% faster."
+  - q: "Can a contractor buy a robot running Gemini Robotics 2.5 for a prefab shop?"
+    a: "No. DeepMind says the model is rolling out to its robotics partners and has announced no general availability. A contractor cannot license it directly today and would have to wait for a robot vendor to sell a product built on it."
+  - q: "What did the Mercedes-Benz kitting pilot show?"
+    a: "DeepMind says an Apptronik Apollo 2 humanoid using the model picked and packed automotive parts with a 96% success rate on active Mercedes-Benz production lines in Hungary and Germany. DeepMind calls it a proof of concept and does not publish the number of attempts, the definition of success or how often a person stepped in."
+  - q: "Is a 96% success rate good enough for kitting parts in a construction prefab shop?"
+    a: "It depends on what a wrong or missing part costs. DeepMind has not said how the 96% was measured, and a kit that reaches the field short one fitting can stop a crew, so a shop would need a check step after the robot and its own measured error rate before relying on it."
+  - q: "What is the ASIMOV-Jailbreak benchmark?"
+    a: "ASIMOV-Jailbreak is an open-source test set from Google DeepMind with hundreds of prompts that disguise unsafe requests to a robot across dozens of scenes. DeepMind reports that its Gemini 4 Argon model resisted 99.5% of them, against 82% for an earlier model, Gemini Robotics ER 2."
+---
+
+Google DeepMind says its new robot model, Gemini Robotics 2.5, let a humanoid robot sort car parts from bulk bins into sequenced trays with a 96% success rate on working Mercedes-Benz production lines. That task is kitting, which is what a mechanical or electrical prefab shop does before every delivery, but a sub cannot buy this yet, and DeepMind has not said how the 96% was counted.
+
+## What did DeepMind announce?
+
+From [DeepMind's November 10 post](https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/):
+
+| Item | What DeepMind says |
+|---|---|
+| Test scope | 200 distinct tasks |
+| Success rate | 30% to 100% higher than earlier baselines, depending on task type |
+| Speed | Tasks finished 20% to 30% faster |
+| Safety | Safe task completion up 33% around obstacles and 43% around nearby people |
+| Robots | Apptronik's Apollo 2 humanoid and the two-arm Franka Duo |
+| Availability | "Rolling out to our robotics partners"; no general release |
+
+All of these are DeepMind's own numbers. No outside lab has repeated them.
+
+## Why should a prefab shop care about a car-parts pilot?
+
+Because the pilot task is one a shop foreman would recognize. DeepMind describes it as "sorting individual parts from bulk bins into organized trays in the exact order needed for each vehicle on the line." The robots picked metal brackets on active lines in Kecskemét, Hungary, and Sindelfingen, Germany.
+
+Swap the nouns and that is a hanger kit, a spool's bag of fittings and gaskets, or a device-box assembly kit: pull loose parts from bins, put the right count in the right tote, in the order the crew will install them. Most robot demos we cover involve welding or drilling. This one is the low-skill, high-volume material handling that eats shop labor hours and still causes field delays when a kit shows up short.
+
+## Is 96% good enough?
+
+Probably not on its own, and DeepMind does not claim it is. It calls the result a proof of concept. Three things are missing from the post:
+
+- **How many attempts.** A 96% rate over a few hundred picks means much less than the same rate over a full shift for a month.
+- **What counts as a success.** Per pick, per tray, or per shift is not stated.
+- **Human intervention.** The post does not say how often a person reset the robot or fixed a tray.
+
+If the figure is per pick, which we do not know, that is one miss in every 25 parts. A kit with 25 pieces would average one error. [Let's Data Science](https://letsdatascience.com/news/deepmind-releases-gemini-robotics-25-and-open-asimov-jailbre-ca67d149), summarizing Ars Technica's reporting, notes that 96% may not satisfy Mercedes-Benz because people get repetitive tasks right nearly every time, and that a DeepMind director called closing the last 4% a "steep road." The same summary says the model still runs on cloud servers, which adds latency. That is worth confirming with any vendor, since the [previous version was pitched as working offline](/posts/2026-07-31-gemini-robotics-2-construction-jobsite-robots).
+
+## What about the safety benchmark?
+
+DeepMind also released ASIMOV-Jailbreak, an open-source set of hundreds of prompts that disguise unsafe requests to a robot. It reports that a separate model, Gemini 4 Argon, resisted 99.5% of them, against 82% for an earlier baseline. The post does not give a score for Gemini Robotics 2.5 itself. For a shop, the practical point is that "can someone talk the robot into doing something unsafe" is now a published test, so a vendor can be asked for its result.
+
+## What should a mech or electrical sub do now?
+
+Nothing that costs money. There is no product to buy. Two things are free and useful:
+
+1. **Measure your own kitting error rate.** Count short, wrong or mislabeled kits per 100 shipped for a month, and what each one cost in field hours. Without that number you cannot judge any robot's 96%, or 99%.
+2. **Keep these questions for the first vendor that shows up with a kitting robot:**
+   - What is the error rate per kit on parts like ours, over how many kits, and who counted?
+   - How often does a person have to step in?
+   - Does it need a live internet connection to run?
+   - What check catches a wrong part before the kit leaves the shop?
+   - What is its score on a published safety test such as ASIMOV-Jailbreak?
+
+**Takeaway:** The news here is the task, not the robot. A general-purpose model doing kitting on a live production line puts shop material handling on the list of things robots are being aimed at, next to welding and layout. The honest read on timing is that a 96% pilot with undisclosed counting, at a carmaker, on a partner-only model, is not close to a quote for your shop. We set out similar vendor questions for [welding robots in a fab shop](/posts/2026-11-11-path-robotics-300m-series-e-rove-50-units-2027-construction-steel-fabricator-mech-sub-welding-robot-questions) earlier this week.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever runs your prefab shop.*
