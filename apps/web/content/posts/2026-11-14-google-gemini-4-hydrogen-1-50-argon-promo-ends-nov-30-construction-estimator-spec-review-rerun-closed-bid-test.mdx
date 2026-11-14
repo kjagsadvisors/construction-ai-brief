@@ -1,0 +1,72 @@
+---
+title: "Gemini 4 Argon doubles in price on December 1. Estimators should rerun their spec-review test on the cheaper Hydrogen first"
+date: "2026-11-14"
+excerpt: "Google released Gemini 4 Hydrogen on November 12 at $1.50 and $7.50 per million tokens, with a 1 million-token window. Argon's introductory $2 and $10 rate ends November 30 and becomes $4 and $20. An estimating team that piloted spec or bid-document review on Argon has two weeks to find out whether the cheaper model holds up on its own documents."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+  - "https://siliconangle.com/2026/11/12/google-releases-gemini-4-hydrogen-a-lower-cost-model-said-to-outscore-argon/"
+  - "https://www.datastudios.org/post/google-gemini-4-hydrogen-launch-api-pricing-gemini-app-search"
+  - "https://artificialanalysis.ai/evaluations/mka"
+faqs:
+  - q: "How much does Gemini 4 Hydrogen cost?"
+    a: "Google's launch post lists Gemini 4 Hydrogen at $1.50 per million input tokens and $7.50 per million output tokens, priced flat across its 1 million-token context window. It was released November 12, 2026."
+  - q: "When does Gemini 4 Argon's introductory price end?"
+    a: "SiliconANGLE reports that Argon's introductory rate of $2 input and $10 output per million tokens ends November 30, 2026. After that the rate is $4 input and $20 output."
+  - q: "Is Gemini 4 Hydrogen good enough for construction spec review?"
+    a: "Nobody has published a test on construction specs. Google reports Hydrogen scoring one point above Argon on the Artificial Analysis Intelligence Index and 53.4% on the Multimodal Knowledge Agent benchmark, but those are Google's figures. The only reliable check is to run it on a closed bid where you already know the answer."
+  - q: "How much does it cost to load a full spec book into Gemini 4 Hydrogen?"
+    a: "Filling the entire 1 million-token window costs $1.50 in input at the listed rate. Output is billed separately at $7.50 per million tokens and, according to one pricing writeup, includes the model's thinking tokens."
+  - q: "Should an estimator switch from Gemini 4 Argon to Hydrogen?"
+    a: "Not without testing. Run the same closed-bid documents through both models before November 30, count misses and false flags, and compare cost per job at Argon's $4 and $20 rate against Hydrogen's $1.50 and $7.50."
+---
+
+Google released Gemini 4 Hydrogen on November 12 at $1.50 per million input tokens and $7.50 per million output tokens, and Gemini 4 Argon's introductory price ends November 30, when it doubles to $4 and $20. If your estimating team tested spec or bid-document review on Argon this fall, rerun the same test on Hydrogen in the next two weeks, while you can still compare both at low cost.
+
+## What did Google release?
+
+Google's [launch post](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/) calls Hydrogen "our daily driver for agentic workflows" and positions Carbon and Argon as the models for deeper reasoning. Hydrogen takes 1 million tokens of input at a flat price and reads PDFs, spreadsheets, charts, audio and recorded video. It is in the Gemini API, Google AI Studio, the Gemini app and Gemini in Google Sheets for eligible business subscriptions.
+
+| Model | Input per 1M tokens | Output per 1M tokens | When |
+|---|---|---|---|
+| Gemini 4 Hydrogen | $1.50 | $7.50 | From November 12 |
+| Gemini 4 Argon (intro) | $2 | $10 | Through November 30 |
+| Gemini 4 Argon | $4 | $20 | From December 1 |
+
+Argon's dates and rates are from [SiliconANGLE](https://siliconangle.com/2026/11/12/google-releases-gemini-4-hydrogen-a-lower-cost-model-said-to-outscore-argon/). When we [covered Argon's promo pricing](/posts/2026-10-14-google-gemini-4-argon-intro-pricing-construction-spec-review-cost-test) in October, the November 30 end date was a secondary report. It is now consistently reported.
+
+## What does that do to the cost of a spec review?
+
+Estimating work is mostly input: a spec book, addenda and sub quotes go in, and a short list comes out. At the listed rates, filling the full 1 million-token window costs:
+
+- **$1.50** on Hydrogen
+- **$2** on Argon today
+- **$4** on Argon from December 1
+
+Twenty full-window passes on a large bid is $30 of input on Hydrogen and $80 on Argon after the promo. Neither number is going to sink a precon budget. The gap matters when the process runs on every bid, every addendum, for every estimator.
+
+Two cautions on the output side, both from a [pricing writeup by Data Studios](https://www.datastudios.org/post/google-gemini-4-hydrogen-launch-api-pricing-gemini-app-search). Output billing includes thinking tokens, and Hydrogen defaults to its "high" thinking level, so output can cost more than the visible answer suggests. And no batch price was listed for Hydrogen at launch, while Argon has one. If your vendor runs overnight batch jobs, Argon's discount narrows the gap.
+
+## Is the cheaper model as good on drawings and specs?
+
+Nobody outside Google has shown that yet. Google says Hydrogen scores 51 on the Artificial Analysis Intelligence Index at default settings against Argon's 50, and 53.4% on the Multimodal Knowledge Agent benchmark, the drawing-and-photo test with a construction category that we [wrote up this week](/posts/2026-11-11-deepmind-mka-benchmark-ai-agents-drawings-57-percent-construction-estimator-precon-drawing-review-vision-test).
+
+Read those with care:
+
+1. **The figures are Google's.** SiliconANGLE notes the comparisons are against Google's own models.
+2. **One index point is not a result.** It tells you the two models are close on general tasks. It says nothing about a scanned Division 26 section.
+3. **The benchmark's own leaderboard shows higher scores.** The [Artificial Analysis MKA page](https://artificialanalysis.ai/evaluations/mka) lists a top score of 57% and Gemini 4 Carbon at 54%. Hydrogen was not on the page when we checked.
+4. **A score near 53% leaves a lot of failed checks.** That is a first-pass reviewer at best. An estimator still verifies every flag and still looks for what the model missed.
+
+## What should an estimating team do before November 30?
+
+1. **Pull the closed bid you used last time.** Same documents, same answer key of known scope gaps.
+2. **Run it on both models.** Record misses, false flags, and input and output tokens per job.
+3. **Price each run three ways.** Hydrogen at $1.50 and $7.50, Argon at $2 and $10, Argon at $4 and $20.
+4. **If you buy through a software vendor, ask which model sits behind the spec-review feature** and whether their price changes on December 1.
+5. **Check data terms for the access route you use** before loading owner documents or sub pricing.
+
+**Takeaway:** If Hydrogen catches the same scope gaps as Argon on your own closed bid, you avoid a doubling in December. If it misses items Argon caught, you know what the extra $2.50 per million input tokens buys, and you can budget for it with a number instead of a promo rate.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever owns your precon software budget.*
