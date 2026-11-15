@@ -1,0 +1,82 @@
+---
+title: "Salesforce's free transcription model takes a keyword list. For a GC, that means field voice notes that get product and sub names right"
+date: "2026-11-15"
+excerpt: "Salesforce released SOV-Transcribe-1 on November 12 as open weights under Apache 2.0. It runs on your own hardware and accepts a list of words to listen for, which lifted keyword accuracy from 71.9 to 96.8 in Salesforce's own test. Nobody tested jobsite audio, and the hardware is not small."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"
+  - "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1"
+faqs:
+  - q: "What is Salesforce SOV-Transcribe-1?"
+    a: "SOV-Transcribe-1 is a speech-to-text model Salesforce released on November 12, 2026 as open weights under the Apache 2.0 license. A company can download it and run it on its own hardware, so audio does not have to go to an outside transcription service. It transcribes recorded audio and does not do live, streaming transcription."
+  - q: "Can a transcription model learn construction terms like product names and spec sections?"
+    a: "SOV-Transcribe-1 accepts a list of words or phrases it should expect, plus a short description of the audio. In Salesforce's test on earnings-call recordings, keyword accuracy (F1) rose from 71.9 with no list to 96.8 when the clip's own keywords were supplied. That test did not use construction audio, so a contractor should run its own recordings before relying on it."
+  - q: "What hardware does SOV-Transcribe-1 need?"
+    a: "The model card gives no minimum requirement. It has 26.6 billion total parameters, and Salesforce ran its benchmarks on a single NVIDIA RTX PRO 6000 Blackwell GPU with 96 GB of memory. That is a server or high-end workstation, not a field laptop."
+  - q: "Can SOV-Transcribe-1 produce OAC meeting minutes with speaker names?"
+    a: "Not by itself. The model card does not mention speaker identification or timestamps, and the tested maximum recording length is 30 minutes. It returns transcript text, so attributing statements to people and turning a transcript into minutes would take other tools and a human review."
+  - q: "Does SOV-Transcribe-1 work in Spanish?"
+    a: "Spanish is one of seven listed languages, along with English, French, German, Italian, Portuguese and Dutch. Salesforce's published accuracy figures are for English, and the model card does not give numbers for the other languages."
+---
+
+Salesforce released a speech-to-text model on November 12 that a contractor can run on its own hardware and hand a list of words to listen for. For a GC's ops team, that addresses the usual reason field voice notes are useless as records: the transcript gets the manufacturer, the sub's name, and the spec section wrong. The catch is the hardware, and the fact that nobody has tested it on jobsite audio.
+
+## What did Salesforce release?
+
+[SOV-Transcribe-1](https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1) is an open-weight model under the Apache 2.0 license, which permits commercial use. Per the [model card](https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1):
+
+- It transcribes recorded audio. It is not a streaming model, so no live captions.
+- It lists seven languages: English, French, German, Spanish, Italian, Portuguese and Dutch.
+- It was tested on recordings up to 30 minutes.
+- It takes plain-language instructions with the audio, such as writing numbers as digits or dropping "um" and "uh."
+- It takes a keyword list or a one-line description of the audio, and resolves unclear words toward those terms.
+
+Salesforce reports a 2.28% word error rate on the Artificial Analysis speech benchmark, first among open-weight models and seventh overall. Those are vendor-reported numbers, and the technical report is not out yet.
+
+## Why does the keyword list matter for field notes?
+
+General transcription fails on proper nouns. A super's walk-through note that says "Greenheck fan at RTU-3 doesn't match the 23 34 00 submittal, called the sheet metal sub" is only worth keeping if those terms survive.
+
+Salesforce measured this on earnings calls, which are dense with company and product names:
+
+| Setup | Keyword accuracy (F1) |
+|---|---|
+| No keyword list | 71.9 |
+| Full keyword list for the dataset | 94.0 |
+| Only the keywords in that clip | 96.8 |
+
+A project already has that list sitting in its files: the sub directory, the submittal log's manufacturers and model numbers, equipment tags, spec section numbers, room names. Export it once per job and send it with every recording.
+
+That is our reading of how the feature maps to a project. Salesforce did not test construction vocabulary, and a quiet earnings call is not a deck pour with a generator running. The card claims the model holds up under accents and noise, with an 8.21% average error rate across 14 English accents on call-center audio, but jobsite noise is a different test.
+
+## What would it take to run this in-house?
+
+More than a spare laptop. The model has 26.6 billion total parameters, and the card gives no minimum hardware. Salesforce benchmarked on one NVIDIA RTX PRO 6000 Blackwell with 96 GB of memory. On that card a one-to-five-minute clip came back in about 2.8 seconds, so one machine could cover a whole company's voice notes.
+
+The reason to bother is control. Audio stays on your server, which matters when an owner's NDA limits where project information goes. We covered a smaller local setup for estimators [earlier this month](/posts/2026-11-09-microsoft-foundry-local-qwen-27b-local-coding-agent-construction-estimator-sub-private-spreadsheet-tools-24gb-gpu).
+
+It also takes someone to set it up. The card describes developer tooling (vLLM and Hugging Face Transformers), not an app a PM installs.
+
+## What does it not do?
+
+- **No speaker labels or timestamps** are mentioned in the card. A transcript of an OAC meeting would not say who committed to what.
+- **30 minutes is the tested ceiling.** Longer recordings have to be split and stitched.
+- **It can loop.** The card says the model in rare cases repeats a word or phrase until it runs out of room, and recommends checking output for repetition and cut-offs.
+- **Spanish is listed, not measured.** The published numbers are for English.
+- **A transcript is not a daily log.** Someone still has to review it before it becomes a project record.
+
+## Should a mid-size GC act on this now?
+
+Only if you already have IT staff or a consultant who runs local models. If you do, the test is cheap:
+
+1. Collect 20 real voice notes from supers, recorded on site with normal background noise.
+2. Build the keyword list from one job's sub directory and submittal log.
+3. Transcribe each note with and without the list.
+4. Count the wrong product names, tags, sub names and spec sections in each version.
+
+If you do not have that capacity, the useful part is the question for your current vendor: can your daily-log or field-notes app accept a project vocabulary list, and where does the audio go?
+
+**Takeaway:** Transcription that listens for your project's own terms is now free to license, and what remains is the cost of the machine and the person to run it. Start by exporting the vocabulary list from one job, because any transcription tool that accepts one will use the same file.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever owns your daily-log process.*
