@@ -1,0 +1,73 @@
+---
+title: "AI assistants flag a wrong approach far less often than people do. PMs and project engineers should give the goal, not just the task"
+date: "2026-11-15"
+excerpt: "Ai2's new XYBench tested five AI models on 8,115 questions built around a mistaken assumption. On real forum questions, top human answers steered the asker off the wrong approach 79% of the time; the models did it 47% to 60% of the time. Nobody tested construction questions, but the habit it exposes is the one a PM brings to an RFI or a change request."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://allenai.org/blog/xybench"
+  - "https://arxiv.org/html/2609.06842v1"
+  - "https://casrai.org/news/allenai-xybench-user-misconceptions-benchmark-2026"
+faqs:
+  - q: "Will an AI assistant tell me if I am asking the wrong question?"
+    a: "Often not. In Ai2's XYBench test, released November 13, 2026, five AI models steered the user away from a mistaken approach in 47% to 60% of answers to real Stack Overflow questions, compared with 79% for the top-rated human answer. The models usually answered the question as asked."
+  - q: "What is XYBench?"
+    a: "XYBench is a benchmark from the Allen Institute for AI (Ai2), built with researchers at Carnegie Mellon, NVIDIA and Johns Hopkins. It has 8,115 questions where the user asks how to do one thing (Y) but their real goal (X) calls for a different approach, and it scores whether an AI answer solves the real goal and points out the mistaken assumption."
+  - q: "Does telling the AI to correct my mistakes fix the problem?"
+    a: "It helps but does not close the gap. The XYBench paper reports that adding a line asking the model to correct any misconceptions improved results, yet the models still fell short of human answers. Stating your actual goal and asking for alternatives is a reasonable habit, not a guarantee."
+  - q: "Did XYBench test construction questions like RFIs or change orders?"
+    a: "No. The questions came from programming forums, technical Q&A sites, and everyday how-to topics such as cooking and home repair. The construction examples in this article are our own illustrations of the same pattern, not study results."
+  - q: "Which AI models were tested in XYBench?"
+    a: "Claude Sonnet 4.6, GPT-5, Gemini 3.1 Pro, Qwen3.5-9B and DeepSeek-V4 Pro, each given one question and one chance to answer. None is its maker's newest model, so current tools may score differently, and the benchmark does not measure back-and-forth conversations."
+---
+
+If you ask an AI assistant how to do the wrong thing, it will usually tell you how. A benchmark released November 13 by the Allen Institute for AI (Ai2) found that five AI models pointed out a user's mistaken approach in 47% to 60% of answers to real forum questions, while the top-rated human answer did so 79% of the time. For a PM or project engineer, the fix costs one extra sentence: tell the assistant what you are trying to get done, not only the task you picked to get there.
+
+## What did Ai2 test?
+
+[XYBench](https://allenai.org/blog/xybench) is built around what programmers call the XY problem. A person wants X, assumes Y will get them there, and asks only about Y. Ai2's example: someone asks how to thicken frosting that keeps sliding off cupcakes, when the real problem is that the cupcakes are still warm.
+
+The benchmark holds 8,115 such questions: 1,557 from Stack Overflow, 184 from Stack Exchange, 102 hand-picked, and 6,272 generated from WikiHow guides. Ai2 built it with researchers at Carnegie Mellon, NVIDIA and Johns Hopkins ([paper](https://arxiv.org/html/2609.06842v1)). Each model got one question and one answer, with no follow-up.
+
+Results on the Stack Overflow questions, per Ai2:
+
+| Answer from | Includes a fix for the real goal | Mainly focused on the real goal | Steers user off the mistaken approach |
+|---|---|---|---|
+| Top human answer | 67% | 55% | 79% |
+| GPT-5 | 71% | 41% | 60% |
+| Qwen3.5-9B | 64% | 41% | 60% |
+| DeepSeek-V4 Pro | 66% | 35% | 55% |
+| Gemini 3.1 Pro | 62% | 40% | 54% |
+| Claude Sonnet 4.6 | 59% | 36% | 47% |
+
+The models answered the question as asked in 75% to 86% of responses and spent most of the answer there. The better route, when it showed up, tended to be a side note.
+
+Yet when the same models were handed two finished answers and asked to pick the better one, they chose the goal-focused answer 71% to 84% of the time. They can recognize the better advice. They do not reliably write it unprompted.
+
+## Why does this matter on a project team?
+
+Ai2 did not test construction questions. What follows is our illustration of the same pattern, not study data.
+
+Project paperwork is full of XY requests, because the person typing has already decided what document they need:
+
+- **"Draft an RFI asking the architect to accept this alternate product."** The goal is getting the product approved. On most jobs that runs through the substitution procedure in Division 01, with its own form and deadlines, and an RFI is the wrong vehicle.
+- **"Write a change order request for the extra rock we hit."** The goal is getting paid. The first question is what the contract's notice clause requires and whether that clock has already started.
+
+In each case an assistant that behaves like the ones in this benchmark produces a clean, confident draft of the thing you asked for. A senior PM reading over your shoulder would have stopped you first, and a newer project engineer is the person least likely to know the question was off.
+
+## How should a PM or project engineer prompt around it?
+
+1. **State the goal before the task.** "I need this alternate valve approved before the pour on the 20th" and then "here is what I planned to send."
+2. **Ask whether the approach is right.** The paper found that asking the model to correct misconceptions improved results, though not to human level.
+3. **Ask for two routes and a pick.** The multiple-choice result suggests models judge options better than they volunteer them. "Give me two ways to handle this and say which you would use" plays to that.
+4. **Keep the human review.** A draft RFI, notice or change request still goes past someone who knows the contract.
+
+## How far should you trust these numbers?
+
+- The questions are programming and household how-to, in English, and single-turn. Real use is often a back-and-forth.
+- The answers were graded by another AI model. Two human reviewers checked 500 of them and agreed with the grader 74% to 80% of the time on the "focus" measure, and more often on the others.
+- None of the five models is its maker's newest. We covered a different test of current models on drawing-heavy work [earlier this week](/posts/2026-11-11-deepmind-mka-benchmark-ai-agents-drawings-57-percent-construction-estimator-precon-drawing-review-vision-test).
+
+**Takeaway:** Treat an AI assistant like a fast, literal junior who will draft whatever you name. Add one line with the outcome you need and one line asking if there is a better way to get it, and tell your project engineers to do the same before the next RFI goes out.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to the project engineers on your team.*
