@@ -1,0 +1,75 @@
+---
+title: "Claude for Manufacturing ships 17 shop skills, but none of its connectors reach a contractor's accounting system. A mech sub's fab shop can still test it on exports"
+date: "2026-11-15"
+excerpt: "Anthropic's new manufacturing plugin drafts quotes, failed-inspection reports, supplier RFQs and downtime reports from a plant's own records. Its four connectors are Autodesk Fusion, Infor, Microsoft 365 and Oracle NetSuite, so a mechanical or sheet metal sub with a fab shop would be working from exported files, with a person approving every draft."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://claude.com/resources/articles/claude-for-manufacturing"
+  - "https://www.manufacturingdive.com/news/anthropic-launches-claude-for-manufacturing/874303/"
+  - "https://www.thomasnet.com/insights/anthropic-claude-for-manufacturing/"
+faqs:
+  - q: "What is Claude for Manufacturing?"
+    a: "Claude for Manufacturing is a plugin Anthropic announced on November 12, 2026. It adds 17 task-specific skills and four connectors (Autodesk Fusion, Infor, Microsoft 365 and Oracle NetSuite) so plant teams can draft quotes, failed-inspection reports, supplier requests for quotes and production reports from their existing records, with a person reviewing each draft."
+  - q: "Can a mechanical or sheet metal contractor's fab shop use Claude for Manufacturing?"
+    a: "Possibly, but with more setup than a manufacturer. The plugin has no connector for construction accounting or project management software. Anthropic says teams whose systems lack a connector can save regular exports to Microsoft 365 and have Claude work from those files, which means the output is only as current as the last export."
+  - q: "Does Claude for Manufacturing run shop equipment?"
+    a: "No. Anthropic states that Claude for Manufacturing does not operate equipment. The breakdown skill reviews sensor exports, repair notes, photos and the manual, then ranks likely causes for a technician to check. Anthropic is separately developing a Model Hardware Standard for programmable equipment, which is a research preview."
+  - q: "Which Claude plan do you need for Claude for Manufacturing?"
+    a: "Anthropic's announcement says the plugin is available on Team and Enterprise plans and lists no plugin-specific price. Manufacturing Dive, citing an Anthropic executive, reported that anyone with a Claude Enterprise plan can install it. Confirm plan eligibility with Anthropic before budgeting a pilot."
+  - q: "Can Claude for Manufacturing release purchase orders on its own?"
+    a: "Not through the bundled connectors, which look up records. Infor is releasing a separate plugin that lets Claude make changes in Infor, such as releasing a purchase order or rescheduling production, under the user's existing Infor permissions. Anthropic says the skills are built to end with a user's review."
+---
+
+Anthropic's Claude for Manufacturing, announced November 12, is a plugin that drafts quotes, failed-inspection reports, supplier RFQs and downtime reports from a plant's own records. A mechanical or sheet metal sub with a fab shop does the same paperwork, but none of the plugin's four connectors reach the software a contractor typically runs, so the realistic first step is a test on exported files, not a rollout.
+
+## What did Anthropic ship?
+
+Per [Anthropic's announcement](https://claude.com/resources/articles/claude-for-manufacturing), the plugin bundles 17 skills (task-specific instructions) and four connectors. Anthropic names six of the skills:
+
+- **Quoting a new job.** Reads the customer's request, lists what is missing, compares costs on similar past jobs, and drafts a quote.
+- **Investigating a failed inspection.** Documents the failure, checks past reports for the same problem, ranks likely causes, and drafts a corrective action report.
+- **Diagnosing a breakdown.** Reviews sensor exports, repair notes, photos and the manual, then ranks likely causes for a technician to check.
+- **Sourcing from another supplier.** Prepares a request for quotes and compares the bids that come back.
+- **Comparing designs in Autodesk Fusion.** Generates variations from an existing model, scores them against targets, and drafts a decision memo.
+- **Reporting on production.** Compiles output against target, downtime, and the cost of downtime and missed output.
+
+The connectors are Autodesk Fusion, Infor, Microsoft 365 and Oracle NetSuite. The bundled Infor connector looks up records such as purchase orders and stock. A separate plugin from Infor lets Claude make changes, such as releasing a purchase order, under the user's existing Infor permissions.
+
+Anthropic says the plugin is available on Team and Enterprise plans and lists no plugin-specific price. [Manufacturing Dive](https://www.manufacturingdive.com/news/anthropic-launches-claude-for-manufacturing/874303/), citing Anthropic's Lauren Collett, reported that anyone with an Enterprise plan can install it. Confirm which plans qualify before budgeting a pilot.
+
+## Does any of this fit a mechanical or sheet metal fab shop?
+
+Anthropic built this for plants, and neither the announcement nor the trade coverage names a customer or reports a result. The mapping below is ours.
+
+| Plugin skill | Closest shop task at a mech or sheet metal sub | What it needs from you |
+|---|---|---|
+| Quoting a new job | Pricing a spool or duct package for another contractor, or an internal shop estimate | Job-cost history on similar work, exported |
+| Investigating a failed inspection | A failed weld inspection or pressure test, written up as a nonconformance report | Past NCRs and inspection reports in one folder |
+| Sourcing from another supplier | RFQ for pipe, fittings or coil when the usual supplier slips | Supplier emails and quotes in Microsoft 365 |
+| Diagnosing a breakdown | Plasma table or coil line down | Repair notes, photos, the manual as a PDF |
+| Reporting on production | Weekly shop output against the fabrication schedule | Whatever tracks spools or pieces out the door |
+
+The gap is the connectors. A sub's job cost usually lives in construction accounting software and its models in a BIM detailing tool, and the plugin connects to neither. Fusion is a product-design CAD/CAM tool, so the design-comparison skill is unlikely to help a shop detailing from a coordinated building model.
+
+## How do you use it without a connector?
+
+Anthropic's answer for systems with no connector: save regular exports to Microsoft 365 and let Claude work from the files. For a sub, that means a weekly job-cost export by cost code, closed NCRs and inspection reports as PDFs, and supplier quotes filed from the purchasing inbox.
+
+The drawback is staleness. A quote drafted Thursday from Monday's export does not know about Tuesday's price letter. And if the job-cost history is miscoded, the draft inherits the miscoding.
+
+## What still needs a person?
+
+Anthropic says the skills "are built to end with a user's review" and that the plugin "doesn't operate equipment." Manufacturing Dive's examples: an estimator releases the quote, a quality engineer signs the corrective action. In a fab shop that means:
+
+- The estimator or shop manager checks every draft quote against current material pricing and shop loading.
+- The QC lead or CWI decides root cause and disposition on a failed weld. A ranked list of likely causes is a place to start looking.
+- A technician verifies a breakdown diagnosis at the machine.
+
+## Should a sub act now?
+
+If you already pay for a qualifying Claude plan and keep shop records in Microsoft 365, take ten closed shop quotes and five closed NCRs, export the supporting records, and have the plugin redraft them cold. Compare its numbers and ranked causes to what your people issued. If the records are not organized, that is the first project. We made a similar point about testing vendor claims against your own shop data in [our piece on kitting error rates](/posts/2026-11-13-deepmind-gemini-robotics-2-5-mercedes-kitting-96-percent-construction-mech-elec-sub-prefab-shop-kitting-error-rate).
+
+**Takeaway:** This is a paperwork tool for the shop office, built around ERPs most contractors do not run. Test it on closed quotes and closed NCRs from exported files before anyone uses it on a live one.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever runs your fab shop.*
