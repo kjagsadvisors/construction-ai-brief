@@ -1,0 +1,74 @@
+---
+title: "A scan found 24,664 Lovable-built apps handing out database records with no login. GCs should check the apps their own people built"
+date: "2026-11-16"
+excerpt: "Security researchers scanned 159,041 apps built with the AI app builder Lovable and found 24,664 that sent database records to any visitor. A GC whose project engineer built a prequal form, punch list or timesheet app the same way should run four checks before more real data goes in."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.crissyfield.de/research/lovable-en/"
+  - "https://www.trendingtopics.eu/lovable-apps-sensitive-data-exposed/"
+  - "https://docs.lovable.dev/features/security.md"
+  - "https://supabase.com/docs/guides/database/postgres/row-level-security"
+faqs:
+  - q: "What did the Lovable security study find?"
+    a: "Hamburg security firm Crissy Field, working with the German newspaper Handelsblatt, analyzed 159,041 Lovable projects. Of the 34,545 that used the Supabase database service, 24,664 sent database records when the page loaded, with no login. The researchers found email addresses on 7,403 of those sites and say that figure is not a confirmed leak rate, because some of that data is meant to be public."
+  - q: "Was Lovable or Supabase hacked?"
+    a: "No. The researchers read data that individual apps left readable. Supabase apps send a key to the browser by design, and the data is protected only by access rules inside the database called row level security. Where those rules were missing or too loose, anyone could read the tables."
+  - q: "Is an app my project engineer built with an AI app builder safe for subcontractor or employee data?"
+    a: "Not until someone has checked its access rules. Lovable's own documentation says its built-in security scans do not replace a thorough security review and that apps handling sensitive data should get a professional one. Lovable's terms put responsibility for the app and its data on the customer, according to the researchers."
+  - q: "How do I check whether a Lovable app exposes its database?"
+    a: "Open the project's Security view in Lovable and run a scan; the Quick scan flags tables without per-record access control. Review the policies under More, Database, Manage, Policies. If the app uses Supabase directly, confirm row level security is enabled on every table, since Supabase's documentation says a table in an exposed schema without it is readable and writable by any role with a grant on it."
+  - q: "Does Lovable block an app from publishing if it has security problems?"
+    a: "Not by default. Lovable's documentation says workspace admins can turn on a setting called Block publishing with critical issues, and that new Enterprise workspaces start with it enabled. Otherwise a user can publish with open findings."
+---
+
+If someone at your company built a small web app with an AI app builder, such as a sub prequal form, a punch list tracker or a crew timesheet, there is a real chance its database answers anyone who asks. Researchers who scanned 159,041 apps built with Lovable found 24,664 that sent database records to a visitor's browser with no login at all.
+
+Nobody hacked anything. The apps were published that way, with database access rules missing or too loose.
+
+## What did the researchers find?
+
+The work comes from [Crissy Field](https://www.crissyfield.de/research/lovable-en/), a Hamburg security firm, with the newspaper Handelsblatt. Its English-language report carries updated figures:
+
+- 159,041 Lovable projects analyzed, drawn from a public web crawl covering December 2025 to September 2026
+- 34,545 of those used Supabase, a common database service for these apps
+- 24,664 sent Supabase records on page load, no login required
+- 7,403 of those had records containing email addresses once the researchers made further read-only requests
+
+What turned up included a property management company's AI-written summaries of internal emails about tenants and owners, more than 1,000 records with passport numbers, and tens of thousands of contracts and invoices.
+
+The cause, as [Trending Topics](https://www.trendingtopics.eu/lovable-apps-sensitive-data-exposed/) explains it: a Supabase app sends a key to the browser by design. The data is protected only by access rules inside the database, called row level security. [Supabase's documentation](https://supabase.com/docs/guides/database/postgres/row-level-security) is blunt about it: "A table in an exposed schema without RLS is readable and writable by any role with a grant on it."
+
+## Why would a GC have this problem?
+
+Because these tools are how a project engineer now solves a problem on a Friday afternoon. Describe the app in a chat box, get a working link, send it to 40 subs. Nobody calls IT, and at many contractors there is no IT to call.
+
+Think about what goes into those apps:
+
+- **Sub prequalification forms:** EMR, bonding capacity, financial statements, W-9s, insurance certificates
+- **Timesheet and crew apps:** names, phone numbers, sometimes pay rates or the last four of a Social Security number
+- **Punch list and closeout trackers:** owner contacts, unit numbers, photos of occupied spaces
+- **Bid invite and sub contact lists:** every sub's estimator and what they were invited to
+
+A sub's financial statement sitting in a table anyone can read is your problem, not the app builder's. The researchers point out that Lovable's terms place responsibility for apps and data handling on the customer. Lovable, per Trending Topics citing Cybernews, calls this "a known, industrywide configuration problem with Supabase."
+
+## How do you check an app you already have?
+
+| Check | Where | What you want to see |
+|---|---|---|
+| Run a security scan | Lovable project, Security view | No finding about tables lacking per-record access control |
+| Read the access policies | More → Database → Manage → Policies | Every table with real data has a policy tied to a logged-in user |
+| Open the app logged out | A private browser window | No names, emails or documents appear before sign-in |
+| Turn on the publishing block | Workspace settings → Security | "Block publishing with critical issues" enabled |
+
+The first, second and fourth come from [Lovable's own security documentation](https://docs.lovable.dev/features/security.md). The fourth matters because publishing is not blocked by default; only new Enterprise workspaces start with the block on. If the app talks to Supabase directly, also confirm row level security is switched on for every table in the Supabase dashboard.
+
+## What are the limits of this study?
+
+The sample is not representative of all Lovable apps, and the researchers say so. Some of the 24,664 are showing data that was meant to be public, like a menu or an event list. They state that the 30% email figure "should therefore not be read as a confirmed data leak rate," and they could not establish whether anyone misused the data. They did not examine Lovable's built-in database.
+
+The checks above also won't catch everything. Lovable's docs say its scans "do not replace a thorough security review," and a logged-out browser test only shows what the page displays, not what the database would return to someone asking directly. An app holding sub financials or employee data needs a person who knows access control to look at it once. The same goes for any tool built this way; we covered a related risk with AI coding assistants [earlier today](/posts/2026-11-16-cursor-breach-stored-agent-sessions-credentials-construction-estimator-sub-internal-tools-privacy-mode-key-rotation).
+
+**Takeaway:** Ask every PM and project engineer this week for a list of web apps they built or had built with an AI tool. For each one that holds sub or employee data, run the four checks, and pull the link until it passes. Then make "no real data until someone reviews the access rules" the rule for the next one.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever on your team builds the homemade apps.*
