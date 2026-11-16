@@ -1,0 +1,65 @@
+---
+title: "OpenAI folded its robotics team because its chatbot model can steer a robot. A prefab shop should ask what that costs per pick"
+date: "2026-11-16"
+excerpt: "OpenAI broke up its stand-alone robotics team, saying general models like GPT-6 Astra can control robots directly. The best public test backs that up in simulation, at about 13 seconds per model call and roughly $36 of usage per task. Mech and electrical subs pricing shop robots should ask vendors three new questions."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://fortune.com/2026/11/13/openai-disbands-robotics-team-as-its-general-models-start-running-robots/"
+  - "https://research.nvidia.com/labs/srl/projects/astranomy/"
+  - "https://the-decoder.com/openai-reassigns-robotics-researchers-to-other-teams-as-general-purpose-models-might-make-specialized-robotics-ai-unnecessary/"
+faqs:
+  - q: "Did OpenAI shut down its robotics work?"
+    a: "OpenAI confirmed to Fortune on November 13, 2026 that it disbanded its stand-alone robotics team and moved the researchers into its main research group and its Applied organization. The company says robotics remains a core part of its long-term plans and that it is still developing a humanoid robot, with a first public demonstration targeted for 2027."
+  - q: "Can a general AI model like GPT-6 Astra control a robot?"
+    a: "In simulation, yes. An Nvidia study found an agent built on GPT-6 Astra succeeded on 74.8% of 120 simulated pick-and-place tasks, ahead of the best specialized robot model on that leaderboard at 51.0%. The study ran no real-robot tests, and a separate small test on physical arms reported by The Decoder had Astra fully finishing 7 of 100 desk tasks."
+  - q: "How fast and how expensive is a robot run by a general AI model?"
+    a: "In Nvidia's study the best-scoring Astra setup averaged about 13 seconds per model call and used roughly $36 of model tokens per task episode, with the simulation paused while the model was thinking. A specialized robot model in the same study responded in about 47 milliseconds. The authors name latency and token cost as the main practical barriers."
+  - q: "Should a mechanical or electrical contractor wait to buy a prefab shop robot because of this?"
+    a: "Not on this news alone. The results are from simulation and simple pick-and-place tasks, not from a fab shop. What changes is the quote review: ask which AI model runs the robot, whether it needs a live internet connection, and whether model usage is billed on top of the lease."
+---
+
+OpenAI broke up its stand-alone robotics team last week because it believes the same general model that writes emails can now drive a robot. For a mech or electrical sub looking at robots for a prefab shop, that puts three new questions on every robot quote: which AI model runs it, does it need a live connection, and who pays for the model usage.
+
+## What did OpenAI do?
+
+[Fortune reported](https://fortune.com/2026/11/13/openai-disbands-robotics-team-as-its-general-models-start-running-robots/) on November 13 that OpenAI disbanded the robotics team it rebuilt in 2024. Research staff moved into the main research group and the applied robotics and hardware staff moved into the product side. OpenAI told Fortune robotics is still "a core part" of its long-term vision and that it is building its own humanoid, with a first public demo targeted for 2027.
+
+The reasoning is that a general model such as GPT-6 Astra can be handed camera images and a control interface and run the robot itself, with no separate robot "brain." That cuts against robotics startups that have raised billions on the idea that robots need their own AI. We have covered several of those vendors, including [Agility's lease economics](/posts/2026-11-08-agility-robotics-nasdaq-debut-1-8m-revenue-construction-prefab-shop-robot-lease-vendor-viability).
+
+## Does the evidence hold up?
+
+Partly. The main public evidence is an [Nvidia study](https://research.nvidia.com/labs/srl/projects/astranomy/) that ran Astra as a robot controller on 120 simulated pick-and-place tasks.
+
+| Measure | Astra agent (best setup) | Specialized robot models |
+|---|---|---|
+| Success rate, simulated tasks | 74.8% | 51.0% for the best on the leaderboard |
+| Time per model call | About 13 seconds | About 47 milliseconds for π0.5 |
+| Model usage per task episode | Roughly $36 in tokens | Not reported |
+| Real-robot testing | None | Not part of the study |
+
+Three things a shop owner should read off that table:
+
+1. **It was all simulation.** The simulator paused while the model was thinking, so the 13 seconds per call did not count against the task. A real conveyor does not pause.
+2. **The cost is per task, not per month.** Roughly $36 of model usage to move a few objects is not a production number. A cheaper setup in the same study ran about $2 per episode with a lower success rate, 66.3%.
+3. **Physical results are much weaker.** [The Decoder](https://the-decoder.com/openai-reassigns-robotics-researchers-to-other-teams-as-general-purpose-models-might-make-specialized-robotics-ai-unnecessary/) reports a small test on real two-arm hardware where Astra fully completed 7 of 100 desk tasks. The specialized model it was compared against completed none.
+
+Nvidia's authors name latency and token cost as the main practical barriers. A Carnegie Mellon researcher quoted by Fortune said smaller onboard models are still needed because large models are slow and hosted in the cloud.
+
+## What should a sub ask a robot vendor now?
+
+If the general-model approach wins, a robot becomes hardware plus a rented model. That changes the paperwork more than the shop floor. Add these to your quote review:
+
+- **Which model runs it, and who controls that?** If the vendor rents the model from OpenAI or Google, a price change or a retired model version is now your production risk. Ask what happens to your cell when the model is swapped.
+- **Does it work offline?** A cloud-hosted model needs a steady connection. Ask what the robot does when the connection drops mid-task, and get the answer in writing.
+- **Is model usage inside the lease?** Ask whether per-task model charges are included, capped, or passed through. A flat monthly lease with uncapped usage is not a flat price.
+- **What is the cycle time on your parts?** Ask for seconds per pick on your hangers, spools or assemblies, timed on real hardware, not a simulation score.
+- **Who keeps the shop data?** An MIT professor who runs a robotics company told Fortune that site-specific data from deployed robots gets more valuable as general models improve. Your shop generates that data. The contract should say who owns it.
+
+## What are the limits?
+
+OpenAI reorganizing a team does not put a robot in anyone's shop, and it is partly a cost decision by a company Fortune says reported a $10.9 billion operating loss last quarter. The tasks tested were tabletop pick-and-place, not hanger assembly or welding. Nothing here says the robot you were quoted last month is obsolete.
+
+**Takeaway:** Before signing a shop robot lease, add one line to your vendor questionnaire asking which AI model runs the machine, whether it needs a connection, and whether usage is billed separately. Then ask for timed cycles on your own parts. We set out related scope questions when [Altman said robots would build data centers](/posts/2026-11-04-openai-altman-robots-build-data-centers-construction-mep-sub-gc-drilling-layout-robot-scope-questions).
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever runs your fab shop.*
