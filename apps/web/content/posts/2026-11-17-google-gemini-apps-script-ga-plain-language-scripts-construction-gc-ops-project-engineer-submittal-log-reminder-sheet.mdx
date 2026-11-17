@@ -1,0 +1,83 @@
+---
+title: "Gemini now writes Google Sheets automations from a plain-English request. A project engineer's submittal log reminder is the first thing to try"
+date: "2026-11-17"
+excerpt: "Google made the Gemini side panel in Apps Script generally available on November 16. Anyone on a covered Workspace plan can describe an automation and get a working script, which puts overdue-submittal reminders and weekly log reports within reach of a project engineer who has never written code."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://workspaceupdates.googleblog.com/2026/11/customize-and-extend-workspace-with-apps-script.html"
+  - "https://developers.google.com/apps-script/release-notes"
+  - "https://developers.google.com/apps-script/guides/services/quotas"
+faqs:
+  - q: "What is Gemini in Apps Script?"
+    a: "It is a Gemini side panel inside Google's Apps Script editor, the scripting tool built into Sheets, Docs and Slides. Google made it generally available on November 16, 2026. A user describes what they want in plain language and Gemini writes, edits and debugs the script."
+  - q: "Which Google Workspace plans include Gemini in Apps Script?"
+    a: "Google lists Business Standard and Plus, Enterprise Standard and Plus, the AI Expanded Access add-on, Google AI Pro for Education, and consumer Google AI Pro and Ultra. Business Starter is not on the list. The rollout began November 12, 2026 and can take up to 15 days to appear."
+  - q: "Can a project engineer automate a submittal log in Google Sheets without knowing how to code?"
+    a: "Yes, for simple jobs. Google says the side panel can write a working script from a description and add a time-based trigger, which covers a daily check for overdue submittals that emails the responsible party. Someone still has to read the proposed code, test it on a copy of the log and own it afterward."
+  - q: "What are the limits on Apps Script automations?"
+    a: "Google's quota page caps each script run at 6 minutes. A Workspace account can email 1,500 recipients a day from scripts and gets 6 hours of total trigger runtime a day; a consumer account gets 100 recipients and 90 minutes."
+  - q: "Can an admin control who uses Gemini in Apps Script?"
+    a: "Yes. Google says the editor follows existing Apps Script service settings and Workspace generative AI access controls, which admins can set by organizational unit or group. Admins can also restrict data access through OAuth app access controls and external URL allowlists, and review script activity in Drive and OAuth audit logs."
+---
+
+A project engineer who keeps the submittal log in Google Sheets can now type "email each reviewer every morning about submittals more than 10 days out" and get a working script back. Google made the Gemini side panel in Apps Script generally available on November 16, so the small automations nobody on a project team ever had time to code can now be requested in plain language.
+
+The details come from Google's [Workspace Updates post](https://workspaceupdates.googleblog.com/2026/11/customize-and-extend-workspace-with-apps-script.html) and the [Apps Script release notes](https://developers.google.com/apps-script/release-notes).
+
+## What did Google ship?
+
+Apps Script is the scripting tool that has sat under **Extensions > Apps Script** in Sheets, Docs and Slides for years. Most project teams have never opened it. The Gemini side panel had been in beta since August 3; it is now general. According to Google, it does three things:
+
+1. **Writes a script from a description.** Gemini reads the files in the open project and produces working code. Further chat can add features such as a time-based trigger.
+2. **Shows its changes before saving.** Proposed code appears block by block, and the user accepts or rejects each block, or all of them.
+3. **Explains failures.** A "Fix errors" button in the execution log has Gemini explain a runtime error and suggest a fix.
+
+Google's own examples are office-generic: Calendar events from urgent Gmail messages, and turning Sheets tables into formatted Docs reports.
+
+## Who gets it?
+
+| Plan | Included? |
+|---|---|
+| Business Standard, Business Plus | Yes |
+| Enterprise Standard, Enterprise Plus | Yes |
+| AI Expanded Access add-on | Yes |
+| Google AI Pro for Education | Yes |
+| Consumer Google AI Pro and Ultra | Yes |
+| Business Starter | Not on Google's list |
+
+The rollout started November 12 and can take up to 15 days to show up, so some accounts won't see the "Ask Gemini" icon in the editor until late November.
+
+## What would a project team build with it?
+
+Anything that is a spreadsheet plus a recurring chore. On a GC's project team that usually means:
+
+- **Submittal log reminders.** Each morning, find rows where the status is "under review" and the sent date is past the review period in the contract, then email the reviewer with the spec section and days outstanding.
+- **Weekly RFI aging report.** Turn the open rows of the RFI log into a formatted Doc for the OAC meeting. This is close to Google's own Sheets-to-Docs example.
+- **Closeout chasers.** Email each sub the list of O&M manuals and warranties still missing against its scope.
+- **Insurance expiration flags.** Highlight any sub whose certificate of insurance expires in the next 30 days.
+
+None of this replaces Procore or a project management system that already sends these notices. It is for the firm, or the job, that runs its logs in Sheets.
+
+## What are the limits?
+
+Google's [quota page](https://developers.google.com/apps-script/guides/services/quotas) sets the ceiling:
+
+- **6 minutes** per script run, on every account type
+- **1,500** email recipients a day from scripts on a Workspace account (100 on a consumer account)
+- **6 hours** of total trigger runtime a day on Workspace (90 minutes on consumer)
+- **20** triggers per user per script
+
+A reminder script on one project's log is nowhere near those numbers. A script that loops over every job in the company might be.
+
+The larger limits are not technical. A script runs, in Google's words, "with a user's existing permissions and standard OAuth consent." So the reminder emails come from the account of whoever built it, and the automation depends on that person's access to the file. Nobody else on the team knows the script exists unless they are told. And Gemini writing the code does not mean the code is right: we reported last week that the best coding agent [fully finished only 26% of real change requests](/posts/2026-11-10-co-design-bench-coding-agents-26-percent-construction-estimator-sub-internal-bid-tool-change-requests) in one benchmark. A script that emails an architect's office every morning with the wrong day count is worse than no script.
+
+Google's post does not mention usage limits on the Gemini panel itself.
+
+## Should a GC's ops lead do anything?
+
+Yes, one thing before the team finds the feature on its own. Google says the editor follows existing Apps Script service settings and generative AI access controls, which admins can set by organizational unit or group, and that script activity shows up in Drive and OAuth audit logs. Decide who has it on, and ask whoever administers Workspace to confirm they can see what scripts are running.
+
+**Takeaway:** Pick one log on one job. Make a copy. Ask Gemini for a daily overdue-item email, send the test runs only to yourself for a week, and check the day counts against the log by hand. If it holds, point it at the real recipients and write two lines at the top of the sheet saying what the script does and who owns it.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to the project engineer who maintains your submittal log.*
