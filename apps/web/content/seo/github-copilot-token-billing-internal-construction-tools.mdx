@@ -1,9 +1,9 @@
 ---
 title: "What GitHub Copilot's usage-based billing means for the internal tools your construction office built"
-description: "GitHub Copilot switched from flat-rate to metered AI credits on June 1, 2026, and the promotional credit cushion for Business/Enterprise seats ran out September 1. Here's what it costs now and how to cap it."
+description: "GitHub Copilot billing moved from flat-rate to metered AI credits on June 1, 2026, and an October option bills from the first request with no included credits. Here's what the internal tools your construction office built cost now and how to cap them."
 target_keyword: "GitHub Copilot billing internal construction tools"
 audience: "gc_ops"
-updated_at: "2026-09-18"
+updated_at: "2026-11-18"
 sources:
   - "https://github.com/orgs/community/discussions/192948"
   - "https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/"
@@ -11,62 +11,86 @@ sources:
   - "https://github.blog/changelog/2026-07-01-set-ai-credit-session-limits-in-copilot-cli-and-sdk/"
   - "https://github.blog/changelog/2026-07-02-cost-centers-now-support-included-usage-caps/"
   - "https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises"
-  - "https://thinkingmachines.ai/news/introducing-inkling/"
   - "https://devtoolsreview.com/pricing/copilot-ai-credits-september-2026/"
   - "https://scottarmbruster.com/articles/github-copilot-ai-credits-90-day-promo-cliff-budget-controls-2026/"
   - "https://www.shashi.co/2026/08/github-copilot-gets-four-spending-caps.html"
+  - "https://docs.github.com/en/copilot/get-started/plans"
+  - "https://docs.github.com/copilot/concepts/billing/usage-based-billing-for-individuals"
+  - "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot"
+  - "https://github.blog/changelog/2026-10-28-new-tools-triggers-and-cost-controls-for-copilot-automations"
+  - "https://github.blog/changelog/2026-09-16-copilot-budget-increase-requests-are-generally-available"
+  - "https://www.beri.net/article/github-universe-2026-recap-enterprise-includes-copilot-no-ai-credits-fusion-ga-30-percent-discount-standalone-10-dollars"
 faqs:
   - q: "Why did my GitHub Copilot bill jump after June 2026?"
     a: "GitHub moved Copilot Chat, agent mode, code review, and the CLI off flat-rate pricing on June 1 and onto a monthly pool of AI Credits billed at each model's API rate — inline code completion stayed unlimited, but multi-step agent work draws the pool down fast. On GitHub's own community forum, one developer reported a single agent-mode request burning 822 credits, 54% of a monthly Pro+ allotment, and outside reporting on the first full billing cycle described accounts projecting jumps from around $29 to $750 a month, and from $50 to $3,000, once real usage hit metered rates."
   - q: "Why did my bill jump again in September, even though nothing changed?"
     a: "Business and Enterprise seats got a promotional credit cushion for the first three months of usage-based billing — 3,000 credits per Business seat and 7,000 per Enterprise seat instead of the standard amount. That cushion expired September 1, 2026, dropping Business seats to 1,900 credits and Enterprise seats to 3,900. Seat prices didn't move; the usage that's included in the price did, so a firm running the same workload can see a second cost jump with no change on its end."
-  - q: "What's the difference between code completion and agent mode for billing purposes?"
-    a: "Code completion — Copilot finishing a line as you type — is still unlimited on every paid plan and never touches the credit pool. Agent mode, Chat, code review, and the CLI are different: they hand Copilot a multi-step task and let it work across files with less human oversight per step, which means many model calls per request. That's the feature construction office tools are usually built on, and it's the one that's now metered."
   - q: "How do I set a spending cap on GitHub Copilot credits?"
-    a: "For an individual seat running the CLI or SDK, GitHub added session-level limits in July 2026 — a soft cap, since a request already underway finishes before the limit takes effect. For a firm managing seats through Business or Enterprise, the stronger control is the universal user-level budget GitHub rolled out afterward: it applies automatically to every licensed user in the org or enterprise and can be set to block usage outright once a seat hits its limit, rather than letting it roll into overage charges. Check Settings → Billing → GitHub Copilot for the spend dashboard and budget controls."
+    a: "For an individual seat running the CLI or SDK, GitHub added session-level limits in July 2026 — a soft cap, since a request already underway finishes before the limit takes effect. For a firm managing seats through Business or Enterprise, the stronger control is a user-level budget, which GitHub's billing docs describe as always a hard stop: when a user reaches it, the credit-consuming features stop for that user even if the shared pool still has credits. Organization, cost-center, and enterprise budgets only stop usage if the stop-at-limit option is switched on; otherwise they just send alerts. Since October 28, 2026, a scheduled Copilot Automation can also carry its own per-run, daily, weekly, or monthly credit cap."
+  - q: "Is the $10 Copilot Standalone seat cheaper than a $19 Business seat?"
+    a: "Only for light use. GitHub's plans page lists Copilot Business at $19 per seat with 1,900 AI Credits included, worth $19 at one cent per credit, while Copilot Standalone is $10 per user with no credits included, so every Chat, code review, or cloud agent request is billed from the first one. A user who burns more than about $10 of metered usage a month costs the same or more on Standalone, and there is no pool to absorb a heavy month."
   - q: "Should a construction office stop building internal tools on Copilot now?"
     a: "No — but stop treating it as a free add-on to a $10-or-$19-a-month seat. If an ops person or precon lead built something your team actually relies on — an RFI-log watcher, a submittal tracker, a vendor cut-sheet normalizer — it's valuable enough to have a known monthly cost, a spending cap, and someone accountable for both. What changed isn't whether the tool works; it's whether its cost is predictable."
 ---
 
-If someone in your office — an ops lead, a precon coordinator, whoever had a Copilot seat and enough curiosity to try agent mode — used GitHub Copilot to build an internal tool like an RFI-log watcher, a submittal tracker, or a vendor cut-sheet scraper, that tool is no longer running on a flat monthly fee. GitHub moved Copilot Chat, agent mode, code review, and the CLI to metered AI-credit billing on June 1, 2026, and the first full billing cycle showed some users' costs jumping 10 to 50 times over what they paid in May. Business and Enterprise seats got a temporary credit cushion to soften that first jump — it ran out September 1, 2026, and firms on those plans are looking at a second, unrelated cost increase now. The fix isn't to shut the tool off — it's to find out what it actually costs and put a cap on it before the next invoice.
+If someone in your office used a GitHub Copilot seat to build an internal tool, such as an RFI-log watcher, a submittal tracker, or a vendor cut-sheet scraper, that tool no longer runs on a flat monthly fee. GitHub moved Copilot Chat, agent mode, code review, and the CLI to metered AI Credits on June 1, 2026; the promotional credit cushion on Business and Enterprise seats ended September 1; and the $10 Copilot Standalone seat announced October 28 includes no credits at all. The fix isn't to shut the tool off. Find out what it costs per month and put a hard cap on it before the next invoice.
 
 ## What actually changed in GitHub Copilot's pricing?
 
-Per-seat subscription prices didn't move — Pro is still $10 a month, Pro+ is $39, Business is $19 per user, Enterprise is $39 per user. What changed is what that seat price covers. Inline code completion and Next Edit Suggestions stay unlimited on every plan. Everything that does multi-step work — Copilot Chat, agent mode, code review, and the Copilot CLI — now draws from a monthly pool of AI Credits billed at each underlying model's published API rate, roughly one credit per cent. None of it rolls over to the next month.
+Per-seat subscription prices didn't move — Pro is still $10 a month, Pro+ is $39, Business is $19 per user, Enterprise is $39 per user. GitHub has since added a $100-a-month Max tier for individuals. What changed is what that seat price covers. Inline code completion and Next Edit Suggestions stay unlimited on every plan. Everything that does multi-step work — Copilot Chat, agent mode, code review, the Copilot CLI, and the cloud agent — now draws from a monthly pool of AI Credits billed at each underlying model's published API rate, with one credit worth $0.01. None of it rolls over to the next month.
 
-Individual Pro and Pro+ have kept a flat allotment since launch: 1,500 credits a month for Pro, 7,000 for Pro+. Business and Enterprise did not. GitHub gave firms already on those plans a promotional cushion for the first three billing cycles — 3,000 credits per Business seat and 7,000 per Enterprise seat, roughly double the standard amount — to soften the transition. That cushion expired September 1, 2026. Business seats are now back to the standard 1,900 credits per user, and Enterprise seats to 3,900. Nothing about actual usage has to change for a firm on either plan to see a second bill increase this fall.
+Individual Pro and Pro+ have kept the same totals since launch: 1,500 credits a month for Pro, 7,000 for Pro+. GitHub's docs now split each into a fixed base and a "flex" allotment it says can change (Pro is 1,000 base plus 500 flex), so treat the flex portion as adjustable, not guaranteed. Business and Enterprise seats got a promotional cushion for the first three billing cycles: 3,000 credits per Business seat and 7,000 per Enterprise seat. It expired September 1, 2026, and those seats are now at the standard 1,900 and 3,900 credits per user. A firm running the same workload saw a second bill increase this fall with no change on its end.
 
 ## Why does this hit a construction office that doesn't employ developers?
 
-Because you don't need a developer on staff for this to matter — you just need one person with a Copilot seat and the habit of reaching for agent mode instead of doing something by hand. A lot of the small tools quietly running inside GC and sub back offices — an RFI-status watcher, a submittal-log monitor, a spreadsheet cleanup script, a basic estimating helper — got built exactly that way: someone with access tried agent mode once, it worked, and it's been running unattended ever since. Those are the workflows that draw hardest on the metered pool, because agent mode makes many model calls per task instead of one, and nobody is watching each call the way a developer watches each line of code they write.
+Because you only need one person with a Copilot seat and the habit of reaching for agent mode. A lot of the small tools running inside GC and sub back offices, like an RFI-status watcher, a submittal-log monitor, or a spreadsheet cleanup script, got built that way: someone tried agent mode once, it worked, and it has run unattended since. Those workflows draw hardest on the metered pool, because agent mode makes many model calls per task and nobody watches each call.
 
 ## How much did costs actually jump?
 
-Enough that GitHub's own community forum filled up with complaints within days of the June 30 close of the first full cycle. One developer logged a single agent-mode request burning 822 credits — 54% of a month's Pro+ allotment — on what they described as a small project. Others reported draining an entire 7,000-credit Pro+ pool in a couple of hours of agentic work, or projecting full depletion within 48 hours at normal usage. Outside reporting on that first cycle put dollar terms on it: accounts projecting monthly bills jumping from roughly $29 to $750, and from $50 to $3,000, once usage was priced at metered rates instead of the old flat subscription. The pattern is consistent across every report: code completion isn't the expensive part. Letting an agent run multiple steps without you supervising each one is.
+Enough that GitHub's community forum filled with complaints after the first full cycle closed June 30. One developer logged a single agent-mode request burning 822 credits, 54% of a month's Pro+ allotment, on what they described as a small project. Outside reporting on that cycle described accounts projecting monthly bills jumping from roughly $29 to $750, and from $50 to $3,000, once usage was priced at metered rates. Code completion isn't the expensive part. Letting an agent run multiple steps unsupervised is.
 
 ## GitHub Copilot plans and AI credits, compared
 
-| Plan | Monthly price | AI Credits included (standard, from Sept 1, 2026) | Rollover |
+| Plan | Monthly price | AI Credits included (as of November 2026) | Rollover |
 |---|---|---|---|
-| Individual Pro | $10/mo | 1,500 credits | No |
-| Individual Pro+ | $39/mo | 7,000 credits | No |
-| Business | $19/user/mo | 1,900 credits/user, pooled at org level (was 3,000 during the Jun–Aug promo) | No |
-| Enterprise | $39/user/mo | 3,900 credits/user, pooled + cost-center caps (was 7,000 during the Jun–Aug promo) | No |
+| Individual Pro | $10/mo | 1,500 credits (1,000 base + 500 flex) | No |
+| Individual Pro+ | $39/mo | 7,000 credits (3,900 base + 3,100 flex) | No |
+| Individual Max | $100/mo | 20,000 credits (10,000 base + 10,000 flex) | No |
+| Business | $19/user/mo | 1,900 credits/user, pooled (was 3,000 during the Jun–Aug promo) | No |
+| Enterprise | $39/user/mo | 3,900 credits/user, pooled (was 7,000 during the Jun–Aug promo) | No |
+| Copilot Standalone | $10/user/mo | None; metered from the first request | n/a |
+| Copilot access via a GitHub Enterprise Cloud license | $0 seat charge | None; metered from the first request | n/a |
 
-Code completion and Next Edit Suggestions are unlimited on every plan above and don't draw from the credit pool. Chat, agent mode, code review, and the CLI all do.
+Code completion and Next Edit Suggestions are unlimited on every plan above and don't draw from the credit pool. Chat, agent mode, code review, the CLI, and the cloud agent all do.
+
+## What changed in October 2026, and does the new $10 seat save money?
+
+On October 28, GitHub announced that a GitHub Enterprise Cloud license now includes Copilot access with no separate seat charge, and that firms without that license can buy the same access as Copilot Standalone for $10 per user a month. The catch is in the billing docs: neither option includes any monthly AI Credits. Usage is metered from the first request against whatever budget the firm has set. The Enterprise-license route is open now only to customers working with a GitHub or Microsoft account team; GitHub says self-serve availability will come in stages. Existing Business and Enterprise seats are unaffected and still on sale.
+
+For a small contractor's office, the math is simple. A $19 Business seat comes with $19 of pooled credits. A $10 Standalone seat comes with zero. Standalone is cheaper only for someone who uses under roughly $10 of Chat and agent work a month, and it removes the shared pool that lets a light user's unused credits cover the one person running an agent-built tool. If your office's usage is one heavy automation and four people who mostly use code completion, pooled Business seats are still the better fit. We'd only look at Standalone for seats that exist purely for completion.
+
+One smaller date to know: GitHub's docs list a 30% discount on model costs for Copilot Fusion, its model-routing feature, through November 30, 2026, and don't say what follows. If a tool of yours routes through Fusion, expect its December cost to differ from November's.
 
 ## Can you cap the spend before it surprises you?
 
-Yes, and GitHub has added more controls since the rough first cycle. Session-level limits shipped in July for the Copilot CLI and SDK, letting a single interactive session cap itself at a set number of credits before it stops — useful for a one-off automation run, though it's a soft cap, since usage on a request already in progress isn't known until that request finishes. The stronger control that followed is a universal user-level budget: set at the organization or enterprise level, it applies automatically to every licensed seat and can be configured to block usage outright — a hard stop, not just an alert — once that seat hits its limit for the cycle. Enterprise customers also have cost-center-level caps, so a specific team or project's AI spend can be capped independently of the rest of the org's pool.
+Yes, and GitHub has added more controls since the rough first cycle. The ones that matter for an office tool:
 
-None of these controls existed when the first billing cycle closed at the end of June, which is part of why that cycle's bill shock caught so many users off guard. If your firm's Copilot seats are still running on default settings — and especially if you're on Business or Enterprise and haven't checked since the September 1 promo cliff — this is the fix: go into Settings → Billing → GitHub Copilot, check what's actually consuming the credit pool, and set a hard cap before the next cycle closes rather than after.
+| Control | Where it applies | Hard stop? |
+|---|---|---|
+| Session limit (July 2026) | One Copilot CLI or SDK session | Soft; a request already in progress finishes first |
+| User-level budget | One licensed user, covering pool and paid usage | Always |
+| Organization, cost-center, or enterprise budget | Paid usage beyond the included pool | Only if "Stop usage when budget limit is reached" is enabled |
+| Paid usage policy | Business and Enterprise accounts | Turning it off stops spending at the included pool; it is on by default |
+| Automation limits (October 2026) | One Copilot Automation, per run or per day, week, or month | Yes; the run stops or new runs wait for the reset |
+
+Two details in that table catch people. First, scoped budgets alert by default and keep billing; the stop option has to be switched on. Second, the paid usage policy ships enabled, so a firm that never opened its billing settings is authorized to run past its pool. If a user-level budget blocks someone mid-task, Business and Enterprise admins can now approve a budget increase request and restore access immediately, a feature GitHub made generally available on September 16.
+
+None of these controls existed when the first billing cycle closed at the end of June, which is part of why that cycle caught so many users off guard. If your firm's Copilot seats are still running on default settings, this is the fix: open the Copilot billing and usage settings, check what's consuming the credit pool, give the person running the automation a user-level budget, and put a monthly limit on any scheduled automation before the next cycle closes.
 
 ## Should you keep the internal tool, rebuild it, or kill it?
 
-That depends on what the tool is actually worth to your office, and metered billing is the first time you've had a real number to compare against. Run one full billing cycle with a spending cap in place and look at what it actually cost — not the vendor's example calculation, the real number for your usage. If an RFI-log watcher costs $40 a month to run and saves a coordinator two hours a week, that's an easy keep. If a submittal-tracking automation is burning hundreds of dollars because it re-scans every document on every run instead of only new ones, that's a design problem worth fixing before you decide the tool itself isn't worth it.
+That depends on what the tool is worth to your office, and metered billing gives you the first real number to compare against. Run one full billing cycle with a cap in place and look at the actual cost for your usage. If an RFI-log watcher costs $40 a month and saves a coordinator two hours a week, keep it. If a submittal-tracking automation burns hundreds of dollars because it re-scans every document on every run instead of only new ones, that's a design problem to fix before you judge the tool.
 
-For firms with heavy, predictable usage, there's a longer-term alternative worth knowing about even if it's not a near-term fix: [Thinking Machines Lab released Inkling](https://thinkingmachines.ai/news/introducing-inkling/), a 975-billion-parameter model, under a free commercial license in July 2026, which means a firm with the engineering resources to self-host can run agent-style automation without per-token metering at all. That's a real option for a software vendor sizing infrastructure — it's a much bigger lift for a five-person back office than switching to a spending cap and a monthly review.
+What still needs a person: someone has to own the tool, read the usage report each month, and decide whether the number is worth it. No budget setting does that for you. The tool your team built didn't get worse. Its cost went from invisible to visible, so treat it like any other line item.
 
-The honest bottom line: the internal tool your team built didn't get worse. Its cost just went from invisible to visible. Treat it like any other line item — know what it costs, cap what it can cost, and decide if it's still worth it with real numbers instead of a flat subscription hiding the answer.
-
-For the fuller picture on what AI is doing to software pricing across your whole stack — not just GitHub — see our [guide to the real cost of AI in construction software](/seo/ai-construction-software-cost-pricing-guide). For the original billing-shock story with more on how this plays out for a specific sub or GC office, see [our coverage of the first Copilot billing cycle](/posts/2026-07-01-github-copilot-usage-billing-construction-internal-tools) and [Microsoft's parallel shift with Copilot Cowork](/posts/2026-06-30-copilot-cowork-gc-workflows-billing). And if that internal tool runs unattended, it's worth knowing what else it's exposed to: [an 8-hour GitHub outage in August](/posts/2026-08-20-github-outage-copilot-actions-postmortem-construction-ai-tooling-risk) started with the same kind of AI coding infrastructure your automation depends on.
+For what AI is doing to software pricing across your whole stack, see our [guide to the real cost of AI in construction software](/seo/ai-construction-software-cost-pricing-guide). Related coverage: [the first Copilot billing cycle](/posts/2026-07-01-github-copilot-usage-billing-construction-internal-tools), [Microsoft's parallel shift with Copilot Cowork](/posts/2026-06-30-copilot-cowork-gc-workflows-billing), [how Revolut cut AI coding costs by ending usage rationing](/posts/2026-11-05-revolut-self-hosted-ai-coding-cost-cut-90-percent-construction-gc-sub-flat-rate-ai-pricing-usage-rationing), [pricing an AI pilot per task with spend reports](/posts/2026-10-29-anthropic-ai-spend-reports-pooled-budgets-construction-gc-pilot-roi-cost-per-task), and [the 8-hour GitHub outage in August](/posts/2026-08-20-github-outage-copilot-actions-postmortem-construction-ai-tooling-risk) that unattended tools were exposed to.
