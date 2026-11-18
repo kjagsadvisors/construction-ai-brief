@@ -1,0 +1,65 @@
+---
+title: "Microsoft's Autopilot agent follows up on a PM's email and Teams threads under its own name. Decide what it may send before anyone turns it on"
+date: "2026-11-18"
+excerpt: "At Ignite on November 17, Microsoft began rolling out Autopilot, an always-on personal agent inside Microsoft 365 that watches Teams channels, follows up on email and runs recurring work. For a GC's project team, the open question is which follow-ups an agent can send and which ones carry contract weight."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"
+  - "https://news.microsoft.com/events/ignite/2026/book-of-news/"
+  - "https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/"
+faqs:
+  - q: "What is Microsoft Autopilot in Copilot?"
+    a: "Autopilot is a long-running personal agent Microsoft announced at Ignite on November 17, 2026. Each user's Autopilot has its own identity, memory and tool access inside the company's Microsoft 365 tenant, and Microsoft says it can monitor Teams channels, follow up on emails and run recurring work without a new prompt each time."
+  - q: "Is Microsoft Autopilot available to every Microsoft 365 Copilot customer?"
+    a: "Not yet. Microsoft says Autopilot is beginning to roll out to customers in its Frontier program, and its announcements give no general availability date or price for it."
+  - q: "Can a project manager use Microsoft Autopilot to chase subs for submittals?"
+    a: "Microsoft's own example is close: an Autopilot that runs a supplier review, builds the schedule and contacts stakeholders for updates. Microsoft's announcements do not say whether Autopilot can message people outside the company's tenant, so a GC should confirm that before planning around it, and should keep contract notices and direction to subs with a person."
+  - q: "Can IT control what a Microsoft Autopilot agent does?"
+    a: "Microsoft says each Autopilot has a Microsoft Entra Agent ID and a named manager, that IT can scope its access or block it, and that its actions are logged under its own name. Users choose which work it takes on and can require a check before key actions."
+  - q: "Can coworkers ask my Autopilot questions when I'm not there?"
+    a: "Yes. Microsoft's Book of News says colleagues can @mention a person's Autopilot in a Teams channel or group chat. That means the agent may answer on a PM's behalf while the PM is in the field, which is a reason to limit what it is allowed to answer."
+---
+
+A project manager at a GC running Microsoft 365 may soon have an agent that reads their Teams channels and follows up on their email while they walk the job. Microsoft began rolling out that agent, called Autopilot, at its Ignite conference on November 17. Before a project team turns it on, the ops lead should decide which follow-ups it may send on its own and which ones need a person, because some of a PM's follow-ups are contract notices.
+
+## What did Microsoft announce?
+
+Microsoft's [Book of News](https://news.microsoft.com/events/ignite/2026/book-of-news/) calls Autopilot its "first enterprise-grade long-running personal productivity agent." Satya Nadella's [keynote post](https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/) describes it as "an autonomous agent that keeps moving your work forward 24×7." According to Microsoft's [Copilot blog](https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/):
+
+- Each Autopilot has its own identity, memory and tools, and lives in the company's tenant.
+- It can monitor Teams channels, follow up on emails, run recurring work and manage projects without waiting for a prompt.
+- People can @mention it in Teams, Outlook, chats, channels and documents. The Book of News adds that colleagues can @mention *someone else's* Autopilot in a channel or group chat.
+- Microsoft's example is a supplier review: the agent builds the schedule and workback plan, handles prep, meetings and follow-ups, and contacts stakeholders for updates.
+
+It is rolling out to customers in Frontier, the program where Microsoft ships Copilot features ahead of general release. Microsoft gave no general availability date and no price for Autopilot. Its Copilot blog says only that Copilot combines a per-user subscription with usage-based charges for the most advanced AI.
+
+## What controls come with it?
+
+| Control | What Microsoft says |
+|---|---|
+| Identity | Each Autopilot has a Microsoft Entra Agent ID and a named manager |
+| IT scope | IT can scope its access or block it |
+| Audit trail | Its actions are logged under its own name |
+| User choice | The user picks which work it takes on |
+| Approval | The user can require a check before key actions |
+
+Those are vendor descriptions of a product in early rollout. We have not seen independent testing of how well Autopilot holds up over weeks of real work.
+
+## What does this mean for a GC's project team?
+
+Swap "supplier review" for "submittal chase" and the fit is obvious. A PM's week is full of recurring follow-up: who owes a resubmittal, which RFI has sat past its review period, what's still open before the OAC meeting. An always-on agent that drafts those nudges and assembles the open-items list is a real time saver if it works.
+
+Three things need an answer first.
+
+1. **Can it message people outside the company?** Most of a PM's follow-ups go to subs, architects and owner's reps. Microsoft's announcements do not say whether Autopilot can contact people outside the tenant. If it can't, it is an internal assistant, which is still useful but a smaller thing.
+2. **What counts as a "key action"?** A reminder that a submittal is late is routine. An email telling a sub its delay is affecting the schedule may be notice under the subcontract. A reply in a Teams channel saying "yes, proceed" is direction. The approval check Microsoft describes is where a firm draws that line, and the default should be that anything touching schedule, cost, scope or direction waits for the PM.
+3. **Who answers when it's @mentioned?** A project engineer can ask the PM's Autopilot a question while the PM is on site. The answer comes from an agent working off the PM's memory and files. We covered Anthropic research last week in which Claude agents assigned one per user made [unsupported claims about other people, such as agreement that never happened,](/posts/2026-11-13-anthropic-worse-together-per-user-agents-vs-shared-coordinator-construction-gc-ops-project-team-shared-logs-schedules) in about 53 to 58% of team test runs. Those tests were not of Autopilot, but the failure is the one to watch for.
+
+## Should a mid-size GC act now?
+
+Most firms can't turn it on yet, so the work this month is policy, not setup. It costs nothing to do early and it applies to any vendor's always-on agent, not only Microsoft's.
+
+**Takeaway:** Write a one-page list with two columns. Left: follow-ups an agent may send unreviewed (internal reminders, meeting prep, open-items lists). Right: anything a person must approve (messages to subs, designers or the owner; anything about time, money or scope). Then ask whoever administers Microsoft 365 two questions: are we in Frontier, and when Autopilot arrives, who gets it first?
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever runs your project management group.*
