@@ -1,0 +1,73 @@
+---
+title: "Google will keep 'temporary' Gemini chats for about two months, up from 72 hours. PMs should check which account they paste job documents into"
+date: "2026-11-18"
+excerpt: "Google is extending retention of temporary Gemini chats and chats made with history off from 72 hours to about two months. For a GC, the question is whether project staff are pasting contract language, pricing and owner documents into personal Gemini accounts on the assumption that 'temporary' means gone in three days."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://blog.google/innovation-and-ai/products/gemini-app/updated-controls/"
+  - "https://support.google.com/gemini/answer/13594961"
+  - "https://techcrunch.com/2026/11/17/google-to-keep-gemini-chats-for-two-months-up-from-72-hours-even-with-history-off/"
+faqs:
+  - q: "How long does Google keep temporary Gemini chats?"
+    a: "About two months. Google's Gemini Apps Privacy Hub says temporary chats and chats made with History off are retained with your account for around two months. TechCrunch reports the earlier figure was 72 hours, and Google says the change rolls out globally in the Gemini app over the coming weeks."
+  - q: "Are temporary Gemini chats used to train Google's AI models?"
+    a: "No. Google's privacy page says temporary chats are not used to train its AI models. They are still stored for around two months and used to respond to you, process feedback and protect Google's services and users."
+  - q: "Does the Gemini retention change apply to Google Workspace accounts at a construction company?"
+    a: "Google has not spelled that out in the announcement. Its privacy page says work or school accounts may be subject to different data handling terms and points to a separate Workspace privacy hub, so a contractor on Workspace should have its admin confirm the terms that apply."
+  - q: "Is it safe to paste bid documents or contract language into a personal Gemini account?"
+    a: "Treat it as stored, not temporary. With History off or in a temporary chat, Google now keeps the conversation for about two months, and its privacy page says a subset of chats are read by human reviewers and reviewed chats can be kept for up to three years. If the owner's contract or an NDA restricts where project documents go, a personal account is the wrong place for them."
+  - q: "Do ChatGPT and Claude also keep temporary chats?"
+    a: "Yes. TechCrunch reports OpenAI may keep temporary ChatGPT chats for up to 30 days and Anthropic retains incognito Claude chats for 30 days by default. No major chatbot deletes a temporary chat the moment you close it."
+---
+
+If a PM or project engineer at your company uses Gemini's temporary chat to summarize a subcontract or sanity-check a change order price, Google will soon keep that conversation for about two months instead of 72 hours. The chat still disappears from the user's screen. It does not disappear from Google.
+
+## What exactly is Google changing?
+
+Per [Google's blog post](https://blog.google/innovation-and-ai/products/gemini-app/updated-controls/), its [Gemini Apps Privacy Hub](https://support.google.com/gemini/answer/13594961) and [TechCrunch's reporting](https://techcrunch.com/2026/11/17/google-to-keep-gemini-chats-for-two-months-up-from-72-hours-even-with-history-off/):
+
+- **Announced November 16, rolling out globally in the Gemini app over the coming weeks.**
+- **Retention goes from 72 hours to about two months** for temporary chats and for chats made with History turned off. TechCrunch confirmed the 72-hour figure from an archived copy of Google's privacy page dated November 12.
+- **One setting becomes two.** The old "Keep Activity" switch splits into a chat history setting and a separate permission to use conversations for model training. A user can now keep history and opt out of training.
+- **Temporary chats are still not used for training.** Google says the stored chats are used to respond to users, process feedback, and protect Google, its users and the public.
+- **Human review exists.** The privacy page says a subset of chats are read by human reviewers, and reviewed chats are not deleted when you delete your history. They can be kept for up to three years.
+- **Google's stated reason is safety and security** as AI systems get more capable.
+
+## Why should a GC care about a consumer privacy setting?
+
+Because the people on your jobs use consumer accounts for work. A superintendent with a personal Gmail has Gemini on their phone. A project engineer who doesn't have a company AI license opens a temporary chat because it feels like the careful choice.
+
+What ends up in those chats is job information: a subcontract clause, an owner's schedule of values, a sub's unit prices, a draft delay notice, an incident description. Many prime contracts and most NDAs on data center, healthcare and government work restrict where project documents can be sent. "It was a temporary chat" was a weak answer when the window was three days. At two months, with possible human review, it is not an answer.
+
+## Is Gemini worse than the other chatbots on this?
+
+Not by much. Nobody deletes a temporary chat the moment you close it.
+
+| Product | Temporary / incognito chat retention | Source |
+|---|---|---|
+| Gemini app | About two months (was 72 hours) | Google privacy page |
+| ChatGPT | Up to 30 days | TechCrunch |
+| Claude | 30 days by default | TechCrunch |
+
+The lesson applies to all three: "temporary" describes what you see in your history, not what the vendor stores.
+
+## Does this cover company Workspace accounts?
+
+Google hasn't said so directly. The privacy page says work or school accounts "may be subject to different data handling terms" and points to a separate Workspace privacy hub. We have not seen Google state that the two-month change applies to Workspace, or that it doesn't. If your company runs on Google Workspace, your admin should read the terms that apply to your edition and not assume either way.
+
+We made a similar point after the Fireworks AI breach: [ask every AI vendor where your data sits and for how long](/posts/2026-11-10-fireworks-ai-breach-stored-datasets-model-weights-construction-gc-ops-ai-vendor-training-data-api-key-rotation). This is the same question, asked about the free tool in everyone's pocket.
+
+## What should an ops director do this week?
+
+1. **Ask, don't guess.** Poll PMs, PEs and supers on which AI tools they use for work and whether it's a company or personal login.
+2. **Name one approved account.** If the company pays for an AI tool with business terms, say plainly that job documents go there and nowhere else.
+3. **List what never gets pasted** into a personal account: contract language, pricing, owner-furnished documents, anything under NDA, personnel and incident details.
+4. **Have the Workspace admin confirm** the retention and review terms for your edition, in writing, and file the answer with your IT policies.
+5. **Tell staff what "temporary" means.** One line in the next ops meeting: the chat is hidden from you, not deleted by the vendor.
+
+What we can't tell you: the exact rollout date, whether Google reviews temporary chats at the same rate as ordinary ones, or how the change lands on each Workspace edition. Google hasn't published those details.
+
+**Takeaway:** Before the rollout reaches your people, send a three-sentence note to project staff naming the one AI account approved for job documents and the categories that stay out of personal chatbots. Then check the two contracts on your desk with the strictest confidentiality language and confirm that note satisfies them.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever writes your IT policy.*
