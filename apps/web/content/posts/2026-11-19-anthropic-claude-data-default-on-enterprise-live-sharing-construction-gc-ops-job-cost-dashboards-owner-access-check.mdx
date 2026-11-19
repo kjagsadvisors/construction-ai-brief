@@ -1,0 +1,62 @@
+---
+title: "Claude Data switches on for Enterprise accounts this week. GCs should decide who can build job cost dashboards before it does"
+date: "2026-11-19"
+excerpt: "Anthropic's Claude Data, which turns questions about connected company data into dashboards, turns on by default for Enterprise organizations on November 20 unless an owner has saved a setting. On Team plans it is already on, along with a beta that lets viewers see results through the sharer's data access. Ops directors at GCs connecting Claude to job cost or CRM data should set the toggles this week."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://support.claude.com/en/articles/17454700-get-started-with-claude-data"
+  - "https://www.beri.net/article/claude-data-default-on-november-19-sheets-whiteboards-beta-claude-meetings-google-meet-interactive-connectors-enterprise-admin-controls"
+faqs:
+  - q: "When does Claude Data turn on for Claude Enterprise accounts?"
+    a: "Anthropic's support article says Claude Data turns on by default for Enterprise organizations on November 20, 2026, unless an owner has already saved a setting. Some earlier coverage gave November 19. Owners can change it under Organization settings > Artifacts."
+  - q: "Can a Claude Data dashboard show job cost data to someone who doesn't have access to it?"
+    a: "Only with live sharing, a beta feature. Without it, each viewer's data loads through their own connections, so existing permissions apply. With live sharing on, viewers see results through the owner's access, even if they can't query the source themselves. Live sharing is off by default on Enterprise and on by default on Team plans."
+  - q: "Is Claude Data on by default for Claude Team plans?"
+    a: "Yes. According to Anthropic's support article, on Team plans Claude Data and both of its beta features, certified queries and live sharing, are on by default."
+  - q: "What data sources can Claude Data connect to?"
+    a: "Anthropic lists Amazon Redshift, BigQuery, ClickHouse, Databricks and Snowflake, plus any app already connected to Claude, such as Salesforce. If your accounting or project data sits in one of those warehouses, Claude can write SQL against it and chart the results."
+---
+
+Anthropic's Claude Data turns on by default for Enterprise organizations on November 20, according to [Anthropic's support article](https://support.claude.com/en/articles/17454700-get-started-with-claude-data), unless an owner has already saved a setting. If your company has connected Claude to a data warehouse or a CRM, anyone with the feature can ask a question like "show me labor cost to date against budget by job" and get a dashboard back. Ops directors should decide who gets that, and how those dashboards can be shared, before the default decides for them.
+
+## What is Claude Data?
+
+Claude Data is the renamed Claude Dashboards. Anthropic describes it as turning "questions about your company's data into dashboards, data stories, narrated short videos, and letters." Claude writes the SQL for each chart and shows the query behind it. It connects to Amazon Redshift, BigQuery, ClickHouse, Databricks and Snowflake, plus any app already connected to Claude, such as Salesforce.
+
+For a GC, that covers job cost exports someone loaded into a warehouse, a CRM full of bid pipeline and win rates, or any reporting database your accounting system feeds.
+
+## What changes on Enterprise vs. Team plans?
+
+| Setting | Enterprise default | Team default |
+|---|---|---|
+| Claude Data | Turns on November 20 unless an owner saved a setting | On |
+| Live sharing (beta) | Off | On |
+| Certified queries (beta) | Off | On |
+| Restrict to specific groups | Yes, with custom roles | Not described |
+
+The date has moved around. [Coverage from November 10](https://www.beri.net/article/claude-data-default-on-november-19-sheets-whiteboards-beta-claude-meetings-google-meet-interactive-connectors-enterprise-admin-controls) quoted the support article as saying November 19. The article now says November 20. Either way, the change lands this week.
+
+## Why does live sharing matter for a GC?
+
+This is the setting to understand. Without live sharing, a shared dashboard loads data through each viewer's own connections, so a project engineer who can't see company-wide margin in the warehouse won't see it in the dashboard either.
+
+With live sharing on, Anthropic says, "Live sharing runs on your access to the data source." Viewers see the results even if they don't have access to the source. The support article also says shared work can be made available to people outside your organization, and it tells users to review what a dashboard shows before sharing it this way.
+
+Picture an ops director with full warehouse access who builds a dashboard of fee and margin by job for an internal meeting, then shares it with a PM. With live sharing, the PM sees the ops director's numbers, not just their own jobs. If that link ever goes to an owner's rep or a sub, they see them too. Enterprise accounts have live sharing off by default. Team accounts have it on.
+
+## Should a mid-size GC turn Claude Data off?
+
+Not necessarily. Asking plain-English questions of your own cost data is a real use, and the viewer-permission default is sensible. The work is choosing on purpose:
+
+1. **Find out what's connected.** Ask whoever set up Claude which warehouses and apps are linked. If none are, the feature has nothing to query yet.
+2. **Limit it to the people who own the data.** On Enterprise, use custom roles to give Claude Data to the finance and ops group first, not every PM.
+3. **Leave live sharing off** until you've decided which dashboards should ever show one person's access to another.
+4. **On Team plans, check the toggle today.** It's already on. Owners manage it under Organization settings > Artifacts.
+5. **Treat certified queries as a later step.** Anyone with write access to a Data artifact can certify a query, so assign that to one person who knows how your cost codes roll up.
+
+## What it doesn't fix
+
+Claude writes the SQL, but it doesn't know that your committed cost excludes pending change orders, or that one job's budget was re-baselined in March. Anthropic shows the query behind each chart. Have someone who knows your cost reports read it before a number goes in front of an owner or a bank. Dashboards also don't refresh on a schedule. Per the November 10 coverage, they re-query when opened, and each chart shows when it last refreshed.
+
+**The takeaway:** if your company runs Claude Enterprise, have the account owner open Organization settings > Artifacts this week and save a deliberate choice for Claude Data and live sharing. If you're on Team, live sharing is already on, so check it before anyone shares a cost dashboard outside the office.
