@@ -1,0 +1,66 @@
+---
+title: "Google says Gemini 4 Neon turns a picture of a table into a working spreadsheet. Estimators should test it on scanned sub quotes before trusting the totals"
+date: "2026-11-19"
+excerpt: "Google released Gemini 4 Neon on November 18 at $3 and $15 per million tokens and demoed it turning one image into a Google Sheet full of live formulas. For an estimator, the obvious use is getting scanned or photographed sub quotes into a leveling sheet. Here is how to check whether the formulas and totals hold up."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+  - "https://www.datastudios.org/post/google-gemini-4-neon-launch-api-pricing-3-input-15-output"
+  - "https://www.testingcatalog.com/google-launches-gemini-4-neon-on-gemini-antigravity-and-apis/"
+faqs:
+  - q: "What is Gemini 4 Neon?"
+    a: "Gemini 4 Neon is a mid-tier Google model released November 18, 2026, positioned between the faster Hydrogen and the heavier Carbon. It costs $3 per million input tokens and $15 per million output tokens, with a 1 million-token context window."
+  - q: "Can Gemini 4 Neon turn a scanned sub quote into a spreadsheet?"
+    a: "Google demoed Neon turning a single image into a Google Sheet with live formulas, and says the model reads PDFs, photos and spreadsheets. Nobody has published a test on construction quotes, so an estimator should check every line and total against the original before using the sheet on a bid."
+  - q: "How much does Gemini 4 Neon cost compared with other Gemini 4 models?"
+    a: "Neon lists at $3 input and $15 output per million tokens. Hydrogen is $1.50 and $7.50. Carbon and Argon are $2 and $10 through November 30, 2026, then $4 and $20 from December 1, which makes Neon about 25% cheaper per token than those two after that date."
+  - q: "Where can estimators use Gemini 4 Neon?"
+    a: "Neon is in the Gemini app for Google AI Pro and Ultra subscribers, in Gemini for business through the model dropdown, and in the paid Gemini API. It is not on the free API tier, and launch coverage does not confirm it inside Gemini in Google Sheets."
+  - q: "Should an estimator trust AI-generated spreadsheet formulas on a bid?"
+    a: "Not without checking. Confirm every line item was transcribed, that totals are formulas rather than typed numbers, and that the sheet's total matches the total printed on the quote. Google's own model card lists hallucinations as a known limitation."
+---
+
+Google released Gemini 4 Neon on November 18 and showed it turning a single image into a Google Sheet with more than 500,000 live formulas. For an estimator, that points at a real chore: getting scanned, faxed or phone-photographed sub and supplier quotes into a leveling sheet without retyping them. Whether it works on your quotes is something you can test this week, and the test is simple.
+
+## What did Google release?
+
+Neon is the middle model in the Gemini 4 family. Google's [launch post](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/) puts Carbon on the hardest long-running work, Hydrogen on fast everyday tasks, and Neon in between. Google says it reads spreadsheets, PDFs, charts and photos in one context window and turns them into "structured deliverables." It also says Neon placed first on most of Surge AI's finance, accounting and spreadsheet-modeling benchmarks. Those rankings are Google's report, not an independent test.
+
+| Model | Input per 1M tokens | Output per 1M tokens |
+|---|---|---|
+| Gemini 4 Hydrogen | $1.50 | $7.50 |
+| Gemini 4 Neon | $3 | $15 |
+| Carbon and Argon, through Nov. 30 | $2 | $10 |
+| Carbon and Argon, from Dec. 1 | $4 | $20 |
+
+Rates for the other models are from [Data Studios](https://www.datastudios.org/post/google-gemini-4-neon-launch-api-pricing-3-input-15-output), which also notes that output billing includes the model's thinking tokens and that Neon defaults to its "high" thinking level. Neon is on the paid Gemini API, in Gemini for business through the model dropdown, and in the Gemini app for AI Pro and Ultra subscribers, [per TestingCatalog](https://www.testingcatalog.com/google-launches-gemini-4-neon-on-gemini-antigravity-and-apis/). Neither writeup confirms it inside Gemini in Google Sheets yet.
+
+## Why does image-to-formulas matter for an estimator?
+
+Bid day still runs on quotes that arrive as PDFs of printouts, scans with handwritten adds, and photos from a supplier's counter. Someone retypes them into the leveling sheet, and that retyping is where a dropped line or a transposed number gets in.
+
+A model that reads the image and writes the sheet with working formulas could take that step off the estimator's desk. The risk is that a wrong number in a clean-looking spreadsheet is harder to spot than a wrong number in your own handwriting. A 100,000-cell demo shows the model can produce a lot of formulas. It does not show those formulas are right on a messy Division 23 quote with alternates and exclusions.
+
+## How should an estimator test it?
+
+Use quotes from a bid that has already closed, so you know what the right numbers were.
+
+1. **Pick five quotes of mixed quality.** One clean PDF, one scan, one phone photo, one with handwritten changes, one with alternates or unit prices.
+2. **Ask for a leveling sheet with formulas,** one row per line item, with quantity, unit, unit price and extension columns, and inclusions and exclusions kept as their own rows.
+3. **Count the lines.** Compare against the original quote. A missing line is the most expensive failure.
+4. **Click into the totals.** They should be formulas, not typed numbers. A typed total that happens to match today will not update when you fix a line.
+5. **Match the bottom line.** The sheet's total should equal the total printed on the quote. If it doesn't, find out whether the model misread the quote or the quote's own math is off.
+6. **Check exclusions and alternates.** Confirm they were not rolled into the base number.
+7. **Log the time and the cost.** Note how long the check took against retyping, and the tokens used if you are on the API.
+
+## What are the limits?
+
+- **The benchmarks are vendor-reported.** Google's model card, as summarized by Data Studios, lists hallucinations as a known limitation.
+- **Access depends on your plan.** It is not on the free API tier, and team access through Gemini for business depends on how your admin has it set up.
+- **Data terms matter.** Sub pricing is confidential. Check how your plan handles uploaded files before sending a competitor-sensitive quote through a personal account. We covered [Google's change to temporary chat retention](/posts/2026-11-18-google-gemini-temporary-chats-kept-two-months-up-from-72-hours-construction-gc-ops-pm-personal-accounts-bid-numbers-nda-jobs) this week.
+- **It does not level for you.** Deciding whether a sub's scope matches the spec is still the estimator's call.
+
+**Takeaway:** Run five closed-bid quotes through Neon and grade it on missed lines, typed totals and bottom-line matches. If it gets all five right and the check takes less time than retyping, use it as a first pass with a human check on every total. If it drops lines, you have learned that for the price of a few test runs instead of a busted bid.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever runs bid-day leveling at your shop.*
