@@ -1,0 +1,68 @@
+---
+title: "OpenAI's phone-ready voice model costs 5 cents a minute. For a mechanical sub, that prices an after-hours service line you could test this winter"
+date: "2026-11-21"
+excerpt: "OpenAI added GPT-Live-1.1 to its API on November 19, with better transcription and a cheaper standby rate. The voice layer lists at $0.05 per active minute and connects to phone lines, which makes an AI-answered no-heat call line cheap to try. The voice price is not the whole bill, and nobody has tested it on a caller standing next to a boiler."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://developers.openai.com/api/docs/models/gpt-live-1.1"
+  - "https://developers.openai.com/api/docs/changelog"
+  - "https://developers.openai.com/api/docs/guides/live"
+  - "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+faqs:
+  - q: "What is OpenAI GPT-Live-1.1?"
+    a: "GPT-Live-1.1 is a voice model OpenAI added to its API on November 19, 2026. It listens and speaks at the same time, can call software tools, and can hand harder tasks to a separate text model. OpenAI says it transcribes speech more accurately than GPT-Live-1 and holds a more consistent accent and voice across languages."
+  - q: "How much does GPT-Live-1.1 cost?"
+    a: "OpenAI lists $0.05 per minute of active session and $0.02 per minute in standby, which applies to WebRTC sessions while inference is paused. Backend model and tool usage is billed separately, so the voice rate is not the full cost of a working phone agent."
+  - q: "Can GPT-Live answer a contractor's phone line?"
+    a: "OpenAI's Live API guide lists telephony and SIP as a connection option for phone calls, plus integrations with partners such as Twilio, Telnyx and Bandwidth. A developer still has to build the agent, connect it to the phone system and wire in any lookups, such as service agreements or the on-call schedule. It is not an app a service manager installs."
+  - q: "Can an AI voice agent replace an HVAC answering service?"
+    a: "It can take the call, collect the address, equipment and symptoms, and pass them to the on-call tech, but it should not promise arrival times or quote prices on its own. OpenAI has not published results on noisy mechanical rooms or construction calls, so a sub should test it on its own recorded calls and keep a human escalation path before switching off an existing service."
+---
+
+OpenAI added a new version of its phone-capable voice model to its API on November 19, and the listed price for the voice part is 5 cents a minute. For a mechanical or plumbing sub with a service department, that makes an AI agent that answers the after-hours no-heat line, takes down the address and the unit, and pages the on-call tech cheap enough to test this heating season. The voice rate is only part of the bill, and the hard parts are the same ones your answering service handles today.
+
+## What did OpenAI release?
+
+GPT-Live-1.1 is an update to GPT-Live-1, which OpenAI put in its API in [September](https://openai.com/index/introducing-gpt-live-1-in-the-api/). Per the [model page](https://developers.openai.com/api/docs/models/gpt-live-1.1) and the [API changelog](https://developers.openai.com/api/docs/changelog):
+
+- **It talks and listens at once.** The model "can listen while it speaks," so a caller can interrupt it the way they would a person.
+- **Better transcription.** OpenAI says it transcribes speech more accurately than GPT-Live-1 and keeps a more consistent accent and voice across languages.
+- **It can use tools.** It supports function calling and can hand a task to a backend text model for reasoning or lookups.
+- **A cheaper pause.** WebRTC sessions can now pause inference during silence and resume when someone speaks.
+
+The [Live API guide](https://developers.openai.com/api/docs/guides/live) lists telephony and SIP as a way to connect phone calls, with integrations from Twilio, Telnyx, Bandwidth and others. OpenAI's September launch named phone agents for restaurant reservations and customer support as the target.
+
+## What would a no-heat call actually cost?
+
+OpenAI lists $0.05 per active minute and $0.02 per minute in standby. Backend model and tool usage is billed separately. Here is our arithmetic on the voice layer only, using example volumes:
+
+| Use | Example volume | Voice minutes per month | Voice-layer cost |
+|---|---|---|---|
+| After-hours service line | 300 calls at 4 minutes | 1,200 | $60 |
+| Foreman end-of-day call-in | 10 foremen, 5 minutes, 22 workdays | 1,100 | $55 |
+
+Add the backend model, the phone carrier's per-minute charges, and someone's time to build and maintain it. Even so, the voice layer is no longer the expensive part. Compare it against your answering service invoice, and against what a missed or garbled overnight call costs you on a service agreement.
+
+## What would the agent do on the call?
+
+A useful after-hours agent for a mech sub does four things, in order:
+
+1. Confirms who is calling and the site address.
+2. Gets the equipment and the symptom: which unit, no heat or no hot water, any alarms or water on the floor.
+3. Looks up whether the customer has a service agreement and what priority it carries. This is the tool call.
+4. Pages the on-call tech with a written summary and tells the caller someone will call back.
+
+For field crews, the same setup can take a foreman's spoken end-of-day report and turn it into a daily log draft for the PM to review. We covered a self-hosted transcription option for field notes [last week](/posts/2026-11-15-salesforce-sov-transcribe-1-open-weight-speech-keyword-hints-construction-gc-ops-field-voice-notes-daily-logs-self-hosted). The difference here is that the agent can ask follow-up questions, like which floor or how many workers.
+
+## What are the limits?
+
+- **Vendor claims, generic tests.** OpenAI's results come from its own benchmarks and customers like Yelp. Nobody has published results for a caller in a mechanical room or a foreman on a windy deck.
+- **Developer work required.** This is an API. Someone has to build the agent, connect the phone number, and wire in your service agreements and on-call schedule.
+- **Concurrent limits.** OpenAI caps simultaneous sessions per organization. Check your account's limit before a cold snap puts 20 calls in the queue at once.
+- **Don't let it commit.** Keep the agent away from arrival times, pricing and anything that reads as a contract promise. That stays with the on-call tech.
+- **Call recording rules.** If you store recordings or transcripts, check the consent rules where your customers are and tell callers up front.
+
+**Takeaway:** If your service department relies on an answering service, export last winter's after-hours call notes and count how many were simple intake calls versus real triage. If most were intake, have a developer build a test line on a spare number, run your own staff through 20 mock no-heat calls, and compare the written summaries to what your answering service sends today before routing any real customer to it.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever runs your service department.*
