@@ -1,0 +1,72 @@
+---
+title: "New METR data says AI matches skilled people on checkable work but still trails experts on judgment. For estimators, that splits the bid into two piles"
+date: "2026-11-21"
+excerpt: "METR's November 20 update finds frontier AI agents usually match or beat skilled humans on tasks with a clear right answer, but show worse judgment than experts where there's no clear feedback, and AI graders score stronger models' work too generously. For a precon team, that means giving AI the parts of a bid you can check and keeping scope and risk calls with people."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://metr.org/blog/2026-11-20-q4-2026-capability-update/"
+  - "https://www.technologyreview.com/2026/11/20/1149399/the-most-misunderstood-graph-in-ai-just-got-a-major-update/"
+faqs:
+  - q: "What did METR's November 2026 capability update find?"
+    a: "METR, an AI evaluation nonprofit, reported on November 20, 2026 that frontier AI agents usually match or outperform skilled humans on coding and optimization tasks with clear feedback, but appear to have worse judgment than human experts on tasks without it. It also estimated the length of tasks agents can complete is doubling roughly every 3.6 months."
+  - q: "Is AI good enough to do construction takeoff and estimating?"
+    a: "METR did not test construction tasks. Its results suggest AI is strongest on work where the answer can be checked, which in estimating means quantities, unit-price math and spec cross-references you can verify against the drawings. Scope gaps, exclusions, risk and bid strategy are judgment calls, where METR found agents still trail experts."
+  - q: "Can I use one AI to check another AI's estimate?"
+    a: "Not as your only check. METR found AI judges are overgenerous when grading work from models stronger than themselves; in one test a model scored another's work about 0.2 points out of 1 higher than the human rater did. A person or a known-correct answer should be the check."
+  - q: "How long a task can AI agents complete on their own now?"
+    a: "METR estimates the top models have a 50% time horizon of roughly 39 to 40 hours on its combined task suite, meaning they succeed about half the time on tasks that take a skilled person that long. The confidence intervals are very wide, and most of the human time estimates are researcher estimates rather than measured."
+---
+
+METR, the AI evaluation nonprofit known for its chart of how long a task AI agents can finish, published a major update on November 20. The short version for a precon team: AI agents now usually match or beat skilled people on work with a clear right answer, but still show worse judgment than experts when there's no clear way to check the result. That splits a bid into two piles. Give AI the parts you can check. Keep the scope, risk and go/no-go calls with your estimators.
+
+## What did METR actually measure?
+
+METR times how long a task takes a skilled human, then measures whether AI agents can finish it. Per the [Q4 2026 update](https://metr.org/blog/2026-11-20-q4-2026-capability-update/):
+
+- **Longer tasks.** On its combined task suite, METR estimates a 50% time horizon of about 40 hours for GPT-6 Astra and 39 hours for Opus 5.5. That means roughly a coin-flip chance on tasks that take a skilled person a full work week. The 95% intervals run from about 12 hours to well over 1,000, so treat the point estimate loosely.
+- **Faster growth.** Time horizons are "doubling roughly every 3.61 months."
+- **Checkable work.** "Models usually match or outperform skilled humans on our coding and optimization tasks," where success can be scored.
+- **Judgment work.** On tasks without clear feedback, "AI agents appear to have worse judgment than human experts."
+- **AI graders.** "AI judges are overgenerous when judging tasks made by models stronger than themselves." In one test, Opus 5.5 scored GPT-6 Astra's work about 0.2 points out of 1 higher than the human rater did.
+
+[MIT Technology Review](https://www.technologyreview.com/2026/11/20/1149399/the-most-misunderstood-graph-in-ai-just-got-a-major-update/) adds that when models were asked to design new AI evaluations, none of the outputs were good enough for METR staff to use.
+
+## What does this mean for estimators?
+
+None of METR's tasks involve drawings or specs. The pattern still maps onto a bid. The question to ask of each step is: can someone check this answer against something known?
+
+| Bid step | Checkable? | Where AI fits |
+|---|---|---|
+| Counting fixtures, devices, doors from a schedule | Yes, against the drawings | Draft, then spot-check |
+| Linear footage and area takeoff | Yes, against a manual sample | Draft, then spot-check |
+| Extending unit prices and totals | Yes, the math reconciles | Good fit |
+| Pulling spec requirements with section numbers | Yes, if every line cites a page | Good fit with citations |
+| Spotting scope gaps between trades | Partly | Flag list for a person to review |
+| Writing exclusions and qualifications | No clear right answer | Human decides |
+| Pricing risk, contingency, go/no-go | No clear right answer | Human decides |
+
+The top half is where an AI tool is most likely to earn its keep. The bottom half is where METR's finding says to be careful. A model that confidently writes a clean exclusion list may still miss the one that matters on this job, and nothing will tell you it did.
+
+## Can a second AI check the first one's work?
+
+This is the most practical finding in the update. It is tempting to run one model's takeoff or spec summary past a second model as a reviewer. METR found AI judges grade stronger models' work too generously. If your "check" is another AI saying it looks right, you are not getting much of a check.
+
+Better checks use a known answer:
+
+1. **Re-run a closed bid.** Feed the tool the drawings from a job you already estimated and compare its quantities to your final counts.
+2. **Hand-count a sample.** Pick two sheets and count them yourself before trusting the rest.
+3. **Require citations.** Every spec item should carry a section and page number so a person can verify it in seconds.
+
+We made a similar point when we covered [AI models dropping correct answers under pushback](/posts/2026-11-18-unesco-ucl-ai-models-concede-first-pushback-construction-estimator-spec-scope-questions-fresh-chat-quote-the-section): the fix is to anchor the model to the document, not to its own confidence.
+
+## What are the limits of this data?
+
+- **Not construction tasks.** METR tests software, optimization, games and research tasks.
+- **Estimated hours.** Only 9% of the human task times come directly from people doing the work. The authors call some estimates "quite speculative."
+- **Wide error bars.** The 40-hour figure could be far lower or far higher.
+- **Judgment is hard to score.** METR's own staff told MIT Technology Review that judgment-heavy tasks are much harder to quantify, so that gap may be measured less precisely than the coding gains.
+
+**Takeaway:** On your next bid, sort each step into "checkable" or "judgment" before you hand anything to an AI tool. Let it draft the checkable steps, verify them against the drawings or a closed bid rather than a second AI, and keep exclusions, contingency and the go/no-go call with your senior estimator.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever runs your precon team.*
