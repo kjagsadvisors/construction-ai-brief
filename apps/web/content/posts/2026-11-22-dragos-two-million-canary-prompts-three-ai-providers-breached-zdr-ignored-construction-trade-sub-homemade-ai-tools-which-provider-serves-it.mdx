@@ -1,0 +1,61 @@
+---
+title: "A researcher planted fake passwords in 2 million AI prompts and caught three breached providers. Subs running homemade AI tools should ask who actually serves the model"
+date: "2026-11-22"
+excerpt: "Dragos sent about two million prompts loaded with trackable fake credentials to AI services and found at least three hosting providers breached, plus resellers and a lab reading prompts marked zero data retention. For a trade sub with a homemade estimating or back-office AI tool, the question is which company is actually running the model behind it."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens"
+  - "https://thecybersecguru.com/news/openrouter-minimax-zero-data-retention-canary-prompts/"
+faqs:
+  - q: "What did the Dragos AI prompt canary study find?"
+    a: "Dragos chief research officer HD Moore sent about two million prompts containing unique fake credentials and links to AI services between July and November 2026. Dragos says data from at least three AI hosting providers was stolen, none of which knew until Dragos told them, and that some marketplace resellers logged and kept customer prompts."
+  - q: "Does a zero data retention setting guarantee my AI prompts are not stored?"
+    a: "No. Dragos found a Chinese AI lab fetched secret links from about two-thirds of requests marked no data collection or zero data retention, and OpenRouter says its ZDR labels are attestations about upstream contracts that it does not independently verify. Dragos notes a privacy flag only binds the first hop."
+  - q: "Is it safe to put passwords or API keys in an AI prompt?"
+    a: "Treat it as unsafe. In the largest breach Dragos found, every request in several October windows was stolen, and the attacker used the bait AWS keys for tens of thousands of API calls. Keep live credentials out of prompts and out of files an AI agent can read."
+  - q: "How can a contractor reduce risk from AI tools built on cheap model routers?"
+    a: "Ask whoever built the tool which provider serves each model, prefer a first-tier provider under your own contract over a reseller marketplace, pin the provider and turn off automatic fallbacks, and rotate any credential that ever went through the tool. Those steps follow Dragos's own recommendations."
+---
+
+If your company runs a homemade AI tool, such as a bid-day script, a quote-reading bot, or an invoice sorter a consultant built cheaply, your prompts may pass through several companies you have never heard of, and some of them are reading what you send. A security researcher just showed that with about two million booby-trapped prompts. Ask your builder which company actually runs the model.
+
+## What did the researcher do?
+
+HD Moore, chief research officer at the industrial security firm Dragos, published the results [on November 19](https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens). From July through November 2026, his team sent about two million prompts to widely used AI services. Each prompt contained a unique, trackable fake secret: a link, a password, or a bait AWS cloud key. Then they watched for anyone using them.
+
+Per Dragos:
+
+1. **Three providers breached.** Data from at least three AI hosting providers was stolen. The earliest intrusion dates to mid-July, and none of the three knew until Dragos told them.
+2. **Everything in some windows was taken.** In the largest breach, every request in several late-October windows was stolen. The attacker used the bait AWS keys for tens of thousands of API calls and went looking for stored secrets.
+3. **Resellers read prompts without hacking anything.** Some sellers on an AI inference marketplace logged and kept customer prompts using normal logging features. One tried to log in to test servers with passwords found in prompts.
+4. **Privacy flags ignored.** A Chinese AI lab fetched secret links from more than half the prompts sent to its models, including about two-thirds of requests marked "no data collection" or zero data retention (ZDR). US providers reselling that lab's models triggered the same scraper.
+5. **Hidden hops.** Of about 2,000 traced routes, several hundred included systems nobody had disclosed.
+
+OpenRouter, a popular model router, has since emailed customers that requests sent to MiniMax models "may have been read," according to [The CyberSec Guru](https://thecybersecguru.com/news/openrouter-minimax-zero-data-retention-canary-prompts/). OpenRouter says its ZDR labels are attestations about upstream contracts that it does not independently verify.
+
+## Why does this reach a trade sub?
+
+Dragos's first-line advice is to use a first-tier provider directly. Much of what it found sat in the plumbing in between: routers, resellers, and discount hosts running open models. That plumbing is exactly what a budget internal tool tends to use, because a router lets a developer swap in whatever model is cheapest this month.
+
+Picture a mechanical sub whose consultant built a quote-leveling tool on a router. It reads supplier quotes, bid numbers, and maybe a login to the supplier portal so it can pull pricing. If the router quietly falls back to a reseller when the main provider is busy, that data goes to a company the sub never signed with. As we noted with [Cursor's breach](/posts/2026-11-16-cursor-breach-stored-agent-sessions-credentials-construction-estimator-sub-internal-tools-privacy-mode-key-rotation), an agent sends whatever credentials it can read. Nobody has to paste them in on purpose.
+
+## What should you ask this week?
+
+| Question for whoever built your AI tool | What a good answer looks like |
+|---|---|
+| Which company actually runs each model the tool calls? | A named first-tier provider under a contract you can read |
+| Does it go through a router or marketplace? | If yes, the provider is pinned and automatic fallbacks are off |
+| What does the tool read? | Not the bank, accounting, or portal passwords, or only read-only test keys |
+| Is the provider and request ID logged per call? | Yes, so you can tell what went where if a provider discloses a breach |
+| Has any live credential ever gone through it? | If yes or "not sure," rotate it in the system that issued it |
+
+Dragos also suggests seeding your own fake credentials in what your tools send and treating any use of them as an incident. Few subs will set that up themselves, but a managed IT provider can.
+
+## What are the limits?
+
+Dragos does not name most of the affected providers, and it says it is still working with about a dozen of them. Only one has published a preliminary notice. Nothing in the report points to a construction company. If your staff only use a major vendor's chat app under a business plan, this report is mostly about other people's plumbing. Secret filtering, where offered, helps but does not catch everything.
+
+**Takeaway:** Send one email this week to whoever built or sold you each AI tool, asking the five questions in the table. Any tool that can't name its model provider shouldn't be reading bid numbers or holding a login until it can.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever handles IT for your office.*
