@@ -1,0 +1,59 @@
+---
+title: "ChatGPT and OpenAI's API failed up to 75% of requests for three and a half hours. Estimators who run scope checks through AI on bid day need a plan B"
+date: "2026-11-22"
+excerpt: "On November 21, a database maintenance job knocked out the login layer behind ChatGPT and OpenAI's API, with failures peaking at 75% from 1:48 to 5:21 p.m. Pacific. For estimators who now run spec reviews or quote leveling through AI on bid day, the fix is to finish AI steps early and have a second route."
+pillar: "trend"
+audience: "estimator"
+sources:
+  - "https://status.openai.com/incidents/n254wyd7nml7"
+  - "https://aiweekly.co/alerts/openai-postgres-replica-failure-peaked-api-chatgpt-errors-at-75"
+  - "https://dev.to/hiroki-ii-ai/ai-daily-digest-november-22-2026-openais-75-outage-oracles-money-loop-genie-4-opens-up-3239"
+faqs:
+  - q: "What caused the November 21, 2026 ChatGPT outage?"
+    a: "OpenAI says scheduled maintenance on a PostgresDB service used by its Primary API service caused both of that service's read replicas to fail at the same time. The Primary API service handles user and service-to-service authentication across OpenAI's stack, so requests that depended on it failed."
+  - q: "How long was ChatGPT down on November 21, 2026?"
+    a: "OpenAI's write-up puts the incident between 1:48 and 5:21 p.m. Pacific, about three and a half hours, with the failure rate peaking at 75% on both paid and free ChatGPT. It was a partial outage, so some requests still went through."
+  - q: "Did the OpenAI outage affect software built on the OpenAI API?"
+    a: "Yes. OpenAI's status page lists API components including Chat Completions, Embeddings, Files, Batch, Audio, and Realtime as affected, alongside ChatGPT conversations, login, search, file uploads, and voice mode. Any estimating or back-office tool that calls those endpoints could have failed during the window."
+  - q: "How should an estimator protect bid day from an AI outage?"
+    a: "Finish AI-assisted steps such as spec review and quote leveling the day before the bid, keep a second AI provider set up and tested with your own prompts, and keep a manual checklist for the final hours. Ask any software vendor whose tool uses AI which model provider it depends on and what happens when that provider is down."
+---
+
+For about three and a half hours on Saturday, November 21, OpenAI failed a large share of requests to ChatGPT and its API, peaking at a 75% failure rate. It hit on a weekend. The same window on a weekday would have covered a 2 p.m. Pacific bid deadline. Any estimating team that now runs spec review, scope checks, or quote leveling through one AI provider should treat that provider as a single point of failure on bid day.
+
+## What happened?
+
+According to [OpenAI's incident write-up](https://status.openai.com/incidents/n254wyd7nml7), between 1:48 and 5:21 p.m. Pacific, "a large portion of requests to OpenAI failed," with failures peaking at 75% on both paid and free ChatGPT. The cause was routine work. Maintenance on a PostgresDB service used by OpenAI's Primary API service "caused both read replicas to fail at the same time."
+
+The detail that matters for contractors is what that service does. Per OpenAI, the Primary API service handles user authentication and service-to-service authentication across its stack. When it failed, more than the chat window went down. The status page lists these as affected:
+
+- **ChatGPT:** conversations, login, search, file uploads, and voice mode
+- **API:** Chat Completions, Fine-tuning, Embeddings, Images, Batch, Audio, Moderations, Realtime, and Files
+
+OpenAI says attempts to revive the failed replicas, or bring up replacements in other regions, did not work. Service came back after it worked with a provider to put two new replicas into service in the same region. [AI Weekly](https://aiweekly.co/alerts/openai-postgres-replica-failure-peaked-api-chatgpt-errors-at-75) and a [DEV Community digest](https://dev.to/hiroki-ii-ai/ai-daily-digest-november-22-2026-openais-75-outage-oracles-money-loop-genie-4-opens-up-3239) report the same timeline and cause.
+
+## Why should an estimator care about a Saturday outage?
+
+On teams that use AI in precon, much of that use lands on the last day: pasting a spec section in to check exclusions, uploading five supplier quotes to build a leveling sheet, asking for an RFI list before the question deadline. Those are the steps that tend to happen in the final hours, when there is no slack.
+
+The outage also shows that the risk is wider than "ChatGPT is down." File uploads and the Files API were on the list. Estimating add-ons, takeoff helpers, and homemade quote readers built on OpenAI's API would have failed too, even if nobody on your team ever opened ChatGPT. Few precon teams keep track of which model provider sits under each tool they use.
+
+## What should a precon team change?
+
+| Bid-day habit | Safer version |
+|---|---|
+| AI spec review the morning of the bid | Run it the day before. Bid day is for human checks of the flags. |
+| One AI provider for everything | Keep a second provider set up and tested on your actual prompts. |
+| Quote leveling built in a chat thread | Keep the leveling sheet in your own spreadsheet, with AI filling it, not holding it. |
+| "The tool uses AI" | Ask the vendor which provider it calls and what it does when that provider fails. |
+| No manual fallback | Keep a one-page scope checklist for the last two hours. |
+
+A second provider only helps if you have used it before. Prompts that work well in one model can return different formats in another, so test your spec-review and leveling prompts in both before you need them.
+
+## What are the limits?
+
+This was one incident, and OpenAI has responded. It paused similar maintenance, changed its configuration to reduce connection churn, and added a switch to move traffic off the replicas. It also plans a pre-maintenance review and more standby capacity during maintenance. Other providers have outages too, so switching vendors does not remove the risk. Having two does. We covered the broader reliability question in our guide on [whether AI compute shortages will make your software unreliable](/seo/will-ai-compute-shortages-make-my-software-unreliable).
+
+**Takeaway:** Before your next bid, write down every AI-assisted step in your bid-day process and the provider behind each one. Move anything that can't wait out a three-hour outage to the day before, and test one backup provider on your real prompts this week.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to your precon lead.*
