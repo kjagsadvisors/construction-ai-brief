@@ -1,0 +1,59 @@
+---
+title: "House report wants Chinese-built AI models kept out of federal contract work. GCs on federal and infrastructure jobs should ask vendors what model sits underneath"
+date: "2026-11-23"
+excerpt: "A November 20 House report recommends barring China-developed AI models from work done under federal contracts and from high-risk critical infrastructure functions. It is a proposal, not a rule, but it showed that a branded AI product can be built on a Chinese base model without the name telling you. GCs on federal work should start asking."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://homeland.house.gov/2026/11/20/chairmen-garbarino-moolenaar-release-joint-investigative-report-urging-removal-of-prc-open-weight-models-from-federal-systems-high-risk-critical-infrastructure/"
+  - "https://www.cnbc.com/2026/11/20/cursor-chinese-ai-models-geopolitical-risk.html"
+  - "https://therecord.media/chinese-open-weight-AI-use-by-US-companies-house-investigation"
+faqs:
+  - q: "Are contractors banned from using Chinese AI models on federal construction projects?"
+    a: "Not as of November 23, 2026. A joint House Homeland Security and China Select Committee report released November 20 recommends keeping China-developed AI models out of work performed under federal contracts, but it is a set of recommendations, not an enacted law or contract clause. DHS has separately ordered DeepSeek out of federal civilian agency systems."
+  - q: "How can a contractor tell if an AI tool is built on a Chinese model?"
+    a: "Usually you can't tell from the product name. The House report noted that the flagship model in the Cursor coding platform was built on an open-weight base model from China's Moonshot AI. Ask each vendor in writing which base model or models the product uses, who developed them, and where they run."
+  - q: "What is an AI bill of materials?"
+    a: "It is a list of the AI models and components inside a software product, similar to a software bill of materials. The House report recommends a model provenance standard and an AI bill of materials so buyers and agencies can see where the models in a product came from."
+  - q: "Does the House report affect contractors working on critical infrastructure?"
+    a: "It could. The report recommends removing China-developed models from high-risk functions of critical infrastructure, not just federal systems. Contractors building or maintaining utility, water, energy or other infrastructure should expect owners to ask about AI tools once any rule follows."
+---
+
+A House report released November 20 recommends keeping China-developed AI models out of any work performed under a federal contract. It is not a rule yet. But the report also showed why a contractor can't answer the question today: a well-known US AI product was built on a Chinese base model, and nothing in its name said so. If you run federal or critical infrastructure work, start asking your software vendors what model sits underneath their AI features.
+
+## What did the House report recommend?
+
+The report comes from House Homeland Security Chairman Andrew Garbarino and China Select Committee Chairman John Moolenaar, after an investigation that started in April. It makes 12 recommendations, [according to the committee](https://homeland.house.gov/2026/11/20/chairmen-garbarino-moolenaar-release-joint-investigative-report-urging-removal-of-prc-open-weight-models-from-federal-systems-high-risk-critical-infrastructure/). The ones that touch contractors:
+
+| Recommendation | Why a GC should care |
+|---|---|
+| Keep PRC AI models out of government contract work | Covers work done *under* a federal contract, not only agency computers |
+| Remove PRC models from high-risk critical infrastructure functions | Reaches utility, energy and water owners, not just federal agencies |
+| Extend federal restrictions beyond DeepSeek | DHS has already ordered DeepSeek out of federal civilian agency systems |
+| Create a model provenance standard and an AI bill of materials | Vendors may eventually have to list which models are in their product |
+
+The report says companies adopt Chinese open-weight models because they are cheap, easy to customize and perform close to the best US models. It says the US has no open-weight alternative at that price and performance. Lawmakers compared it to Huawei and ZTE equipment: if the models take root, pulling them out later could take years, [The Record reports](https://therecord.media/chinese-open-weight-AI-use-by-US-companies-house-investigation).
+
+## Why can't you tell from the product name?
+
+Open-weight models can be downloaded, modified and rebranded. The committees found that Cursor's own model, Composer 2, was built on Moonshot AI's Kimi K2.5, [CNBC reports](https://www.cnbc.com/2026/11/20/cursor-chinese-ai-models-geopolitical-risk.html). Cursor told the committees it plans to explore phasing out Chinese-developed open-weight models because of geopolitical risk. Airbnb used Alibaba models for customer support, and DoorDash reported deploying several Chinese model families.
+
+A construction software vendor could do the same thing. A takeoff tool, a document search feature, or a daily log assistant might run on a Chinese open-weight model to keep costs down, with a US brand on top. That is not proof that any specific construction tool does. It means the label tells you nothing.
+
+## Should a GC on federal work act now?
+
+Not by ripping anything out. Nothing is binding yet, and no federal contract clause exists. But a vendor questionnaire costs nothing, and the answers take time to collect. Here is what we'd do this month:
+
+1. **List the AI features your project teams use.** Include AI built into platforms you already pay for, not just standalone tools. Note which ones touch federal or infrastructure jobs.
+2. **Ask each vendor in writing:** Which base model or models does this feature use? Who developed them? Where do they run? Will you tell us if that changes?
+3. **Check homemade tools too.** If someone in your office built a script or internal app on an open-weight model, find out which one.
+4. **Add the question to sub prequal for federal jobs.** If a rule lands, it will likely flow down the same way other federal requirements do.
+5. **Watch for the follow-up.** Look for an executive order, a FAR change, or a bill. The report is the signal, not the requirement.
+
+## What's still unclear?
+
+Almost everything about how this would work. The committee's summary doesn't spell out how far "contract work" reaches. That could mean a GC's own systems, or every sub's tools on the job. It also doesn't say whether a Chinese-developed model running on US servers would be treated the same as one hosted in China. Only Congress or an agency can answer those questions, and neither has.
+
+**The takeaway:** if you build for federal agencies or critical infrastructure owners, you should be able to name the model behind every AI feature your teams touch. Most contractors can't today. Send the vendor questions now, while it is still a paperwork exercise and not a compliance deadline.
+
+*Construction AI Brief reads the week's AI news for the people who build. Forward this to whoever handles your federal compliance, and [subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta).*
