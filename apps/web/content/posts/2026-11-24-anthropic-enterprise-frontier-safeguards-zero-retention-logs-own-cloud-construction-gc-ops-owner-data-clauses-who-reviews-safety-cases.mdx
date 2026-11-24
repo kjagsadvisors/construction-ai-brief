@@ -1,0 +1,64 @@
+---
+title: "Anthropic now lets companies keep Claude prompts in their own cloud instead of its servers. GCs with owner data clauses should decide who reads the safety alerts first"
+date: "2026-11-24"
+excerpt: "Anthropic opened Enterprise Frontier Safeguards to eligible businesses in public beta on November 23. Prompts and answers go to the customer's own Amazon or Google storage and are deleted on Anthropic's side, but the customer's team has to set up the monitoring and review the safety cases it raises. GCs running Claude through the API or Bedrock on jobs with owner confidentiality clauses should name that reviewer before they sign up."
+pillar: "trend"
+audience: "gc_ops"
+sources:
+  - "https://claude.com/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards"
+  - "https://thenextweb.com/news/anthropic-enterprise-frontier-safeguards-zero-data-retention-beta"
+  - "https://interestingengineering.com/ai-robotics/anthropic-enterprise-safeguards-zero-data-retention"
+faqs:
+  - q: "What is Anthropic's Enterprise Frontier Safeguards?"
+    a: "It is a monitoring system, in public beta since November 23, 2026, that looks for misuse across many Claude requests while running under zero data retention. Prompts and answers are written to the customer's own Amazon S3 or Google Cloud Storage and deleted on Anthropic's side, and only automated monitoring reads them."
+  - q: "Does Anthropic keep my company's Claude prompts?"
+    a: "Under zero data retention with Enterprise Frontier Safeguards, Anthropic says neither it nor the cloud provider keeps inputs or outputs, and they are never used for training. The Next Web reports that, without this setup, Anthropic began keeping data for 30 days when it launched Fable 5."
+  - q: "Which Claude setups does Enterprise Frontier Safeguards work with?"
+    a: "Anthropic lists the Claude Platform, Claude Platform on AWS, Amazon Bedrock and Claude on Google Cloud. Microsoft Foundry support is listed as coming soon. Anthropic says eligible customers will be notified with setup instructions."
+  - q: "Who reviews the safety alerts under Enterprise Frontier Safeguards?"
+    a: "The customer's own team. The system opens a Safety Case with a harm category and the IDs of flagged transcripts, and only the customer can read the underlying prompts and answers. The Next Web reports that cases must be reviewed within seven days or the customer risks losing access."
+  - q: "How much does Enterprise Frontier Safeguards cost?"
+    a: "The Next Web reports it is free from Anthropic. Customers pay their cloud provider for the storage, reads, writes, key operations and network transfer, according to Anthropic's beta page."
+---
+
+Anthropic now lets eligible businesses run Claude without Anthropic keeping their prompts. The prompts and answers go into the customer's own Amazon or Google cloud storage instead. The catch for a general contractor is that someone at the company has to read the misuse alerts this system raises. If your firm runs Claude through the API or Amazon Bedrock on jobs where the owner limits who can hold the drawings, decide who that reviewer is before you turn it on.
+
+## What did Anthropic launch?
+
+[Anthropic's beta page](https://claude.com/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards), dated November 23, says zero data retention with Enterprise Frontier Safeguards (EFS) is now in public beta. EFS was announced in September and built with more than 100 customers. Bridgewater, Salesforce and Stripe tested it privately.
+
+Here is how it works, according to Anthropic:
+
+- Each prompt and answer is written to storage the customer owns, either Amazon S3 or Google Cloud Storage, and then deleted on Anthropic's side.
+- Automated monitoring scans that stored record for misuse patterns that span many requests. Anthropic's single-request filters can't catch those.
+- When it finds something, it opens a Safety Case with a case ID, harm category, status and flagged transcript IDs. Anthropic sees those fields. Only the customer's team can read the actual prompts and answers.
+- Inputs and outputs are never used for training, and no Anthropic or cloud provider staff review them.
+
+The reason for the stored record, [The Next Web reports](https://thenextweb.com/news/anthropic-enterprise-frontier-safeguards-zero-data-retention-beta), is that Anthropic began keeping data for 30 days when it launched Fable 5, and regulated firms pushed back. Anthropic's September threat report described an AI agent attack on about 50 organizations that was split into small tasks, [Interesting Engineering notes](https://interestingengineering.com/ai-robotics/anthropic-enterprise-safeguards-zero-data-retention). Catching that kind of attack takes records across sessions. EFS keeps those records in the customer's account instead of Anthropic's.
+
+## Why does this matter on a construction job?
+
+Owners on hospital, federal, data center and other secure work often write contract language about who can hold their drawings, specs and site information. If your precon or project engineering team has built a tool that sends spec sections or RFI drafts to Claude through the API, a 30-day copy on a third party's servers is the kind of thing an owner's IT reviewer asks about. EFS gives you a cleaner answer: Anthropic doesn't keep the content, and the record sits in your cloud account under your encryption keys.
+
+It also hands you work you didn't have before.
+
+| What changes | Who at a GC it lands on |
+|---|---|
+| Every prompt and answer is stored in your AWS or Google account | Whoever sets retention and access on that account, usually IT or the managed IT provider |
+| Safety Cases have to be reviewed | Someone who can read a flagged transcript and judge it. The Next Web reports a seven-day window, or you risk losing access |
+| Access policies, audit logging and encryption keys have to be configured | Same person, before go-live |
+| Storage, reads, writes and transfer are billed by the cloud provider | Whoever owns the cloud bill |
+
+A record of every prompt your estimators and PEs sent is also a business record. Ask your counsel how long you should keep it, the same way you would for project email.
+
+## Does this cover the tools we already use?
+
+Probably not directly. Anthropic lists the Claude Platform, Claude Platform on AWS, Amazon Bedrock and Claude on Google Cloud. Microsoft Foundry is "coming soon." The page doesn't mention the Claude chat app plans. If a construction software vendor calls Claude for you, the vendor is the customer, so the vendor decides whether to enroll. Ask them, along with the provider questions from our piece on [the Dragos canary prompt study](/posts/2026-11-22-dragos-two-million-canary-prompts-three-ai-providers-breached-zdr-ignored-construction-trade-sub-homemade-ai-tools-which-provider-serves-it).
+
+## What are the limits?
+
+It's a beta for "eligible businesses," and Anthropic doesn't define who qualifies. It says eligible customers will be notified. The seven-day review rule comes from The Next Web's reporting. Anthropic's own page lists reviewing Safety Cases as your job but gives no deadline, so confirm the terms when you enroll. Anthropic names Accenture, Deloitte, KPMG and PwC as deployment partners. That tells you who this was built for first. A 150-person GC with no security team can still use it, but only if someone actually checks the cases.
+
+**Takeaway:** If you run Claude through the API or Bedrock on any job with an owner data clause, pick one named person to review Safety Cases and write down how long you'll keep the stored prompts. Do both before you enroll. Then send the owner's IT reviewer a one-paragraph description of where the data now lives.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever owns your company's cloud account.*
