@@ -1,0 +1,69 @@
+---
+title: "Claude can now install the small tools it builds as Mac and Windows apps. A sub should check its admin settings before the office starts installing them"
+date: "2026-11-25"
+excerpt: "Anthropic's new 'Install as app' beta turns a Claude artifact, like a change order log or a quick takeoff calculator, into a desktop app with its own permissions, up to full access to files and programs. On Team plans it is on by default. Here is what a trade sub's owner or office manager should decide first."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://support.claude.com/en/articles/18516354-install-an-artifact-as-an-app"
+  - "https://www.unite.ai/anthropic-lets-claude-users-install-ai-built-tools-as-desktop-apps/"
+  - "https://news.sulat.com/2026/11/25/claude-install-as-app/"
+faqs:
+  - q: "What is Claude's Install as app feature?"
+    a: "Install as app is an Anthropic beta, announced November 24, 2026, that lets a Claude artifact run as its own app on Mac or Windows. It requires Claude for Mac or Windows version 6.28899.0 or later and is rolling out on Free, Pro, Max, Ultra, Team and Enterprise plans."
+  - q: "Can an installed Claude app read or delete files on my computer?"
+    a: "Only if it is given full access, the highest permission tier. Full access lets an app run programs and read, change or delete files without asking each time. Anthropic says it does not review apps before you install them."
+  - q: "Is Install as app turned on for a company's Claude Team plan?"
+    a: "Yes. On Team plans the feature is on by default, but full access stays off until an admin enables it. On Enterprise plans the whole feature is off until an owner turns it on under Organization settings > Artifacts."
+  - q: "Do installed Claude apps work offline on a jobsite?"
+    a: "No. An installed app needs an internet connection and a signed-in Claude Desktop session. It is also not available on Linux, the web or mobile, so it won't run on a foreman's phone or tablet."
+  - q: "Are installed Claude apps covered by zero data retention?"
+    a: "No. Anthropic's help article says organizations with zero data retention for Claude Code can install apps once an owner enables the feature, but those apps aren't covered by zero data retention."
+---
+
+Anthropic now lets the small tools people build in Claude, such as a change order log, a crew hours tracker or a quick conduit fill calculator, install as standalone Mac and Windows apps. For a trade sub, that makes homemade tools easier to hand to the whole office. It also means an app nobody reviewed can, if someone allows it, run programs and delete files on that PC.
+
+## What did Anthropic ship?
+
+The beta, called "Install as app," [went live November 24](https://news.sulat.com/2026/11/25/claude-install-as-app/). You open an artifact in Claude Desktop, choose Install as app, and it shows up in a Claude Apps folder on a Mac or in the Start menu on Windows. Anthropic's [help article](https://support.claude.com/en/articles/18516354-install-an-artifact-as-an-app) lays out the rules:
+
+| Item | What Anthropic says |
+|---|---|
+| Plans | Free, Pro, Max, Ultra, Team and Enterprise, rolling out gradually |
+| Requirement | Claude for Mac or Windows, version 6.28899.0 or later |
+| Default permissions | Whatever an artifact can do in a browser |
+| App permissions (each needs Allow) | Notifications, keyboard shortcuts, floating over other windows (which reads cursor position), menu bar or system tray icon |
+| Full access | Run programs and read, change or delete files without asking each time |
+| Team plan | On by default. Full access off until an admin enables it |
+| Enterprise plan | Off until an owner enables it under Organization settings > Artifacts |
+| Review | "Anthropic doesn't review apps before you install them" |
+| Not supported | Linux, web, mobile, HIPAA-ready organizations |
+
+The installed app is a container, not a copy. [Unite.AI reports](https://www.unite.ai/anthropic-lets-claude-users-install-ai-built-tools-as-desktop-apps/) that edits by the owner or any other editor change the app for everyone using it, and requests it makes to Claude count against each user's plan limits.
+
+## Why does this matter for a trade sub?
+
+Most subs don't have an IT department. They have an office manager, a project manager who's good with spreadsheets, and maybe an estimator who has started building things in Claude. Those are exactly the people who will make these apps, and they'll make useful ones: a T&M ticket tracker, a submittal status board, a material takeoff helper.
+
+Until now those tools lived in a browser tab. Making them desktop apps with notifications and shortcuts makes them feel like real software, and people will start to trust them like real software. Nobody has tested them like real software.
+
+## What should the owner decide before people start installing?
+
+1. **Check which plan you're on.** If the company uses Claude Team, installing is already on. If you're on Enterprise, nothing happens until an owner turns it on.
+2. **Decide who can grant full access.** On Team it stays off until an admin enables it. Leave it off unless a specific app needs to touch files, such as one that renames scanned field tickets in a shared folder. Then turn it on for that reason, not by default.
+3. **Treat every edit as a new version.** An "Allow" covers one version. Any update, even your own, asks again. Train people not to click Allow out of habit, because a tool on the accounting PC can change overnight if its builder edits it.
+4. **Watch for outside code.** Anthropic's article warns that code an app loads from another website can change without a new permission request. If an app pulls from a site you don't control, it isn't really "your" app.
+5. **Keep sensitive data out.** Installed apps aren't covered by zero data retention. Payroll, bid numbers and owner contract data shouldn't go through one unless your contracts allow it.
+
+## What are the limits?
+
+- **No field use.** It needs internet and a signed-in desktop session. It won't run on a tablet or phone, so it doesn't help a foreman in the field.
+- **One owner, many users.** If the person who built the tool leaves or stops sharing it, the app stops working. Claude usually offers to uninstall it when an artifact is deleted or unshared.
+- **Turning full access off doesn't undo anything.** Anthropic says revoking full access stops programs the app started but does not reverse changes it already made.
+- **It's a beta.** Expect the rules above to change.
+
+We've covered what goes wrong when homemade apps get shared without a review, after [24,664 Lovable-built apps were found exposing data with no login](/posts/2026-11-16-lovable-apps-24664-open-databases-construction-gc-ops-homemade-prequal-punch-list-apps-login-check). Desktop installs raise the same ownership question.
+
+**Takeaway:** This week, have whoever administers your Claude account confirm the plan setting and keep full access off. Then make a one-line list of any app installed on office PCs, who built it, and who fixes it when it breaks. If an app doesn't have a name next to it, uninstall it.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever runs your office.*
