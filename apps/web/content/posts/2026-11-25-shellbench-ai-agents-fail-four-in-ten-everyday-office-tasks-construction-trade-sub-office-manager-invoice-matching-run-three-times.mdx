@@ -1,0 +1,65 @@
+---
+title: "The best AI agents finished about six in ten everyday office tasks in a new test. A sub's office should run a trial three times before letting one touch invoices"
+date: "2026-11-25"
+excerpt: "ShellBench, a new benchmark from the OpenClaw Foundation and partners, gave 12 AI models 100 messy, real-world office tasks. The top scores were around 62%, results swung from run to run, and about 1 in 10 correct answers still broke a safety rule. Here is what that means for a trade sub using agents on payables and paperwork."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://openclaw.ai/blog/shellbench"
+  - "https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/"
+  - "https://www.thedeepview.com/articles/exclusive-openclaw-offers-an-agent-reality-check"
+faqs:
+  - q: "How reliable are AI agents at everyday office work?"
+    a: "In the ShellBench benchmark released in November 2026, the best models completed about 62% of 100 everyday tasks involving emails, spreadsheets, receipts and calendars. That means even the top agents left roughly four in ten tasks incomplete or wrong."
+  - q: "Can an AI agent be trusted to process subcontractor or supplier invoices?"
+    a: "Not without review. TechCrunch reported that in one ShellBench task, agents recommended duplicate or incorrect invoice payments 40.3% of the time. Use an agent to match and flag invoices, and keep a person approving every payment."
+  - q: "Do AI agents give the same answer every time?"
+    a: "No. In ShellBench, GPT-6 Astra completed 75.1% of tasks at least once across three tries but only 48.8% on all three. The authors note their grading may add some of that variation, but a task that passes once has not proven it will keep passing."
+  - q: "Does a more expensive AI model give better agent results?"
+    a: "Not reliably. The Deep View reported that GPT-6 Astra scored 62.5% at $1.01 per run while GPT-6.1 Sol scored 61.4% at $0.17 per run. Test a cheaper model on your own task before paying for the top one."
+  - q: "What is ShellBench?"
+    a: "ShellBench is a benchmark of 100 everyday tasks set in messy, realistic workspaces with outdated records, conflicting data and malicious instructions. It was built by the OpenClaw Foundation with Parsewave, Hugging Face, Red Hat and UC Berkeley, and ran 12 models across five agent harnesses for 53,100 graded runs."
+---
+
+The top AI models in a new benchmark finished only about six in ten everyday office tasks, and they often couldn't repeat a success. For a trade sub thinking about letting an agent match supplier invoices, chase lien waivers or sort the shared inbox, that number is the planning assumption: plan for the agent to miss, and build the check in before it goes live.
+
+## What did ShellBench test?
+
+The OpenClaw Foundation [released ShellBench](https://openclaw.ai/blog/shellbench) on November 24, built with Parsewave, Hugging Face, Red Hat and UC Berkeley. Most AI benchmarks test clean puzzles. This one gives the agent a short request and a cluttered workspace like a real office: emails, calendar exports, spreadsheets, receipts and PDFs, with outdated records, conflicting data and planted malicious instructions mixed in.
+
+| Item | Result |
+|---|---|
+| Tasks | 100 tasks, 53,100 graded runs |
+| Models and harnesses | 12 models across 5 harnesses, including Claude Code and Codex CLI |
+| Top scores | GPT-6 Astra 62.5%, Claude Fable 5.2 61.9%, GPT-6.1 Sol 61.4% |
+| Lower end | DeepSeek V4.1 Flash 39.7% |
+| Safety | 15.7% of runs failed at least one safety rule; 9.9% of fully correct runs still failed one |
+| Repeatability | GPT-6 Astra passed 75.1% of tasks at least once in three tries, 48.8% on all three |
+
+## Why does this matter for a sub's office?
+
+The tasks look a lot like what an office manager or AP clerk does every day. Three findings stand out.
+
+1. **Payments are where it goes wrong.** [TechCrunch reported](https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/) that in one task, agents recommended duplicate or incorrect invoice payments 40.3% of the time. That is the exact job many subs want to hand off: matching supplier invoices to POs and delivery tickets.
+2. **Agents drop information they already found.** [The Deep View reported](https://www.thedeepview.com/articles/exclusive-openclaw-offers-an-agent-reality-check) that leaving information out caused 51% of completion failures, and in 87% of those cases the agent had already collected it. The OpenClaw writeup gives an example: 522 of 531 attempts picked the right answer, but 331 failed because they didn't say which files they used. A summary that doesn't point to the invoice, PO or ticket it came from can't be checked quickly.
+3. **One good demo proves little.** A task that worked once failed on a repeat a large share of the time. The authors note their single-pass grading may account for some of that, but a vendor demo or a first test run is still a sample of one.
+
+## Should a sub stop using agents for back-office work?
+
+No. A 60% agent that drafts and flags can still save a clerk real time, if a person reviews the output. The mistake is treating it like a clerk who gets it right every time. Price also isn't a shortcut: The Deep View put GPT-6 Astra at $1.01 per run and GPT-6.1 Sol at $0.17 for nearly the same score.
+
+## How should an office test an agent before trusting it?
+
+- **Pick a task with a checkable answer.** "Which of these 40 invoices don't match a PO line?" is checkable. "Clean up the AP folder" isn't.
+- **Run the same batch three times.** If the answers differ, the agent isn't ready to run unattended on that task.
+- **Require the agent to name its sources.** Every flag should cite the invoice number, PO and ticket. No citation, no action.
+- **Keep a human on the money.** The agent can queue a payment or a duplicate flag. A person approves it. We covered why that matters when [big banks said losses from an AI agent using your login are yours](/posts/2026-11-20-banks-ai-agent-liability-citi-pnc-citizens-wells-fargo-construction-trade-sub-office-manager-supplier-payments-bank-login).
+- **Seed a trap.** Drop a fake "updated bank details" email into the test inbox. ShellBench planted malicious instructions for a reason.
+
+## What are the limits of this benchmark?
+
+ShellBench tasks are general office work, not construction paperwork, so nobody has measured these models on submittal logs or certified payroll. The invoice figure comes from a single task. Results also depend on the harness the model runs in, and models change monthly. Treat the numbers as a direction, not a forecast for your office.
+
+**Takeaway:** Before an agent touches payables, take last month's invoices, run them through it three times, and compare against what your AP clerk actually paid. If the three runs don't agree with each other and with the clerk, keep the agent drafting and the person approving.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever runs your office.*
