@@ -1,0 +1,63 @@
+---
+title: "Google will make AI agents reach Gmail and Drive through its own connectors from February 1. A sub on Google Workspace should list every AI tool that reads its inbox now"
+date: "2026-11-26"
+excerpt: "Starting February 1, 2027, Google says AI agents that touch Workspace data must use its official MCP servers instead of the regular APIs, and billing for heavier use starts April 1. For a trade sub whose bid invites, quotes and invoices live in Gmail and Drive, the job this winter is a short list: which AI tools read the inbox, who set them up, and whether the vendor has a plan."
+pillar: "trend"
+audience: "trade_sub"
+sources:
+  - "https://developers.google.com/workspace/guides/quota-usage-tiers"
+  - "https://developers.google.com/workspace/guides/configure-mcp-servers"
+  - "https://dev.to/paullovelace/google-workspace-mcp-servers-are-generally-available-and-rest-api-access-for-ai-agents-ends-feb-1-1n43"
+  - "https://theindependentai.com/news/2026-11-26"
+faqs:
+  - q: "What changes for AI agents in Google Workspace on February 1, 2027?"
+    a: "Google's Workspace AI Tools Addendum takes effect and, in Google's words, AI agents or similar tools accessing Workspace data must use MCP servers instead of REST APIs. Google says agents that keep calling the REST APIs directly are limited to free Standard Tier quotas regardless of the tier a project pays for."
+  - q: "How many requests a day does Google's free tier allow for Workspace MCP servers?"
+    a: "Google's developer documentation says the free Standard Tier for its generally available Workspace MCP servers is capped at 5,000 requests per day, per project, per product, and some MCP tools count as more than one request."
+  - q: "When does Google start charging for Gmail, Drive and Calendar MCP usage?"
+    a: "April 1, 2027. From that date, Google says Gmail, Calendar and Drive MCP usage on the paid Scaled Tier is billed from the first request, while REST API usage is billed only above daily no-charge allowances."
+  - q: "Does the Google Workspace change affect normal apps that sync with Gmail or Drive?"
+    a: "Google's documentation says regular, non-agent apps can keep calling the REST APIs. The new requirement applies to AI agents and similar access tools, so a plain file-sync or calendar app is treated differently from an AI assistant that reads and acts on your email."
+  - q: "What should a small contractor on Google Workspace do before February 2027?"
+    a: "Google advises checking whether any projects use AI agents and planning to move them to MCP before February 1, 2027. For a contractor that mostly means asking each AI vendor connected to company Gmail or Drive whether it is moving to Google's MCP servers, and removing connections nobody owns."
+---
+
+From February 1, 2027, Google says AI agents that read or act on Gmail, Drive, Calendar and other Workspace data must go through its official MCP servers instead of the regular APIs. For a trade sub that runs on Google Workspace, that puts a date on a question most offices have never asked: which AI tools are already inside the company inbox, and who set them up?
+
+## What did Google announce?
+
+Google's [developer documentation on usage tiers](https://developers.google.com/workspace/guides/quota-usage-tiers) lays out a schedule. MCP (Model Context Protocol) servers are Google-run connectors that AI assistants use to search mail, read files or create calendar events. Google says the servers [became generally available November 24](https://dev.to/paullovelace/google-workspace-mcp-servers-are-generally-available-and-rest-api-access-for-ai-agents-ends-feb-1-1n43), with one per product: Gmail, Drive, Docs, Sheets, Slides, Calendar, Chat and Tasks, plus a cross-app search server, according to its [setup guide](https://developers.google.com/workspace/guides/configure-mcp-servers).
+
+| Date | What Google says happens |
+|---|---|
+| Nov 24, 2026 | Usage tiers and a usage dashboard launch |
+| Feb 1, 2027 | AI Tools Addendum takes effect. "AI agents or similar access tools accessing Google Workspace data must use MCP servers instead of REST APIs" |
+| Apr 1, 2027 | Billing starts. Gmail, Calendar and Drive MCP usage on the paid tier is billed from the first request |
+
+The free Standard Tier is capped at 5,000 requests per day, per project, per product. Google says agents that keep calling the regular APIs directly are held to those free limits no matter which tier the project pays for. Google expects fewer than 1% of developers to need more than the free tier.
+
+The change isn't universally welcome. The maintainer of an open-source command-line tool for Google Workspace [objected publicly](https://theindependentai.com/news/2026-11-26) that the rules push tools like his toward paid tiers.
+
+## Why should a trade sub care?
+
+A lot of mechanical, electrical and sitework subs run their whole office on Gmail and Drive. Bid invites come in by email. Sub quotes, supplier invoices, lien waivers and submittal PDFs land in shared Drive folders. Over the last year, plenty of offices have connected AI tools to that: an assistant that pulls bid due dates out of invite emails, a tool that matches supplier invoices to POs, an estimator's personal Claude or ChatGPT hookup to Drive.
+
+Those connections were set up one at a time, often by whoever was curious. Google's rule doesn't say they stop working on February 1. It does mean the vendors behind them have to move to Google's connectors or live with lower limits, and from April someone may get a bill. A tool that quietly gets throttled the week of a big bid is the practical risk.
+
+## What should the office do before February?
+
+1. **List the AI tools that touch Gmail or Drive.** Google's setup guide points admins to OAuth log events in the Admin console's security investigation tool, which show which apps are reaching company data. Write down each one, what it reads, and who in the company connected it.
+2. **Ask each vendor one question.** "Are you moving to Google's Workspace MCP servers before February 1, 2027, and will that change our price?" Get the answer in writing.
+3. **Cut what nobody owns.** If no one can say why an app has access to the accounting inbox, remove it. That's good hygiene whatever Google does.
+4. **Check homemade tools.** If someone built a script or Apps Script project that feeds email to an AI model, Google's guide says it needs a separate OAuth client marked for an AI agent. The person who built it should check before the deadline, not after.
+5. **Use the new controls.** Google's setup guide says agents inherit the user's permissions and that admins can review OAuth log events and set data loss prevention rules. Make sure an AI tool connected under the owner's account can't reach more than it needs.
+
+## What are the limits of this?
+
+- **Most small offices won't hit 5,000 requests a day** on their own. The bigger exposure is vendors passing on their own costs.
+- **Google's dates could move.** Billing for heavier users starts in April, and Google has already staged this rollout over several months.
+- **Regular apps aren't the target.** Google says non-agent apps can keep using the REST APIs, so plain file-sync or calendar tools are treated differently.
+
+**Takeaway:** Before the holidays, have whoever administers your Google Workspace pull the list of connected apps and mark which ones are AI tools. Send each vendor the one question above. By February 1 you want every AI connection to your inbox to have an owner, a reason and a vendor answer on file.
+
+*Construction AI Brief publishes three times a week. [Subscribe at constructionaibrief.com](https://constructionaibrief.com/?utm_source=cab&utm_medium=web&utm_campaign=trend_cta) and forward this to whoever runs your office.*
